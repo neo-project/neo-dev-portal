@@ -90,7 +90,7 @@ function Footer() {
             <a href="/tutorials">Tutorials</a>
             <a href="/contribute">Contribute</a>
             <a href="https://docs.neo.org/v2/docs/en-us/index.html" target="_blank">Neo Legacy</a>
-            <a href="https://github.com/neo-project/docs" target="_blank">Help Improve This Website</a>
+            <a href="https://github.com/neo-project/neo-dev-portal" target="_blank">Help Improve This Website</a>
             
           </div>
 

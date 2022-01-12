@@ -24,7 +24,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/neo-project/docs',
+          editUrl: 'https://github.com/neo-project/neo-dev-portal',
         },
         blog: {
           routeBasePath: "tutorials",
