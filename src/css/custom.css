@@ -1,0 +1,53 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+
+:root {
+  --ifm-color-primary: #00e599;
+  --ifm-color-primary-dark: #00ce8a;
+  --ifm-color-primary-darker: #00c382;
+  --ifm-color-primary-darkest: #00a06b;
+  --ifm-color-primary-light: #00fca8;
+  --ifm-color-primary-lighter: #08ffad;
+  --ifm-color-primary-lightest: #2bffb9;
+}
+
+
+/* These are from tailwind */
+.twcontainer{
+  width: 100%;
+}
+
+@media (min-width: 640px){
+  .twcontainer{
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px){
+  .twcontainer{
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px){
+  .twcontainer{
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px){
+  .twcontainer{
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px){
+  .twcontainer{
+    max-width: 1536px;
+  }
+}

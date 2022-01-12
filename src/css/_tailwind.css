@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .line-clamp-3 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to show */
+            line-clamp: 3; 
+    -webkit-box-orient: vertical;
+  }
+}
+
+@layer base {
+  html {
+    @apply text-secondary;
+  }
+  h1 {
+    @apply text-3xl font-semibold;
+  }
+
+  h2 {
+    @apply text-2xl font-semibold;
+  }
+
+  h3 {
+    @apply text-xl font-semibold;
+  }
+
+  h4 {
+    @apply text-lg font-semibold;
+  }
+
+  a:hover {
+    @apply text-primary;
+  }
+
+  .markdown a {
+    @apply text-primary
+  }
+}
+
+* {
+  font-family: 'Nunito Sans', sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.uppercase {
+  font-family: 'Work Sans', sans-serif !important;
+}
+
+
+.docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+html[data-theme='dark'] .docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+

@@ -1,0 +1,28 @@
+@keyframes slideFromBottom {
+    0% { transform: translate(0px, 40rem) }
+    100% { transform: translate(0px, 0rem) }
+  }
+
+
+.slideFromBottom {
+    animation: 0.75s slideFromBottom;
+}
+
+.slideFromBottom2 {
+    animation: 1s slideFromBottom;
+    /* animation-delay: 250ms; */
+}
+
+.slideFromBottom3 {
+    animation: 1.25s slideFromBottom;
+    /* animation-delay: 500ms; */
+}
+
+.line-clamp-3 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to show */
+            line-clamp: 3; 
+    -webkit-box-orient: vertical;
+  }
