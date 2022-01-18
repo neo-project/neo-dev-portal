@@ -5,22 +5,22 @@ on:
 
 name: Build and deploy neo-dev-portal on dev branch to staging
 
-# jobs:
-#   deploy:
-#     name: Deploy
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v2
-#         with:
-#           submodules: true
-#       - name: Build Docusaurus
-#         run: yarn install && NODE_ENV=production CI=false yarn run build  
-#       - name: Deploy to Azure
-#         id: builddeploy
-#         uses: Azure/static-web-apps-deploy@v1
-#         with:
-#           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
-#           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
-#           action: "upload"
-#           app_location: "/build" # App source code path
-#           skip_app_build: true
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Build Docusaurus
+        run: yarn install && NODE_ENV=production CI=false yarn run build  
+      - name: Deploy to Azure
+        id: builddeploy
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+          action: "upload"
+          app_location: "/build" # App source code path
+          skip_app_build: true
