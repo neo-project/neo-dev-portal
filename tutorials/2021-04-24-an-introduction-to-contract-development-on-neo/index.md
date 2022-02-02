@@ -4,6 +4,7 @@ description: "This tutorial will cover the basic structure of a decentralized ap
 author: Link, the Operator
 tags: [ "NEONJS", "NEOEXPRESS","BOA","SMART CONTRACT"]
 skill: beginner
+image: ./assets/cover.png
 sidebar: true
 ---
 

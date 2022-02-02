@@ -5,6 +5,7 @@ author: nspcc-dev
 tags: [ "NEO GO"]
 skill: beginner
 sidebar: true
+image: ./assets/cover.png
 source: https://github.com/nspcc-dev/neo-go-sc-wrkshp
 ---
 

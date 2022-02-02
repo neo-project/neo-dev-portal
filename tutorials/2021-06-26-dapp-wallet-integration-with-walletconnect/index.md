@@ -3,7 +3,7 @@ title: 'dApp-Wallet Integration with WalletConnect'
 description: "This article covers implementation of WalletConnect, an open source protocol for communication between dApps and wallets. With it, a user can securely sign dApp proposed transactions directly from their personal wallet without exposing their private key to the application."
 author: Gil Lopes Bueno
 tags: [ "DAPP", "WALLETCONNECT"]
-image: /assets/images/walletconnect-diagram-b0d1f26d5d0d867e65a5f5d1e51c6729.png
+image: ./assets/cover.png
 skill: beginner
 sidebar: true
 ---

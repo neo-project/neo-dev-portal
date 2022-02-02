@@ -4,6 +4,7 @@ description: "This tutorial will walk you through the process of creating real-w
 author: ngdenterprise
 tags: [ "NEOEXPRESS","SMART CONTRACT"]
 skill: beginner
+image: ./assets/cover.png
 sidebar: true
 ---
 

@@ -59,7 +59,7 @@ function BlogPostItem(props) {
     editUrl,
     authors,
   } = metadata;
-  const image = assets.image ?? frontMatter.image;
+  // const image = assets.image ?? frontMatter.image;
 
   const skill = frontMatter.skill ?? ""
 
@@ -136,7 +136,7 @@ function BlogPostItem(props) {
       {
         (isBlogPostPage === false && frontMatter.image) ?
           <div className="flex-none flex items-center justify-center w-full lg:w-60 h-60 p-4">
-            <img src={frontMatter.image} className="w-full h-full object-cover" />
+            <img src={`${assets.image}`} className="w-full h-full object-cover" />
           </div>
           :
           null

@@ -70,7 +70,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           //   label: 'NeoFS',
           // },
           {to: '/tutorials', label: 'Tutorials', position: 'right'},
-          {to: '/tooling', label: 'Tooling', position: 'right'},
+          {to: '/resources', label: 'Resources & Tooling', position: 'right'},
           {
             type: 'doc',
             docId: 'faq/basic',
