@@ -90,7 +90,7 @@ export default function Tooling() {
                     description: "NeoFS is a distributed, decentralized object storage network developed by Neo SPCC. Built with Neo blockchain integration in mind, NeoFS aims to support the shift away from third-party storage providers, providing users with complete control over their data.",
                     icon_url: "/tooling/nspcc.png",
                     web_url: "https://fs.neo.org/",
-                    tag: ""
+                    tag: ["go"]
                 },
                 {
                     name: "Oracles",
@@ -111,7 +111,7 @@ export default function Tooling() {
                     description: "This project is the reference architecture for a neo full-node. It reprents the atomic building block of the Neo blockchain and includes all of the CLI functionality required to interface with the network.",
                     icon_url: "/tooling/neo-cli.svg",
                     web_url: "https://github.com/neo-project/neo-node",
-                    tag: ""
+                    tag: ["c#"]
                 },
                 {
                     name: "Neo GUI",
@@ -119,7 +119,7 @@ export default function Tooling() {
                     description: "The Neo GUI project wraps a neo node in an electron app, exposing many of its features in a graphical interface.",
                     icon_url: "/tooling/neo-gui.png",
                     web_url: "https://docs.neo.org/docs/en-us/node/gui/install.html",
-                    tag: ""
+                    tag: ["c#"]
                 },
                 {
                     name: "Neo-Go",
@@ -172,7 +172,7 @@ export default function Tooling() {
                     description: "Neo RPC SDK is a dependency library used to streamline the integration of C# applications with Neo. Well suited for games, wallets, and other projects, the RPC SDK makes it easy to construct transactions, invoke RPC interfaces, and call deployed contracts.",
                     icon_url: "/tooling/ngd.png",
                     web_url: "https://docs.neo.org/docs/en-us/develop/tool/sdk/introduction.html",
-                    tag: ""
+                    tag: ["c#"]
                 }
             ]
         },
