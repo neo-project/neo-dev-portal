@@ -20,8 +20,13 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
   presets: [
     [
       '@docusaurus/preset-classic',
+      
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
+        sitemap: {
+          changefreq: 'weekly',
+          priority: 0.5,
+        },
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: 'https://github.com/neo-project/neo-dev-portal//blob/master',
@@ -46,6 +51,11 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      algolia: {
+        appId: 'TR8VWJ8YS7',
+        apiKey: 'f1f30e0d9ee66fa7a8c760cf5750e085',
+        indexName: 'neo-dev-portal'
+      },
       colorMode: {
         defaultMode: 'light',
         disableSwitch: true
@@ -70,7 +80,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           //   label: 'NeoFS',
           // },
           {to: '/tutorials', label: 'Tutorials', position: 'right'},
-          {to: '/tooling', label: 'Tooling', position: 'right'},
+          {to: '/resources', label: 'Resources & Tooling', position: 'right'},
           {
             type: 'doc',
             docId: 'faq/basic',
