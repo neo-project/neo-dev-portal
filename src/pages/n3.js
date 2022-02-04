@@ -152,7 +152,7 @@ export default function N3() {
                     <div>
                         <p className="uppercase text-3xl font-bold text-secondary mb-4"><span className="text-primary uppercase">BEST IN CLASS </span><br />TOOLING</p>
                         <p className="text-secondary max-w-sm mb-4">
-                        Neo continues to deliver on the's goal of being has always been to be the most developer- friendly platform. 
+                        Neo continues to deliver the goal of being the most developer-friendly platform.
                         <br/>
                         The crown jewel of Neo's developer experience is the Neo Blockchain Toolkit for VS Code. Built by Microsoft-alumni at NGD Enterprise, the toolkit offers industry best tools for easy network deployment, testing, and time-travel debugging.
                         </p>

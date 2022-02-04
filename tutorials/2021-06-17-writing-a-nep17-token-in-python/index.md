@@ -5,6 +5,7 @@ If the rhythmic generation of blocks is the pumping heart of the network, transa
 author: Link, the Operator
 tags: ["PYTHON", "SMART CONTRACT", "NEP17"]
 skill: beginner
+image: ./assets/cover.png
 sidebar: true
 ---
 

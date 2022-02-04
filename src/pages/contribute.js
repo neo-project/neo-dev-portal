@@ -19,7 +19,7 @@ export default function Contribute() {
                         <p className="">YYYY-MM-DD is the date of your tutorial. Tutorials are sort by date in descending order.</p>
                     </p>
                     <p>2. Create <code>index.md</code> inside the directory.</p>
-                    <p>3. If your tutorial contains images, you can create a new directory at same level as the <code>index.md</code> file and put your images in there so you can refer to them in your markdown file like the following   <code>![img](assets/walletconnect-diagram.png)</code></p>
+                    <p>3. If your tutorial contains images, you can create a new directory at same level as the <code>index.md</code> file and put your images in there so you can refer to them in your markdown file like the following   <code>![img](./assets/walletconnect-diagram.png)</code></p>
                     <p>4. In your <code>index.md</code> you can use following front-matter tags. Frontmatter must be in the very first line of your Markdown file.</p>
                     <pre className="language-markdown whitespace-pre-wrap">
                         <p>---</p>
@@ -29,7 +29,7 @@ export default function Contribute() {
                         <p>tags: ["BEGINNER", "NEONJS", "NEOEXPRESS","BOA","SMART CONTRACT"]</p>
                         <p>sidebar: true</p>
                         <p>skill: BEGINNER</p>
-                        <p>image: https://yourdomain.com/image.png</p>
+                        <p>image: ./tutorial_local_dir/image.png</p>
                         <p>---</p>
                     </pre>
                 </div>
