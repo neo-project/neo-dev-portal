@@ -94,7 +94,7 @@ export default function Tooling() {
                                 description: "NeoFS is a distributed, decentralized object storage network developed by Neo SPCC. Built with Neo blockchain integration in mind, NeoFS aims to support the shift away from third-party storage providers, providing users with complete control over their data.",
                                 icon_url: "/tooling/nspcc.png",
                                 web_url: "https://fs.neo.org/",
-                                tags: ["go"]
+                                tags: ["go","c#"]
                             },
                             {
                                 name: "Oracles",
