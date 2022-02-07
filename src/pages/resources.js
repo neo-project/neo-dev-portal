@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '@theme/Layout';
-import Link from '@docusaurus/Link';
+import BrowserOnly from '@docusaurus/BrowserOnly';
+
 export default function Tooling() {
 
     const [selectedTag, setSelectedTag] = React.useState("")
@@ -240,86 +241,92 @@ export default function Tooling() {
     }, [window.location.hash])
 
     return (
-        <Layout>
-            <div className="twcontainer mx-auto max-w-6xl px-4 lg:px-0 mt-16 mb-16 ">
+        <BrowserOnly>
+            {() => {
+                return (
+                    <Layout>
+                        <div className="twcontainer mx-auto max-w-6xl px-4 lg:px-0 mt-16 mb-16 ">
 
-                <div className="flex mb-12">
-                    <h2>Resources & Tooling</h2>
-                    <div className="ml-auto">
-                        <div className='pl-4 pr-3 py-2 border border-gray-300'>
-                        <select className='pr-2' onChange={(e) => { window.location.hash = e.target.value; }} value={selectedTag}>
-                            <option value="">All</option>
-                            {
-                                allTags().map((tag) => (
-                                    <option value={tag}>{tag}</option>
-                                ))
-                            }
-                        </select>
-                        </div>
-                    </div>
-                </div>
-
-                {
-                    data.map((category) => (
-                        <div className="mb-12">
-                            <h1 className="text-2xl font-semibold mb-6">{category.title}</h1>
-                            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                                {
-                                    category.tools.filter((tool) => { return tool.tags.includes(selectedTag) || selectedTag == "" }).length == 0 ?
-                                        <div className="lg:col-span-3">
-                                            Interested in contributing to <span className='font-semibold'>{category.title}</span> with <span className='font-semibold'>{selectedTag}</span>?
-                                            <p className='flex items-center'>
-                                                <a className="text-primary flex items-center" href="https://neo.org/eco#general-grants" target="_blank">
-                                                    <span className='mr-2'>Check out Eco Support</span>
-                                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M11 7.66667V11.6667C11 12.0203 10.8595 12.3594 10.6095 12.6095C10.3594 12.8595 10.0203 13 9.66667 13H2.33333C1.97971 13 1.64057 12.8595 1.39052 12.6095C1.14048 12.3594 1 12.0203 1 11.6667V4.33333C1 3.97971 1.14048 3.64057 1.39052 3.39052C1.64057 3.14048 1.97971 3 2.33333 3H6.33333" stroke="#10E6A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                                        <path d="M9 1H13V5" stroke="#10E6A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                                        <path d="M5.66602 8.33333L12.9993 1" stroke="#10E6A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                                    </svg>
-                                                </a>
-                                            </p>
-                                        </div>
-                                        :
-                                        category.tools.filter((tool) => { return tool.tags.includes(selectedTag) || selectedTag == "" }).map((tool) => (
-                                            <div className="">
-                                                <div className="border hover:border-primary hover:shadow-lg" style={{ height: 440 }}>
-                                                    <div className="border-b flex items-center justify-center p-10">
-                                                        <img src={tool.icon_url} className="h-16" />
-                                                    </div>
-                                                    <div className="p-6">
-                                                        <h3 className="text-lg font-bold mb-1">{tool.name}</h3>
-                                                        <p className="text-sm text-gray-500 mb-4">{tool.by}</p>
-                                                        <p className=" line-clamp-3 mb-6">{tool.description}</p>
-                                                        <p className="mb-6 flex gap-2">
-                                                            {
-                                                                tool.tags.map((t) => (
-                                                                    <div className="bg-gray-300 text-xs text-secondary px-2 py-1 uppercase">{t}</div>
-                                                                ))
-                                                            }
-                                                            <div className="bg-transparent text-xs text-secondary px-2 py-1 uppercase">&nbsp;</div>
-                                                        </p>
-                                                        <a className="text-primary font-semibold inline-flex items-center" href={tool.web_url} target="_blank">
-                                                            <span className="mr-2">Learn more</span>
-                                                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <path d="M11 7.66667V11.6667C11 12.0203 10.8595 12.3594 10.6095 12.6095C10.3594 12.8595 10.0203 13 9.66667 13H2.33333C1.97971 13 1.64057 12.8595 1.39052 12.6095C1.14048 12.3594 1 12.0203 1 11.6667V4.33333C1 3.97971 1.14048 3.64057 1.39052 3.39052C1.64057 3.14048 1.97971 3 2.33333 3H6.33333" stroke="#10E6A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                                                <path d="M9 1H13V5" stroke="#10E6A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                                                <path d="M5.66602 8.33333L12.9993 1" stroke="#10E6A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                                            </svg>
-
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        ))
-                                }
-
+                            <div className="flex mb-12">
+                                <h2>Resources & Tooling</h2>
+                                <div className="ml-auto">
+                                    <div className='pl-4 pr-3 py-2 border border-gray-300'>
+                                        <select className='pr-2' onChange={(e) => { window.location.hash = e.target.value; }} value={selectedTag}>
+                                            <option value="">All</option>
+                                            {
+                                                allTags().map((tag) => (
+                                                    <option value={tag}>{tag}</option>
+                                                ))
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
+
+                            {
+                                data.map((category) => (
+                                    <div className="mb-12">
+                                        <h1 className="text-2xl font-semibold mb-6">{category.title}</h1>
+                                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                                            {
+                                                category.tools.filter((tool) => { return tool.tags.includes(selectedTag) || selectedTag == "" }).length == 0 ?
+                                                    <div className="lg:col-span-3">
+                                                        Interested in contributing to <span className='font-semibold'>{category.title}</span> with <span className='font-semibold'>{selectedTag}</span>?
+                                                        <p className='flex items-center'>
+                                                            <a className="text-primary flex items-center" href="https://neo.org/eco#general-grants" target="_blank">
+                                                                <span className='mr-2'>Check out Eco Support</span>
+                                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M11 7.66667V11.6667C11 12.0203 10.8595 12.3594 10.6095 12.6095C10.3594 12.8595 10.0203 13 9.66667 13H2.33333C1.97971 13 1.64057 12.8595 1.39052 12.6095C1.14048 12.3594 1 12.0203 1 11.6667V4.33333C1 3.97971 1.14048 3.64057 1.39052 3.39052C1.64057 3.14048 1.97971 3 2.33333 3H6.33333" stroke="#10E6A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                                    <path d="M9 1H13V5" stroke="#10E6A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                                    <path d="M5.66602 8.33333L12.9993 1" stroke="#10E6A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                                </svg>
+                                                            </a>
+                                                        </p>
+                                                    </div>
+                                                    :
+                                                    category.tools.filter((tool) => { return tool.tags.includes(selectedTag) || selectedTag == "" }).map((tool) => (
+                                                        <div className="">
+                                                            <div className="border hover:border-primary hover:shadow-lg" style={{ height: 440 }}>
+                                                                <div className="border-b flex items-center justify-center p-10">
+                                                                    <img src={tool.icon_url} className="h-16" />
+                                                                </div>
+                                                                <div className="p-6">
+                                                                    <h3 className="text-lg font-bold mb-1">{tool.name}</h3>
+                                                                    <p className="text-sm text-gray-500 mb-4">{tool.by}</p>
+                                                                    <p className=" line-clamp-3 mb-6">{tool.description}</p>
+                                                                    <p className="mb-6 flex gap-2">
+                                                                        {
+                                                                            tool.tags.map((t) => (
+                                                                                <div className="bg-gray-300 text-xs text-secondary px-2 py-1 uppercase">{t}</div>
+                                                                            ))
+                                                                        }
+                                                                        <div className="bg-transparent text-xs text-secondary px-2 py-1 uppercase">&nbsp;</div>
+                                                                    </p>
+                                                                    <a className="text-primary font-semibold inline-flex items-center" href={tool.web_url} target="_blank">
+                                                                        <span className="mr-2">Learn more</span>
+                                                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M11 7.66667V11.6667C11 12.0203 10.8595 12.3594 10.6095 12.6095C10.3594 12.8595 10.0203 13 9.66667 13H2.33333C1.97971 13 1.64057 12.8595 1.39052 12.6095C1.14048 12.3594 1 12.0203 1 11.6667V4.33333C1 3.97971 1.14048 3.64057 1.39052 3.39052C1.64057 3.14048 1.97971 3 2.33333 3H6.33333" stroke="#10E6A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                                            <path d="M9 1H13V5" stroke="#10E6A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                                            <path d="M5.66602 8.33333L12.9993 1" stroke="#10E6A0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                                        </svg>
+
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    ))
+                                            }
+
+                                        </div>
+                                    </div>
+                                ))
+
+                            }
                         </div>
-                    ))
 
-                }
-            </div>
-
-        </Layout >
+                    </Layout >
+                )
+            }}
+        </BrowserOnly>
     )
 }
