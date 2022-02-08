@@ -441,8 +441,8 @@ export default function Home() {
 
       <div className="border-t grid lg:grid-cols-3  items-center">
         <div>
-          <img src="/static/img/technical-question-left.png"  className='h-72 hidden lg:flex'/>
-          <img src="/static/img/technical-question-mobile-center.png" className="h-60 lg:hidden flex mx-auto justify-center" />
+          <img src="/img/technical-question-left.png"  className='h-72 hidden lg:flex'/>
+          <img src="/img/technical-question-mobile-center.png" className="h-60 lg:hidden flex mx-auto justify-center" />
         </div>
         <div className='py-6 text-center'>
           <h3 className="text-xl font-bold inline-flex items-center">
@@ -463,7 +463,7 @@ export default function Home() {
 
         </div>
         <div className='lg:flex justify-end hidden'>
-          <img src="/static/img/technical-question-right.png"  className='h-72'/>
+          <img src="/img/technical-question-right.png"  className='h-72'/>
         </div>
 
       </div>
