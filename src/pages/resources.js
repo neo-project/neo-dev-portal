@@ -9,6 +9,27 @@ export default function Tooling() {
                 const [selectedTag, setSelectedTag] = React.useState("")
                 const data = [
                     {
+                        title: "Protocols",
+                        tools: [
+                            {
+                                name: "NeoFS",
+                                by: "Neo SPCC",
+                                description: "NeoFS is a distributed, decentralized object storage network developed by Neo SPCC. Built with Neo blockchain integration in mind, NeoFS aims to support the shift away from third-party storage providers, providing users with complete control over their data.",
+                                icon_url: "/tooling/nspcc.png",
+                                web_url: "https://fs.neo.org/",
+                                tags: []
+                            },
+                            {
+                                name: "Oracles",
+                                by: "Neo Global Development",
+                                description: "Oracles are a utility which can be leveraged by smart contracts to interface with systems outside the Neo blockchain using http(s).",
+                                icon_url: "/tooling/ngd.png",
+                                web_url: "https://docs.neo.org/docs/en-us/advanced/oracle.html",
+                                tags: []
+                            }
+                        ]
+                    },
+                    {
                         title: "Development Environments",
                         tools: [
                             {
@@ -33,7 +54,7 @@ export default function Tooling() {
                                 description: "NEO•ONE is an end-to-end development framework for Neo applications created with TypeScript or JavaScript. Like the Blockchain Toolkit, it includes tools for local network setup, contract compiling and deploying, wallet handling, automated testing, and also provides client APIs to simplify interaction with deployed contracts.",
                                 icon_url: "/tooling/neo-one.svg",
                                 web_url: "https://n3.neo-one.io/",
-                                tags: ["typescript", "js"]
+                                tags: ["js"]
                             },
                             {
                                 name: "Neo Playground",
@@ -87,22 +108,6 @@ export default function Tooling() {
                                 icon_url: "/tooling/ngd.png",
                                 web_url: "https://neo3.neotube.io/",
                                 tags: []
-                            },
-                            {
-                                name: "NeoFS",
-                                by: "Neo SPCC",
-                                description: "NeoFS is a distributed, decentralized object storage network developed by Neo SPCC. Built with Neo blockchain integration in mind, NeoFS aims to support the shift away from third-party storage providers, providing users with complete control over their data.",
-                                icon_url: "/tooling/nspcc.png",
-                                web_url: "https://fs.neo.org/",
-                                tags: ["go","c#"]
-                            },
-                            {
-                                name: "Oracles",
-                                by: "Neo Global Development",
-                                description: "Oracles are a utility which can be leveraged by smart contracts to interface with systems outside the Neo blockchain using http(s).",
-                                icon_url: "/tooling/ngd.png",
-                                web_url: "https://docs.neo.org/docs/en-us/advanced/oracle.html",
-                                tags: ["c#"]
                             }
                         ]
                     },
@@ -247,26 +252,27 @@ export default function Tooling() {
                     <Layout>
                         <div className="twcontainer mx-auto max-w-6xl px-4 lg:px-0 mt-16 mb-16 ">
 
-                            <div className="flex mb-12">
+                            <div className="flex mb-6">
                                 <h2>Resources & Tooling</h2>
                                 <div className="ml-auto">
-                                    <div className='pl-4 pr-3 py-2 border border-gray-300'>
-                                        <select className='pr-2' onChange={(e) => { window.location.hash = e.target.value; }} value={selectedTag}>
-                                            <option value="">All</option>
-                                            {
-                                                allTags().map((tag) => (
-                                                    <option value={tag}>{tag}</option>
-                                                ))
-                                            }
-                                        </select>
-                                    </div>
+                                    
                                 </div>
+                            </div>
+                            <p className='mb-2 font-bold'>Choose your stack</p>
+                            <div className='mb-6 flex gap-4'>
+                                
+                            {
+                            allTags().map((tag) => (
+                                <a href={`#${tag}`} className='bg-gray-200 px-3 py-2'>{tag}</a>
+                            ))
+                            }
+
                             </div>
 
                             {
                                 data.map((category) => (
                                     <div className="mb-12">
-                                        <h1 className="text-2xl font-semibold mb-6">{category.title}</h1>
+                                        <h1 className="text-lg font-semibold mb-6">{category.title}</h1>
                                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                                             {
                                                 category.tools.filter((tool) => { return tool.tags.includes(selectedTag) || selectedTag == "" }).length == 0 ?
