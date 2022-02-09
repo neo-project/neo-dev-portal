@@ -161,7 +161,7 @@ export default function Tooling() {
                 {
                     name: "Neow3j",
                     by:"AxLabs",
-                    description: "Neow3j is a Java library that aims to provide easy and reliable integration with Neo nodes. It supports Neo RPC, asset transfers, smart contract invocations and deployments, NEP-2, NEP-6, building, signing and sending raw transactions, and more.",
+                    description: "Neow3j is a Java/Kotlin development toolkit that provides everything you need to build on Neo. It allows you to create Neo dApps including smart contracts and backend applications all on the Java platform, supporting Java, Kotlin, and Android.",
                     icon_url: "/tooling/neow3j.png",
                     web_url: "https://neow3j.io/",
                     tag: ""
@@ -206,7 +206,7 @@ export default function Tooling() {
                 {
                     name: "Neow3j",
                     by:"AxLabs",
-                    description: "Neow3j is a Java library that aims to provide easy and reliable integration with Neo nodes. It supports Neo RPC, asset transfers, smart contract invocations and deployments, NEP-2, NEP-6, building, signing and sending raw transactions, and more.",
+                    description: "Neow3j is a Java/Kotlin development toolkit that provides everything you need to build on Neo. It allows you to create Neo dApps including smart contracts and backend applications all on the Java platform, supporting Java, Kotlin, and Android.",
                     icon_url: "/tooling/neow3j.png",
                     web_url: "https://neow3j.io/",
                     tag: ""
