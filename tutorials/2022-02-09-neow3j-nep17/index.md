@@ -17,7 +17,7 @@ If you haven't already set up your environment to use the neow3j library, you ca
 
 ## 2. NEP-17 Overview
 
-The NEP-17 is the fungible token standard on Neo N3. Have a look at its official documentation [here](https://developers.neo.org/docs/n3/develop/write/nep17).
+The NEP-17 is the fungible token standard on Neo N3. Have a look at its official documentation [here](https://github.com/neo-project/proposals/blob/master/nep-17.mediawiki).
 
 ## 3. Example NEP-17 Contract
 
@@ -109,7 +109,26 @@ public class FungibleToken {
         return true;
     }
 
-    // Deploy, Update, and Destroy methods
+    // Private Helper Methods
+
+    private static void throwIfSignerIsNotOwner() {
+        assert Runtime.checkWitness(owner) : "The calling entity is not the owner of this contract.";
+    }
+
+    private static void addToBalance(Hash160 key, int value) {
+        assetMap.put(key.toByteArray(), getBalance(key) + value);
+    }
+
+    private static void deductFromBalance(Hash160 key, int value) {
+        int oldValue = getBalance(key);
+        assetMap.put(key.toByteArray(), oldValue - value);
+    }
+
+    private static int getBalance(Hash160 key) {
+        return assetMap.getIntOrZero(key.toByteArray());
+    }
+
+    // Deploy, Update, and Destroy
 
     @OnDeployment
     public static void deploy(Object data, boolean update) {
@@ -129,25 +148,6 @@ public class FungibleToken {
     public static void destroy() throws Exception {
         throwIfSignerIsNotOwner();
         ContractManagement.destroy();
-    }
-
-    // Private helper methods
-
-    private static void throwIfSignerIsNotOwner() {
-        assert Runtime.checkWitness(owner) : "The calling entity is not the owner of this contract.";
-    }
-
-    private static void addToBalance(Hash160 key, int value) {
-        assetMap.put(key.toByteArray(), getBalance(key) + value);
-    }
-
-    private static void deductFromBalance(Hash160 key, int value) {
-        int oldValue = getBalance(key);
-        assetMap.put(key.toByteArray(), oldValue - value);
-    }
-
-    private static int getBalance(Hash160 key) {
-        return assetMap.getIntOrZero(key.toByteArray());
     }
 
 }
@@ -218,7 +218,7 @@ public class FungibleToken {
 
 You can set a constant value for the contract by using `final` variables. These values are always loaded when the contract is called and cannot be changed once the contract is deployed.
 
-> Note: The owner of this NEP-17 example contract is fixed as you can see below it is a `final` variable. If you intend to provide a functionality to change such a variable, you should not store it as a `final` variable. Rather, you would store it as a value in the storage, that you then can change through a method.
+> Note: The owner of this NEP-17 example contract is fixed (i.e., it is a `final` variable). If you intend to provide a functionality to change such a variable, you should not store it as a `final` variable. Rather, you would store it as a value in the storage, that you then can change through a method.
 
 -
 
@@ -385,11 +385,11 @@ Now, the contract's `.manifest.json` and `.nef` files can be used to deploy the 
 
 ## About
 
-Feel free to report any issues that might arise. Open an issue [here](https://github.com/neow3j/neow3j/issues) to help us directly including it in our backlog.
+Feel free to report any issues that might arise. Open an issue [here](https://github.com/neow3j/neow3j/issues/new/choose) to help us directly including it in our backlog.
 
 
 <!---
-# How to test my dApp
+## How to test my dApp
 
 This could also be handled in another tutorial
 --->
