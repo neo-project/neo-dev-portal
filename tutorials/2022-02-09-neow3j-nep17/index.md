@@ -2,7 +2,7 @@
 title: 'Neow3j - Implementing a NEP-17 Smart Contract in Java'
 description: "This tutorial describes an example implementation of a NEP-17 smart contract developed in Java using the neow3j library."
 author: AxLabs
-tags: ["NEP-17"]
+tags: ["NEP-17", "JAVA", "NEOW3J"]
 #image: "/assets/images/neow3j.png"
 skill: beginner
 sidebar: true
