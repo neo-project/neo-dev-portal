@@ -35,7 +35,7 @@ export default function Tooling() {
                     name: "Neo Playground",
                     by:"AxLabs",
                     description: "Neo playground is a development environment that packages the features of the Neo Blockchain Toolkit into a VS Code web client with a number of additional utilities. It is designed for team collaboration in a controlled development environment.",
-                    icon_url: "/tooling/neow3j.png",
+                    icon_url: "/tooling/neo-playground.png",
                     web_url: "https://neo-playground.dev/",
                     tag: ""
                 }
