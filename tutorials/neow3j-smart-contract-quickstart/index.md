@@ -44,7 +44,7 @@ section [here](https://github.com/neo-project/neo-express#installation) to set i
 ### Development Environment
 
 You could write smart contracts in any editor, but we recommend using 
-[IntelliJ IDEA](https://www.jetbrains.com/idea/download/) and [**Visual Studio Code**](https://code.visualstudio.com/).
+[IntelliJ IDEA](https://www.jetbrains.com/idea/download/) and [Visual Studio Code](https://code.visualstudio.com/).
 IntelliJ offers one of the best Java/Kotlin developer experiences while VS Code offers a powerful extension for
 development on Neo.
 
@@ -108,6 +108,32 @@ TransactionBuilder builder = new ContractManagement(neow3j)
 
 ## 4. Development
 
-## About
+__Understanding Java for the NeoVM__
+
+When using neow3j to implement smart contracts you will, at some point, have to understand the differences between
+normal Java and Java for smart contract. Because smart contract code will run on the NeoVM and not on the JavaVM there
+are several restrictions. You can read about that
+[here](https://neow3j.io/#/neo-n3/smart_contract_development/neowjava).
+
+__Understanding the neow3j Devpack__
+
+To get to know the neow3j devpack library you can consult the documentation
+[here](https://neow3j.io/#/neo-n3/smart_contract_development/devpack). It shows core features of the Neo smart
+contract API, like storage, events, and native contracts, and explains how they are available in neow3j.
+Or, checkout one of the other neow3j tutorials on the developer portal to get a better idea of how Java smart contracts
+look like.
+
+__Automated Testing__
+
+https://neow3j.io/#/neo-n3/smart_contract_development/testing
+
+__Manual Testing__
 
 
+```shell
+neoxp -h
+```
+
+```shell
+neoxp run 
+```
