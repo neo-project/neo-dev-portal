@@ -5,11 +5,11 @@ slug: neow3j-nep17-smart-contract
 author: AxLabs
 tags: ["NEP-17", "JAVA", "NEOW3J"]
 skill: beginner
-image: "/tooling/neow3j.png"
+image: "/tooling/neow3j-padded.png"
 sidebar: true
 ---
 
-![img](/tooling/neow3j.png)
+<img src="/tooling/neow3j.png" alt="neow3j" width="75%" style={{ padding: '5% 5% 5% 25%' }}/> 
 
 Neow3j is a development toolkit that provides easy and reliable tools to build Neo dApps and Smart
 Contracts using the Java platform (Java, Kotlin, Android). Check out [neow3j.io](https://neow3j.io) for more detailed information on neow3j and the technical documentation.

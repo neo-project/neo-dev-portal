@@ -1,24 +1,24 @@
 ---
 title: 'neow3j - Java Smart Contract Quickstart'
 description: "In this quickstart guide you will setup a smart contract project and get introduced to all tools necessary for contract development in Java."
-slug: neow3j-java-smart-contract-quickstart
+# slug: neow3j-java-smart-contract-quickstart
 author: AxLabs
 tags: [ "NEOW3J", "SMART CONTRACT", "JAVA"]
 skill: beginner
-image: /tooling/neow3j.png
+image: /tooling/neow3j-padded.png
 source: https://github.com/neow3j/neow3j-boilerplate
 sidebar: true
 ---
 
-![img](/tooling/neow3j.png)
+<img src="/tooling/neow3j.png" alt="neow3j" width="75%" style={{ padding: '5% 5% 5% 25%' }}/> 
 
-## Introduction
+## 1. Introduction
 
 Java Smart contracts are made possible through the neow3j devpack, which provides a smart contract library, a compiler
 and a test framework. Neow3j favors Gradle as the build tool. It offers a Gradle plugin that allows contract
 compilation via a Gradle task.
 
-## Setup 
+## 2. Setup 
 
 ### Requirements
 
@@ -57,7 +57,7 @@ git clone https://github.com/neow3j/neow3j-boilerplate.git
 cd neow3j-boilerplate
 ```
 
-## Compilation
+## 3. Compilation
 
 ### Using the Gradle Task
 
@@ -95,6 +95,8 @@ TransactionBuilder builder = new ContractManagement(neow3j)
     .signers(signer);
 ```
 
-## Development
+## 4. Development
+
+## About
 
 

@@ -4,10 +4,12 @@ description: "This tutorial contains a quickstart to set up a neow3j boilerplate
 slug: neow3j-project-setup
 author: AxLabs
 tags: ["NEOW3J","JAVA", "QUICKSTART"]
-image: /tooling/neow3j.png
+image: /tooling/neow3j-padded.png
 skill: beginner
 sidebar: true
 ---
+
+<img src="/tooling/neow3j.png" alt="neow3j" width="75%" style={{ padding: '5% 5% 5% 25%' }}/> 
 
 # Introduction
 
