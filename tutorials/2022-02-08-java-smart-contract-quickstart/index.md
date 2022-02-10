@@ -1,14 +1,16 @@
 ---
-title: 'Quickstart: Java Smart Contract'
-description: "This tutorial will cover the basic structure of a decentralized application running on the Neo blockchain. It’s designed to be a brief survey of all aspects of development including architecture, contract development, backend logic, and front-end."
+title: 'neow3j - Java Smart Contract Quickstart'
+description: "In this quickstart guide you will setup a smart contract project and get introduced to all tools necessary for contract development in Java."
+slug: neow3j-java-smart-contract-quickstart
 author: AxLabs
 tags: [ "NEOW3J", "SMART CONTRACT", "JAVA"]
 skill: beginner
-image: tooling/neow3j.png
+image: /tooling/neow3j.png
 source: https://github.com/neow3j/neow3j-boilerplate
 sidebar: true
 ---
 
+![img](/tooling/neow3j.png)
 
 ## Introduction
 

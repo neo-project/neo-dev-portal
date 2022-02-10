@@ -1,9 +1,10 @@
 ---
-title: 'Neow3j Setup'
+title: 'Neow3j Project Setup'
 description: "This tutorial contains a quickstart to set up a neow3j boilerplate in order to interact with Neo N3 and developing Neo N3 smart contracts in Java."
+slug: neow3j-project-setup
 author: AxLabs
 tags: ["NEOW3J","JAVA", "QUICKSTART"]
-#image: "/assets/images/neow3j.png"
+image: /tooling/neow3j.png
 skill: beginner
 sidebar: true
 ---
