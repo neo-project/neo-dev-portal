@@ -15,7 +15,7 @@ sidebar: true
 ## 1. Introduction
 
 Java Smart contracts are made possible through the neow3j devpack, which provides a smart contract library, a compiler
-and a test framework. Neow3j favors Gradle as the build tool. It offers a Gradle plugin that allows contract
+and a test framework. Neow3j favors [Gradle](https://gradle.org) as the build tool. It offers a Gradle plugin that allows contract
 compilation via a Gradle task.
 
 ## 2. Setup 
@@ -35,7 +35,8 @@ For running smart contract tests with neow3j you need to have [Docker](https://w
 
 You could write smart contracts in any editor, but we recommend using 
 [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) and [**Visual Studio Code**](https://code.visualstudio.com/).
-IntelliJ offers one of the best Java developer experiences and VS Code offers Neo specific pllugins.
+IntelliJ offers one of the best Java/Kotlin developer experiences while VS Code offers a powerful extension for
+development on Neo.
 
 If you use VS Code make sure to install the 
 [Neo Blockchain Toolkit](https://marketplace.visualstudio.com/items?itemName=ngd-seattle.neo-blockchain-toolkit)
@@ -49,8 +50,8 @@ For optimal Java support in VS Code we recommend using the
 ### Code 
 
 For a quick setup of your smart contract project fetch the boilerplate project structure from our
-[boilerplate](https://github.com/neow3j/neow3j-boilerplate) repository. This project contains a simple HelloWorld smart
-contract.
+[boilerplate](https://github.com/neow3j/neow3j-boilerplate) repository. This project contains a simple "HelloWorld"
+smart contract.
 
 ```
 git clone https://github.com/neow3j/neow3j-boilerplate.git
