@@ -1,7 +1,7 @@
 ---
 title: 'neow3j - Java Smart Contract Quickstart'
-description: "In this quickstart guide you will setup a smart contract project and get introduced to all tools necessary for contract development in Java."
-# slug: neow3j-java-smart-contract-quickstart
+description: "In this quickstart guide you will setup a smart contract project and get introduced to all tools necessary
+              for contract development in Java."
 author: AxLabs
 tags: [ "NEOW3J", "SMART CONTRACT", "JAVA"]
 skill: beginner
@@ -18,8 +18,8 @@ sidebar: true
 ## 1. Introduction
 
 Java Smart contracts are made possible through the neow3j devpack, which provides a smart contract library, a compiler
-and a test framework. Neow3j favors [Gradle](https://gradle.org) as the build tool. It offers a Gradle plugin that allows contract
-compilation via a Gradle task.
+and a test framework. Neow3j favors [Gradle](https://gradle.org) as the build tool. It offers a Gradle plugin that
+allows contract compilation via a Gradle task.
 
 ## 2. Setup 
 
@@ -27,12 +27,19 @@ compilation via a Gradle task.
 
 __Java__
 
-Smart contract development in Java requires a Java SDK of at least version 8. Checkout
-[Adoptium](https://adoptium.net/) for Java OpenJDK downloads.
+Smart contract development in Java requires a Java SDK of at least version 8. Checkout [Adoptium](https://adoptium.net/)
+for Java OpenJDK downloads.
 
 __Docker__
 
-For running smart contract tests with neow3j you need to have [Docker](https://www.docker.com/products/docker-desktop) installed.
+For running automated smart contract tests with neow3j you need to have
+[Docker](https://www.docker.com/products/docker-desktop) installed.
+
+__Neo-Express__
+
+Neo-Express is a tool for setting up local private blockchains for development purposes. You will use it to deploy and
+test your contracts manually. It requires .NET Core installed on your machine. Step through the Neo-Express installation
+section [here](https://github.com/neo-project/neo-express#installation) to set it up.
 
 ### Development Environment
 
