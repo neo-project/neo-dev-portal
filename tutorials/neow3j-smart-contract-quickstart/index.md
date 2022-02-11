@@ -72,7 +72,8 @@ cd neow3j-boilerplate
 
 ### Using the Gradle Task
 
-With the setup from above, we can already compile our HelloWorld contract. Open a terminal in the project's root directory and run 
+With the setup from above, we can already compile our HelloWorld contract. Open a terminal in the project's root
+directory and run 
 
 ```
 ./gradlew neow3jCompile
@@ -125,15 +126,29 @@ look like.
 
 __Automated Testing__
 
-https://neow3j.io/#/neo-n3/smart_contract_development/testing
+When writing smart contracts testing is of utmost importance to feel confidence in one's code.  Neow3j offers a test
+framework that is build on top of JUnit 5. It is documented
+[here](https://neow3j.io/#/neo-n3/smart_contract_development/testing). The test class `HelloWorldSmartContractTest` in
+the boilerplate repository gives a first impression how contract tests with neow3j look.
 
 __Manual Testing__
 
+Before you deploy your contract on the Neo mainnet, you will probably want to test it on a private network on your
+machine and then on testnet. For local testing we recommend using Neo-Express, which was mentioned in the
+requirements section. The Neo Blockchain Toolkit extension for VS Code builds on Neo-Express and covers some of its
+functionality in the GUI. But, you can also use Neo-Express as a pure command line tool. The boilerplate repository
+already contains a `default.neo-express` configuration file, so you can fire up a Neo-Express instance with
 
 ```shell
-neoxp -h
+neoxp run
 ```
 
+There is one account going by the name of Alice pre-configured. Fund it with
+
 ```shell
-neoxp run 
+neoxp transfer 100 GAS genesis Alice
 ```
+
+This transfers GAS tokens from the genesis account, which is the account made up of all validators (in the private net
+setup there is only one validator).
+Now you can run the main method in `com.axlabs.helloworld.Deployment` to deploy the contact on the private net. 
