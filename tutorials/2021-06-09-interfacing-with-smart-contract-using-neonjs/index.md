@@ -8,6 +8,7 @@ data to the blockchain using the Neon.js TypeScript SDK."
 author: Tyler Adams
 tags: ["NEONJS", "SMART CONTRACT","BOA"]
 skill: beginner
+image: ./assets/cover.png
 sidebar: true
 ---
 

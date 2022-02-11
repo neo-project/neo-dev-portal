@@ -52,7 +52,7 @@ Yes. NEP-17, the replacement of the standard NEP-5, is the Neo N3 token standard
 
 ## How to view NEP-17 assets in Neo-CLI？
 
-To view NEP-17 assets invoke the  RPC API [getnep17balances](../../docs/en-us/reference/rpc/latest-version/api/getnep17balances.md) or use the Neo-CLI command [balanceof](../../docs/en-us/node/cli/cli.html#balanceof) .
+To view NEP-17 assets invoke the  RPC API [getnep17balances](../n3/reference/rpc/latest-version/api/getnep17balances) or use the Neo-CLI command [balanceof](../n3/node/cli/cli#balanceof) .
 
 ## What is NEP-6？
 

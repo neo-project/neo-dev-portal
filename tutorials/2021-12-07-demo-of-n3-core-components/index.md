@@ -5,6 +5,7 @@ author: NGD
 tags: [ "DAPP"]
 skill: beginner
 sidebar: true
+image: ./assets/cover.png
 ---
 
 
