@@ -35,12 +35,6 @@ __Docker__
 For running automated smart contract tests with neow3j you need to have
 [Docker](https://www.docker.com/products/docker-desktop) installed.
 
-__Neo-Express__
-
-Neo-Express is a tool for setting up local private blockchains for development purposes. You will use it to deploy and
-test your contracts manually. It requires .NET Core installed on your machine. Step through the Neo-Express installation
-section [here](https://github.com/neo-project/neo-express#installation) to set it up.
-
 ### Development Environment
 
 You could write smart contracts in any editor, but we recommend using 
@@ -134,21 +128,16 @@ the boilerplate repository gives a first impression how contract tests with neow
 __Manual Testing__
 
 Before you deploy your contract on the Neo mainnet, you will probably want to test it on a private network on your
-machine and then on testnet. For local testing we recommend using Neo-Express, which was mentioned in the
-requirements section. The Neo Blockchain Toolkit extension for VS Code builds on Neo-Express and covers some of its
-functionality in the GUI. But, you can also use Neo-Express as a pure command line tool. The boilerplate repository
-already contains a `default.neo-express` configuration file, so you can fire up a Neo-Express instance with
+machine and then on testnet. For local testing we recommend using the Neo Blockchain Toolkit mentioned in the
+[dev environment](#development-environment) section. 
+The boilerplate repository already contains a `default.neo-express` configuration file that defines a private network
+with one account called Alice. In VS Code open the command palette and type "Start blockchain". Execute the command. The
+private net will start. Again in the command palatte type "Transfer assets" and execute the command. Transfer 100 GAS
+from genesis to Alice. This is will create a transaction on the private net.
+Now you can run the main method in `com.axlabs.helloworld.Deployment` (of the boilerplate repo) to deploy the contact on
+the private net. 
 
-```shell
-neoxp run
-```
-
-There is one account going by the name of Alice pre-configured. Fund it with
-
-```shell
-neoxp transfer 100 GAS genesis Alice
-```
-
-This transfers GAS tokens from the genesis account, which is the account made up of all validators (in the private net
-setup there is only one validator).
-Now you can run the main method in `com.axlabs.helloworld.Deployment` to deploy the contact on the private net. 
+:::tip
+The underlying tool used for running private networks is Neo-Express. It can be separately installed and used as a command line
+tool [here](https://github.com/neo-project/neo-express#installation).
+:::
