@@ -1,7 +1,6 @@
 ---
 title: 'neow3j - Java Smart Contract Quickstart'
-description: "In this quickstart guide you will setup a smart contract project and get introduced to all tools necessary
-              for contract development in Java."
+description: "In this quickstart guide, you will set up a smart contract project and get introduced to all tools necessary for contract development in Java."
 author: AxLabs
 tags: [ "NEOW3J", "SMART CONTRACT", "JAVA"]
 skill: beginner
