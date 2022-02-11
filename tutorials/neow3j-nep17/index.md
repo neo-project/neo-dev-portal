@@ -4,6 +4,7 @@ description: "This tutorial describes an example implementation of a NEP-17 smar
 author: AxLabs
 tags: ["NEP-17", "JAVA", "NEOW3J"]
 skill: beginner
+source: "https://github.com/neow3j/neow3j-examples-java/blob/6754899457538a6fb05f765146c12e009ab679d7/src/main/java/io/neow3j/examples/contractdevelopment/contracts/FungibleToken.java"
 image: "/tooling/neow3j-padded.png"
 sidebar: true
 ---
@@ -18,7 +19,7 @@ Contracts using the Java platform (Java, Kotlin, Android). Check out [neow3j.io]
 
 ## 1. Setup
 
-If you haven't already set up your environment to use the neow3j library, you can check out our tutorial about setting up a neow3j project [here](../../../2022/02/07/neow3j-setup).
+If you haven't already set up your environment to use the neow3j library, you can check out our tutorial about setting up a neow3j project [here](/tutorials/neow3j-smart-contract-quickstart).
 
 ## 2. NEP-17 Overview
 
