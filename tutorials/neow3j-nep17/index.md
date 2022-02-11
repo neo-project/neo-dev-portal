@@ -161,7 +161,7 @@ public class FungibleToken {
 
 ## 4. Contract Breakdown
 
-In the following, we're looking at each part of the NEP-17 example contract.
+In the following subsections, we'll be looking at each part of the NEP-17 example contract.
 
 ### Imports
 
@@ -192,11 +192,11 @@ import io.neow3j.devpack.events.Event3Args;
 
 ### Contract-specific Information
 
-Annotations on top of the contract's class represent contract-specific information. The following annotations can be used for a contract:
+Annotations on top of the smart contract's class represent contract-specific information. The following annotations can be used for in a smart contract:
 
 _`@DisplayName`_
 
-Specifies the contract's name. If this annotation is not present, the class name is used for the contrat's name.
+It specifies the contract's name. If this annotation is not present, the class name is used for the contract's name.
 
 _`@ManifestExtra`_
 
@@ -208,7 +208,7 @@ Sets the `supportedStandards` field in the manifest.
 
 _`@Permission`_
 
-Specifies, what other contracts and which methods it is allowed to call. By default (i.e., if no permission annotation is set), the contract is not allowed to call any contract. Use `contract = ` to specify what contracts and `methods = ` to specify what methods are allowed.
+Specifies, which third-party contracts and methods the smart contract is allowed to call. By default (i.e., if no permission annotation is set), the contract is not allowed to call any contract. Use `contract = ` and `methods = ` to specify, respectively, which contracts and methods are allowed.
 
 _For example, if you want to allow transferring NEO tokens from the contract, you can add the annotation `@Permission(nativeContract = NativeContract.NeoToken, methods = "transfer")`._
 
@@ -224,72 +224,77 @@ public class FungibleToken {
 
 You can set a constant value for the contract by using `final` variables. These values are always loaded when the contract is called and cannot be changed once the contract is deployed.
 
-> Note: The owner of this NEP-17 example contract is fixed (i.e., it is a `final` variable). If you intend to provide a functionality to change such a variable, you should not store it as a `final` variable. Rather, you would store it as a value in the storage, that you then can change through a method.
+:::note
 
--
+All contract constants and all methods must be `static` (since the object-orientation of the JVM is different on the NeoVM).
 
-> Note: All contract constants and all methods have to be `static` (since the object-orientation of the JVM is different on the NeoVM).
+:::
+:::tip
 
--
+The contract owner of this example contract is fixed (i.e., it is a `final` variable). If you intend to provide a way to change such a variable, you should not store it as a `final` variable. Rather, you would store it as a value in the storage, which provides the possibility to be modified through a method.
+
+:::
 
 ```java
-    static final Hash160 owner = addressToScriptHash("NM7Aky765FG8NhhwtxjXRx7jEL1cnw7PBP");
+static final Hash160 owner = addressToScriptHash("NM7Aky765FG8NhhwtxjXRx7jEL1cnw7PBP");
 
-    static final int decimals = 2;
-    static final byte[] totalSupplyKey = new byte[]{0x00};
-    static final StorageContext ctx = Storage.getStorageContext();
-    static final StorageMap assetMap = new StorageMap(ctx, new byte[]{0x01});
+static final int decimals = 2;
+static final byte[] totalSupplyKey = new byte[]{0x00};
+static final StorageContext ctx = Storage.getStorageContext();
+static final StorageMap assetMap = new StorageMap(ctx, new byte[]{0x01});
 ```
 
 ### NEP-17 Methods
 
-The required NEP-17 methods are implemented in the following. If a method does not change the state of the contract (i.e., it is just used for reading), it can be annotated with the `@Safe` annotation. Out of the NEP-17 methods, only the `transfer` method should be writing to the contract and is thus not annotated as safe.
+The required NEP-17 methods are implemented as follows. If a method does not change the state of the contract (i.e., it is just used for reading), it can be annotated with the `@Safe` annotation. Out of the NEP-17 methods, only the `transfer()` method should be writing to the contract and is thus not annotated as safe.
 
-> Note: Java's `assert` statement is used in neow3j to throw exceptions on the NeoVM. Thus, there is no need of using an `if` statement with a followed `throw new Exception()` statement. Although, it may still be used like that. It is up to the developer's preference, as it results in the exact same NeoVM code once compiled.
+:::info
 
--
+Neow3j uses Java's `assert` statement to throw exceptions on the NeoVM. Thus, there is no need of using an `if` statement with a followed `throw new Exception()` statement. Although, it may still be used like that. It is up to the developer to go either way, as it results in the exact same NeoVM code once compiled.
+
+:::
 
 ```java
-    @Safe
-    public static String symbol() {
-        return "ALT";
+@Safe
+public static String symbol() {
+    return "ALT";
+}
+
+@Safe
+public static int decimals() {
+    return decimals;
+}
+
+@Safe
+public static int totalSupply() {
+    return Storage.getInt(ctx, totalSupplyKey);
+}
+
+@Safe
+public static int balanceOf(Hash160 account) {
+    assert Hash160.isValid(account) : "Argument is not a valid address.";
+    return getBalance(account);
+}
+
+public static boolean transfer(Hash160 from, Hash160 to, int amount, Object[] data) {
+    assert Hash160.isValid(from) && Hash160.isValid(to) : "'from' or 'to' address is not a valid address.";
+    assert amount >= 0 : "The transfer amount must be non-negative.";
+    assert Runtime.checkWitness(from) : "No authorization.";
+
+    if (getBalance(from) < amount) {
+        return false;
     }
 
-    @Safe
-    public static int decimals() {
-        return decimals;
+    if (from != to && amount != 0) {
+        deductFromBalance(from, amount);
+        addToBalance(to, amount);
     }
-
-    @Safe
-    public static int totalSupply() {
-        return Storage.getInt(ctx, totalSupplyKey);
+    if (ContractManagement.getContract(to) != null) {
+        onTransfer.fire(from, to, amount);
+        Contract.call(to, "onNEP17Payment", CallFlags.All, data);
     }
-
-    @Safe
-    public static int balanceOf(Hash160 account) {
-        assert Hash160.isValid(account) : "Argument is not a valid address.";
-        return getBalance(account);
-    }
-
-    public static boolean transfer(Hash160 from, Hash160 to, int amount, Object[] data) {
-        assert Hash160.isValid(from) && Hash160.isValid(to) : "'from' or 'to' address is not a valid address.";
-        assert amount >= 0 : "The transfer amount must be non-negative.";
-        assert Runtime.checkWitness(from) : "No authorization.";
-
-        if (getBalance(from) < amount) {
-            return false;
-        }
-
-        if (from != to && amount != 0) {
-            deductFromBalance(from, amount);
-            addToBalance(to, amount);
-        }
-        if (ContractManagement.getContract(to) != null) {
-            onTransfer.fire(from, to, amount);
-            Contract.call(to, "onNEP17Payment", CallFlags.All, data);
-        }
-        return true;
-    }
+    return true;
+}
 ```
 
 ### Events
@@ -297,77 +302,84 @@ The required NEP-17 methods are implemented in the following. If a method does n
 The NEP-17 standard requires an event `Transfer` that contains the values `from`, `to`, and `amount`. For this, the class `Event3Args` can be used with the annotation `@DisplayName` to set the event's name that will be shown in the manifest and notifications when it has been fired.
 
 ```java
-    @DisplayName("Transfer")
-    static Event3Args<Hash160, Hash160, Integer> onTransfer;
+@DisplayName("Transfer")
+static Event3Args<Hash160, Hash160, Integer> onTransfer;
 ```
 
-When the event should be fired, its `fire` method can be called with the three arguments as shown in the `transfer` method.
+An event variable can effectively fire an event by using the `fire()` method with the corresponding arguments. For example, the `Transfer` event (represented by the `onTransfer` variable) should be fired whenever a transfer happens.
 
 ```java
-    onTransfer.fire(from, to, amount);
+onTransfer.fire(from, to, amount);
 ```
 
 ### Deploy
 
-Within the deployment transaction of the contract, the contract data is first stored on the blockchain and then the native contract `ContractManagement` calls the contract's `deploy` method. In neow3j, that method is marked with the annotation `@OnDeployment`. In the example, when the contract is deployed, the `initialSupply` is set to 200'000'000 and it is allocated to the contract's owner.
+Once a deployment transaction is made (containing the contract and other parameters), the contract data is first stored on the blockchain and then the native contract `ContractManagement` calls the smart contract's `deploy()` method. In neow3j, that method is marked with the annotation `@OnDeployment`. In the example, when the smart contract is deployed, the `initialSupply` is set to 200'000'000 and it is allocated to the smart contract's owner.
 
 ```java
-    @OnDeployment
-    public static void deploy(Object data, boolean update) {
-        if (!update) {
-            throwIfSignerIsNotOwner();
-            int initialSupply = 200_000_000;
-            Storage.put(ctx, totalSupplyKey, initialSupply);
-            assetMap.put(owner.toByteArray(), initialSupply);
-        }
+@OnDeployment
+public static void deploy(Object data, boolean update) {
+    if (!update) {
+        throwIfSignerIsNotOwner();
+        int initialSupply = 200_000_000;
+        Storage.put(ctx, totalSupplyKey, initialSupply);
+        assetMap.put(owner.toByteArray(), initialSupply);
+    }
+}
 ```
 
 ### Update and Destroy
 
-In order to update or destroy the contract, the following two simple methods first check that the contract owner witnessed the transaction and then the appropriate method is called on the native contract `ContractManagement`.
+In order to update the contract, the following method first checks that the contract owner witnessed the transaction and then the native `ContractManagement.update()` method is called. When updating a smart contract, you can change the smart contract's code and its manifest. This means that you can update how the contract programmatically manages its storage context.
 
 :::note
 
-In case of an update, besides updating the contract's nef and manifest, the `ContractManagement.update` eventually calls the `deploy` method (shown above) with the boolean `update` set to true.
+Additionally to changing the smart contract's script and manifest, the method `ContractManagement.update()` eventually calls the smart contract's `deploy()` method (shown above) with the boolean `update` set to true.
 
 :::
 
--
+```java
+public static void update(ByteString nef, String manifest) {
+    throwIfSignerIsNotOwner();
+    ContractManagement.update(nef, manifest);
+}
+```
+
+The example contract also provides the option to destroy the smart contract. As well as the `update()` method, it first verifies that the contract owner witnessed the transaction and then calls the method `ContractManagement.destroy()` method.
+
+:::caution
+
+When the native method `ContractManagement.destroy()` is called from a smart contract, the whole smart contract's storage context is erased, and the contract can no longer be used.
+
+:::
 
 ```java
-    public static void update(ByteString nef, String manifest) {
-        throwIfSignerIsNotOwner();
-        ContractManagement.update(nef, manifest);
-    }
-
-    public static void destroy() throws Exception {
-        throwIfSignerIsNotOwner();
-        ContractManagement.destroy();
-    }
+public static void destroy() throws Exception {
+    throwIfSignerIsNotOwner();
+    ContractManagement.destroy();
+}
 ```
 
 ### Private Helper Methods
 
-Private methods can be used to extract code that is used internally in the contract. The following private methods are used in the NEP-17 example contract. For example, in order to prevent writing the same exception message to check the witness of the owner, the private method `throwIfSignerIsNotOwner` allows to write this code only once.
+Private methods can be used to, for example, simplify and make the smart contract a bit more readable. The following private methods are used in the NEP-17 example contract. For example, in order to prevent writing the same exception message to check the witness of the owner, the private method `throwIfSignerIsNotOwner()` allows writing this code only once.
 
 ```java
-    private static void throwIfSignerIsNotOwner() {
-        assert Runtime.checkWitness(owner) : "The calling entity is not the owner of this contract.";
-    }
+private static void throwIfSignerIsNotOwner() {
+    assert Runtime.checkWitness(owner) : "The calling entity is not the owner of this contract.";
+}
 
-    private static void addToBalance(Hash160 key, int value) {
-        assetMap.put(key.toByteArray(), getBalance(key) + value);
-    }
+private static void addToBalance(Hash160 key, int value) {
+    assetMap.put(key.toByteArray(), getBalance(key) + value);
+}
 
-    private static void deductFromBalance(Hash160 key, int value) {
-        int oldValue = getBalance(key);
-        assetMap.put(key.toByteArray(), oldValue - value);
-    }
+private static void deductFromBalance(Hash160 key, int value) {
+    int oldValue = getBalance(key);
+    assetMap.put(key.toByteArray(), oldValue - value);
+}
 
-    private static int getBalance(Hash160 key) {
-        return assetMap.getIntOrZero(key.toByteArray());
-    }
-
+private static int getBalance(Hash160 key) {
+    return assetMap.getIntOrZero(key.toByteArray());
 }
 ```
 
@@ -387,9 +399,11 @@ AxLabsToken.nef
 AxLabsToken.nefdbgnfo
 ```
 
-> Note: The filenames can deviate according to what the contract's name is (i.e., not the class name). See [here](#contract-specific-information).
+:::note
 
--
+The filenames can deviate according to what the contract's name is. See [here](#contract-specific-information).
+
+:::
 
 Now, the contract's `.manifest.json` and `.nef` files can be used to deploy the contract. Neow3j's SDK can be used to do so. Check out the example [here](https://github.com/neow3j/neow3j-examples-java/blob/4d82df91c27bf9d4992c166e1ae98045bd24fbbd/src/main/java/io/neow3j/examples/contractdevelopment/DeployFromFiles.java) about how to deploy a contract with its manifest and nef files.
 
