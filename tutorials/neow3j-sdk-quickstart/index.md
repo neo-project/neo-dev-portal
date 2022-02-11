@@ -5,7 +5,7 @@ author: AxLabs
 tags: ["DAPP", "SDK", "NEOW3J", "JAVA", "KOTLIN"]
 skill: beginner
 image: ./assets/neow3j-padded.png
-source: https://github.com/neow3j/neow3j-boilerplate-sdk
+source: https://github.com/neow3j/neow3j-boilerplate-sdk/tree/quickstart-tutorial
 sidebar: true
 ---
 
@@ -46,11 +46,12 @@ For optimal Java support in VS Code we recommend using the
 
 ### Code 
 
-For a quick setup of your dApp project fetch the SDK boilerplate project structure from our [SDK boilerplate](https://github.com/neow3j/neow3j-boilerplate-sdk) repository. This project contains two simple examples. First, you'll build, sign and send a transaction. Then, we'll show you how to subscribe to new blocks on a Neo N3 blockchain.
+For a quick setup of your dApp project fetch the SDK boilerplate project structure from our [SDK boilerplate](https://github.com/neow3j/neow3j-boilerplate-sdk/tree/quickstart-tutorial) repository and switch to the `quickstart-tutorial` branch. This project contains two simple examples. First, you'll build, sign and send a transaction. Then, we'll show you how to subscribe to new blocks on a Neo N3 blockchain.
 
 ```
 git clone https://github.com/neow3j/neow3j-boilerplate-sdk.git
 cd neow3j-boilerplate-sdk
+git checkout quickstart-tutorial
 ```
 
 ## 3. Building, Signing and Sending a Transaction

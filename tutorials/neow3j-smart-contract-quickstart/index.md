@@ -5,7 +5,7 @@ author: AxLabs
 tags: [ "NEOW3J", "SMART CONTRACT", "JAVA"]
 skill: beginner
 image: ./assets/neow3j-padded.png
-source: https://github.com/neow3j/neow3j-boilerplate
+source: https://github.com/neow3j/neow3j-boilerplate/tree/quickstart-tutorial
 sidebar: true
 ---
 
@@ -53,12 +53,12 @@ For optimal Java support in VS Code we recommend using the
 ### Code 
 
 For a quick setup of your smart contract project fetch the boilerplate project structure from our
-[boilerplate](https://github.com/neow3j/neow3j-boilerplate) repository. This project contains a simple "HelloWorld"
-smart contract.
+[boilerplate](https://github.com/neow3j/neow3j-boilerplate/tree/quickstart-tutorial) repository and switch to the `quickstart-tutorial` branch. This project contains a simple "HelloWorld" smart contract.
 
 ```
 git clone https://github.com/neow3j/neow3j-boilerplate.git
 cd neow3j-boilerplate
+git checkout quickstart-tutorial
 ```
 
 ## 3. Compilation
