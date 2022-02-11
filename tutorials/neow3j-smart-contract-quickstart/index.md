@@ -5,7 +5,7 @@ description: "In this quickstart guide you will setup a smart contract project a
 author: AxLabs
 tags: [ "NEOW3J", "SMART CONTRACT", "JAVA"]
 skill: beginner
-image: /tooling/neow3j-padded.png
+image: ./assets/neow3j-padded.png
 source: https://github.com/neow3j/neow3j-boilerplate
 sidebar: true
 ---
