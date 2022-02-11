@@ -4,7 +4,7 @@ description: "This tutorial describes an example implementation of a NEP-11 smar
 author: AxLabs
 tags: ["NEP-11", "JAVA", "NEOW3J"]
 skill: beginner
-image: "/tooling/neow3j-padded.png"
+image: "./assets/neow3j-padded.png"
 source: https://github.com/neow3j/neow3j-examples-java/blob/6754899457538a6fb05f765146c12e009ab679d7/src/main/java/io/neow3j/examples/contractdevelopment/contracts/NonFungibleToken.java
 sidebar: true
 ---
