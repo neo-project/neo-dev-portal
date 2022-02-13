@@ -35,7 +35,7 @@ export default function Tooling() {
                     name: "Neo Playground",
                     by: "AxLabs",
                     description: "Neo playground is a development environment that packages the features of the Neo Blockchain Toolkit into a VS Code web client with a number of additional utilities. It is designed for team collaboration in a controlled development environment.",
-                    icon_url: "/tooling/neow3j.png",
+                    icon_url: "/tooling/neo-playground.png",
                     web_url: "https://neo-playground.dev/",
                     tag: ["java"]
                 }
@@ -160,10 +160,10 @@ export default function Tooling() {
                 },
                 {
                     name: "Neow3j",
-                    by: "AxLabs",
-                    description: "Neow3j is a Java library that aims to provide easy and reliable integration with Neo nodes. It supports Neo RPC, asset transfers, smart contract invocations and deployments, NEP-2, NEP-6, building, signing and sending raw transactions, and more.",
+                    by:"AxLabs",
+                    description: "Neow3j is a Java/Kotlin development toolkit that provides everything you need to build on Neo. It allows you to create Neo dApps including smart contracts and backend applications all on the Java platform, supporting Java, Kotlin, and Android.",
                     icon_url: "/tooling/neow3j.png",
-                    web_url: "https://neow3j.io/#/overview/getting_started?id=sdk",
+                    web_url: "https://neow3j.io/",
                     tag: ["java"]
                 },
                 {
@@ -205,10 +205,10 @@ export default function Tooling() {
                 },
                 {
                     name: "Neow3j",
-                    by: "AxLabs",
-                    description: "Neow3j is a Java library that aims to provide easy and reliable integration with Neo nodes. It supports Neo RPC, asset transfers, smart contract invocations and deployments, NEP-2, NEP-6, building, signing and sending raw transactions, and more.",
+                    by:"AxLabs",
+                    description: "Neow3j is a Java/Kotlin development toolkit that provides everything you need to build on Neo. It allows you to create Neo dApps including smart contracts and backend applications all on the Java platform, supporting Java, Kotlin, and Android.",
                     icon_url: "/tooling/neow3j.png",
-                    web_url: "https://neow3j.io/#/overview/getting_started?id=sdk",
+                    web_url: "https://neow3j.io/",
                     tag: ["java"]
                 }
             ]
