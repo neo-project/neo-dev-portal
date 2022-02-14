@@ -191,7 +191,7 @@ The execution logic is to execute the condition and, if is met, return Action, w
 
 - Boolean: true|false
 
-  “expression” = <bool>
+  “expression” =\<bool\>
 
   ```
   //Equals to WitnessScope.Global
@@ -211,7 +211,7 @@ The execution logic is to execute the condition and, if is met, return Action, w
 
 - Not: Logical NOT. It reverses other conditions.
 
-  “expression”=<Condition>
+  “expression”=\<Condition\>
 
   ```
   // The signature is allowed only when the contract is not 0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5
@@ -235,7 +235,7 @@ The execution logic is to execute the condition and, if is met, return Action, w
 
 - And: Logical conjunction
 
-  “expressions”=<Condition[]>
+  “expressions”=\<Condition[]\>
 
   ```
   // The signature is allowed only when the contract is 0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5 and is invoked at entry
@@ -261,7 +261,7 @@ The execution logic is to execute the condition and, if is met, return Action, w
 
 - Or: Logical OR
 
-  “expressions”=<Condition[]>
+  “expressions”=\<Condition[]\>
 
   ```
   // The signature is allowed only when the contract is 0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5 or is invoked at entry
@@ -287,7 +287,7 @@ The execution logic is to execute the condition and, if is met, return Action, w
 
 - ScriptHash: verifies that the current contract matches. It equals to CustomContracts
 
-  “hash”= <UInt160>
+  “hash”=\<UInt160\>
 
   ```
   // Only the contract 0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5 is allowd to use the signature
@@ -307,7 +307,7 @@ The execution logic is to execute the condition and, if is met, return Action, w
 
 - Group: verifies that the current contract public key matches. It equals to CustomGroups
 
-  “group”=<ECPoint>
+  “group”=\<ECPoint\>
 
   ```
   // Only the contract authorized by 021821807f923a3da004fb73871509d7635bcc05f41edef2a3ca5c941d8bbc1231 is allowed to use the signature
@@ -344,7 +344,7 @@ The execution logic is to execute the condition and, if is met, return Action, w
 
 - CalledByContract: verifies that the previous level contract hash matches.
 
-  “hash”=<UInt160>
+  “hash”=\<UInt160\>
 
   ```
   // The signature is allowed only when the previous level contract is 0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5
@@ -364,7 +364,7 @@ The execution logic is to execute the condition and, if is met, return Action, w
 
 - CalledByGroup: verifies that the previous level contract public key matches.
 
-  “group”=<UInt160>
+  “group”=\<UInt160\>
 
   ```
   // The signature is allowed only when the previous level contract is authorized by the public key 021821807f923a3da004fb73871509d7635bcc05f41edef2a3ca5c941d8bbc1231
