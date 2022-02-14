@@ -39,6 +39,10 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           postsPerPage: 12,
           blogSidebarTitle: "Recent tutorials",
           blogSidebarCount:0,
+          feedOptions: {
+            type: 'all',
+            copyright: `Copyright © ${new Date().getFullYear()}.`,
+          },
         },
         theme: {
           customCss: require.resolve('./src/css/tailwind.output.css'),

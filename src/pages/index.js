@@ -376,6 +376,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="pt-2 pb-4 text-gray-500 text-sm">
+                {JSON.stringify(post.metadata.frontMatter)}
                 {post.metadata.authors[0].name}&nbsp;·&nbsp;
                 <time dateTime={post.metadata.date} itemProp="datePublished">
                   {post.metadata.formattedDate}
