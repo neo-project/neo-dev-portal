@@ -1,7 +1,6 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import BrowserOnly from '@docusaurus/BrowserOnly';
-
 export default function Tooling() {
     return (
         <BrowserOnly>
@@ -13,6 +12,15 @@ export default function Tooling() {
                     {
                         title: "Protocols",
                         id: "protocols",
+                        iconSVG: (<svg className='stroke-current' width="32" height="38" viewBox="0 0 32 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.80078 23.8999H22.4008" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M9 19.5H16" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M8.80078 15.1001H22.4008" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M8.80078 10.7002H22.4008" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M8.80078 28.7002H22.4008" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                            <rect x="0.75" y="2.25" width="29.7" height="34.5" rx="4.25" stroke-width="1.5" />
+                            <rect x="8" width="15" height="4" rx="1" fill="#000033" />
+                        </svg>),
                         tools: [
                             {
                                 name: "NeoFS",
@@ -39,6 +47,18 @@ export default function Tooling() {
                     {
                         title: "Development Environments",
                         id: "dev-env",
+                        iconSVG: <svg className='stroke-current' width="32" height="36" viewBox="0 0 32 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.80078 22.4004H22.4008" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M9 18H16" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M8.80078 13.5996H22.4008" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M5 4H6" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M9 4H10" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M13 4H14" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M1 7L30 7" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M8.80078 27.2002H22.4008" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                            <rect x="0.75" y="0.75" width="29.7" height="34.5" rx="4.25" stroke-width="1.5" />
+                        </svg>
+                        ,
                         tools: [
                             {
                                 name: "Neo Blockchain Toolkit",
@@ -85,6 +105,15 @@ export default function Tooling() {
                     {
                         title: "Contract Development Kits",
                         id: "contract-sdk",
+                        iconSVG: <svg className='stroke-current' width="31" height="36" viewBox="0 0 31 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="6.75" y="0.75" width="17.5" height="33.5" rx="1.75" stroke-width="1.5" />
+                            <rect x="3.75" y="3.75" width="23.5" height="30.5" rx="1.75" fill="white" stroke-width="1.5" />
+                            <rect x="0.75" y="6.75" width="29.5" height="28.5" rx="4.25" fill="white" stroke-width="1.5" />
+                            <path d="M8.80078 14.5996H22.4008" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M11.2008 21.5996L8.80078 23.9996L11.2008 26.3996" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M20.7992 21.5996L23.1992 23.9996L20.7992 26.3996" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M15.1992 27.8848L16.4871 20.8009" stroke-width="1.5" stroke-linecap="round" />
+                        </svg>,
                         tools: [
                             {
                                 name: "boa",
@@ -129,8 +158,18 @@ export default function Tooling() {
                         ]
                     },
                     {
-                        title: "Ecosystem Tools, Explorers, and API Providers",
+                        title: "Explorers, and API Providers",
                         id: "tools",
+                        iconSVG: <svg className='stroke-current' width="31" height="36" viewBox="0 0 31 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="0.75" y="0.75" width="29.5" height="9.5" rx="1.75" stroke-width="1.5" />
+                            <rect x="0.75" y="25.75" width="29.5" height="9.5" rx="1.75" stroke-width="1.5" />
+                            <rect x="0.75" y="13.25" width="29.5" height="9.5" rx="1.75" stroke-width="1.5" />
+                            <path d="M21 5.5L26 5.5" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M6 5.5H8" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M5 18L10 18" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M21 30.5L26 30.5" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        ,
                         tools: [
                             {
                                 name: "WalletConnect SDK",
@@ -187,6 +226,17 @@ export default function Tooling() {
                     {
                         title: "Nodes",
                         id: "nodes",
+                        iconSVG: <svg className='stroke-current' width="35" height="36" viewBox="0 0 35 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.4479 3.69036C17.2111 3.26163 18.1426 3.26163 18.9058 3.69036L30.839 10.3938C31.6299 10.8381 32.1194 11.6745 32.1194 12.5816V25.8706C32.1194 26.7777 31.6299 27.6141 30.839 28.0584L18.9058 34.7618C18.1426 35.1906 17.2111 35.1906 16.4479 34.7618L4.5146 28.0584C3.72378 27.6141 3.23427 26.7777 3.23427 25.8706V12.5816C3.23427 11.6745 3.72378 10.8381 4.5146 10.3938L16.4479 3.69036Z" fill="white" stroke-width="1.5" />
+                            <path d="M17.9031 35.0014V19.6768" stroke-width="1.5" stroke-linecap="round" />
+                            <path d="M3.47852 12.0146L17.9017 19.677" stroke-width="1.5" stroke-linecap="round" />
+                            <path d="M31.8748 12.0146L17.8496 19.4655" stroke-width="1.5" stroke-linecap="round" />
+                            <circle cx="18" cy="19" r="3" fill="#000033" />
+                            <circle cx="18" cy="3" r="3" fill="#000033" />
+                            <circle cx="32" cy="12" r="3" fill="#000033" />
+                            <circle cx="3" cy="12" r="3" fill="#000033" />
+                        </svg>
+                        ,
                         tools: [
                             {
                                 name: "Neo-Node",
@@ -223,6 +273,12 @@ export default function Tooling() {
                     {
                         title: "SDKs",
                         id: "sdks",
+                        iconSVG: <svg className='stroke-current' width="30" height="36" viewBox="0 0 30 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14.7086 15.3345L1.29527 23.6851C0.683778 24.0658 0.663189 24.9486 1.25627 25.3574L14.669 34.6023C15.0153 34.8411 15.474 34.8375 15.8166 34.5935L28.7973 25.3482C29.3734 24.9378 29.3531 24.0753 28.7582 23.6926L15.7782 15.3424C15.4531 15.1333 15.0367 15.1302 14.7086 15.3345Z" stroke-width="1.5" />
+                            <path d="M14.7086 8.33449L1.29527 16.6851C0.683778 17.0658 0.663189 17.9486 1.25627 18.3574L14.669 27.6023C15.0153 27.8411 15.474 27.8375 15.8166 27.5935L28.7973 18.3482C29.3734 17.9378 29.3531 17.0753 28.7582 16.6926L15.7782 8.34241C15.4531 8.13332 15.0367 8.13023 14.7086 8.33449Z" fill="white" stroke-width="1.5" />
+                            <path d="M14.7086 1.33449L1.29527 9.68514C0.683778 10.0658 0.663189 10.9486 1.25627 11.3574L14.669 20.6023C15.0153 20.8411 15.474 20.8375 15.8166 20.5935L28.7973 11.3482C29.3734 10.9378 29.3531 10.0753 28.7582 9.69264L15.7782 1.34241C15.4531 1.13332 15.0367 1.13023 14.7086 1.33449Z" fill="white" stroke-width="1.5" />
+                        </svg>
+                        ,
                         tools: [
                             {
                                 name: "mamba",
@@ -298,35 +354,30 @@ export default function Tooling() {
                     <Layout>
                         <div className="twcontainer  max-w-6xl px-4 lg:px-0 mx-auto">
                             <div className='flex'>
-                                <div className=" pt-4 h-full sticky top-14 hidden lg:block">
-                                    <div className='pl-2 w-80'>
-                                        {
-                                            data.map((category) => (
-                                                <a href={`#${category.title}`} className='menu__link pl-0 hover:text-primary hover:bg-transparent'>{category.title}</a>
-                                            ))
-                                        }
-                                    </div>
-                                </div>
 
-                                <div className='lg:border-l  ml-auto  pt-4'>
-
-
-                                
-
-                                    <div className='sticky top-16 bg-white pb-6'>
-                                        <div className="flex mb-4 lg:pl-4">
-                                            <h2>Resources & Tooling</h2>
-                                            <div className="ml-auto">
-
-                                            </div>
+                                <div className='pt-20'>
+                                    <div className="">
+                                        <div className="mb-4 mx-auto flex flex-col text-center">
+                                            <h2 className='mb-6'>Resources & Tooling</h2>
+                                            <p className='max-w-xl mx-auto'>Discuss your application development questions in our Neo Discord channel, where you can find full support from the Neo global community — or help out your peers who are developing on the Neo platform.</p>
                                         </div>
 
-                                    <p className='mb-2 font-bold lg:pl-4'>Choose your stack</p>
-                                        <div className=' flex gap-4 lg:pl-4'>
-                                            <p className={`bg-gray-200 px-3 py-2 cursor-pointer ${selectedTag == "" ? "bg-primary" : ""}`} onClick={() => setSelectedTag("")}>All</p>
+                                        <div className='flex flex-wrap items-start gap-6 justify-evenly py-12'>
+                                            {
+                                                data.map((category) => (
+                                                    <a href={`#${category.title}`} className='text-center flex flex-col items-center justify-center text-secondary hover:text-primary hover:no-underline'>
+                                                        <div className=''>{category.iconSVG}</div>
+                                                        <p className='mt-4 font-semibold w-40'>{category.title}</p>
+                                                    </a>
+                                                ))
+                                            }
+                                        </div>
+
+                                        <div className='flex gap-4 p-6 bg-gray-100 mb-12'>
+                                            <p className={`ppercase text-xs bg-gray-200 px-3 py-2 cursor-pointer ${selectedTag == "" ? "bg-primary" : ""}`} onClick={() => setSelectedTag("")}>All</p>
                                             {
                                                 allTags().map((tag) => (
-                                                    <p className={`bg-gray-200 px-3 py-2 cursor-pointer ${selectedTag == tag ? "bg-primary" : ""}`} onClick={() => setSelectedTag(tag)}>{tag}</p>
+                                                    <p className={`uppercase text-xs bg-gray-200 px-3 py-2 cursor-pointer ${selectedTag == tag ? "bg-primary" : ""}`} onClick={() => setSelectedTag(tag)}>{tag}</p>
                                                 ))
                                             }
 
@@ -335,11 +386,11 @@ export default function Tooling() {
                                     {
                                         data.map((category) => (
 
-                                            <div className="mb-12 lg:pl-4">
+                                            <div className="mb-12">
                                                 <a name={category.title} style={{ display: "block", position: "relative", top: "-80px", visibility: "hidden" }}></a>
-                                                <h1 className="text-lg font-semibold mb-6">{category.title}</h1>
+                                                <h1 className="text-xl font-semibold mb-6">{category.title}</h1>
 
-                                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                                                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                                                     {
                                                         category.tools.filter((tool) => { return category.id == "protocols" || tool.tags.includes(selectedTag) || selectedTag == "" }).length == 0 ?
 
@@ -376,29 +427,30 @@ export default function Tooling() {
                                                                                 }
                                                                                 <div className="bg-transparent text-xs text-secondary px-2 py-1 uppercase">&nbsp;</div>
                                                                             </p>
-                                                                            <div className='flex gap-3'>
-                                                                                <a className="text-gray-500 font-semibold inline-flex items-center" href={tool.web_url} target="_blank">
-                                                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                                                                                    </svg>
+                                                                            <div className='flex'>
+                                                                                <a className="text-secondary hover:text-primary font-semibold inline-flex items-center" href={tool.web_url} target="_blank">
+                                                                                    Website
                                                                                 </a>
                                                                                 {
                                                                                     tool.github_url == "" ? null
                                                                                         :
-                                                                                        <a className="text-gray-500 font-semibold inline-flex items-center" href={tool.github_url} target="_blank">
-                                                                                            <svg class="h-5 w-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                                                                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                                                                                            </svg>
-                                                                                        </a>
+                                                                                        <p>
+                                                                                            &nbsp;|&nbsp;
+                                                                                            <a className="text-secondary hover:text-primary font-semibold inline-flex items-center" href={tool.github_url} target="_blank">
+                                                                                                Github
+                                                                                            </a>
+                                                                                        </p>
                                                                                 }
                                                                                 {
                                                                                     tool.docs_url == "" ? null
                                                                                         :
-                                                                                        <a className="text-gray-500 font-semibold inline-flex items-center" href={tool.docs_url} target="_blank">
-                                                                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                                                                                            </svg>
-                                                                                        </a>
+                                                                                        <p>
+                                                                                            &nbsp;|&nbsp;
+
+                                                                                            <a className="text-secondary hover:text-primary font-semibold inline-flex items-center" href={tool.docs_url} target="_blank">
+                                                                                                Docs
+                                                                                            </a>
+                                                                                        </p>
                                                                                 }
                                                                             </div>
 
