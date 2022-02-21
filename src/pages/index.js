@@ -65,6 +65,11 @@ export default function Home() {
       short_description: "Read up on NeoVM, a lightweight virtual machine for executing Neo smart contracts",
       url: "/docs/n3/foundation/neovm"
     },
+    {
+      title: "RPC API",
+      short_description: "API interface for obtaining blockchain data from the Neo network",
+      url: "docs/n3/reference/rpc/latest-version/api"
+    },
   ]
 
   const advanceFeatures = [
@@ -78,6 +83,24 @@ export default function Home() {
       short_description: "Learn more about Native File storage on Neo",
       url: "/docs/neofs"
     },
+    {
+      title: "Governance API",
+      short_description: "Neo governance API interface",
+      url: "/docs/n3/reference/governance_api/index"
+    },
+    {
+      title: "Smart Contract API",
+      short_description: "Check out Neo Smart Contract API and Interoperable service",
+      url: "/docs/n3/reference/scapi/interop"
+    },
+    {
+      title: "Deploying Smart Contracts",
+      short_description: "Learn how to deploy smart contract on Neo network",
+      url: "/docs/n3/develop/deploy/deploy"
+    }
+
+    
+
   ]
 
   return (
@@ -400,8 +423,8 @@ export default function Home() {
 
 
 
-      <div className="twcontainer px-4 mb-16 max-w-6xl mx-auto">
-        <h1 className="text-2xl font-semibold mb-6">Explore Documentation</h1>
+      <div className="twcontainer px-4 lg:px-0 mb-24 max-w-6xl mx-auto">
+        <h1 className="text-2xl font-semibold mb-14">Explore Documentation</h1>
         <div className="grid lg:grid-cols-3 gap-24">
           <div className="col-span-1 flex flex-col gap-8">
             <p className="text-xl font-semibold">Introduction</p>

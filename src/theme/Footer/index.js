@@ -98,12 +98,16 @@ function Footer() {
             <p className="font-bold mb-2">Ecosystem</p>
             <a href="https://neo.org/contributors#communities">Community</a>
             <a href="https://neo.org/eco#core-developer-grants">Grant Programs</a>
+            <a href="https://neo.org/contributors#core-developers">Contributors</a>
+            <a href="https://neo.org/gov">Neo Governance</a>
           </div>
 
           <div className="flex flex-col gap-2  font-semibold">
             <p className="font-bold mb-2">About Us</p>
             <a href="https://neo.org/about">About Us</a>
-            <a href="mailto:about:neo.org?subject=Developers">Contact</a>
+            <a href="https://neo.org/presskit">Press Kit</a>
+            <a href="https://neo.org/news">Blog</a>
+            <a href="mailto:about@neo.org?subject=Developers">Contact</a>
           </div>
 
         </div>

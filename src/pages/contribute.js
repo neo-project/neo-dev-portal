@@ -13,13 +13,13 @@ export default function Contribute() {
                             <path d="M7 1L1 7L7 13" stroke="#10E6A0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </div>
-                    <h1 className="text-4xl text-secondary font-bold uppercase mb-4">HELP THE COMMUNITY</h1>
+                    <h1 className="text-4xl text-secondary font-bold uppercase mb-8">HELP THE COMMUNITY</h1>
                     <p className='text-secondary'>Neo documentation is a community-driven effort. Join us by contributing your knowledge to help Neo developers.</p>
                 </div>
                 <img src="/contribute/header.png" />
 
                 <div className="mt-12 flex flex-col gap-4 mb-12">
-                    <h3>How to create tutorial</h3>
+                    <h3>How to create a tutorial</h3>
                     <p>1. Create a new directory in <code>tutorials</code> directory using this format   <code>YYYY-MM-DD-your-tutorial-title</code>
                         <p className="">YYYY-MM-DD is the date of your tutorial. Tutorials are sort by date in descending order.</p>
                     </p>

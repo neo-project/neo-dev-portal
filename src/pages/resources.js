@@ -357,12 +357,12 @@ export default function Tooling() {
 
                                 <div className='pt-20'>
                                     <div className="">
-                                        <div className="mb-4 mx-auto flex flex-col text-center">
+                                        <div className="mb-16 mx-auto flex flex-col text-center">
                                             <h2 className='mb-6'>Resources & Tooling</h2>
-                                            <p className='max-w-xl mx-auto'>Discuss your application development questions in our Neo Discord channel, where you can find full support from the Neo global community — or help out your peers who are developing on the Neo platform.</p>
+                                            <p className='max-w-xl mx-auto'>Find everything you need to build on the Neo platform in the language you know best. This page points you to recommended resources and tooling from NGD and Neo developer communities.</p>
                                         </div>
 
-                                        <div className='flex flex-wrap items-start gap-6 justify-evenly py-12'>
+                                        <div className='flex flex-wrap items-start gap-6 justify-evenly mb-16'>
                                             {
                                                 data.map((category) => (
                                                     <a href={`#${category.title}`} className='text-center flex flex-col items-center justify-center text-secondary hover:text-primary hover:no-underline'>
@@ -373,11 +373,11 @@ export default function Tooling() {
                                             }
                                         </div>
 
-                                        <div className='flex gap-4 p-6 bg-gray-100 mb-12'>
+                                        <div className='flex gap-4 p-6 border-t border-b mb-20' style={{backgroundColor:"#FAFBFC"}}>
                                             <p className={`ppercase text-xs bg-gray-200 px-3 py-2 cursor-pointer ${selectedTag == "" ? "bg-primary" : ""}`} onClick={() => setSelectedTag("")}>All</p>
                                             {
                                                 allTags().map((tag) => (
-                                                    <p className={`uppercase text-xs bg-gray-200 px-3 py-2 cursor-pointer ${selectedTag == tag ? "bg-primary" : ""}`} onClick={() => setSelectedTag(tag)}>{tag}</p>
+                                                    <p style={{backgroundColor:"#E5E7EB"}} className={`uppercase text-xs bg-gray-200 px-3 py-2 cursor-pointer ${selectedTag == tag ? "bg-primary" : ""}`} onClick={() => setSelectedTag(tag)}>{tag}</p>
                                                 ))
                                             }
 
@@ -386,7 +386,7 @@ export default function Tooling() {
                                     {
                                         data.map((category) => (
 
-                                            <div className="mb-12">
+                                            <div className="mb-16">
                                                 <a name={category.title} style={{ display: "block", position: "relative", top: "-80px", visibility: "hidden" }}></a>
                                                 <h1 className="text-xl font-semibold mb-6">{category.title}</h1>
 
@@ -422,7 +422,7 @@ export default function Tooling() {
                                                                             <p className="mb-6 flex gap-2">
                                                                                 {
                                                                                     tool.tags.map((t) => (
-                                                                                        <div className="bg-gray-300 text-xs text-secondary px-2 py-1 uppercase">{t}</div>
+                                                                                        <div style={{backgroundColor:"#E5E7EB"}} className=" text-xs text-secondary px-2 py-1 uppercase">{t}</div>
                                                                                     ))
                                                                                 }
                                                                                 <div className="bg-transparent text-xs text-secondary px-2 py-1 uppercase">&nbsp;</div>

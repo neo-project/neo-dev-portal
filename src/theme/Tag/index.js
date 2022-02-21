@@ -15,6 +15,7 @@ function Tag(props) {
       {
         count > 0 ?
           <Link
+            style={{backgroundColor:"#E5E7EB"}}
             href={permalink}
             className={`text-xs font-semibold px-2 py-1 inline-flex items-center  ${selected === name ? "bg-primary hover:text-secondary" : "bg-gray-100 text-secondary"}`}>
             {name}
@@ -31,6 +32,7 @@ function Tag(props) {
           </Link>
           :
           <Link
+            style={{backgroundColor:"#E5E7EB"}}
             href={permalink}
             className={`text-xs font-semibold  px-2 py-1 inline-flex items-center bg-gray-100 text-secondary hover:text-primary`}>
             {name}
