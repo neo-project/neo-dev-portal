@@ -31,9 +31,7 @@ The version allows the transaction structure to be updated to make it backward c
 
 The first field is the script hash of the transaction sender account. Since the UTXO model has been deprecated in Neo N3 and the native assets NEO and GAS turned into NEP-17 assets, the input and outputs fields are no longer recorded in the transaction structure. Instead, the `sender` is used to track the sender of the transaction.   
 
-The rest fields are used to define the effective scope of signature. In Neo Legacy transaction signature is globally effective. In order to allow users to control the signature scope at a finer level of granularity, the cosigners field in the transaction structure has been changed in Neo N3, so that the signature can be used only for verifying the specified contract. 
-
-When checkwitness is used for transaction verification, cosigners except the transaction sender need to define the scope of their signature.
+The rest fields are used to define the effective scope of signature. When checkwitness is used for transaction verification, cosigners except the transaction sender need to define the scope of their signature. See [Signature Scope](#signature-scope) for details.
 
 | Field              | Description                                      | Type           |
 | ------------------ | ------------------------------------------------ | -------------- |
@@ -41,18 +39,6 @@ When checkwitness is used for transaction verification, cosigners except the tra
 | `Scopes`           | Effective range of the signature                 | `WitnessScope` |
 | `AllowedContracts` | Signs array of the allowed contract scripts      | `UInt160[]`    |
 | `AllowedGroups`    | Signs public keys of the allowed contract groups | `ECPoint[]`    |
-
-#### Scopes
-
-Scopes defines the effective range of the signature, including these types:
-
-| Field  | Name              | Description                                                  | Type   |
-| ------ | ----------------- | ------------------------------------------------------------ | ------ |
-| `0x00` | `None`            | The signature is used for transactions only, and is disabled in contracts | `byte` |
-| `0x01` | `CalledByEntry`   | The signature is only effective to the contract script called by Entry | `byte` |
-| `0x10` | `CustomContracts` | The signature is only effective to the specified contract script | `byte` |
-| `0x20` | `CustomGroups`    | The signature is effective to contracts in the group.        | `byte` |
-| `0x80` | `Global`          | The signature is globally effective. It is the default value of Neo Legacy and is backward compatible. | `byte` |
 
 ### sysfee
 
@@ -168,3 +154,258 @@ Here is an example of a JSON-format transaction, where the script and witnesses 
 }
 ```
 
+## Signature Scope
+
+In Neo Legacy transaction signature is globally effective. In order to allow users to control the signature scope at a finer level of granularity, WitnessScope is added to  Neo N3 and the signers field in the transaction structure is changed, so that the signature can be used only for verifying the specified contract, preventing unauthorized contracts from using the user signature.
+
+### Scopes
+
+When constructing a transaction, you need to specify the field `scopes` in `signers`, which defines the effective range of the signature, including these types:
+
+| **Field** | **Name**          | **Description**                                              |
+| --------- | ----------------- | ------------------------------------------------------------ |
+| 0x00      | `None`            | The signature is used for transactions only, and is disabled in contracts |
+| 0x01      | `CalledByEntry`   | The signature is only effective to the contract script called by Entry. |
+| 0x10      | `CustomContracts` | The signature is only effective to the specified contract script. It can be used in conjunction with CalledByEntry. |
+| 0x20      | `CustomGroups`    | The signature is effective to contracts in the group. It can be used in conjunction with CalledByEntry. |
+| 0x80      | `Global`          | The signature is globally effective. The risk is extremely high because the contract may transfer all assets in the address. Only choose it when the contract is extremely trusted. |
+| 0x40      | `WitnessRules`    | You need to specify the rule and scope. See [WitnessRule](#witnessrule) |
+
+For better understanding, suppose there is a contract invocation chain: **[entry]->[Contract A]->[Contract B]->[Contract C]...->[Target]**
+
+And the Target contract invokes CheckWitness to verify the signature. The verification result varies when `scopes` is set to different value. 
+
+- `None` - The verification is passed no matter where the **Target** contract is.
+- `Global` - The verification is passed no matter where the **Target** contract is.
+- `CallByEntry` - The verification is passed only when the **Target** contract is **entry** or **Contract A**.
+- `CustomContracts` - The verification is passed only when the **Target** contract belongs to **CustomContracts**, a contract list you need to customize.
+- `CustomGroups` - The verification is passed only when the **Target** contract is authenticated by any public key in **CustomGroups**, a public key group you need to customize.
+
+### WitnessRule
+
+Action(Allow|Deny) and Condition
+
+The execution logic is to execute the condition and, if is met, return Action, where Allow represents a successful check and Deny represents a failed check.
+
+#### WitnessCondition
+
+- Boolean: true|false
+
+  “expression” =\<bool\>
+
+  ```
+  //Equals to WitnessScope.Global
+  {
+      "account": "NdUL5oDPD159KeFpD5A9zw5xNF1xLX6nLT",
+      "scopes": "WitnessRules",
+      "rules": [{
+              "action": "Allow",
+              "condition": {
+                  "type": "Boolean",
+                  "expression": true
+              }
+          }
+      ]
+  }
+  ```
+
+- Not: Logical NOT. It reverses other conditions.
+
+  “expression”=\<Condition\>
+
+  ```
+  // The signature is allowed only when the contract is not 0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5
+  {
+      "account": "NdUL5oDPD159KeFpD5A9zw5xNF1xLX6nLT",
+      "scopes": "WitnessRules",
+      "rules": [{
+              "action": "Allow",
+              "condition": {
+                  "type": "Not",
+                  "expression": {
+                      "type": "ScriptHash",
+                      "hash": "0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5"
+                  }
+              }
+          }
+      ]
+  }
+  
+  ```
+
+- And: Logical conjunction
+
+  “expressions”=\<Condition[]\>
+
+  ```
+  // The signature is allowed only when the contract is 0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5 and is invoked at entry
+  {
+      "account": "NdUL5oDPD159KeFpD5A9zw5xNF1xLX6nLT",
+      "scopes": "WitnessRules",
+      "rules": [{
+              "action": "Allow",
+              "condition": {
+                  "type": "And",
+                  "expressions": [{
+                          "type": "ScriptHash",
+                          "hash": "0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5"
+                      }, {
+                          "type": "CalledByEntry"
+                      }
+                  ]
+              }
+          }
+      ]
+  }
+  ```
+
+- Or: Logical OR
+
+  “expressions”=\<Condition[]\>
+
+  ```
+  // The signature is allowed only when the contract is 0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5 or is invoked at entry
+  {
+      "account": "NdUL5oDPD159KeFpD5A9zw5xNF1xLX6nLT",
+      "scopes": "WitnessRules",
+      "rules": [{
+              "action": "Allow",
+              "condition": {
+                  "type": "Or",
+                  "expressions": [{
+                          "type": "ScriptHash",
+                          "hash": "0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5"
+                      }, {
+                          "type": "CalledByEntry"
+                      }
+                  ]
+              }
+          }
+      ]
+  }
+  ```
+
+- ScriptHash: verifies that the current contract matches. It equals to CustomContracts
+
+  “hash”=\<UInt160\>
+
+  ```
+  // Only the contract 0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5 is allowd to use the signature
+  {
+      "account": "NdUL5oDPD159KeFpD5A9zw5xNF1xLX6nLT",
+      "scopes": "WitnessRules",
+      "rules": [{
+              "action": "Allow",
+              "condition": {
+                  "type": "ScriptHash",
+                  "hash": "0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5"
+              }
+          }
+      ]
+  }
+  ```
+
+- Group: verifies that the current contract public key matches. It equals to CustomGroups
+
+  “group”=\<ECPoint\>
+
+  ```
+  // Only the contract authorized by 021821807f923a3da004fb73871509d7635bcc05f41edef2a3ca5c941d8bbc1231 is allowed to use the signature
+  {
+      "account": "NdUL5oDPD159KeFpD5A9zw5xNF1xLX6nLT",
+      "scopes": "WitnessRules",
+      "rules": [{
+              "action": "Allow",
+              "condition": {
+                  "type": "Group",
+                  "group": "021821807f923a3da004fb73871509d7635bcc05f41edef2a3ca5c941d8bbc1231"
+              }
+          }
+      ]
+  }
+  ```
+
+- CalledByEntry: Verifies if the current contract is an entry invocation. It equals to CallByEntry
+
+  ```
+  // Equals to WitnessScope.CallByEntry
+  {
+      "account": "NdUL5oDPD159KeFpD5A9zw5xNF1xLX6nLT",
+      "scopes": "WitnessRules",
+      "rules": [{
+              "action": "Allow",
+              "condition": {
+                  "type": "CalledByEntry"
+              }
+          }
+      ]
+  }
+  ```
+
+- CalledByContract: verifies that the previous level contract hash matches.
+
+  “hash”=\<UInt160\>
+
+  ```
+  // The signature is allowed only when the previous level contract is 0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5
+  {
+      "account": "NdUL5oDPD159KeFpD5A9zw5xNF1xLX6nLT",
+      "scopes": "WitnessRules",
+      "rules": [{
+              "action": "Allow",
+              "condition": {
+                  "type": "CalledByContract",
+                  "hash": "0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5"
+              }
+          }
+      ]
+  }
+  ```
+
+- CalledByGroup: verifies that the previous level contract public key matches.
+
+  “group”=\<UInt160\>
+
+  ```
+  // The signature is allowed only when the previous level contract is authorized by the public key 021821807f923a3da004fb73871509d7635bcc05f41edef2a3ca5c941d8bbc1231
+  {
+      "account": "NdUL5oDPD159KeFpD5A9zw5xNF1xLX6nLT",
+      "scopes": "WitnessRules",
+      "rules": [{
+              "action": "Allow",
+              "condition": {
+                  "type": "CalledByGroup",
+                  "group": "021821807f923a3da004fb73871509d7635bcc05f41edef2a3ca5c941d8bbc1231"
+              }
+          }
+      ]
+  } 
+  ```
+
+### Example
+
+Currently you can only define this field when constructing the transaction with SDK. For better understanding you can refer to the following code example in the JSON format. 
+
+```json
+{
+    "account": "NdUL5oDPD159KeFpD5A9zw5xNF1xLX6nLT",
+    "scopes": "WitnessRules",
+    "rules": [{
+            "action": "Allow",
+            "condition": {
+                "type": "Not",
+                "expression": {
+                    "type": "And",
+                    "expressions": [{
+                            "type": "ScriptHash",
+                            "hash": "0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5"
+                        }, {
+                            "type": "CalledByEntry"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}
+```

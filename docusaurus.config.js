@@ -56,9 +56,10 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       algolia: {
-        appId: 'TR8VWJ8YS7',
-        apiKey: 'f1f30e0d9ee66fa7a8c760cf5750e085',
-        indexName: 'neo-dev-portal'
+        appId: '9XZWQJ9630',
+        apiKey: '977b10ae6a7dbd92c6f26e6ba138e20a',
+        indexName: 'developers-neo',
+        debug: false
       },
       colorMode: {
         defaultMode: 'light',
