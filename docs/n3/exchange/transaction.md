@@ -1,8 +1,3 @@
----
-sidebar_label: 'Dealing with Asset Transactions'
-sidebar_position: 3
----
-
 # Dealing with Asset Transactions
 
 ## Overview
@@ -31,7 +26,7 @@ NetworkFee = VerificationCost + tx.size * FeePerByte
 
 ## System fee
 
-The system fee is charged for the instructions executed by NeoVM. For each instruction fee refer to [System Fee](../fees). The total system fee you need to pay depends on the number and type of the instructions executed by your smart contract. The following figure shows the calculation formula:
+The system fee is charged for the instructions executed by NeoVM. For each instruction fee refer to [System Fee](../reference/fees.md). The total system fee you need to pay depends on the number and type of the instructions executed by your smart contract. The following figure shows the calculation formula:
 
 ```
 SystemFee = InvocationCost = The sum of all executed opcode fee
@@ -43,7 +38,7 @@ In Neo N3, NeoVM instructions fee has decreased to 1/1000 of the original fee in
 
 In comparison with Neo Legacy: 
 
-![netfee](assets/feecomparewith2x.png)
+![netfee](../../zh-cn/exchange/assets/feecomparewith2x.png)
 
 ## Dealing with query transactions
 
@@ -54,7 +49,7 @@ The way for a exchange itself to query balance of the user deposit address is di
 The exchange needs to do the following:
 
 1. Construct JSON files to invoke either of the following RPC methods:
-   - getnep17balances (Plugin [RpcNep17Tracker](https://github.com/neo-project/neo-modules/releases/) is required)
+   - getnep17balances (Plugin [TokensTracker](https://github.com/neo-project/neo-modules/releases/) is required)
    - invokefunction (Plugin [RpcServer](https://github.com/neo-project/neo-modules/releases/) is required)
 2. Send a `getnep17balances` request to the Neo RPC server to get the asset hash and amount.
 3. Send the invokefunction requests twice to the Neo RPC server to get the corresponding asset symbol and decimals, respectively.
@@ -361,11 +356,12 @@ The following shows an example of the API invoking result.
 }
 ```
 
-:::note
-
-- The failed NEP-17 transaction can also be recorded in blockchain, so you need to determine whether the vm status parameter "vmstate" is correct (HALT). 
-- "vmstate" indicates the vm status after it executes the contract. If it contains "FAULT", that means the execution is failed and the transaction is invalid. 
-:::
+> [!Note]
+>
+> This example shows the log of a successful token transfer, however, in case of a failed transfer or NeoVM exception, the outcomes can be:
+>
+> - Failed transfer: no Transfer notification event is returned, execution ends in a `HALT` state with a stack value of `False`.
+> - NeoVM exception: a Transfer notification event may or may not be returned, but execution ends in a `FAULT` state.
 
 The parameters related to a transaction in the file are the following:
 
@@ -377,11 +373,10 @@ The parameters related to a transaction in the file are the following:
 
   - from account: The first object in the array is the account address where the asset is transferred from. Its type "bytearray" and the value "uXtKzX+CD2HS1NT5rqXrUEmN31U=“ can be  decoded to "NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o" with base64. 
 
-:::note
-
-In Neo, hexadecimal strings are processed in big-endian order if they are preceded by 0x, or little-endian order if they are not.
-:::
-
+    > [!Note]
+    >
+    > In Neo, hexadecimal strings are processed in big-endian order if they are preceded by 0x, or little-endian order if they are not.
+    
     ```json
     {
     "type": "ByteString",
@@ -408,10 +403,9 @@ In Neo, hexadecimal strings are processed in big-endian order if they are preced
     ```
     
 
-:::note
-
-Regarding the data format conversion of the transfer in the file, you can refer to [Neo3 data conversion](https://neo.org/converter/index).
-:::
+> [!Note]
+>
+> Regarding the data format conversion of the transfer in the file, you can refer to [Neo3 data conversion](https://neo.org/converter/index).
 
 ## Dealing with User Withdrawals
 
@@ -461,10 +455,9 @@ TXID: 0xae0675797c2d738dcadb21cec3f1809ff453ac291046a05ac679cbd95b79c856
 
 ### RPC Method: openwallet
 
-:::note
-
-Before you can invoke any of the wallet-related RPC methods you must invoke the method `openwallet` first.
-:::
+> [!Note]
+>
+> Before you can invoke any of the wallet-related RPC methods you must invoke the method `openwallet` first.
 
 The key "params" includes an array of two parameters.
 

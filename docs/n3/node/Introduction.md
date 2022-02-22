@@ -1,8 +1,3 @@
----
-sidebar_label: 'Introduction'
-sidebar_position: 0
----
-
 # Neo Node Introduction
 Nodes that store all of the blockchain are called “full-nodes”. They are connected to the blockchain through a P2P network. All the nodes in the blockchain network are equal, they act both as a client interface and as a server.
 
@@ -41,13 +36,13 @@ There are two full-node programs:
 | Create multi-party signed address | ✔   | ✔ |
 | Generate multiple addresses |      | ✔   |
 | Change wallet password | ✔   | ✔    |
-| Delete address | ✔   |     |
+| Delete address | ✔   | ✔ |
 | **Contract** |  |  |
 | Query contract | ✔   |    |
 | Deploy contract | ✔   | ✔   |
 | Invoke contract | ✔   | ✔   |
 | **Advanced** |  |  |
-| Register to candidate | ✔   |      |
+| Register to candidate | ✔   | ✔ |
 | Voting | ✔   | ✔ |
 | Custom transaction construction | ✔   |  |
 | Signature | ✔   | ✔ |
@@ -59,10 +54,9 @@ There are two full-node programs:
 
 To enable an external program to access the node API, you need to open the firewall port. 
 
-:::caution
-
-To avoid the significant security risk, a whitelist or firewall must be used to block external server requests.
-:::
+> [!CAUTION]
+>
+> To avoid the significant security risk, a whitelist or firewall must be used to block external server requests.
 
 Neo-CLI does not provide the function to remotely switching on/off the wallet, and it does not verify the process when opening a wallet. Therefore, you should set your own security policies. The wallet must be kept open all the time to respond to the withdrawal requests of users. For security reasons, the wallets should be run in an independent server on which the firewall is configured properly, as shown below. 
 

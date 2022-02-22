@@ -1,11 +1,6 @@
----
-sidebar_label: 'Wallets'
-sidebar_position: 3
----
-
 # Wallets
 
-Wallets are basic components of Neo and the bridges for users to access the Neo network. They are responsible for transaction operations such as transfer, contract deployment, asset registration, etc.
+Wallets are basic components of Neo and the bridges for users to access Neo network. They are responsible for transaction operations such as transfer, contract deployment, asset registration, etc.
 
 You can redesign and modify Neo wallets following your own thoughts, but the below rules and patterns must be followed.
 
@@ -13,7 +8,7 @@ You can redesign and modify Neo wallets following your own thoughts, but the bel
 
 In Neo, the account is the smart contract and the address represents a contract script. The below flow diagram shows how to derive the public key from the private key and then to the address:
 
-![](images/wallets/privatekey-2-publickey-address.png)
+![](../images/wallets/privatekey-2-publickey-address.png)
 
 ### Private Key
 
@@ -29,13 +24,13 @@ There are two main encoding formats for private keys in Neo:
 
    The wif format is to add prefix `0x80` and suffix `0x01` in the original 32-byte data, and get the string after Base58Check encoding.
 
-![](images/wallets/wif_format.png)
+![](../images/wallets\wif_format.png)
 
  Example: 
 
 | Format | Value |
 |---|---|
-| byte[] | [0xc7,0x13,0x4d,0x6f,0xd8,0xe7,0x3d,0x81,0x9e,0x82,0x75,<br/>0x5c,0x64,0xc9,0x37,0x88,0xd8,0xdb,0x09,0x61,0x92,0x9e,<br/>0x02,0x5a,0x53,0x36,0x3c,0x4c,0xc0,0x2a,0x69,0x62] |
+| byte[] | [0xc7,0x13,0x4d,0x6f,0xd8,0xe7,0x3d,0x81,0x9e,0x82,0x75,<br>0x5c,0x64,0xc9,0x37,0x88,0xd8,0xdb,0x09,0x61,0x92,0x9e,<br>0x02,0x5a,0x53,0x36,0x3c,0x4c,0xc0,0x2a,0x69,0x62] |
 | hexstring | c7134d6fd8e73d819e82755c64c93788d8db0961929e025a53363c4cc02a6962 |
 | wif | L3tgppXLgdaeqSGSFw1Go3skBiy8vQAM7YMXvTHsKQtE16PBncSU |
 
@@ -63,10 +58,9 @@ Example:
 
 Address is a string of numbers and letters after a series of transformations of the public key. This section will describes the steps of conversion from a public key to an address in Neo.
 
-:::note
-
-The address script in Neo N3 has changed not using the Opcode.CheckSig and OpCode.CheckMultiSig but the interoperable service call `SysCall "Neo.Crypto.CheckSig".hash2uint`, `SysCall "Neo.Crypto.CheckMultisig".hash2unit` instead.
-:::
+> [!Note]
+>
+> The address script in Neo N3 has changed not using the Opcode.CheckSig and OpCode.CheckMultiSig but the interoperable service call `SysCall "Neo.Crypto.CheckSig".hash2uint`, `SysCall "Neo.Crypto.CheckMultisig".hash2unit` instead.
 
 #### Ordinary Address
 
@@ -76,7 +70,7 @@ The address script in Neo N3 has changed not using the Opcode.CheckSig and OpCod
     0x0C + 0x21 + Public Key (Compressed 33 bytes) + 0x41 + 0x56e7b327
     ```
 
-    ![](images/wallets/account_address_script_checksign.png)
+    ![](..\images\wallets\account_address_script_checksign.png)
 
 2. Calculate script hash of the contract (20 bytes, make once SHA256 and RIPEMD160 of the script). 
 
@@ -91,7 +85,7 @@ Example：
 | Private Key | 087780053c374394a48d685aacf021804fa9fab19537d16194ee215e825942a0 |
 | Public Key (Compressed) | 03cdb067d930fd5adaa6c68545016044aaddec64ba39e548250eaea551172e535c |
 | Script | 0c2103cdb067d930fd5adaa6c68545016044aaddec64ba39e548250eaea551172e535c4156e7b327 |
-| Address | NhZ5eahZAZ6UBsbCLcCQH6qqHdzuxt2HKa |
+| Address | NNLi44dJNXtDNSBkofB48aTVYtb1zZrNEs |
 
 #### Multi-Signature Address
 
@@ -101,7 +95,7 @@ Example：
    emitPush(N) + 0x0C + 0x21 + Public Key 1 (Compressed 33 bytes)  + .... + 0x0C + 0x21 + Public Key m (Compressed 33 bytes)  + emitPush(M) + 0x41 + 0x9ed0dc3a
    ```
 
-   ![](images/wallets/account_address_script_multi_checksign.png)
+   ![](..\images\wallets\account_address_script_multi_checksign.png)
 
 2. Calculate script hash of the contract (20 bytes, make once SHA256 and RIPEMD160 of the script).
 
@@ -118,10 +112,9 @@ Example:
 | Script                  | 110c21036c8431cc78b33177a60b4bcc02baf60d05fee5038e7339d3a688e394c2cbd8430c2103cdb067d930fd5adaa6c68545016044aaddec64ba39e548250eaea551172e535c12419ed0dc3a |
 | Address                 | NZ3pqnc1hMN8EHW55ZnCnu8B2wooXJHCyr                           |
 
-:::note
-
-Please pay attention to the interval of the number for the usage of `emitPush(number)`. Here is an example in the case of the number being BigInteger, where data = number.ToByteArray():
-:::
+> [!Note]
+>
+> Please pay attention to the interval of the number for the usage of `emitPush(number)`. Here is an example in the case of the number being BigInteger, where data = number.ToByteArray():
 
 | Number           | Emit OpCode                        | Value            |
 | ---------------- | ---------------------------------- | ---------------- |
@@ -154,7 +147,7 @@ To convert between the wallet address and scripthash, or between big endian and 
 
 The db3 wallet is commonly used in wallets of the exchange to facilitate a large amount of account information storage and the retrieval queries.
 
-A db3 wallet file uses SQLite to store data, and the file name extension is `.db3`. There are four tables created in a db3 file：
+A db3 wallet file uses SQLite to store data, and the file name extension is `.db3`. There are four tables created in db3 file：
 
 - Account
 
@@ -258,7 +251,7 @@ An NEP6 wallet uses scrypt algorithm as the core method of wallet encryption and
 
 #### Encryption steps
 
-![](images/wallets/nep2key.png)
+![](..\images\wallets\nep2key.png)
 
 1. The address is derived from the public key, and the address hash is the first four bytes of `SHA256(SHA256(Address))`
 
@@ -297,9 +290,9 @@ An NEP6 wallet uses scrypt algorithm as the core method of wallet encryption and
 
 More details about NEP2 and NEP6 proposals are in the Neo document.
 
-NEP2 proposal: https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki
+NEP2 proposal: <https://github.com/neo-project/proposals/blob/master/nep-2.mediawiki>
 
-NEP6 proposal：https://github.com/neo-project/proposals/blob/master/nep-6.mediawiki
+NEP6 proposal：<https://github.com/neo-project/proposals/blob/master/nep-6.mediawiki>
 
 ## Signature
 
@@ -372,7 +365,7 @@ Neo-CLI and Neo-GUI are all full-node wallet. For more information refer to [Neo
 
 ### SPV wallet
 
-The SPV (Simplified Payment Verification) wallet is different from a full-node wallet. It doesn't store all block data, only block header data, and verifies the data by using bloom filter and merkle tree algorithm. It's mostly used in mobile app or light client, as it can save storage space effectively.
+The SPV (Simplified Payment Verification) wallet is different from full-node wallet. It doesn't store all block data, only block header data, and verifies the data by using bloom filter and merkle tree algorithm. It's mostly used in mobile app or light client, as it can save storage space effectively.
 
 For developing SPV wallet, refer to the NEO network protocol interface.
 
