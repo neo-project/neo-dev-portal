@@ -48,6 +48,10 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           customCss: require.resolve('./src/css/tailwind.output.css'),
           // customCss: require.resolve('./src/css/custom.css'),
         },
+        googleAnalytics: {
+          trackingID: 'G-5M9291B1QD',
+          anonymizeIP: true,
+        },
       }),
     ],
   ],
