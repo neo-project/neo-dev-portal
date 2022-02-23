@@ -11,7 +11,7 @@ There is no duty assigned to candidates. However, committee members and validato
 
 ![](../images/consensus/vote_candidate.png)
 
-Every address has the right to vote to only one address (whether or not it's a candidate). Candidate's received votes are defined as the sum of NEO held by its voter. 
+Every address has the right to vote to only one address (whether or not it's a candidate). A candidate's received votes are defined as the sum of NEO held by its voter. 
 
 Voting is a dynamic and continuous process. If the NEO asset of a voter is changed, the number of votes at the previous voting address will also change, and the list of consensus nodes and committee members will change accordingly every 21 blocks.
 
