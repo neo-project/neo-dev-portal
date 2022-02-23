@@ -1081,6 +1081,7 @@ It has implemented common operations for array, map, struct, etc.
 | Fee | 0.00002048 GAS                            |
 | Function   | Converts the top item to the specified type. |
 
-> [!Note]
->
-> The operation code with \* indicates that the result of the operation is not pushed back to the `EvaluationStack` using `PUSH()`.
+:::note
+
+The operation code with \* indicates that the result of the operation is not pushed back to the `EvaluationStack` using `PUSH()`.
+:::

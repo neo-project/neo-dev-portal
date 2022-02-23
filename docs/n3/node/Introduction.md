@@ -54,9 +54,10 @@ There are two full-node programs:
 
 To enable an external program to access the node API, you need to open the firewall port. 
 
-> [!CAUTION]
->
-> To avoid the significant security risk, a whitelist or firewall must be used to block external server requests.
+:::caution
+
+To avoid the significant security risk, a whitelist or firewall must be used to block external server requests.
+:::
 
 Neo-CLI does not provide the function to remotely switching on/off the wallet, and it does not verify the process when opening a wallet. Therefore, you should set your own security policies. The wallet must be kept open all the time to respond to the withdrawal requests of users. For security reasons, the wallets should be run in an independent server on which the firewall is configured properly, as shown below. 
 
