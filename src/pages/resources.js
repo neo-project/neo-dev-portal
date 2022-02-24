@@ -1,16 +1,22 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import BrowserOnly from '@docusaurus/BrowserOnly';
-export default function Tooling() {
+import { useHistory } from "react-router-dom"
+
+export default function Tooling(props) {
     return (
         <BrowserOnly>
             {() => {
 
+const search = props.location.search; 
+const params = new URLSearchParams(search);
 
-                const [selectedTags, setSelectedTags] = React.useState([])
-                const [selectedCategories, setSelectedCategories] = React.useState([])
+
+                const [selectedTags, setSelectedTags] = React.useState(params.get('tags') ? params.get('tags').split(",") : [])
+                const [selectedCategories, setSelectedCategories] = React.useState(params.get('categories') ? params.get('categories').split(",") : [])
                 const [searchResult, setSearchResult] = React.useState([])
-
+                const history = useHistory()
+                
                 //Define category item here
                 const categories = {
                     "protocols" :
@@ -366,6 +372,21 @@ export default function Tooling() {
 
                 React.useEffect(() => {
 
+                    const params = new URLSearchParams()
+                    if (selectedTags.length >0) {
+                        params.append("tags", selectedTags)
+                    } else {
+                        params.delete("tags")
+                    }
+
+                    if (selectedCategories.length > 0) {
+                      params.append("categories", selectedCategories)
+                    } else {
+                      params.delete("categories")
+                      
+                    }
+                    history.push({search: params.toString()})
+
                     if (selectedTags.length ==0  && selectedCategories.length === 0) { 
                         setSearchResult([])
                         return
@@ -384,18 +405,15 @@ export default function Tooling() {
                         temp = [...resources]
                     }
 
+                    //when user selected tags/languages
                     if (selectedTags.length > 0) {
-                        selectedTags.map((tag) => {
-                            let filtered = temp.filter((item) => {
+                       let filtered =  selectedTags.map((tag) => {
+                            return temp.filter((item) => {
                                 return item.supported_languages.includes(tag)
-                            })
-                            if (selectedCategories.length > 0) {
-                                temp = filtered
-                            } else {
-                                temp= filtered
-                            }
-                            
+                            })  
                         })
+                        let unique = filtered.reduce((prev, curr) => prev.concat(curr), [])
+                        temp = unique
                     }
 
                     if (selectedTags.length > 0 || selectedCategories.length > 0) {
@@ -403,6 +421,8 @@ export default function Tooling() {
                     } else {
                         setSearchResult([])
                     }
+
+
 
                 }, [selectedTags, selectedCategories])
 
@@ -422,7 +442,7 @@ export default function Tooling() {
                                         <div className='flex flex-wrap items-start gap-6 justify-evenly mb-16'>
                                             {
                                                 Object.keys(categories).map((key) => (
-                                                    <div onClick={(e) => onSelectCategory(e, key)}
+                                                    <div key={key} onClick={(e) => onSelectCategory(e, key)}
                                                         className={`cursor-pointer text-center flex flex-col items-center justify-center hover:text-primary hover:no-underline ${selectedCategories.indexOf(key) > -1 ? "text-primary" : "text-secondary"}`}>
                                                         <div className=''>{categories[key].iconSVG}</div>
                                                         <p className='mt-4 font-semibold w-40'>{categories[key].title}</p>
@@ -434,7 +454,7 @@ export default function Tooling() {
                                         <div className='flex gap-4 p-6 border-t border-b mb-20' style={{ backgroundColor: "#FAFBFC" }}>
                                             {
                                                 allLanguages().map((tag) => (
-                                                    <p className={`uppercase text-xs bg-gray-200 px-3 py-2 cursor-pointer ${selectedTags.indexOf(tag) > -1 ? "bg-primary" : ""}`} onClick={(e) => onSelectTag(e, tag)}>{tag}</p>
+                                                    <p key={tag} className={`uppercase text-xs bg-gray-200 px-3 py-2 cursor-pointer ${selectedTags.indexOf(tag) > -1 ? "bg-primary" : ""}`} onClick={(e) => onSelectTag(e, tag)}>{tag}</p>
                                                 ))
                                             }
                                         </div>
@@ -444,11 +464,11 @@ export default function Tooling() {
                                             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 gap-y-8 mb-20">
                                                 {
                                                     searchResult.map((item) => (
-                                                        <div className="">
+                                                        <div key={item.name} className="">
                                                             <div className="border hover:border-primary hover:shadow-lg" style={{ height: 504 }}>
                                                                 <div className='px-6 py-3 border-b flex items-center truncate overflow-ellipsis gap-3'>
                                                                     {item.categories.map((id)=> (
-                                                                        <p className='font-semibold'>{categories[id].title}</p>
+                                                                        <p key={id} className='font-semibold'>{categories[id].title}</p>
                                                                     ))}
                                                                 </div>
                                                                 <div className="border-b flex items-center justify-center p-10">
@@ -459,15 +479,15 @@ export default function Tooling() {
                                                                     <p className="text-sm text-gray-500 mb-4">{item.by}</p>
                                                                     <p className=" line-clamp-3 mb-4">{item.description}</p>
                                                                     <p className='text-xs mb-3 uppercase'>Supported languages:</p>
-                                                                    <p className="mb-6 flex gap-2">
+                                                                    <div className="mb-6 flex gap-2">
 
                                                                         {
                                                                             item.supported_languages.map((t) => (
-                                                                                <div className=" text-xs text-secondary px-2 py-1 uppercase bg-gray-200">{t}</div>
+                                                                                <div key={t} className=" text-xs text-secondary px-2 py-1 uppercase bg-gray-200">{t}</div>
                                                                             ))
                                                                         }
                                                                         <div className="bg-transparent text-xs text-secondary px-2 py-1 uppercase">&nbsp;</div>
-                                                                    </p>
+                                                                    </div>
                                                                     <div className='flex'>
                                                                         <a className="text-secondary hover:text-primary font-semibold inline-flex items-center" href={item.web_url} target="_blank">
                                                                             Website
@@ -507,7 +527,7 @@ export default function Tooling() {
                                     {
                                         selectedTags.length === 0 && selectedCategories.length === 0 && Object.keys(categories).map((key) => (
                                                 
-                                            <div className="mb-20">
+                                            <div key={key} className="mb-20">
                                                 <a name={categories[key].title} style={{ display: "block", position: "relative", top: "-80px", visibility: "hidden" }}></a>
                                                 <h1 className="text-xl font-semibold mb-6">{categories[key].title}</h1>
 
@@ -528,7 +548,7 @@ export default function Tooling() {
 
                                                                             {
                                                                                 item.supported_languages.map((t) => (
-                                                                                    <div className=" text-xs text-secondary px-2 py-1 uppercase bg-gray-200">{t}</div>
+                                                                                    <div key={t} className=" text-xs text-secondary px-2 py-1 uppercase bg-gray-200">{t}</div>
                                                                                 ))
                                                                             }
                                                                             <div className="bg-transparent text-xs text-secondary px-2 py-1 uppercase">&nbsp;</div>
