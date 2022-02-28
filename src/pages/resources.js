@@ -8,18 +8,18 @@ export default function Tooling(props) {
         <BrowserOnly>
             {() => {
 
-const search = props.location.search; 
-const params = new URLSearchParams(search);
+                const search = props.location.search;
+                const params = new URLSearchParams(search);
 
 
                 const [selectedTags, setSelectedTags] = React.useState(params.get('tags') ? params.get('tags').split(",") : [])
                 const [selectedCategories, setSelectedCategories] = React.useState(params.get('categories') ? params.get('categories').split(",") : [])
                 const [searchResult, setSearchResult] = React.useState([])
                 const history = useHistory()
-                
+
                 //Define category item here
                 const categories = {
-                    "protocols" :
+                    "protocols":
                     {
                         title: "Protocols",
                         id: "protocols",
@@ -131,7 +131,7 @@ const params = new URLSearchParams(search);
                         web_url: "https://marketplace.visualstudio.com/items?itemName=ngd-seattle.neo-blockchain-toolkit",
                         github_url: "https://github.com/neo-project/neo-blockchain-toolkit",
                         docs_url: "https://github.com/neo-project/neo-blockchain-toolkit",
-                        supported_languages: ["c#","python","java","js","go"],
+                        supported_languages: ["c#", "python", "java", "js", "go"],
                         categories: ["dev-env"],
                     },
                     {
@@ -373,21 +373,21 @@ const params = new URLSearchParams(search);
                 React.useEffect(() => {
 
                     const params = new URLSearchParams()
-                    if (selectedTags.length >0) {
+                    if (selectedTags.length > 0) {
                         params.append("tags", selectedTags)
                     } else {
                         params.delete("tags")
                     }
 
                     if (selectedCategories.length > 0) {
-                      params.append("categories", selectedCategories)
+                        params.append("categories", selectedCategories)
                     } else {
-                      params.delete("categories")
-                      
-                    }
-                    history.push({search: params.toString()})
+                        params.delete("categories")
 
-                    if (selectedTags.length ==0  && selectedCategories.length === 0) { 
+                    }
+                    history.push({ search: params.toString() })
+
+                    if (selectedTags.length == 0 && selectedCategories.length === 0) {
                         setSearchResult([])
                         return
                     }
@@ -407,10 +407,10 @@ const params = new URLSearchParams(search);
 
                     //when user selected tags/languages
                     if (selectedTags.length > 0) {
-                       let filtered =  selectedTags.map((tag) => {
+                        let filtered = selectedTags.map((tag) => {
                             return temp.filter((item) => {
                                 return item.supported_languages.includes(tag)
-                            })  
+                            })
                         })
                         let unique = filtered.reduce((prev, curr) => prev.concat(curr), [])
                         temp = unique
@@ -443,18 +443,42 @@ const params = new URLSearchParams(search);
                                             {
                                                 Object.keys(categories).map((key) => (
                                                     <div key={key} onClick={(e) => onSelectCategory(e, key)}
-                                                        className={`cursor-pointer text-center flex flex-col items-center justify-center hover:text-primary hover:no-underline ${selectedCategories.indexOf(key) > -1 ? "text-primary" : "text-secondary"}`}>
-                                                        <div className=''>{categories[key].iconSVG}</div>
+                                                        className={` relative cursor-pointer text-center flex flex-col items-center justify-center hover:text-primary hover:no-underline ${selectedCategories.indexOf(key) > -1 ? "text-primary" : "text-secondary"}`}>
+                                                        <div className='relative'>
+                                                            {categories[key].iconSVG}
+                                                            {
+                                                                selectedCategories.indexOf(key) > -1 ?
+                                                                    <div className='absolute -top-2  -right-6'>
+                                                                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M3.50008 3.50001L6.5 6.5M6.49992 3.5L3.5 6.49999" stroke="#10E6A0" stroke-linecap="round" />
+                                                                            <circle cx="5" cy="5" r="4.5" stroke="#10E6A0" />
+                                                                        </svg>
+                                                                    </div>
+                                                                    : null
+                                                            }
+
+                                                        </div>
                                                         <p className='mt-4 font-semibold w-40'>{categories[key].title}</p>
                                                     </div>
                                                 ))
                                             }
+
                                         </div>
 
                                         <div className='flex gap-4 p-6 border-t border-b mb-20' style={{ backgroundColor: "#FAFBFC" }}>
                                             {
                                                 allLanguages().map((tag) => (
-                                                    <p key={tag} className={`uppercase text-xs bg-gray-200 px-3 py-2 cursor-pointer ${selectedTags.indexOf(tag) > -1 ? "bg-primary" : ""}`} onClick={(e) => onSelectTag(e, tag)}>{tag}</p>
+                                                    <p key={tag} className={`text-xs font-semibold px-2 font-medium py-1 inline-flex items-center cursor-pointer ${selectedTags.indexOf(tag) > -1 ? "bg-primary text-secondary" : "bg-gray-200 text-secondary"}`} onClick={(e) => onSelectTag(e, tag)}>
+                                                        {tag.toUpperCase()}
+                                                        {
+                                                            selectedTags.indexOf(tag) > -1 ?
+                                                                <svg className='ml-1' width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M3.50008 3.50001L6.5 6.5M6.49992 3.5L3.5 6.49999" stroke="#000033" stroke-linecap="round" />
+                                                                    <circle cx="5" cy="5" r="4.5" stroke="#000033" />
+                                                                </svg>
+                                                                : null
+                                                        }
+                                                    </p>
                                                 ))
                                             }
                                         </div>
@@ -467,7 +491,7 @@ const params = new URLSearchParams(search);
                                                         <div key={item.name} className="">
                                                             <div className="border hover:border-primary hover:shadow-lg" style={{ height: 504 }}>
                                                                 <div className='px-6 py-3 border-b flex items-center truncate overflow-ellipsis gap-3'>
-                                                                    {item.categories.map((id)=> (
+                                                                    {item.categories.map((id) => (
                                                                         <p key={id} className='font-semibold'>{categories[id].title}</p>
                                                                     ))}
                                                                 </div>
@@ -526,7 +550,7 @@ const params = new URLSearchParams(search);
 
                                     {
                                         selectedTags.length === 0 && selectedCategories.length === 0 && Object.keys(categories).map((key) => (
-                                                
+
                                             <div key={key} className="mb-20">
                                                 <a name={categories[key].title} style={{ display: "block", position: "relative", top: "-80px", visibility: "hidden" }}></a>
                                                 <h1 className="text-xl font-semibold mb-6">{categories[key].title}</h1>
