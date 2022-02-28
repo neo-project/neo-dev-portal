@@ -13,11 +13,9 @@ sidebar: true
 ---
 
 
-# 1. Introduction
 
 When building an application which interfaces with the Neo blockchain, it is imperative to have the ability to communicate
-with smart contracts. This is especially important in N3 since the NEO and GAS tokens are represented as native NEP-17
-formatted smart contracts instead of the UTXO-based native implementation of Neo Legacy. In this article, we will be
+with smart contracts. In this article, we will be
 providing an overview of the different types of contract invocations, as well as how to execute them both to read and publish
 data to the blockchain using the Neon.js TypeScript SDK.
 
@@ -29,10 +27,11 @@ referenced articles, check the `related articles` link in the navigation bar.
 ## Our Environment
 
 In this article, we will using the following for our development environment:
-  * Neo-Express in the same configuration defined in [Introduction to Contract Development](./hello_world_dapp)
-  * [Boa v0.8.1](https://github.com/CityOfZion/neo3-boa/releases/tag/v0.8.1)
-  * Node.js v14.17.0 (LTS)
-  * [Neon.js v5.0.0-next.11](https://github.com/CityOfZion/neon-js/releases/tag/v5.0.0-next.11)
+  * [.NET 6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
+  * [Node.js v14.17.0](https://nodejs.org/en/download/)
+  * [Neo-Express](https://github.com/neo-project/neo-express)
+  * [Neo3-boa](https://github.com/CityOfZion/neo3-boa/)
+  * [Neon.js-next](https://github.com/CityOfZion/neon-js/)
 
 
 # 2. Types of Invocations

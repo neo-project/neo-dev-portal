@@ -9,42 +9,29 @@ image: ./assets/cover.png
 sidebar: true
 ---
 
-# 0. Prologue
-
-Smart contracts are certainly amongst the most vital and innovative components of the ongoing revolution surrounding blockchain technology. Following the path opened by Ethereum, as the next big step after Bitcoin, **Neo** excels as a platform optimized for decentralized trustless automated transactions powered by the code contained in these contracts.
-
-If the rhythmic generation of blocks is the pumping heart of the network, transactions the blood that carries information back and forth, then smart contracts play the role of veins and arteries, structuring the circulatory system for the next generation of the internet: decentralized autonomous applications.
 
 ## Python Smart Contracts
 
-Writing smart contracts for the Neo Blockchain can be done in a number of different programming languages, using different tools to build the contract's logic and compile it into code executable by Neo Virtual Machine (NeoVM).
-
 This tutorial will cover the basics of contract development with **boa**, a full fledged Python compiler for Neo.
 
-To showcase Boa's general usage, syntax and some of its basic features, we'll be implementing a simple Token, compliant to the NEP-17 standard. In this sense, the present document might be of interest not only to Python enthusiasts, but to anyone trying to grasp blockchain basics, token design-patterns, and smart contract general structure in Neo.
+To showcase Boa's general usage, syntax and some of its basic features, we'll be creating a crypto currency (token), compliant to the NEP-17 standard. In this sense, the present document might be of interest not only to Python enthusiasts, but to anyone trying to grasp blockchain basics, token design-patterns, and smart contract general structure in Neo.
 
 # 1. Requirements
 
 - Minimum Python3 knowledge to create the smart contract's logic;
-- Python 3.7 or later;
+- Python 3.9;
 - Having the latest version of [boa](./neo3/boa/getting-started.html) installed to build and compile the smart contract;
 
-## Our Environment
-
-At the time of writing:
-
-- [boa v0.8.2](https://github.com/CityOfZion/neo3-boa/releases/tag/v0.8.2)
-- [VSCode v1.57.0](https://code.visualstudio.com/updates/v1_57)
 
 # 2. Tokens in Neo
 
 With the N3 update, Neo is adopting an account model for all tokens in the network, including it's native tokens: **NEO** and **GAS**.
 
-Simply put, this means that every token is a deployed smart contract that keeps a ledger with the balance of each and every account that holds any amount of it. The smart contract also defines the characteristics of the token, like its symbol and total supply, and manages every transfer of that token between addresses.
+Simply put, this means that every token is represented by a deployed smart contract. The contract keeps a ledger with the balance of each and every account that holds any amount of it. The smart contract also defines the characteristics of the token, like its symbol and total supply, and manages every transfer of that token between addresses.
 
 ## NEP-17 Standard
 
-To ensure interoperability every token contract should support at least one of the token standards. These standards define a set of methods and behaviors that allow platforms (like exchanges, dApps, and other contracts) to easily interface with.
+To ensure interoperability, every token contract must follow existing token standards. These standards define a set of methods and behaviors that allow platforms, like exchanges, dApps, and other contracts, to easily interface with.
 
 In Neo, the common blueprint for Fungible Tokens is defined in the **[NEP-17 Token Standard](https://docs.neo.org/docs/en-us/develop/write/nep17.html)***, and this is what we'll be implementing.
 
@@ -60,6 +47,15 @@ One can check the deployed contracts' methods for Neo's native assets, and verif
 As can be seen in the native assets contracts linked in the previous section, fungible tokens MUST implement all of the methods established by the NEP-17, but can also implement any set of complimentary methods. It's even necessary to implement other methods, like the ones that will actually issue token amounts to some address.
 
 In this section, we'll give a brief overview of the methods we're going to implement later. Right after, we'll showcase the full code of our token. We'll then proceed to cover the code bit by bit throughout the rest of the tutorial.
+
+## 4. Testing a Neo smart-contract
+
+There are currently 2 ways to test a smart-contract on the Neo platform. Both depend on the [Neo Blockchain Toolkit](https://github.com/neo-project/neo-blockchain-toolkit). We recommend you install it using their VS Code extension.
+
+* Deploy and invoke it using [Neo Express](https://github.com/neo-project/neo-express)
+* Use the blockchain-toolkit [Test Runner](https://github.com/ngdenterprise/neo-test/pull/17)
+
+Be sure to update the Owner Address of the token with your testing wallet's address and recompile before deployment, so the tokens will be issued to the chosen address.
 
 ## Nep-17 Methods
 
@@ -103,7 +99,7 @@ These are the mandatory methods for a Fungible Token in the Neo Blockchain. Plea
 
 > *Another optional method, that we'll use to compliment the `manifest.json` file generated after compilation with some metadata of our own. This method has no effect in the smart contract's logic*
 
-# 4. Token Contract
+# 5. Token Contract
 
 **Notes to the Python Developer:**
 
@@ -523,10 +519,12 @@ The code we provided should compile without errors, and three new files should b
 
 If for some reason you stumble upon compilation errors, with this contract or your next ones, it is recommended to resolve the first reported error and try to compile again. An error can have a cascading effect and throw more errors all caused by the first.
 
-## Testing our Token
+# 7. Invoking your contract
 
-If you want to quickly test your newly compiled token, you can easily deploy it to a local blockchain using Neo Express.
-* You can find the instructions to set it up in [An Introduction to Contract Development on Neo](./hello_world_dapp).
-* To test interface with your contract, refer to [Interfacing with smart contracts using Neon.js](./contract_interfacing)
+We recommend you deploy it to a local blockchain using Neo Express. If you want to invoke your smart-contract from the browser or from your server, please check one of the articles below:
+
+
+* [An Introduction to Contract Development on Neo](FIXME).
+* [Interfacing with smart contracts using Neon.js](FIXME)
 
 Be sure to update the Owner Address of the token with your testing wallet's address and recompile before deployment, so the tokens will be issued to the chosen address.
