@@ -468,7 +468,7 @@ export default function Tooling(props) {
                                         <div className='flex gap-3 p-6 border-t border-b mb-20' style={{ backgroundColor: "#FAFBFC" }}>
                                             {
                                                 allLanguages().map((tag) => (
-                                                    <p key={tag} className={`text-xs font-semibold px-2 font-medium py-1 inline-flex items-center cursor-pointer ${selectedTags.indexOf(tag) > -1 ? "bg-primary text-secondary" : "bg-gray-200 text-secondary"}`} onClick={(e) => onSelectTag(e, tag)}>
+                                                    <p key={tag} className={`text-xs font-semibold px-2 py-1 inline-flex items-center cursor-pointer ${selectedTags.indexOf(tag) > -1 ? "bg-primary text-secondary" : "bg-gray-200 text-secondary"}`} onClick={(e) => onSelectTag(e, tag)}>
                                                         {tag.toUpperCase()}
                                                         {
                                                             selectedTags.indexOf(tag) > -1 ?
