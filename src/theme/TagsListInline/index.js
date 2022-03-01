@@ -19,7 +19,7 @@ export default function TagsListInline({tags}) {
           Tags:
         </Translate>
       </b> */}
-      <div className="font-medium text-sm flex flex-wrap gap-4">
+      <div className="font-medium text-sm flex flex-wrap gap-3">
         {tags.map(({label, permalink: tagPermalink}) => (
             <Tag name={label} permalink={tagPermalink} />
         ))}

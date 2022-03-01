@@ -45,7 +45,7 @@ function BlogListPage(props) {
 
       <p className="mb-6 text-2xl font-semibold ">Community Tutorials</p>
       <div className='p-6 mb-16 border-t border-b' style={{backgroundColor:"#FAFBFC"}}>
-        <ul className="flex flex-wrap gap-x-4 gap-y-4">
+        <ul className="flex flex-wrap gap-x-3 gap-y-3">
           {
             Object.keys(allTags).map((key) => (
 
