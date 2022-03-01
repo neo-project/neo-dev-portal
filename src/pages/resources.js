@@ -247,7 +247,7 @@ export default function Tooling(props) {
                     {
                         name: "Faucet",
                         by: "Neo Global Development",
-                        description: "Get Gas for N3 Testnet for your development, testing, debugging, deploying purposes.",
+                        description: "Get Gas on N3 Testnet for your development, test, debug, and deployment of your smart contract.",
                         icon_url: "/tooling/ngd.png",
                         web_url: "https://neowish.ngd.network/#/",
                         github_url: "",
