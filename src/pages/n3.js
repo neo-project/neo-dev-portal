@@ -40,7 +40,7 @@ export default function N3() {
                         <p className="text-secondary max-w-sm mb-4">
                         NeoFS Network provides the benefits of decentralized storage without the compromises. Your data is always securely encrypted and available. Fully control its placement and access, and phase out centralized dependencies. NeoFS uses HTTP and S3 gateways so you can integrate existing apps or users without rearchitecting.
                         </p>
-                        <a className="text-primary inline-flex items-center" href="">Learn more about the NeoFS Network
+                        <a className="text-primary inline-flex items-center" href="https://fs.neo.org/" target="_blank">Learn more about the NeoFS Network
                             <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                             </svg></a>
@@ -59,7 +59,7 @@ export default function N3() {
                         <p className="text-secondary max-w-sm mb-4">
                         Smart contracts are a revolutionary tool, but their utility is limited by the data they can access. N3’s native oracle service lets developers access rich off-chain data sources through HTTPS or NeoFS requests, opening new opportunities to create valuable decentralized services.
                         </p>
-                        <a className="text-primary inline-flex items-center" href="">Learn more about Neo's Native Oracles
+                        <a className="text-primary inline-flex items-center" href="/docs/n3/Advances/Oracles">Learn more about Neo's Native Oracles
                             <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                             </svg></a>
@@ -75,7 +75,7 @@ export default function N3() {
                         <p className="text-secondary max-w-sm mb-4">
                         N3’s smart contract system introduces a wide range of new functionality to improve the contract development experience and provides benefits to off-chain applications as well.
                         </p>
-                        <a className="text-primary inline-flex items-center" href="">Learn more about Smart Contracts
+                        <a className="text-primary inline-flex items-center" href="/docs/n3/develop/write/basics">Learn more about Smart Contracts
                             <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                             </svg>
@@ -88,11 +88,6 @@ export default function N3() {
                         <p className="text-secondary max-w-sm mb-4">
                         Through NeoID, you can customize the precise level of attribute verification needed to ensure that your contract operates correctly.
                         </p>
-                        <a className="text-primary inline-flex items-center" href="">Learn more about NeoID
-                            <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                            </svg>
-                        </a>
                     </div>
 
                 </div>
@@ -105,10 +100,7 @@ export default function N3() {
 <br/><br/>
                         Neo's native name service provides domain-mapping for a number of record types. Powered by NFTs to enable open trading, NNS aliases can be used to replace public addresses, contract hashes, and NeoFS containers with human-friendly names.
                         </p>
-                        <a className="text-primary inline-flex items-center flex-wrap" href=""><span>Learn more about Neo's Domain Service</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                            </svg></a>
+                       
                     </div>
                     <div className="order-1 lg:order-2">
                         <img className="object-cover" src="/n3/nameservice.png" style={{height:"350px"}}/>
@@ -123,7 +115,7 @@ export default function N3() {
                         <p className="text-secondary max-w-sm mb-4">
                         Transactions on Neo are given immediate, irrevocable finality as soon as they are added to the blockchain.
                         </p>
-                        <a className="text-primary inline-flex items-center" href="">Learn about Neo's dBFT Consensus Mechanism
+                        <a className="text-primary inline-flex items-center" href="/docs/n3/foundation/consensus/consensus_algorithm">Learn about Neo's dBFT Consensus Mechanism
                             <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                             </svg>
@@ -136,7 +128,7 @@ export default function N3() {
                         <p className="text-secondary max-w-sm mb-4">
                         Neo meets developers where they are by integrating seamlessly with the world’s most widely used languages and tools.
                         </p>
-                        <a className="text-primary inline-flex items-center" href="">Learn more about Neo's Multi-Language support
+                        <a className="text-primary inline-flex items-center" href="/resources">Learn more about Neo's Multi-Language support
                             <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                             </svg>
@@ -156,7 +148,7 @@ export default function N3() {
                         <br/>
                         The crown jewel of Neo's developer experience is the Neo Blockchain Toolkit for VS Code. Built by Microsoft-alumni at NGD Enterprise, the toolkit offers industry best tools for easy network deployment, testing, and time-travel debugging.
                         </p>
-                        <a className="text-primary inline-flex items-center" href="">Explore Neo's Developer Resources
+                        <a className="text-primary inline-flex items-center" href="/resources">Explore Neo's Developer Resources
                             <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                             </svg></a>
@@ -169,7 +161,7 @@ export default function N3() {
                         <p className="text-secondary max-w-sm mb-4">
                         Neo makes cross-chain interaction as easy as a native transaction. Neo connects with an ever-growing list of other blockchains through Neo's integration with Poly Network, enabling applications on Neo to easily tap into resources from heterogenous networks.
                         </p>
-                        <a className="text-primary inline-flex items-center" href="">Learn more about Neo's Poly Network Integration
+                        <a className="text-primary inline-flex items-center" href="https://poly.network/">Learn more about Neo's Poly Network Integration
                             <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                             </svg></a>
