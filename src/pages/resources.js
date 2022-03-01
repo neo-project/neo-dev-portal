@@ -104,7 +104,7 @@ export default function Tooling(props) {
                     {
                         name: "NeoFS",
                         by: "Neo SPCC",
-                        description: "NeoFS is a distributed, decentralized object storage network developed natively integrated to Neo blockchain.",
+                        description: "NeoFS is a distributed, decentralized object storage network natively integrated with the Neo blockchain.",
                         icon_url: "/tooling/nspcc.png",
                         web_url: "https://fs.neo.org/",
                         github_url: "https://github.com/nspcc-dev",
@@ -115,7 +115,7 @@ export default function Tooling(props) {
                     {
                         name: "Oracles",
                         by: "Neo Global Development",
-                        description: "Oracles are a utility which can be leveraged by smart contracts to interface with systems outside the Neo blockchain using http(s).",
+                        description: "Oracles are a utility which can be leveraged by smart contracts to interface with systems outside the Neo blockchain.",
                         icon_url: "/tooling/ngd.png",
                         web_url: "https://developers.neo.org/docs/n3/Advances/Oracles",
                         github_url: "https://github.com/neo-project",
@@ -126,7 +126,7 @@ export default function Tooling(props) {
                     {
                         name: "Neo Blockchain Toolkit",
                         by: "NGD Enterprise",
-                        description: "The Neo Blockchain Toolkit is a all-in-one extension for VS Code for creating and preparing smart contracts for production.",
+                        description: "The Neo Blockchain Toolkit is an all-in-one extension for VS Code for creating and preparing smart contracts for production.",
                         icon_url: "/tooling/neoblockchaintoolkit.png",
                         web_url: "https://marketplace.visualstudio.com/items?itemName=ngd-seattle.neo-blockchain-toolkit",
                         github_url: "https://github.com/neo-project/neo-blockchain-toolkit",
@@ -137,7 +137,7 @@ export default function Tooling(props) {
                     {
                         name: "Neo Compiler Eco",
                         by: "Neo Research",
-                        description: "Online development environment/tool to write, compile smart contracts and deploy them to the TestNet.",
+                        description: "Online development environment/tool to write, compile, and deploy smart contracts to TestNet.",
                         icon_url: "/tooling/neocompiler.png",
                         web_url: "https://neocompiler.io/",
                         github_url: "https://github.com/NeoResearch/neocompiler-eco",
@@ -159,7 +159,7 @@ export default function Tooling(props) {
                     {
                         name: "Neo Playground",
                         by: "AxLabs",
-                        description: "Neo playground is an online development environment using VS Code web client with a number of additional utilities. ",
+                        description: "Neo playground is an online development environment using VS Code web client with a number of additional utilities.",
                         icon_url: "/tooling/neow3j.png",
                         web_url: "https://neo-playground.dev/",
                         github_url: "https://github.com/AxLabs",
@@ -170,7 +170,7 @@ export default function Tooling(props) {
                     {
                         name: "boa",
                         by: "COZ",
-                        description: "Boa is a compiler for smart contracts written in Python. Testing and Debugging your smart contract written in Python.",
+                        description: "Boa is a compiler for Python smart contracts. Test and debug your smart contracts written in Python.",
                         icon_url: "/tooling/boa.png",
                         web_url: "https://dojo.coz.io/neo3/boa/index.html",
                         github_url: "https://github.com/CityOfZion/neo3-boa",
@@ -225,7 +225,7 @@ export default function Tooling(props) {
                     {
                         name: "dAPI",
                         by: "NEXT",
-                        description: "dAPI is a wallet interface which allows users to sign transaction requests on applications without exposing their private key.",
+                        description: "dAPI is a wallet interface which allows users to sign transaction requests without exposing their private key.",
                         icon_url: "/tooling/neo-line.png",
                         web_url: "https://neoline.io/dapi/N3.html",
                         github_url: "https://neoline.io/dapi/N3.html",
@@ -236,7 +236,7 @@ export default function Tooling(props) {
                     {
                         name: "dora",
                         by: "COZ",
-                        description: "Dora is a high speed block explorer with N3 and Neo Legacy integrations. Comes with public API.",
+                        description: "Dora is a high speed block explorer with N3 and Neo Legacy integrations. Comes with a public API.",
                         icon_url: "/tooling/dora.png",
                         web_url: "https://dora.coz.io/",
                         github_url: "https://github.com/CityOfZion/dora",
@@ -247,7 +247,7 @@ export default function Tooling(props) {
                     {
                         name: "Faucet",
                         by: "Neo Global Development",
-                        description: "Get Gas on N3 Testnet for your development, test, debug, and deployment of your smart contract.",
+                        description: "Get GAS on the Neo N3 TestNet for the development, testing, debugging, and deployment of smart contracts.",
                         icon_url: "/tooling/ngd.png",
                         web_url: "https://neowish.ngd.network/#/",
                         github_url: "",
@@ -291,7 +291,7 @@ export default function Tooling(props) {
                     {
                         name: "mamba",
                         by: "COZ",
-                        description: "Mamba is a python SDK on steroids. Capable of speeds over twenty times faster than official release.",
+                        description: "Mamba is a Python SDK on steroids. Capable of speeds over twenty times faster than official release.",
                         icon_url: "/tooling/mamba.png",
                         web_url: "https://dojo.coz.io/",
                         github_url: "https://github.com/CityOfZion/neo-mamba",
@@ -302,7 +302,7 @@ export default function Tooling(props) {
                     {
                         name: "Neo-gogogo",
                         by: "Neo Global Development",
-                        description: "Neo-gogogo is a lightweight Go SDK that provides all the structures and methods required to interface with the Neo blockchain.",
+                        description: "Neo-gogogo is a Go SDK that provides all the structures and methods required to interface with the Neo blockchain.",
                         icon_url: "/tooling/ngd.png",
                         web_url: "https://github.com/neo-ngd/neo3-gogogo",
                         github_url: "https://github.com/neo-ngd/neo3-gogogo",
@@ -313,7 +313,7 @@ export default function Tooling(props) {
                     {
                         name: "neon.js",
                         by: "COZ",
-                        description: "Neon.js provides users with a complete set of javascript tools for integration with Neo. Connect your app with the neo blockchain.",
+                        description: "Neon.js provides users with a complete set of JavaScript tools for integration with Neo. Connect your app to the Neo blockchain.",
                         icon_url: "/tooling/neon-js.png",
                         web_url: "https://github.com/CityOfZion/neon-js",
                         github_url: "https://github.com/CityOfZion/neon-js",
