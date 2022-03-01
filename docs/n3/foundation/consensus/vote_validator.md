@@ -5,7 +5,6 @@ Neo is an open and transparent blockchain network where anyone can either initia
 :::note
 
 Committee members have the privilege to modify the configuration of Neo network by voting, currently including fee per byte for network transmission, execution fee factor, storage price, blocking / unblocking account, etc.
-
 :::
 
 There is no duty assigned to candidates. However, committee members and validators are elected from certain number of candidates with most votes. Their relationship can be described in the following picture. There is no explicit relationship between committee members and validators but, as default committee member amount (21) is more than that of validators, generally speaking validators are a subset of committee members. 
@@ -19,7 +18,6 @@ Voting is a dynamic and continuous process. If the NEO asset of a voter is chang
 :::note
 
 Genesis Block is the first block，its `NextConsensus` is set to the script hash of standby consensus nodes' multi-signature contract.
-
 :::
 
 ## From Delegate to Speaker

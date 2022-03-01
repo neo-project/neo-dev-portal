@@ -71,7 +71,9 @@ function BlogPostPage(props) {
       </BlogPostItem>
 
       {(nextItem || prevItem) && (
-        <BlogPostPaginator nextItem={nextItem} prevItem={prevItem} />
+        <div className='mb-24'> 
+          <BlogPostPaginator nextItem={nextItem} prevItem={prevItem} />
+        </div>
       )}
     </BlogLayout>
   );

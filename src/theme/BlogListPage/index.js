@@ -44,15 +44,16 @@ function BlogListPage(props) {
       sidebar={sidebar}>
 
       <p className="mb-6 text-2xl font-semibold ">Community Tutorials</p>
-      <ul className="mb-12">
-        {
-          Object.keys(allTags).map((key) => (
-            <li key={key} className={styles.tag}>
-              <Tag name={allTags[key].name} count={allTags[key].items.length} permalink={allTags[key].permalink} />
-            </li>
-          ))
-        }
-      </ul>
+      <div className='p-6 mb-16 border-t border-b' style={{backgroundColor:"#FAFBFC"}}>
+        <ul className="flex flex-wrap gap-x-3 gap-y-3">
+          {
+            Object.keys(allTags).map((key) => (
+
+                <Tag name={allTags[key].name} count={allTags[key].items.length} permalink={allTags[key].permalink} />
+            ))
+          }
+        </ul>
+      </div>
 
       {items.map(({ content: BlogPostContent }) => (
         <BlogPostItem
@@ -65,7 +66,9 @@ function BlogListPage(props) {
           <p>{BlogPostContent.metadata.description}</p>
         </BlogPostItem>
       ))}
-      <BlogListPaginator metadata={metadata} />
+      <div className='my-16 mb-24'>
+        <BlogListPaginator metadata={metadata} />
+      </div>
     </BlogLayout>
   );
 }

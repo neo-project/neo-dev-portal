@@ -105,7 +105,7 @@ export default function N3() {
 <br/><br/>
                         Neo's native name service provides domain-mapping for a number of record types. Powered by NFTs to enable open trading, NNS aliases can be used to replace public addresses, contract hashes, and NeoFS containers with human-friendly names.
                         </p>
-                        <a className="text-primary inline-flex items-center" href="">Learn more about Neo's Native Domain Service
+                        <a className="text-primary inline-flex items-center flex-wrap" href=""><span>Learn more about Neo's Domain Service</span>
                             <svg xmlns="http://www.w3.org/2000/svg" className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                             </svg></a>
@@ -188,7 +188,7 @@ export default function N3() {
 
                         <p className="text-xl font-bold mb-3">Guide to N3 Migration</p>
                         <p className="text-secondary mb-3">Learn how to migrate<br/>legacy Neo assets<br/> to Neo N3.</p>
-                        <a href="" className="inline-flex items-center text-primary">Learn more
+                        <a href="https://neo.org/blog/details/4244" className="inline-flex items-center text-primary">Learn more
                             <svg className="ml-2" width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1.53516 1L5.07069 4.53553L1.53516 8.07107" stroke="#10E6A0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
@@ -210,7 +210,7 @@ export default function N3() {
                         <p className="text-secondary mb-3">
                         This comprehensive collection of tools and resources will help you build applications on the Neo blockchain.
                         </p>
-                        <a href="" className="inline-flex items-center text-primary">Learn more
+                        <a href="/resources" className="inline-flex items-center text-primary">Learn more
                             <svg className="ml-2" width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1.53516 1L5.07069 4.53553L1.53516 8.07107" stroke="#10E6A0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
@@ -231,7 +231,7 @@ export default function N3() {
                         <p className="text-secondary mb-3">
                         Browse an extensive library of Neo technical documents, including development examples.
                         </p>
-                        <a href="" className="inline-flex items-center text-primary">Learn more
+                        <a href="/docs" className="inline-flex items-center text-primary">Learn more
                             <svg className="ml-2" width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1.53516 1L5.07069 4.53553L1.53516 8.07107" stroke="#10E6A0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
