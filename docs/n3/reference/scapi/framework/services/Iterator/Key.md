@@ -1,4 +1,4 @@
-# Iterator\<TKey, TValue>.Key Property
+# Iterator<TKey, TValue>.Key Property
 
 Gets the Key of the current cursor.
 

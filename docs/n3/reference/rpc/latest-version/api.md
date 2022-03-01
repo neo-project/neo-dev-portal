@@ -28,18 +28,18 @@ You can modify the port in config.json in the RpcServer folder.
 | Method                                        | Parameter                              | Description                                                  |
 | --------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------ |
 | [getbestblockhash](api/getbestblockhash.md) |                                          | Gets the hash of the latest block in the blockchain. |
-| [getblock](api/getblock.md)              | \<hash \| index\> [verbose=0]                  | Returns the block information with the specified hash value or index. |
+| [getblock](api/getblock.md)              | <hash \| index\> [verbose=0]                  | Returns the block information with the specified hash value or index. |
 | [getblockcount](api/getblockcount.md)    |                                          | Gets the block count of the blockchain. |
-| [getblockhash](api/getblockhash.md)      | \<index\>                                 | Returns the block hash with the specified index. |
-| [getblockheader](api/getblockheader.md) | \<hash \| index\> [verbose=0] | Returns the information of the block header with the specified script hash or index. |
+| [getblockhash](api/getblockhash.md)      | <index\>                                 | Returns the block hash with the specified index. |
+| [getblockheader](api/getblockheader.md) | <hash \| index\> [verbose=0] | Returns the information of the block header with the specified script hash or index. |
 | [getcommittee](api/getcommittee.md) | | Gets the public key list of current Neo committee members. |
 | [getnativecontracts](api/getnativecontracts.md)         |                              | Gets the list of native contracts.    |
 | [getnextblockvalidators](api/getnextblockvalidators.md) |                              | Gets the validators list of the next block. |
-| [getcontractstate](api/getcontractstate.md) | \<script_hash\>                           | Returns information of the contract with the specified script hash. |
+| [getcontractstate](api/getcontractstate.md) | <script_hash\>                           | Returns information of the contract with the specified script hash. |
 | [getrawmempool](api/getrawmempool.md)    | [shouldGetUnverified=0]         | Gets a list of confirmed transactions in memory. If the value is 1 it gets all the transactions including both confirmed and unconfirmed transactions. |
-| [getrawtransaction](api/getrawtransaction.md) | \<txid\> [verbose=0]                      | Returns the transaction information with the specified hash value. |
-| [getstorage](api/getstorage.md)          | \<script_hash\>  \<key\>                   | Returns the value with the contract script hash and the key. |
-| [gettransactionheight](api/gettransactionheight.md) | \<txid\> | Returns the transaction height with the specified transaction hash. |
+| [getrawtransaction](api/getrawtransaction.md) | <txid\> [verbose=0]                      | Returns the transaction information with the specified hash value. |
+| [getstorage](api/getstorage.md)          | <script_hash\>  <key\>                   | Returns the value with the contract script hash and the key. |
+| [gettransactionheight](api/gettransactionheight.md) | <txid\> | Returns the transaction height with the specified transaction hash. |
 
 
 ### Node
@@ -49,68 +49,68 @@ You can modify the port in config.json in the RpcServer folder.
 | [getconnectioncount](api/getconnectioncount.md) |                                          | Gets the current connection count of the node. |
 | [getpeers](api/getpeers.md)              |                                          | Gets a list of nodes that are currently connected/disconnected by this node. |
 | [getversion](api/getversion.md)          |                                          | Gets the version information of the node. |
-| [sendrawtransaction](api/sendrawtransaction.md) | \<hex\> | Broadcasts a transaction over the network. |
-| [submitblock](api/submitblock.md) | \<hex\> | Submits a new block to the network.<br/\>**Note**: Need to be a validator |
+| [sendrawtransaction](api/sendrawtransaction.md) | <hex\> | Broadcasts a transaction over the network. |
+| [submitblock](api/submitblock.md) | <hex\> | Submits a new block to the network.<br/\>**Note**: Need to be a validator |
 
 ### Smart Contract
 
 | Method                                       | Parameter                              | Description                                                  |
 | --------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------ |
-| [getunclaimedgas](api/getunclaimedgas.md) | \<address\> | Get unclaimed gas of the specified address. |
-| [invokefunction](api/invokefunction.md) | \<script_hash\>  \<operation\>  \[params] \[sender] \[signers] | Invokes a smart contract with the specified script hash, passing in the method name and its params. |
-| [invokescript](api/invokescript.md) | \<script\> \[sender] \[signers] | Runs a script through the virtual machine and returns the results. |
+| [getunclaimedgas](api/getunclaimedgas.md) | <address\> | Get unclaimed gas of the specified address. |
+| [invokefunction](api/invokefunction.md) | <script_hash\>  <operation\>  \[params] \[sender] \[signers] | Invokes a smart contract with the specified script hash, passing in the method name and its params. |
+| [invokescript](api/invokescript.md) | <script\> \[sender] \[signers] | Runs a script through the virtual machine and returns the results. |
 
 ### Tool
 
 | Method                                       | Parameter                              | Description                                                  |
 | --------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------ |
 | [listplugins](api/listplugins.md) | | Returns a list of plugins loaded by the node. |
-| [validateaddress](api/validateaddress.md) | \<address\>                              | Verifies whether the address is a valid NEO address. |
+| [validateaddress](api/validateaddress.md) | <address\>                              | Verifies whether the address is a valid NEO address. |
 
 ### Wallet
 
 | Method                                       | Parameter                              | Description                                                  |
 | --------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------ |
-| [calculatenetworkfee](api/calculatenetworkfee.md) | \<tx\> | Calculates network fee for the specified transaction. |
+| [calculatenetworkfee](api/calculatenetworkfee.md) | <tx\> | Calculates network fee for the specified transaction. |
 | [closewallet](api/closewallet.md) |  | Closes the current wallet. |
-| [dumpprivkey](api/dumpprivkey.md) | \<address\>                              | Exports the private key of the specified address. |
+| [dumpprivkey](api/dumpprivkey.md) | <address\>                              | Exports the private key of the specified address. |
 | [getnewaddress](api/getnewaddress.md) |  | Creates a new address. |
-| [getwalletbalance](api/getwalletbalance.md) | \<asset_id\> | Returns the balance of the corresponding asset in the wallet. |
+| [getwalletbalance](api/getwalletbalance.md) | <asset_id\> | Returns the balance of the corresponding asset in the wallet. |
 | [getwalletunclaimedgas](api/getwalletunclaimedgas.md) |  | Gets the amount of unclaimed GAS in the wallet. |
-| [importprivkey](api/importprivkey.md) | \<key\> | Imports the private key to the wallet. |
-| [invokecontractverify](api/invokecontractverify.md) | \<script_hash\>   \[params] \[signers] | Invokes the verification method of contract. |
+| [importprivkey](api/importprivkey.md) | <key\> | Imports the private key to the wallet. |
+| [invokecontractverify](api/invokecontractverify.md) | <script_hash\>   \[params] \[signers] | Invokes the verification method of contract. |
 | [listaddress](api/listaddress.md) |  | Lists all the addresses in the current wallet. |
-| [openwallet](api/openwallet.md) | \<path\> \<password\> | Opens the specified wallet. |
-| [sendfrom](api/sendfrom.md) | \<asset_id\>\<from\>\<to\>\<value\> | Transfers from the specified address to the destination address. |
-| [sendmany](api/sendmany.md) | \<outputs_array\> \[signers] | Initiates multiple transfers to multiple addresses in a transaction. |
-| [sendtoaddress](api/sendtoaddress.md) | \<asset_id\>\<address\>\<value\> \[signers] | Transfers to the specified address. |
+| [openwallet](api/openwallet.md) | <path\> <password\> | Opens the specified wallet. |
+| [sendfrom](api/sendfrom.md) | <asset_id\><from\><to\><value\> | Transfers from the specified address to the destination address. |
+| [sendmany](api/sendmany.md) | <outputs_array\> \[signers] | Initiates multiple transfers to multiple addresses in a transaction. |
+| [sendtoaddress](api/sendtoaddress.md) | <asset_id\><address\><value\> \[signers] | Transfers to the specified address. |
 
 ### ApplicationLogs plugin
 
 | Method                                       | Parameter                              | Description                                                  |
 | --------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------ |
-| [getapplicationlog](api/getapplicationlog.md) | \<txid\> | Returns the contract event information based on the specified txid. |
+| [getapplicationlog](api/getapplicationlog.md) | <txid\> | Returns the contract event information based on the specified txid. |
 
 ### TokensTracker plugin
 
 | Method                                       | Parameter                              | Description                                                  |
 | --------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------ |
-| [getnep11balances](api/getnep11balances.md) | \<address\> | Returns the balance of all NEP11 assets in the specified address. |
-| [getnep11properties](api/getnep11properties.md) | \<contract_hash\>\<tokenId\> | Returns the customized properties of NEP-11 assets. |
-| [getnep11transfers](api/getnep17transfers.md) | \<address\>[timestamp] | Returns all the NEP11 transaction information occurred in the specified address. |
-| [getnep17balances](api/getnep17balances.md) | \<address\> | Returns the balance of all NEP17 assets in the specified address. |
-| [getnep17transfers](api/getnep17transfers.md) | \<address\>[timestamp] | Returns all the NEP17 transaction information occurred in the specified address. |
+| [getnep11balances](api/getnep11balances.md) | <address\> | Returns the balance of all NEP11 assets in the specified address. |
+| [getnep11properties](api/getnep11properties.md) | <contract_hash\><tokenId\> | Returns the customized properties of NEP-11 assets. |
+| [getnep11transfers](api/getnep17transfers.md) | <address\>[timestamp] | Returns all the NEP11 transaction information occurred in the specified address. |
+| [getnep17balances](api/getnep17balances.md) | <address\> | Returns the balance of all NEP17 assets in the specified address. |
+| [getnep17transfers](api/getnep17transfers.md) | <address\>[timestamp] | Returns all the NEP17 transaction information occurred in the specified address. |
 
 ### StateService plugin
 
 | Method                                  | Parameter                                       | Description                                                  |
 | --------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------ |
-| [getstateroot](api/getstateroot.md)     | \<index\>                                        | Queries the state root by the block height.                  |
-| [getproof](api/getproof.md)             | \<roothash\>\<scripthash\>\<key\>                  | Gets proof by querying root hash, contract hash, and storage key. |
-| [verifyproof](api/verifyproof.md)       | \<roothash\>\<proof\>                             | Verifies using the root hash and proof, and gets the value of the storage corresponding to the key. |
+| [getstateroot](api/getstateroot.md)     | <index\>                                        | Queries the state root by the block height.                  |
+| [getproof](api/getproof.md)             | <roothash\><scripthash\><key\>                  | Gets proof by querying root hash, contract hash, and storage key. |
+| [verifyproof](api/verifyproof.md)       | <roothash\><proof\>                             | Verifies using the root hash and proof, and gets the value of the storage corresponding to the key. |
 | [getstateheight](api/getstateheight.md) |                                                 | Queries the stateroot height.                                |
-| [getstate](api/getstate.md)             | \<roothash\>\<scripthash\>\<key\>                  | Queries `state` with the `root hash`, `contract hash` and `storage key`. |
-| [findstates](api/findstates.md)         | \<roothash\>\<scripthash\>\<prefix\> [key] [count] | Queries `state` with the prefix of `root hash`, `contract hash` and `storage key`. |
+| [getstate](api/getstate.md)             | <roothash\><scripthash\><key\>                  | Queries `state` with the `root hash`, `contract hash` and `storage key`. |
+| [findstates](api/findstates.md)         | <roothash\><scripthash\><prefix\> [key] [count] | Queries `state` with the prefix of `root hash`, `contract hash` and `storage key`. |
 
 \> [!Note]
 \>

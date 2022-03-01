@@ -67,15 +67,16 @@ export default function BlogTagsPostsPage(props) {
       sidebar={sidebar}>
       <p className="mb-6 text-2xl font-semibold">Community Tutorials</p>
 
-      <ul className="mb-12">
-        {
-          Object.keys(allTags).map((key) => (
-            <li key={key} className={styles.tag}>
-              <Tag name={allTags[key].name} count={allTags[key].items.length} permalink={allTags[key].permalink} selected={tagName} />
-            </li>
-          ))
-        }
-      </ul>
+      <div className='p-6 mb-16 border-t border-b' style={{backgroundColor:"#FAFBFC"}}>
+        <ul className="flex flex-wrap gap-x-3 gap-y-3">
+          {
+            Object.keys(allTags).map((key) => (
+
+                <Tag name={allTags[key].name} count={allTags[key].items.length} permalink={allTags[key].permalink} selected={tagName}/>
+            ))
+          }
+        </ul>
+      </div>
 
       {/* <header className="margin-bottom--xl">
         <h1>{title}</h1>

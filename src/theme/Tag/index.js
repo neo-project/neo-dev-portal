@@ -15,8 +15,9 @@ function Tag(props) {
       {
         count > 0 ?
           <Link
+            
             href={permalink}
-            className={`text-xs font-semibold px-2 py-1 inline-flex items-center  ${selected === name ? "bg-primary hover:text-secondary" : "bg-gray-100 text-secondary"}`}>
+            className={`text-xs font-semibold px-2 py-1 inline-flex items-center  ${selected === name ? "bg-primary hover:text-secondary" : "bg-gray-200 text-secondary"}`}>
             {name}
             {count && <span className="ml-1">({count})</span>}
             {
@@ -31,6 +32,7 @@ function Tag(props) {
           </Link>
           :
           <Link
+            style={{backgroundColor:"#E5E7EB"}}
             href={permalink}
             className={`text-xs font-semibold  px-2 py-1 inline-flex items-center bg-gray-100 text-secondary hover:text-primary`}>
             {name}

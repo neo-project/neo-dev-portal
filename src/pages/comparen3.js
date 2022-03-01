@@ -74,7 +74,7 @@ export default function CompareN3() {
 
                     <div className="py-3 col-span-2 lg:col-span-1 font-semibold">Governance</div>
                     <div className="pt-0 pb-3 lg:py-3 col-span-1 font-semibold border-b lg:border-none">Let's vote</div>
-                    <div className="pt-0 pb-3 lg:py-3 col-span-1 font-semibold border-b lg:border-none">(?)</div>
+                    <div className="pt-0 pb-3 lg:py-3 col-span-1 font-semibold border-b lg:border-none">-</div>
 
                     <div className="mt-12 sticky top-14 col-span-2 lg:col-span-3 grid grid-cols-2 lg:grid-cols-3 bg-white border-b">
                         <div className="py-5 col-span-2 lg:col-span-1 font-bold">Protocol</div>
@@ -84,7 +84,7 @@ export default function CompareN3() {
 
                     <div className="py-3 col-span-2 lg:col-span-1 font-semibold">NFT Standard</div>
                     <div className="pt-0 pb-3 lg:py-3 col-span-1 font-semibold border-b lg:border-none">NEP11</div>
-                    <div className="pt-0 pb-3 lg:py-3 col-span-1 font-semibold border-b lg:border-none">(?)</div>
+                    <div className="pt-0 pb-3 lg:py-3 col-span-1 font-semibold border-b lg:border-none">-</div>
 
                     <div className="py-3 col-span-2 lg:col-span-1 font-semibold">Token Standard</div>
                     <div className="pt-0 pb-3 lg:py-3 col-span-1 font-semibold border-b lg:border-none">NEP17</div>
@@ -92,7 +92,7 @@ export default function CompareN3() {
 
                     <div className="py-3 col-span-2 lg:col-span-1 font-semibold">Smart Contract Manifest</div>
                     <div className="pt-0 pb-3 lg:py-3 col-span-1 font-semibold border-b lg:border-none">NEP15</div>
-                    <div className="pt-0 pb-3 lg:py-3 col-span-1 font-semibold border-b lg:border-none">(?)</div>
+                    <div className="pt-0 pb-3 lg:py-3 col-span-1 font-semibold border-b lg:border-none">-</div>
 
                     <div className="py-3 col-span-2 lg:col-span-1 font-semibold">Executable format	</div>
                     <div className="pt-0 pb-3 lg:py-3 col-span-1 font-semibold border-b lg:border-none">NEP16</div>
