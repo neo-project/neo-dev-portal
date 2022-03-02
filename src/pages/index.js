@@ -29,17 +29,17 @@ export default function Home() {
     {
       title: "Introduction to Neo Node",
       short_description: "An introduction to Neo Node",
-      url: "/docs/n3/Neo%20Nodes%20&%20Clients/Introduction"
+      url: "/docs/n3/node/Introduction"
     },
     {
       title: "Governance and Incentives",
       short_description: "Learn more about Neo N3's on-chain governance model",
-      url: "/docs/n3/foundation/Governance%20and%20Incentives"
+      url: "/docs/n3/foundation/governance"
     },
     {
       title: "dBFT 2.0 Algorithm",
       short_description: "Learn more about Neo N3's consensus algorithm",
-      url: "/docs/n3/foundation/Consensus%20mechanism/consensus_algorithm"
+      url: "/docs/n3/foundation/consensus/consensus_algorithm"
     },
 
   ]
@@ -81,7 +81,7 @@ export default function Home() {
     {
       title: "NeoFS",
       short_description: "Learn more about Native File storage on Neo",
-      url: "/docs/neofs"
+      url: "/docs"
     },
     {
       title: "Governance API",
