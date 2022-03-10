@@ -13,7 +13,7 @@ export default function N3() {
                     <Link to="/comparen3">Compare N3 with Neo Legacy</Link>
                 </div>
             </div> 
-            <div className="bg-secondary mb-12 flex items-center justify-center w-full" style={{height:"50rem"}}>
+            <div className="bg-secondary mb-12 flex items-center justify-center w-full">
                 {/* <div className="max-w-6xl mx-auto flex items-center justify-center">
                     <svg width="125" height="125" viewBox="0 0 125 125" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="3" y="3" width="119" height="119" stroke="#00E599" strokeWidth="5" />
