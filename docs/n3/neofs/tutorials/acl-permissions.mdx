@@ -3,6 +3,11 @@ title: "ACL Permissions"
 date: 2022-01-18T21:13:48Z
 ---
 
+import CodeBlock from '@theme/CodeBlock';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
 NeoFS has an awesome set of permissions you can give to containers. 
 
 ACL stands for access control list - its a list, or table really, of rules. They are checked top to bottom to any incoming request. The first permission entry in the table that the request passes, will end the checks. To that end it is important that all `DENY` permissions come after any `ALLOW` permissions.
@@ -18,31 +23,42 @@ ACL stands for access control list - its a list, or table really, of rules. They
 
 When creating a container, you are going to need to create a permission. There are multiple preset permissions you can see in the table further down
 
-{{< tabs >}}
-{{% tab name="Go" %}}
+
+````mdx-code-block
+<Tabs>
+<TabItem value="go" label="Go">
+
 ```go
 permissions := acl.EACLReadOnlyBasicRule
 ```
-{{% /tab %}}
-{{% tab name="Python" %}}
+
+</TabItem>
+
+<TabItem value="py" label="Python">
+
 ```python
 print("please help by opening a Pull Request and filling in these code snippets!")
 ```
-{{% /tab %}}
-{{% tab name="C#" %}}
+
+</TabItem>
+
+<TabItem value="cs" label="C#">
+
 ```c#
 var permissions = (uint)BasicAcl.ReadOnlyBasicRule;
 ```
-{{% /tab %}}
-{{< /tabs >}}
 
-{{% notice note %}}
+</TabItem>
+</Tabs>
+````
+
+:::note
 You can read more about ACL permissions within the NeoFS documentation however a set of available to use permissions are available. Most languages with an SDK will have constants set to these values
-{{% /notice %}}
+:::
 
-{{% notice info %}}
+:::info
 In the following table, names that start with `EACL` (e.g `EACLPrivateBasicRule`) allow for extended policies to be used in conjunction with the basic ACL permissions
-{{% /notice %}}
+:::
 
 | Name      | Value | Description |
 | ----------- | ----------- |----------- |
@@ -55,7 +71,7 @@ In the following table, names that start with `EACL` (e.g `EACLPrivateBasicRule`
 | EACLReadOnlyBasicRule | 0x0FBF8CFF |  EACLReadOnlyBasicRule is a basic ACL value for non-final public-read container for which extended ACL CAN be set. |
 | EACLPublicAppendRule | 0x0FBF9FFF |  EACLPublicAppendRule is a basic ACL value for non-final public-append container for which extended ACL CAN be set. |
 
-{{% notice note %}}
+:::note
 
 **Nice to Know:** the ability for a basic ACL permission to allow for Extended ACL permissions is controlled by the highest 'bit' in the above value. So comparing two of the 
 above and comparing them in binary form
@@ -69,7 +85,7 @@ above and comparing them in binary form
 we can see here that the top two start `0001` however the final one starts `0000`. When this is a `1`, only BASIC ACL is processed.
 
 **Whats important is that if Basic ACL denies access, then Extended ACL cannot overrule.** 
-{{% /notice %}}
+:::
 
 
 ### Extended ACL
