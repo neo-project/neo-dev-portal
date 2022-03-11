@@ -37,9 +37,7 @@ export default function N3() {
                 </video>
                 </div>
                 <div className='block lg:hidden w-full h-full'>
-                <video className='h-full w-full' preload autoplay muted loop playsinline poster="">
-                <source src="/n3/n3_mobile.mp4" type="video/mp4" />
-                </video>
+                <img src="/n3/n3_mobile.gif"/>
                 </div>
             </div>
             <div className="twcontainer px-4 mx-auto max-w-6xl">
