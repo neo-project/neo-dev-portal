@@ -32,7 +32,7 @@ export default function N3() {
 
                 </div> */}
                 <div className='hidden lg:block w-full h-full'>
-                <video className='h-full w-full ' preload autoplay muted loop playsinline poster="">
+                <video className='h-full w-full' preload autoPlay muted playsInline>
                 <source src="/n3/n3_desktop.mp4" type="video/mp4" />
                 </video>
                 </div>
