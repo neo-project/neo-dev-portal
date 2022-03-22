@@ -386,14 +386,14 @@ The parameters related to a transaction in the file are the following:
       "value": "uXtKzX+CD2HS1NT5rqXrUEmN31U="
     }
     ```
-    
+
   - to account: The second object in the array is the account address where the asset is transferred to.  Its type "bytearray" and the value "7ztGBn8vR7L38EQqojcghdCHCO8=“ can be decoded to "Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z" with base64. If the address is an exchange account address, it is a deposit transaction.
   
     ```json
     {
-  "type": "ByteString",
+    "type": "ByteString",
       "value": "7ztGBn8vR7L38EQqojcghdCHCO8="
-  }
+    }
     ```
   
   - amount: The last object in the array is the transfer amount, which value is 800000000000. Since the decimal is 8 bit the value is actually 8000.00000000.
@@ -439,10 +439,10 @@ This command verifies the wallet password.
 
 ##### Example
 
-Transfer 100 Neo to the address AMwS5twG1LLJA4USMPFf5UugfUvEfNDz6e: 
+Transfer 100 Neo to the address NYxb4fSZVKAz8YsgaPK2WkT3KcAE9b3Vag: 
 
 ```
-neo> send a1760976db5fcdfab2a9930e8f6ce875b2d18225 AMwS5twG1LLJA4USMPFf5UugfUvEfNDz6e 100
+neo> send a1760976db5fcdfab2a9930e8f6ce875b2d18225 NYxb4fSZVKAz8YsgaPK2WkT3KcAE9b3Vag 100
 password: ********
 TXID: 0x8f831d8de723093316c05749a053a226514bc06338b2bceb50db690610e0b92f
 ```
@@ -452,7 +452,7 @@ If you are not sure of the asset ID, you can enter `list asset` to view all asse
 In above example, we can also replace the asset ID with asset abbreviation, as shown below:
 
 ```
-neo> send gas AMwS5twG1LLJA4USMPFf5UugfUvEfNDz6e 100
+neo> send gas NYxb4fSZVKAz8YsgaPK2WkT3KcAE9b3Vag 100
 password: ********
 TXID: 0xae0675797c2d738dcadb21cec3f1809ff453ac291046a05ac679cbd95b79c856
 ```
