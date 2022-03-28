@@ -5,13 +5,13 @@ author: AxLabs
 tags: ["NEP-11", "JAVA", "NEOW3J"]
 skill: beginner
 image: "./assets/neow3j-padded.png"
-source: https://github.com/neow3j/neow3j-examples-java/blob/6754899457538a6fb05f765146c12e009ab679d7/src/main/java/io/neow3j/examples/contractdevelopment/contracts/NonFungibleToken.java
+source: https://github.com/neow3j/neow3j-examples-java/blob/ddd90914ea4ec5f928066a582012043bbce01525/src/main/java/io/neow3j/examples/contractdevelopment/contracts/NonFungibleToken.java
 sidebar: true
 ---
 
 <div align="center" style={{ padding: '0% 25% 0% 25%' }}>
   <img src="/tooling/neow3j.png" alt="neow3j" width="75%" style={{ padding: '0% 0% 5% 0%' }}/> 
-  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.15.0</small></sub></h1> 
+  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.16.0</small></sub></h1> 
 </div>
 
 ## 1. Introduction
@@ -58,15 +58,16 @@ import io.neow3j.devpack.annotations.DisplayName;
 import io.neow3j.devpack.annotations.ManifestExtra;
 import io.neow3j.devpack.annotations.OnDeployment;
 import io.neow3j.devpack.annotations.Safe;
-import io.neow3j.devpack.annotations.SupportedStandards;
+import io.neow3j.devpack.annotations.SupportedStandard;
 import io.neow3j.devpack.constants.FindOptions;
+import io.neow3j.devpack.constants.NeoStandard;
 import io.neow3j.devpack.contracts.ContractManagement;
 import io.neow3j.devpack.events.Event3Args;
 import io.neow3j.devpack.events.Event4Args;
 
 @DisplayName("FurryFriends")
 @ManifestExtra(key = "author", value = "AxLabs")
-@SupportedStandards("NEP-11")
+@SupportedStandard(neoStandard = NeoStandard.NEP_11)
 public class NonFungibleToken {
 
     static final Hash160 contractOwner = StringLiteralHelper.addressToScriptHash("NM7Aky765FG8NhhwtxjXRx7jEL1cnw7PBP");
@@ -313,8 +314,9 @@ import io.neow3j.devpack.annotations.DisplayName;
 import io.neow3j.devpack.annotations.ManifestExtra;
 import io.neow3j.devpack.annotations.OnDeployment;
 import io.neow3j.devpack.annotations.Safe;
-import io.neow3j.devpack.annotations.SupportedStandards;
+import io.neow3j.devpack.annotations.SupportedStandard;
 import io.neow3j.devpack.constants.FindOptions;
+import io.neow3j.devpack.constants.NeoStandard;
 import io.neow3j.devpack.contracts.ContractManagement;
 import io.neow3j.devpack.events.Event3Args;
 import io.neow3j.devpack.events.Event4Args;
@@ -332,14 +334,14 @@ _`@ManifestExtra`_
 
 Adds the provided key-value pair information in the manifest's `extra` field. You can also use `@ManifestsExtras` to gather multiple `@ManifestExtra` annotations (results in the same as when using single `@ManifestExtra` annotations).
 
-_`@SupportedStandards`_
+_`@SupportedStandard`_
 
-Sets the `supportedStandards` field in the manifest.
+Sets the `supportedStandards` field in the manifest. You can use `neoStandard = ` with the enum `NeoStandard` to use an official standard (see [here](https://github.com/neo-project/proposals#readme)), or `customStandard = ` with a custom string value.
 
 ```java
 @DisplayName("FurryFriends")
 @ManifestExtra(key = "author", value = "AxLabs")
-@SupportedStandards("NEP-11")
+@SupportedStandard(neoStandard = NeoStandard.NEP_11)
 public class NonFungibleToken {
 ```
 

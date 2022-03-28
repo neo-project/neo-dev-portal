@@ -5,13 +5,13 @@ author: AxLabs
 tags: [ "NEOW3J", "SMART CONTRACT", "JAVA"]
 skill: beginner
 image: ./assets/neow3j-padded.png
-source: https://github.com/neow3j/neow3j-boilerplate/tree/quickstart-tutorial
+source: https://github.com/neow3j/neow3j-boilerplate-contracts
 sidebar: true
 ---
 
 <div align="center" style={{ padding: '0% 25% 0% 25%' }}>
   <img src="/tooling/neow3j.png" alt="neow3j" width="75%" style={{ padding: '0% 0% 5% 0%' }}/> 
-  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.15.0</small></sub></h1> 
+  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.16.0</small></sub></h1> 
 </div>
 
 ## 1. Introduction
@@ -52,13 +52,14 @@ For optimal Java support in VS Code we recommend using the
 
 ### Code 
 
-For a quick setup of your smart contract project fetch the boilerplate project structure from our
-[boilerplate](https://github.com/neow3j/neow3j-boilerplate/tree/quickstart-tutorial) repository and switch to the `quickstart-tutorial` branch. This project contains a simple "HelloWorld" smart contract.
+For a quick setup of your smart contract project you can use the template project from our
+[neow3j-boilerplate-contracts](https://github.com/neow3j/neow3j-boilerplate-contracts) repository. It contains a simple "HelloWorld" smart contract.
+
+You can either click on `Use this template` within GitHub to create your own repository from it, or clone it with the following commands:
 
 ```
-git clone https://github.com/neow3j/neow3j-boilerplate.git
+git clone https://github.com/neow3j/neow3j-boilerplate-contracts.git
 cd neow3j-boilerplate
-git checkout quickstart-tutorial
 ```
 
 ## 3. Compilation
@@ -73,10 +74,8 @@ directory and run
 ```
 
 This compiles the smart contract class `HelloWorldSmartContract`, and places a NEF file, contract manifest, and
-debugging information file. NEF file and contract manifest are described [here](/docs/n3/develop/write/manifest) by
-default at `build/neow3j`. They are the artifacts that are deployed on-chain. The debugging information file, is
-required by the Neo Debugger (part of the Neo Blockchain Toolkit) to debug your contract. 
-
+debugging information file by default at `build/neow3j`. NEF file and contract manifest are described [here](/docs/n3/develop/write/manifest). They are the artifacts that are deployed on-chain. The debugging information file is
+required by the Neo Debugger (part of the Neo Blockchain Toolkit) to debug your contract.
 
 ### Using the Compiler in Code
 
@@ -133,7 +132,7 @@ The boilerplate repository already contains a `default.neo-express` configuratio
 with one account called Alice. In VS Code open the command palette and type "Start blockchain". Execute the command. The
 private net will start. Again in the command palatte type "Transfer assets" and execute the command. Transfer 100 GAS
 from genesis to Alice. This is will create a transaction on the private net.
-Now you can run the main method in `com.axlabs.helloworld.Deployment` (of the boilerplate repo) to deploy the contact on
+Now you can run the main method in `com.axlabs.helloworld.Deployment` (of the boilerplate repo) to deploy the contract on
 the private net. 
 
 :::tip
