@@ -28,7 +28,7 @@ function BlogListPaginator(props) {
             </Link>
             {
               [...Array(totalPages)].map((e, i) => (
-                <Link to={`${i == 0 ? "/tutorials" : `/tutorials/page/${i + 1}`}`} className={`flex items-center justify-center w-8 h-8 font-bold ${page - 1 == i ? "bg-gray-300" : "text-gray-500"}`}>{i + 1}</Link>
+                <Link to={`${i == 0 ? "/topics" : `/tutorials/page/${i + 1}`}`} className={`flex items-center justify-center w-8 h-8 font-bold ${page - 1 == i ? "bg-gray-300" : "text-gray-500"}`}>{i + 1}</Link>
               ))
             }
 
