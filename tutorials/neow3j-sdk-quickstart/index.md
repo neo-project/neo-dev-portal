@@ -5,9 +5,14 @@ author: AxLabs
 tags: ["DAPP", "SDK", "NEOW3J", "JAVA", "KOTLIN"]
 skill: beginner
 image: ./assets/neow3j-padded.png
-source: https://github.com/neow3j/neow3j-boilerplate-sdk/tree/quickstart-tutorial
+source: https://github.com/neow3j/neow3j-boilerplate-sdk
 sidebar: true
 ---
+
+<div align="center" style={{ padding: '0% 25% 0% 25%' }}>
+  <img src="/tooling/neow3j.png" alt="neow3j" width="75%" style={{ padding: '0% 0% 5% 0%' }}/> 
+  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.16.0</small></sub></h1> 
+</div>
 
 ## 1. Introduction
 
@@ -46,12 +51,13 @@ For optimal Java support in VS Code we recommend using the
 
 ### Code 
 
-For a quick setup of your dApp project fetch the SDK boilerplate project structure from our [SDK boilerplate](https://github.com/neow3j/neow3j-boilerplate-sdk/tree/quickstart-tutorial) repository and switch to the `quickstart-tutorial` branch. This project contains two simple examples. First, you'll build, sign and send a transaction. Then, we'll show you how to subscribe to new blocks on a Neo N3 blockchain.
+For a quick setup of your dApp project, you can use the [SDK boilerplate template](https://github.com/neow3j/neow3j-boilerplate-sdk) repository. This project contains two simple examples. First, you'll build, sign and send a transaction. Then, we'll show you how to subscribe to new blocks on a Neo N3 blockchain.
+
+You can either click on `Use this template` within GitHub to create your own repository from it, or clone it with the following commands:
 
 ```
 git clone https://github.com/neow3j/neow3j-boilerplate-sdk.git
 cd neow3j-boilerplate-sdk
-git checkout quickstart-tutorial
 ```
 
 ## 3. Building, Signing and Sending a Transaction
@@ -101,8 +107,8 @@ public class BuildAndSendTransaction {
         NeoSendRawTransaction response = tx.send();
 
         if (response.hasError()) {
-            System.out.printf("Transaction was not successful. Error message from Neo node was: "
-                    + "'%s'\n", response.getError().getMessage());
+            System.out.printf("Transaction was not successful. Error message from Neo node was: '%s'\n",
+                    response.getError().getMessage());
         } else {
             Hash256 txHash = response.getSendRawTransaction().getHash();
             Await.waitUntilTransactionIsExecuted(txHash, neow3j);
@@ -199,8 +205,8 @@ You can now check the node's response for an error as the transaction has been s
 
 ```java
 if (response.hasError()) {
-    System.out.printf("Transaction was not successful. Error message from Neo node was: "
-            + "'%s'\n", response.getError().getMessage());
+    System.out.printf("Transaction was not successful. Error message from Neo node was: '%s'\n",
+            response.getError().getMessage());
 } else {
     Hash256 txHash = response.getSendRawTransaction().getHash();
     Await.waitUntilTransactionIsExecuted(txHash, neow3j);

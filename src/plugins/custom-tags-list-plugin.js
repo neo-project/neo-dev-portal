@@ -12,7 +12,7 @@ module.exports = function blogInterceptor(...pluginArgs) {
           const blogTags = blogContents.blogTags;
           
           var blogPosts = blogContents.blogPosts;
-          blogPosts = blogPosts.slice(0,3) //get 3 recent tutorials
+          blogPosts = blogPosts.slice(0,3) //get 3 recent topics
           setGlobalData({blogTags,blogPosts})
       },
   };
