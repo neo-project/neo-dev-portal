@@ -37,12 +37,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           showLastUpdateTime: false,
         },
         blog: {
-          routeBasePath: "topics",
-          path: "topics",
+          routeBasePath: "tutorials",
+          path: "tutorials",
           blogTitle: 'NEO Development Tutorials!',
           blogDescription: 'Find a comprehensive collection of tools and resources to help you build outstanding applications on the Neo blockchain.',
           postsPerPage: 12,
-          blogSidebarTitle: "Recent topics",
+          blogSidebarTitle: "Recent tutorials",
           blogSidebarCount:0,
           feedOptions: {
             type: 'all',
@@ -97,7 +97,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           //   position: 'right',
           //   label: 'NeoFS',
           // },
-          {to: '/topics', label: 'Tutorials', position: 'right'},
+          {to: '/tutorials', label: 'Tutorials', position: 'right'},
           {to: '/resources', label: 'Resources & Tooling', position: 'right'},
           {
             type: 'doc',
@@ -117,7 +117,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             items: [
               {
                 label: 'Tutorial',
-                to: '/topics',
+                to: '/tutorials',
               },
             ],
           },
