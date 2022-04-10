@@ -106,7 +106,7 @@ namespace ConsoleApp1
 
             // construct the script, in this example, we will transfer 1024 NEO to receiver
             UInt160 scriptHash = NativeContract.NEO.Hash;
-            byte[] script = scriptHash.MakeScript("transfer", sender, receiver, 1024);
+            byte[] script = scriptHash.MakeScript("transfer", sender, receiver, 1024, null);
 
             // initialize the TransactionManagerFactory with rpc client and magic
             // fill in the TransactionManager with the script and cosigners
@@ -166,7 +166,7 @@ namespace ConsoleApp1
 
             // use WalletAPI to create and send the transfer transaction
             WalletAPI walletAPI = new WalletAPI(client);
-            Transaction tx = await walletAPI.TransferAsync(NativeContract.NEO.Hash, sendKey, receiver, 1024).ConfigureAwait(false);
+            Transaction tx = await walletAPI.TransferAsync(NativeContract.NEO.Hash, sendKey, receiver, 1024, null).ConfigureAwait(false);
 
             // print a message after the transaction is on chain
             WalletAPI neoAPI = new WalletAPI(client);
@@ -232,7 +232,7 @@ namespace ConsoleApp1
             // construct the script, in this example, we will transfer 1024 GAS to multi-sign account
             // in contract parameter, the amount type is BigInteger, so we need to muliply the contract factor
             UInt160 scriptHash = NativeContract.GAS.Hash;
-            byte[] script = scriptHash.MakeScript("transfer", sender, multiAccount, 1024 * NativeContract.GAS.Factor);
+            byte[] script = scriptHash.MakeScript("transfer", sender, multiAccount, 1024 * NativeContract.GAS.Factor, null);
 
             // add Signers, which is a collection of scripthashs that need to be signed
             Signer[] cosigners = new[] { new Signer { Scopes = WitnessScope.CalledByEntry, Account = sender } };
@@ -312,7 +312,7 @@ namespace ConsoleApp1
             // construct the script, in this example, we will transfer 1024 GAS to multi-sign account
             // in contract parameter, the amount type is BigInteger, so we need to muliply the contract factor
             UInt160 scriptHash = NativeContract.GAS.Hash;
-            byte[] script = scriptHash.MakeScript("transfer", multiAccount, receiver, 1024 * NativeContract.GAS.Factor);
+            byte[] script = scriptHash.MakeScript("transfer", multiAccount, receiver, 1024 * NativeContract.GAS.Factor, null);
 
             // add Signers, which is a collection of scripthashs that need to be signed
             Signer[] cosigners = new[] { new Signer { Scopes = WitnessScope.CalledByEntry, Account = multiAccount } };
