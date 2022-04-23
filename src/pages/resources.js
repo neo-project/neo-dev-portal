@@ -160,12 +160,23 @@ export default function Tooling(props) {
                         name: "Neo Playground",
                         by: "AxLabs",
                         description: "Neo playground is an online development environment using VS Code web client with a number of additional utilities.",
-                        icon_url: "/tooling/neow3j.png",
+                        icon_url: "/tooling/neo-playground.png",
                         web_url: "https://neo-playground.dev/",
                         github_url: "https://github.com/AxLabs",
                         docs_url: "https://github.com/AxLabs",
                         supported_languages: ["java"],
-                        categories: ["dev-env", "sdks"]
+                        categories: ["dev-env"]
+                    },
+                    {
+                        name: "Neow3j",
+                        by: "AxLabs",
+                        description: "Neow3j is a reputable development toolkit to build dApps and Smart Contracts using the Java platform (Java, Kotlin, Android).",
+                        icon_url: "/tooling/neow3j.png",
+                        web_url: "https://neow3j.io/",
+                        github_url: "https://github.com/neow3j/neow3j",
+                        docs_url: "https://neow3j.io/",
+                        supported_languages: ["java"],
+                        categories: ["sdks", "cdks"]
                     },
                     {
                         name: "boa",
@@ -198,17 +209,6 @@ export default function Tooling(props) {
                         github_url: "https://github.com/neo-project/neo-devpack-dotnet",
                         docs_url: "https://github.com/neo-project/neo-devpack-dotnet",
                         supported_languages: ["c#"],
-                        categories: ["cdks"]
-                    },
-                    {
-                        name: "Neow3j",
-                        by: "AxLabs",
-                        description: "Neow3j is a Java library that aims to provide easy and reliable integration with Neo nodes. ",
-                        icon_url: "/tooling/neow3j.png",
-                        web_url: "https://neow3j.io/",
-                        github_url: "https://github.com/neow3j/neow3j",
-                        docs_url: "https://neow3j.io/",
-                        supported_languages: ["java"],
                         categories: ["cdks"]
                     },
                     {
