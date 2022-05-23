@@ -10,24 +10,21 @@ sidebar: true
 ---
 
 <div align="center" style={{ padding: '0% 25% 0% 25%' }}>
-  <img src="/tooling/neow3j.png" alt="neow3j" width="75%" style={{ padding: '0% 0% 5% 0%' }}/> 
-  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.16.0</small></sub></h1> 
+  <img src="/tooling/neow3j.png" alt="neow3j" width="75%" style={{ padding: '0% 0% 5% 0%' }}/>
+  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.17.0</small></sub></h1>
 </div>
 
-## 1. Introduction
+Neow3j is a development toolkit that provides easy and reliable tools to build Neo dApps and Smart Contracts using the Java platform (Java, Kotlin, Android). Check out [neow3j.io](https://neow3j.io) for more detailed information on neow3j and the technical documentation.
 
-Neow3j is a development toolkit that provides easy and reliable tools to build Neo dApps and Smart
-Contracts using the Java platform (Java, Kotlin, Android). Check out [neow3j.io](https://neow3j.io) for more detailed information on neow3j and the technical documentation.
-
-## 2. Setup
+## 1. Setup
 
 If you haven't already set up your environment to use the neow3j library, you can check out our tutorial about setting up a neow3j project [here](/tutorials/neow3j-smart-contract-quickstart).
 
-## 3. NEP-11 Overview
+## 2. NEP-11 Overview
 
 The NEP-11 is the non-fungible token (NFT) standard on Neo N3. Have a look at its official documentation [here](https://github.com/neo-project/proposals/blob/master/nep-11.mediawiki).
 
-## 4. Example NEP-11 Contract
+## 3. Example NEP-11 Contract
 
 The following example code represents a possible implementation for a token that supports the NEP-11 standard.
 
@@ -45,6 +42,7 @@ The NEP-11 standard also describes what methods are required if divisible NTFs s
 package io.neow3j.examples.contractdevelopment.contracts;
 
 import io.neow3j.devpack.ByteString;
+import io.neow3j.devpack.Contract;
 import io.neow3j.devpack.Hash160;
 import io.neow3j.devpack.Helper;
 import io.neow3j.devpack.Iterator;
@@ -57,20 +55,23 @@ import io.neow3j.devpack.StringLiteralHelper;
 import io.neow3j.devpack.annotations.DisplayName;
 import io.neow3j.devpack.annotations.ManifestExtra;
 import io.neow3j.devpack.annotations.OnDeployment;
+import io.neow3j.devpack.annotations.Permission;
 import io.neow3j.devpack.annotations.Safe;
 import io.neow3j.devpack.annotations.SupportedStandard;
+import io.neow3j.devpack.constants.CallFlags;
 import io.neow3j.devpack.constants.FindOptions;
+import io.neow3j.devpack.constants.NativeContract;
 import io.neow3j.devpack.constants.NeoStandard;
 import io.neow3j.devpack.contracts.ContractManagement;
+import io.neow3j.devpack.events.Event2Args;
 import io.neow3j.devpack.events.Event3Args;
 import io.neow3j.devpack.events.Event4Args;
 
 @DisplayName("FurryFriends")
 @ManifestExtra(key = "author", value = "AxLabs")
 @SupportedStandard(neoStandard = NeoStandard.NEP_11)
+@Permission(nativeContract = NativeContract.ContractManagement)
 public class NonFungibleToken {
-
-    static final Hash160 contractOwner = StringLiteralHelper.addressToScriptHash("NM7Aky765FG8NhhwtxjXRx7jEL1cnw7PBP");
 
     static final StorageContext ctx = Storage.getStorageContext();
     static final StorageMap contractMap = new StorageMap(ctx, 0);
@@ -78,21 +79,45 @@ public class NonFungibleToken {
     static final StorageMap ownerOfMap = new StorageMap(ctx, 2);
     static final StorageMap balanceMap = new StorageMap(ctx, 3);
 
-    // Keys of key-value pairs in NFT properties
     static final String propName = "name";
     static final String propDescription = "description";
     static final String propImage = "image";
     static final String propTokenURI = "tokenURI";
 
-    static final StorageMap propertiesNameMap = new StorageMap(ctx, 8);
-    static final StorageMap propertiesDescriptionMap = new StorageMap(ctx, 9);
-    static final StorageMap propertiesImageMap = new StorageMap(ctx, 10);
-    static final StorageMap propertiesTokenURIMap = new StorageMap(ctx, 11);
+    static final StorageMap propNameMap = new StorageMap(ctx, 8);
+    static final StorageMap propDescriptionMap = new StorageMap(ctx, 9);
+    static final StorageMap propImageMap = new StorageMap(ctx, 10);
+    static final StorageMap propTokenURIMap = new StorageMap(ctx, 11);
 
     static final byte[] totalSupplyKey = new byte[]{0x10};
     static final byte[] tokensOfKey = new byte[]{0x11};
 
-    // NEP-11 Methods
+    // deploy, update, destroy
+
+    @OnDeployment
+    public static void deploy(Object data, boolean update) {
+        if (!update) {
+            contractMap.put(totalSupplyKey, 0);
+        }
+    }
+
+    public static void update(ByteString script, String manifest) {
+        if (!Runtime.checkWitness(contractOwner())) {
+            error.fire("No authorization", "update");
+            Helper.abort();
+        }
+        ContractManagement.update(script, manifest);
+    }
+
+    public static void destroy() {
+        if (!Runtime.checkWitness(contractOwner())) {
+            error.fire("No authorization", "destroy");
+            Helper.abort();
+        }
+        ContractManagement.destroy();
+    }
+
+    // NEP-11 methods
 
     @Safe
     public static String symbol() {
@@ -110,41 +135,64 @@ public class NonFungibleToken {
     }
 
     @Safe
-    public static int balanceOf(Hash160 owner) {
-        return balanceMap.getIntOrZero(owner.toByteArray());
+    public static int balanceOf(Hash160 owner) throws Exception {
+        if (!Hash160.isValid(owner)) {
+            throw new Exception("The parameter 'owner' must be a 20-byte address.");
+        }
+        return getBalance(owner);
     }
 
     @Safe
-    public static Iterator<ByteString> tokensOf(Hash160 owner) {
-        return (Iterator<ByteString>) Storage.find(
-                ctx.asReadOnly(), createTokensOfPrefix(owner), FindOptions.RemovePrefix);
+    public static Iterator<ByteString> tokensOf(Hash160 owner) throws Exception {
+        if (!Hash160.isValid(owner)) {
+            throw new Exception("The parameter 'owner' must be a 20-byte address.");
+        }
+        return (Iterator<ByteString>) Storage.find(ctx.asReadOnly(), createTokensOfPrefix(owner),
+                (byte) (FindOptions.KeysOnly | FindOptions.RemovePrefix));
     }
 
-    public static boolean transfer(Hash160 to, ByteString tokenId, Object data) {
+    public static boolean transfer(Hash160 to, ByteString tokenId, Object data) throws Exception {
+        if (!Hash160.isValid(to)) {
+            throw new Exception("The parameter 'to' must be a 20-byte address.");
+        }
+        if (tokenId.length() > 64) {
+            throw new Exception("The parameter 'tokenId' must be a valid NFT ID (64 or less bytes long).");
+        }
         Hash160 owner = ownerOf(tokenId);
-        assert owner != null : "This token id does not exist.";
-        throwIfSignerIsNotOwner(owner);
-
-        ownerOfMap.put(tokenId, to.toByteArray());
-
-        new StorageMap(ctx, createTokensOfPrefix(owner)).delete(tokenId);
-        new StorageMap(ctx, createTokensOfPrefix(to)).put(tokenId, 1);
-
-        decreaseBalanceByOne(owner);
-        increaseBalanceByOne(to);
-
+        if (!Runtime.checkWitness(owner)) {
+            return false;
+        }
         onTransfer.fire(owner, to, 1, tokenId);
+        if (owner != to) {
+            ownerOfMap.put(tokenId, to.toByteArray());
+
+            new StorageMap(ctx, createTokensOfPrefix(owner)).delete(tokenId);
+            new StorageMap(ctx, createTokensOfPrefix(to)).put(tokenId, 1);
+
+            decreaseBalanceByOne(owner);
+            increaseBalanceByOne(to);
+        }
+        if (ContractManagement.getContract(to) != null) {
+            Contract.call(to, "onNEP11Payment", CallFlags.All, new Object[]{owner, 1, tokenId, data});
+        }
         return true;
     }
 
+    // Non-divisible NEP-11 methods
+
     @Safe
-    public static Hash160 ownerOf(ByteString tokenId) {
+    public static Hash160 ownerOf(ByteString tokenId) throws Exception {
+        if (tokenId.length() > 64) {
+            throw new Exception("The parameter 'tokenId' must be a valid NFT ID (64 or less bytes long).");
+        }
         ByteString owner = ownerOfMap.get(tokenId);
         if (owner == null) {
-            return null;
+            throw new Exception("This token id does not exist.");
         }
         return new Hash160(owner);
     }
+
+    // Optional NEP-11 methods
 
     @Safe
     public static Iterator<Iterator.Struct<ByteString, ByteString>> tokens() {
@@ -152,21 +200,26 @@ public class NonFungibleToken {
     }
 
     @Safe
-    public static Map<String, String> properties(ByteString tokenId) {
+    public static Map<String, String> properties(ByteString tokenId) throws Exception {
+        if (tokenId.length() > 64) {
+            throw new Exception("The parameter 'tokenId' must be a valid NFT ID (64 or less bytes long).");
+        }
         Map<String, String> p = new Map<>();
-        ByteString tokenName = propertiesNameMap.get(tokenId);
-        assert tokenName != null : "This token id does not exist.";
+        ByteString tokenName = propNameMap.get(tokenId);
+        if (tokenName == null) {
+            throw new Exception("This token id does not exist.");
+        }
 
         p.put(propName, tokenName.toString());
-        ByteString tokenDescription = propertiesDescriptionMap.get(tokenId);
+        ByteString tokenDescription = propDescriptionMap.get(tokenId);
         if (tokenDescription != null) {
             p.put(propDescription, tokenDescription.toString());
         }
-        ByteString tokenImage = propertiesImageMap.get(tokenId);
+        ByteString tokenImage = propImageMap.get(tokenId);
         if (tokenImage != null) {
             p.put(propImage, tokenImage.toString());
         }
-        ByteString tokenURI = propertiesTokenURIMap.get(tokenId);
+        ByteString tokenURI = propTokenURIMap.get(tokenId);
         if (tokenURI != null) {
             p.put(propTokenURI, tokenURI.toString());
         }
@@ -179,34 +232,45 @@ public class NonFungibleToken {
     private static Event3Args<Hash160, ByteString, Map<String, String>> onMint;
 
     @DisplayName("Transfer")
-    static Event4Args<Hash160, Hash160, Integer, ByteString> onTransfer;
+    private static Event4Args<Hash160, Hash160, Integer, ByteString> onTransfer;
 
-    // Custom Methods
+    /**
+     * This event is intended to be fired before aborting the VM. The first argument should be a message and the
+     * second argument should be the method name whithin which it has been fired.
+     */
+    @DisplayName("Error")
+    private static Event2Args<String, String> error;
+
+    // Custom methods
 
     @Safe
     public static Hash160 contractOwner() {
-        return contractOwner;
+        return StringLiteralHelper.addressToScriptHash("NM7Aky765FG8NhhwtxjXRx7jEL1cnw7PBP");
     }
 
     public static void mint(Hash160 owner, ByteString tokenId, Map<String, String> properties) {
-        assert Runtime.checkWitness(contractOwner) : "No authorization.";
-        assert registryMap.get(tokenId) == null : "This token id already exists.";
-        assert properties.containsKey(propName) : "The properties must contain a value for the key 'name'.";
-
+        if (!Runtime.checkWitness(contractOwner())) {
+            fireErrorAndAbort("No authorization.", "mint");
+        }
+        if (registryMap.get(tokenId) != null) {
+            fireErrorAndAbort("This token id already exists.", "mint");
+        }
+        if (!properties.containsKey(propName)) {
+            fireErrorAndAbort("The properties must contain a value for the key 'name'.", "mint");
+        }
         String tokenName = properties.get(propName);
-        propertiesNameMap.put(tokenId, tokenName);
-
+        propNameMap.put(tokenId, tokenName);
         if (properties.containsKey(propDescription)) {
             String description = properties.get(propDescription);
-            propertiesDescriptionMap.put(tokenId, description);
+            propDescriptionMap.put(tokenId, description);
         }
         if (properties.containsKey(propImage)) {
             String image = properties.get(propImage);
-            propertiesImageMap.put(tokenId, image);
+            propImageMap.put(tokenId, image);
         }
         if (properties.containsKey(propTokenURI)) {
             String tokenURI = properties.get(propTokenURI);
-            propertiesTokenURIMap.put(tokenId, tokenURI);
+            propTokenURIMap.put(tokenId, tokenURI);
         }
 
         registryMap.put(tokenId, tokenId);
@@ -218,40 +282,47 @@ public class NonFungibleToken {
         onMint.fire(owner, tokenId, properties);
     }
 
-    public static boolean burn(ByteString tokenId) {
-        Hash160 owner = ownerOf(tokenId);
-        assert owner != null : "This token id does not exist.";
-        throwIfSignerIsNotOwner(owner);
+    public static void burn(ByteString tokenId) {
+        Hash160 owner = null;
+        try {
+            owner = ownerOf(tokenId);
+        } catch (Exception e) {
+            fireErrorAndAbort(e.getMessage(), "burn");
+        }
+        if (!Runtime.checkWitness(owner)) {
+            fireErrorAndAbort("No authorization.", "abortIfInvalidWitness");
+        }
 
         registryMap.delete(tokenId);
-        propertiesNameMap.delete(tokenId);
-        propertiesDescriptionMap.delete(tokenId);
-        propertiesImageMap.delete(tokenId);
-        propertiesTokenURIMap.delete(tokenId);
+        propNameMap.delete(tokenId);
+        propDescriptionMap.delete(tokenId);
+        propImageMap.delete(tokenId);
+        propTokenURIMap.delete(tokenId);
         ownerOfMap.delete(tokenId);
 
         new StorageMap(ctx, createTokensOfPrefix(owner)).delete(tokenId);
         decreaseBalanceByOne(owner);
         decrementTotalSupplyByOne();
-        return true;
+        onTransfer.fire(owner, null, 1, tokenId);
     }
 
-    // Private Helper Methods
+    // Private helper methods
 
-    private static void throwIfSignerIsNotContractOwner() {
-        assert Runtime.checkWitness(contractOwner) : "No authorization.";
+    private static int getBalance(Hash160 owner) {
+        return balanceMap.getIntOrZero(owner.toByteArray());
     }
 
-    private static void throwIfSignerIsNotOwner(Hash160 owner) {
-        assert Runtime.checkWitness(owner) : "No authorization.";
+    private static void fireErrorAndAbort(String msg, String method) {
+        error.fire(msg, method);
+        Helper.abort();
     }
 
     private static void increaseBalanceByOne(Hash160 owner) {
-        balanceMap.put(owner.toByteArray(), balanceOf(owner) + 1);
+        balanceMap.put(owner.toByteArray(), getBalance(owner) + 1);
     }
 
     private static void decreaseBalanceByOne(Hash160 owner) {
-        balanceMap.put(owner.toByteArray(), balanceOf(owner) - 1);
+        balanceMap.put(owner.toByteArray(), getBalance(owner) - 1);
     }
 
     private static void incrementTotalSupplyByOne() {
@@ -267,31 +338,10 @@ public class NonFungibleToken {
     private static byte[] createTokensOfPrefix(Hash160 owner) {
         return Helper.concat(tokensOfKey, owner.toByteArray());
     }
-
-    // Deploy, Update, and Destroy
-
-    @OnDeployment
-    public static void deploy(Object data, boolean update) {
-        if (!update) {
-            throwIfSignerIsNotContractOwner();
-            contractMap.put(totalSupplyKey, 0);
-        }
-    }
-
-    public static void update(ByteString script, String manifest) {
-        throwIfSignerIsNotContractOwner();
-        ContractManagement.update(script, manifest);
-    }
-
-    public static void destroy() {
-        throwIfSignerIsNotContractOwner();
-        ContractManagement.destroy();
-    }
-
 }
 ```
 
-## 5. Contract Breakdown
+## 4. Contract Breakdown
 
 ### Imports
 
@@ -301,6 +351,7 @@ The imports show the neow3j devpack classes that are used in the example contrac
 package io.neow3j.examples.contractdevelopment.contracts;
 
 import io.neow3j.devpack.ByteString;
+import io.neow3j.devpack.Contract;
 import io.neow3j.devpack.Hash160;
 import io.neow3j.devpack.Helper;
 import io.neow3j.devpack.Iterator;
@@ -313,11 +364,15 @@ import io.neow3j.devpack.StringLiteralHelper;
 import io.neow3j.devpack.annotations.DisplayName;
 import io.neow3j.devpack.annotations.ManifestExtra;
 import io.neow3j.devpack.annotations.OnDeployment;
+import io.neow3j.devpack.annotations.Permission;
 import io.neow3j.devpack.annotations.Safe;
 import io.neow3j.devpack.annotations.SupportedStandard;
+import io.neow3j.devpack.constants.CallFlags;
 import io.neow3j.devpack.constants.FindOptions;
+import io.neow3j.devpack.constants.NativeContract;
 import io.neow3j.devpack.constants.NeoStandard;
 import io.neow3j.devpack.contracts.ContractManagement;
+import io.neow3j.devpack.events.Event2Args;
 import io.neow3j.devpack.events.Event3Args;
 import io.neow3j.devpack.events.Event4Args;
 ```
@@ -328,7 +383,7 @@ Annotations on top of the smart contract's class represent contract-specific inf
 
 _`@DisplayName`_
 
-It specifies the contract's name. If this annotation is not present, the class name is used for the contract's name.
+Specifies the contract's name. If this annotation is not present, the class name is used for the contract's name.
 
 _`@ManifestExtra`_
 
@@ -338,10 +393,16 @@ _`@SupportedStandard`_
 
 Sets the `supportedStandards` field in the manifest. You can use `neoStandard = ` with the enum `NeoStandard` to use an official standard (see [here](https://github.com/neo-project/proposals#readme)), or `customStandard = ` with a custom string value.
 
+_`Permission`_
+Specifies, which third-party contracts and methods the smart contract is allowed to call. By default (i.e., if no permission annotation is set), the contract is not allowed to call any contract. Use `contract = ` and `methods = ` to specify, respectively, which contracts and methods are allowed.
+
+_For example, if you want to allow transferring NEO tokens from the contract, you can add the annotation `@Permission(nativeContract = NativeContract.NeoToken, methods = "transfer")`._
+
 ```java
 @DisplayName("FurryFriends")
 @ManifestExtra(key = "author", value = "AxLabs")
 @SupportedStandard(neoStandard = NeoStandard.NEP_11)
+@Permission(nativeContract = NativeContract.ContractManagement)
 public class NonFungibleToken {
 ```
 
@@ -361,8 +422,6 @@ The contract owner of this example contract is fixed (i.e., it is a `final` vari
 :::
 
 ```java
-static final Hash160 contractOwner = StringLiteralHelper.addressToScriptHash("NM7Aky765FG8NhhwtxjXRx7jEL1cnw7PBP");
-
 static final StorageContext ctx = Storage.getStorageContext();
 static final StorageMap contractMap = new StorageMap(ctx, 0);
 static final StorageMap registryMap = new StorageMap(ctx, 1);
@@ -375,24 +434,69 @@ static final String propDescription = "description";
 static final String propImage = "image";
 static final String propTokenURI = "tokenURI";
 
-static final StorageMap propertiesNameMap = new StorageMap(ctx, 8);
-static final StorageMap propertiesDescriptionMap = new StorageMap(ctx, 9);
-static final StorageMap propertiesImageMap = new StorageMap(ctx, 10);
-static final StorageMap propertiesTokenURIMap = new StorageMap(ctx, 11);
+static final StorageMap propNameMap = new StorageMap(ctx, 8);
+static final StorageMap propDescriptionMap = new StorageMap(ctx, 9);
+static final StorageMap propImageMap = new StorageMap(ctx, 10);
+static final StorageMap propTokenURIMap = new StorageMap(ctx, 11);
 
 static final byte[] totalSupplyKey = new byte[]{0x10};
 static final byte[] tokensOfKey = new byte[]{0x11};
 ```
 
+### Deploy
+
+Once a deployment transaction is made (containing the contract and other parameters), the contract data is first stored on the blockchain and then the native contract `ContractManagement` calls the smart contract's `deploy()` method. In neow3j, that method is marked with the annotation `@OnDeployment`. In the example, when the smart contract is deployed, the total supply is set to 0.
+
+```java
+@OnDeployment
+public static void deploy(Object data, boolean update) {
+    if (!update) {
+        contractMap.put(totalSupplyKey, 0);
+    }
+}
+```
+
+### Update and Destroy
+
+In order to update the contract, the following method first checks that the contract owner witnessed the transaction and then the native `ContractManagement.update()` method is called. When updating a smart contract, you can change the smart contract's code and its manifest. This means that you can update how the contract programmatically manages its storage context.
+
+:::note
+
+Additionally to changing the smart contract's script and manifest, the method `ContractManagement.update()` eventually calls the smart contract's `deploy()` method (shown above) with the boolean `update` set to true.
+
+:::
+
+```java
+public static void update(ByteString script, String manifest) {
+    if (!Runtime.checkWitness(contractOwner())) {
+        error.fire("No authorization", "update");
+        Helper.abort();
+    }
+    ContractManagement.update(script, manifest);
+}
+```
+
+The example contract also provides the option to destroy the smart contract. As well as the `update()` method, it first verifies that the contract owner witnessed the transaction and then calls the method `ContractManagement.destroy()` method.
+
+:::caution
+
+When the native method `ContractManagement.destroy()` is called from a smart contract, the whole smart contract's storage context is erased, and the contract can no longer be used.
+
+:::
+
+```java
+public static void destroy() {
+    if (!Runtime.checkWitness(contractOwner())) {
+        error.fire("No authorization", "destroy");
+        Helper.abort();
+    }
+    ContractManagement.destroy();
+}
+```
+
 ### NEP-11 Methods
 
 The required NEP-11 methods are implemented as follows. If a method does not change the state of the contract (i.e., it is just used for reading), it can be annotated with the `@Safe` annotation. Out of the required NEP-11 methods, only the `transfer()` method should be writing to the contract's storage and, thus, is not annotated as safe.
-
-:::info
-
-Neow3j uses Java's `assert` statement to throw exceptions on the NeoVM. Thus, there is no need of using an `if` statement with a followed `throw new Exception()` statement. Although, it may still be used like that. It is up to the developer to go either way, as it results in the exact same NeoVM code once compiled.
-
-:::
 
 ```java
 @Safe
@@ -411,38 +515,63 @@ public static int totalSupply() {
 }
 
 @Safe
-public static int balanceOf(Hash160 owner) {
-    return balanceMap.getIntOrZero(owner.toByteArray());
+public static int balanceOf(Hash160 owner) throws Exception {
+    if (!Hash160.isValid(owner)) {
+        throw new Exception("The parameter 'owner' must be a 20-byte address.");
+    }
+    return getBalance(owner);
 }
 
 @Safe
-public static Iterator<ByteString> tokensOf(Hash160 owner) {
-    return (Iterator<ByteString>) Storage.find(
-            ctx.asReadOnly(), createTokensOfPrefix(owner), FindOptions.RemovePrefix);
+public static Iterator<ByteString> tokensOf(Hash160 owner) throws Exception {
+    if (!Hash160.isValid(owner)) {
+        throw new Exception("The parameter 'owner' must be a 20-byte address.");
+    }
+    return (Iterator<ByteString>) Storage.find(ctx.asReadOnly(), createTokensOfPrefix(owner),
+            (byte) (FindOptions.KeysOnly | FindOptions.RemovePrefix));
 }
 
-public static boolean transfer(Hash160 to, ByteString tokenId, Object data) {
+public static boolean transfer(Hash160 to, ByteString tokenId, Object data) throws Exception {
+    if (!Hash160.isValid(to)) {
+        throw new Exception("The parameter 'to' must be a 20-byte address.");
+    }
+    if (tokenId.length() > 64) {
+        throw new Exception("The parameter 'tokenId' must be a valid NFT ID (64 or less bytes long).");
+    }
     Hash160 owner = ownerOf(tokenId);
-    assert owner != null : "This token id does not exist.";
-    throwIfSignerIsNotOwner(owner);
-
-    ownerOfMap.put(tokenId, to.toByteArray());
-
-    new StorageMap(ctx, createTokensOfPrefix(owner)).delete(tokenId);
-    new StorageMap(ctx, createTokensOfPrefix(to)).put(tokenId, 1);
-
-    decreaseBalanceByOne(owner);
-    increaseBalanceByOne(to);
-
+    if (!Runtime.checkWitness(owner)) {
+        return false;
+    }
     onTransfer.fire(owner, to, 1, tokenId);
+    if (owner != to) {
+        ownerOfMap.put(tokenId, to.toByteArray());
+
+        new StorageMap(ctx, createTokensOfPrefix(owner)).delete(tokenId);
+        new StorageMap(ctx, createTokensOfPrefix(to)).put(tokenId, 1);
+
+        decreaseBalanceByOne(owner);
+        increaseBalanceByOne(to);
+    }
+    if (ContractManagement.getContract(to) != null) {
+        Contract.call(to, "onNEP11Payment", CallFlags.All, new Object[]{owner, 1, tokenId, data});
+    }
     return true;
 }
+```
 
+### Non-divisible NEP-11 Methods
+
+The NEP-11 standard specifies non-divisible as well as divisible NFT smart contracts. Since this smart contract is indivisible (i.e., its decimals are 0), it is required to implement a specific method `ownerOf` for it. It returns the script hash of the owner the token with the specified token id.
+
+```java
 @Safe
-public static Hash160 ownerOf(ByteString tokenId) {
+public static Hash160 ownerOf(ByteString tokenId) throws Exception {
+    if (tokenId.length() > 64) {
+        throw new Exception("The parameter 'tokenId' must be a valid NFT ID (64 or less bytes long).");
+    }
     ByteString owner = ownerOfMap.get(tokenId);
     if (owner == null) {
-        return null;
+        throw new Exception("This token id does not exist.");
     }
     return new Hash160(owner);
 }
@@ -450,7 +579,7 @@ public static Hash160 ownerOf(ByteString tokenId) {
 
 ### NEP-11 Optional Methods
 
-The NEP-11 standard describes two optional methods called `tokens()` and `properties()` -- meaning that if methods with these names and parameters are implemented, they must follow the standard. Below you can see the implementation of these two methods. The `tokens()` method iterates through the `registryMap` and returns an `Iterator` based on the key-value pairs that are found in the registry. The `properties()` method returns a map of the provided token's properties stored in the contract's storage. This includes its name, and if present its description, image, and URI.
+The NEP-11 standard describes two optional methods called `tokens()` and `properties()`. Meaning that if methods with these names and parameters are implemented, they must follow the standard. Below you can see the implementation of these two methods. The `tokens()` method iterates through the `registryMap` and returns an `Iterator` based on the key-value pairs that are found in the registry. The `properties()` method returns a map of the provided token's properties stored in the contract's storage. This includes its name, and if present its description, image, and URI.
 
 ```java
 @Safe
@@ -459,21 +588,26 @@ public static Iterator<Iterator.Struct<ByteString, ByteString>> tokens() {
 }
 
 @Safe
-public static Map<String, String> properties(ByteString tokenId) {
+public static Map<String, String> properties(ByteString tokenId) throws Exception {
+    if (tokenId.length() > 64) {
+        throw new Exception("The parameter 'tokenId' must be a valid NFT ID (64 or less bytes long).");
+    }
     Map<String, String> p = new Map<>();
-    ByteString tokenName = propertiesNameMap.get(tokenId);
-    assert tokenName != null : "This token id does not exist.";
-
+    ByteString tokenName = propNameMap.get(tokenId);
+    if (tokenName == null) {
+        throw new Exception("This token id does not exist.");
+    }
+    
     p.put(propName, tokenName.toString());
-    ByteString tokenDescription = propertiesDescriptionMap.get(tokenId);
+    ByteString tokenDescription = propDescriptionMap.get(tokenId);
     if (tokenDescription != null) {
         p.put(propDescription, tokenDescription.toString());
     }
-    ByteString tokenImage = propertiesImageMap.get(tokenId);
+    ByteString tokenImage = propImageMap.get(tokenId);
     if (tokenImage != null) {
         p.put(propImage, tokenImage.toString());
     }
-    ByteString tokenURI = propertiesTokenURIMap.get(tokenId);
+    ByteString tokenURI = propTokenURIMap.get(tokenId);
     if (tokenURI != null) {
         p.put(propTokenURI, tokenURI.toString());
     }
@@ -483,66 +617,23 @@ public static Map<String, String> properties(ByteString tokenId) {
 
 ### Events
 
-The NEP-11 standard requires an event `Transfer` that contains the values `from`, `to`, `amount`, and `tokenId`. For this, the class `Event4Args` can be used with the annotation `@DisplayName` to set the event's name that will be shown in the manifest and notifications when it has been fired. The event `Mint` is an additional custom event that is fired whenever a new NFT is minted.
+The NEP-11 standard requires an event `Transfer` that contains the values `from`, `to`, `amount`, and `tokenId`. For this, the class `Event4Args` can be used with the annotation `@DisplayName` to set the event's name that will be shown in the manifest and notifications when it has been fired. The event `Mint` is an additional custom event that is fired whenever a new NFT is minted. Last but not least, we added an event `error` that is used, when we don't want to throw a catchable exception, but rather abort the NeoVM instantly after firing this event.
 
 ```java
-@DisplayName("Transfer")
-static Event4Args<Hash160, Hash160, Integer, ByteString> onTransfer;
-
 @DisplayName("Mint")
 private static Event3Args<Hash160, ByteString, Map<String, String>> onMint;
+
+@DisplayName("Transfer")
+private static Event4Args<Hash160, Hash160, Integer, ByteString> onTransfer;
+
+@DisplayName("Error")
+private static Event2Args<String, String> error;
 ```
 
 An event variable can effectively fire an event by using the `fire()` method with the corresponding arguments. For example, the `Transfer` event (represented by the `onTransfer` variable) should be fired whenever a transfer happens.
 
 ```java
 onTransfer.fire(owner, to, 1, tokenId);
-```
-
-### Deploy
-
-Once a deployment transaction is made (containing the contract and other parameters), the contract data is first stored on the blockchain and then the native contract `ContractManagement` calls the smart contract's `deploy()` method. In neow3j, that method is marked with the annotation `@OnDeployment`. In the example, when the smart contract is deployed, the total supply is set to 0.
-
-```java
-@OnDeployment
-public static void deploy(Object data, boolean update) {
-    if (!update) {
-        throwIfSignerIsNotContractOwner();
-        contractMap.put(totalSupplyKey, 0);
-    }
-}
-```
-
-### Update and Destroy
-
-In order to update the contract, the following method first checks that the contract owner witnessed the transaction and then the native `ContractManagement.update()` method is called. When updating a smart contract, you can change the smart contract's code and its manifest. This means that you can update how the contract programmatically manages its storage context.
-
-:::note
-
-Additionally to changing the smart contract's script and manifest, the method `ContractManagement.update()` eventually calls the smart contract's `deploy()` method (shown above) with the boolean `update` set to true.
-
-:::
-
-```java
-public static void update(ByteString script, String manifest) {
-    throwIfSignerIsNotContractOwner();
-    ContractManagement.update(script, manifest);
-}
-```
-
-The example contract also provides the option to destroy the smart contract. As well as the `update()` method, it first verifies that the contract owner witnessed the transaction and then calls the method `ContractManagement.destroy()` method.
-
-:::caution
-
-When the native method `ContractManagement.destroy()` is called from a smart contract, the whole smart contract's storage context is erased, and the contract can no longer be used.
-
-:::
-
-```java
-public static void destroy() {
-    throwIfSignerIsNotContractOwner();
-    ContractManagement.destroy();
-}
 ```
 
 ### Custom Methods
@@ -558,28 +649,32 @@ The method `burn()` can be invoked by the owner of a token. It deletes all infor
 ```java
 @Safe
 public static Hash160 contractOwner() {
-    return contractOwner;
+    return StringLiteralHelper.addressToScriptHash("NM7Aky765FG8NhhwtxjXRx7jEL1cnw7PBP");
 }
 
 public static void mint(Hash160 owner, ByteString tokenId, Map<String, String> properties) {
-    assert Runtime.checkWitness(contractOwner) : "No authorization.";
-    assert registryMap.get(tokenId) == null : "This token id already exists.";
-    assert properties.containsKey(propName) : "The properties must contain a value for the key 'name'.";
-
+    if (!Runtime.checkWitness(contractOwner())) {
+        fireErrorAndAbort("No authorization.", "mint");
+    }
+    if (registryMap.get(tokenId) != null) {
+        fireErrorAndAbort("This token id already exists.", "mint");
+    }
+    if (!properties.containsKey(propName)) {
+        fireErrorAndAbort("The properties must contain a value for the key 'name'.", "mint");
+    }
     String tokenName = properties.get(propName);
-    propertiesNameMap.put(tokenId, tokenName);
-
+    propNameMap.put(tokenId, tokenName);
     if (properties.containsKey(propDescription)) {
         String description = properties.get(propDescription);
-        propertiesDescriptionMap.put(tokenId, description);
+        propDescriptionMap.put(tokenId, description);
     }
     if (properties.containsKey(propImage)) {
         String image = properties.get(propImage);
-        propertiesImageMap.put(tokenId, image);
+        propImageMap.put(tokenId, image);
     }
     if (properties.containsKey(propTokenURI)) {
         String tokenURI = properties.get(propTokenURI);
-        propertiesTokenURIMap.put(tokenId, tokenURI);
+        propTokenURIMap.put(tokenId, tokenURI);
     }
 
     registryMap.put(tokenId, tokenId);
@@ -591,44 +686,51 @@ public static void mint(Hash160 owner, ByteString tokenId, Map<String, String> p
     onMint.fire(owner, tokenId, properties);
 }
 
-public static boolean burn(ByteString tokenId) {
-    Hash160 owner = ownerOf(tokenId);
-    assert owner != null : "This token id does not exist.";
-    throwIfSignerIsNotOwner(owner);
+public static void burn(ByteString tokenId) {
+    Hash160 owner = null;
+    try {
+        owner = ownerOf(tokenId);
+    } catch (Exception e) {
+        fireErrorAndAbort(e.getMessage(), "burn");
+    }
+    if (!Runtime.checkWitness(owner)) {
+        fireErrorAndAbort("No authorization.", "abortIfInvalidWitness");
+    }
 
     registryMap.delete(tokenId);
-    propertiesNameMap.delete(tokenId);
-    propertiesDescriptionMap.delete(tokenId);
-    propertiesImageMap.delete(tokenId);
-    propertiesTokenURIMap.delete(tokenId);
+    propNameMap.delete(tokenId);
+    propDescriptionMap.delete(tokenId);
+    propImageMap.delete(tokenId);
+    propTokenURIMap.delete(tokenId);
     ownerOfMap.delete(tokenId);
 
     new StorageMap(ctx, createTokensOfPrefix(owner)).delete(tokenId);
     decreaseBalanceByOne(owner);
     decrementTotalSupplyByOne();
-    return true;
+    onTransfer.fire(owner, null, 1, tokenId);
 }
 ```
 
 ### Private Helper Methods
 
-Private methods can be used to, for example, simplify and make the smart contract a bit more readable. The following private methods are used in the NEP-11 example contract. For example, in order to prevent writing the same exception message to check the witness of the owner, the private method `throwIfSignerIsNotContractOwner()` allows writing this code only once.
+Private methods can be used to simplify and make the smart contract more readable. The following private methods are used in the NEP-11 example contract.
 
 ```java
-private static void throwIfSignerIsNotContractOwner() {
-    assert Runtime.checkWitness(contractOwner) : "No authorization.";
+private static int getBalance(Hash160 owner) {
+    return balanceMap.getIntOrZero(owner.toByteArray());
 }
 
-private static void throwIfSignerIsNotOwner(Hash160 owner) {
-    assert Runtime.checkWitness(owner) : "No authorization.";
+private static void fireErrorAndAbort(String msg, String method) {
+    error.fire(msg, method);
+    Helper.abort();
 }
 
 private static void increaseBalanceByOne(Hash160 owner) {
-    balanceMap.put(owner.toByteArray(), balanceOf(owner) + 1);
+    balanceMap.put(owner.toByteArray(), getBalance(owner) + 1);
 }
 
 private static void decreaseBalanceByOne(Hash160 owner) {
-    balanceMap.put(owner.toByteArray(), balanceOf(owner) - 1);
+    balanceMap.put(owner.toByteArray(), getBalance(owner) - 1);
 }
 
 private static void incrementTotalSupplyByOne() {
@@ -646,7 +748,7 @@ private static byte[] createTokensOfPrefix(Hash160 owner) {
 }
 ```
 
-## 6. Compile the Contract
+## 5. Compile the Contract
 
 The contract can be compiled using the gradle plugin. First, set the `className` in the file `gradle.build` to the contract's class name. Then, the gradle task `neow3jCompile` can be executed from the project's root path to compile the contract.
 
