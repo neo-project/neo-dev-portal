@@ -11,11 +11,10 @@ sidebar: true
 
 <div align="center" style={{ padding: '0% 25% 0% 25%' }}>
   <img src="/tooling/neow3j.png" alt="neow3j" width="75%" style={{ padding: '0% 0% 5% 0%' }}/> 
-  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.16.0</small></sub></h1> 
+  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.17.0</small></sub></h1> 
 </div>
 
-Neow3j is a development toolkit that provides easy and reliable tools to build Neo dApps and Smart
-Contracts using the Java platform (Java, Kotlin, Android). Check out [neow3j.io](https://neow3j.io) for more detailed information on neow3j and the technical documentation.
+Neow3j is a development toolkit that provides easy and reliable tools to build Neo dApps and Smart Contracts using the Java platform (Java, Kotlin, Android). Check out [neow3j.io](https://neow3j.io) for more detailed information on neow3j and the technical documentation.
 
 ## 1. Setup
 
@@ -32,15 +31,14 @@ The following example code represents a possible implementation for a token that
 ```java
 package io.neow3j.examples.contractdevelopment.contracts;
 
-import static io.neow3j.devpack.StringLiteralHelper.addressToScriptHash;
-
 import io.neow3j.devpack.ByteString;
 import io.neow3j.devpack.Contract;
 import io.neow3j.devpack.Hash160;
+import io.neow3j.devpack.Helper;
 import io.neow3j.devpack.Runtime;
 import io.neow3j.devpack.Storage;
-import io.neow3j.devpack.StorageContext;
 import io.neow3j.devpack.StorageMap;
+import io.neow3j.devpack.StringLiteralHelper;
 import io.neow3j.devpack.annotations.DisplayName;
 import io.neow3j.devpack.annotations.ManifestExtra;
 import io.neow3j.devpack.annotations.OnDeployment;
@@ -51,29 +49,46 @@ import io.neow3j.devpack.constants.CallFlags;
 import io.neow3j.devpack.constants.NativeContract;
 import io.neow3j.devpack.constants.NeoStandard;
 import io.neow3j.devpack.contracts.ContractManagement;
+import io.neow3j.devpack.events.Event2Args;
 import io.neow3j.devpack.events.Event3Args;
 
-@DisplayName("AxLabsToken")
+@ManifestExtra(key = "name", value = "AxLabsToken")
 @ManifestExtra(key = "author", value = "AxLabs")
 @SupportedStandard(neoStandard = NeoStandard.NEP_17)
 @Permission(nativeContract = NativeContract.ContractManagement)
 public class FungibleToken {
 
-    // Constants
-
-    static final Hash160 owner = addressToScriptHash("NM7Aky765FG8NhhwtxjXRx7jEL1cnw7PBP");
-
-    static final int decimals = 2;
+    static final StorageMap assetMap = new StorageMap(Storage.getStorageContext(), new byte[]{0x01});
     static final byte[] totalSupplyKey = new byte[]{0x00};
-    static final StorageContext ctx = Storage.getStorageContext();
-    static final StorageMap assetMap = new StorageMap(ctx, new byte[]{0x01});
 
-    // NEP-17 Events
+    // deploy, update, destroy
 
-    @DisplayName("Transfer")
-    static Event3Args<Hash160, Hash160, Integer> onTransfer;
+    @OnDeployment
+    public static void deploy(Object data, boolean update) {
+        if (!update) {
+            // Initialize the supply
+            int initialSupply = 200_000_000;
+            Storage.put(Storage.getStorageContext(), totalSupplyKey, initialSupply);
+            // Allocate all tokens to the contract owner.
+            assetMap.put(contractOwner().toByteArray(), initialSupply);
+        }
+    }
 
-    // NEP-17 Methods
+    public static void update(ByteString script, String manifest) {
+        if (!Runtime.checkWitness(contractOwner())) {
+            fireErrorAndAbort("No authorization.", "update");
+        }
+        ContractManagement.update(script, manifest);
+    }
+
+    public static void destroy() {
+        if (!Runtime.checkWitness(contractOwner())) {
+            fireErrorAndAbort("No authorization.", "destroy");
+        }
+        ContractManagement.destroy();
+    }
+
+    // NEP-17 methods
 
     @Safe
     public static String symbol() {
@@ -82,27 +97,22 @@ public class FungibleToken {
 
     @Safe
     public static int decimals() {
-        return decimals;
+        return 2;
     }
 
     @Safe
     public static int totalSupply() {
-        return Storage.getInt(ctx, totalSupplyKey);
+        return Storage.getInt(Storage.getReadOnlyContext(), totalSupplyKey);
     }
 
-    @Safe
-    public static int balanceOf(Hash160 account) {
-        assert Hash160.isValid(account) : "Argument is not a valid address.";
-        return getBalance(account);
-    }
-
-    public static boolean transfer(Hash160 from, Hash160 to, int amount, Object[] data) {
-
-        assert Hash160.isValid(from) && Hash160.isValid(to) : "'from' or 'to' address is not a valid address.";
-        assert amount >= 0 : "The transfer amount must be non-negative.";
-        assert Runtime.checkWitness(from) : "No authorization.";
-
-        if (amount > getBalance(from)) {
+    public static boolean transfer(Hash160 from, Hash160 to, int amount, Object[] data) throws Exception {
+        if (!Hash160.isValid(from) || !Hash160.isValid(to)) {
+            throw new Exception("The parameters 'from' and 'to' must be 20-byte addresses.");
+        }
+        if (amount < 0) {
+            throw new Exception("The parameter 'amount' must be greater than or equal to 0.");
+        }
+        if (amount > getBalance(from) || !Runtime.checkWitness(from)) {
             return false;
         }
 
@@ -110,17 +120,46 @@ public class FungibleToken {
             deductFromBalance(from, amount);
             addToBalance(to, amount);
         }
+
+        onTransfer.fire(from, to, amount);
         if (ContractManagement.getContract(to) != null) {
-            onTransfer.fire(from, to, amount);
             Contract.call(to, "onNEP17Payment", CallFlags.All, data);
         }
         return true;
     }
 
-    // Private Helper Methods
+    @Safe
+    public static int balanceOf(Hash160 account) throws Exception {
+        if (!Hash160.isValid(account)) {
+            throw new Exception("The parameter 'account' must be a 20-byte address.");
+        }
+        return getBalance(account);
+    }
 
-    private static void throwIfSignerIsNotOwner() {
-        assert Runtime.checkWitness(owner) : "The calling entity is not the owner of this contract.";
+    // events
+
+    @DisplayName("Transfer")
+    static Event3Args<Hash160, Hash160, Integer> onTransfer;
+
+    /**
+     * This event is intended to be fired before aborting the VM. The first argument should be a message and the
+     * second argument should be the method name whithin which it has been fired.
+     */
+    @DisplayName("Error")
+    private static Event2Args<String, String> error;
+
+    // custom methods
+
+    @Safe
+    public static Hash160 contractOwner() {
+        return StringLiteralHelper.addressToScriptHash("NM7Aky765FG8NhhwtxjXRx7jEL1cnw7PBP");
+    }
+
+    // private helper methods
+
+    private static void fireErrorAndAbort(String msg, String method) {
+        error.fire(msg, method);
+        Helper.abort();
     }
 
     private static void addToBalance(Hash160 key, int value) {
@@ -134,28 +173,6 @@ public class FungibleToken {
 
     private static int getBalance(Hash160 key) {
         return assetMap.getIntOrZero(key.toByteArray());
-    }
-
-    // Deploy, Update, and Destroy
-
-    @OnDeployment
-    public static void deploy(Object data, boolean update) {
-        if (!update) {
-            throwIfSignerIsNotOwner();
-            int initialSupply = 200_000_000;
-            Storage.put(ctx, totalSupplyKey, initialSupply);
-            assetMap.put(owner.toByteArray(), initialSupply);
-        }
-    }
-
-    public static void update(ByteString script, String manifest) {
-        throwIfSignerIsNotOwner();
-        ContractManagement.update(script, manifest);
-    }
-
-    public static void destroy() throws Exception {
-        throwIfSignerIsNotOwner();
-        ContractManagement.destroy();
     }
 
 }
@@ -172,15 +189,14 @@ The imports show the neow3j devpack classes that are used in the example contrac
 ```java
 package io.neow3j.examples.contractdevelopment.contracts;
 
-import static io.neow3j.devpack.StringLiteralHelper.addressToScriptHash;
-
 import io.neow3j.devpack.ByteString;
 import io.neow3j.devpack.Contract;
 import io.neow3j.devpack.Hash160;
+import io.neow3j.devpack.Helper;
 import io.neow3j.devpack.Runtime;
 import io.neow3j.devpack.Storage;
-import io.neow3j.devpack.StorageContext;
 import io.neow3j.devpack.StorageMap;
+import io.neow3j.devpack.StringLiteralHelper;
 import io.neow3j.devpack.annotations.DisplayName;
 import io.neow3j.devpack.annotations.ManifestExtra;
 import io.neow3j.devpack.annotations.OnDeployment;
@@ -191,6 +207,7 @@ import io.neow3j.devpack.constants.CallFlags;
 import io.neow3j.devpack.constants.NativeContract;
 import io.neow3j.devpack.constants.NeoStandard;
 import io.neow3j.devpack.contracts.ContractManagement;
+import io.neow3j.devpack.events.Event2Args;
 import io.neow3j.devpack.events.Event3Args;
 ```
 
@@ -218,7 +235,7 @@ _For example, if you want to allow transferring NEO tokens from the contract, yo
 
 ```java
 @DisplayName("AxLabsToken")
-@ManifestExtra(key = "author", value = "AxLabsToken")
+@ManifestExtra(key = "author", value = "AxLabs")
 @SupportedStandard(neoStandard = NeoStandard.NEP_17)
 @Permission(nativeContract = NativeContract.ContractManagement)
 public class FungibleToken {
@@ -240,80 +257,8 @@ The contract owner of this example contract is fixed (i.e., it is a `final` vari
 :::
 
 ```java
-static final Hash160 owner = addressToScriptHash("NM7Aky765FG8NhhwtxjXRx7jEL1cnw7PBP");
-
-static final int decimals = 2;
+static final StorageMap assetMap = new StorageMap(Storage.getStorageContext(), new byte[]{0x01});
 static final byte[] totalSupplyKey = new byte[]{0x00};
-static final StorageContext ctx = Storage.getStorageContext();
-static final StorageMap assetMap = new StorageMap(ctx, new byte[]{0x01});
-```
-
-### NEP-17 Methods
-
-The required NEP-17 methods are implemented as follows. If a method does not change the state of the contract (i.e., it is just used for reading), it can be annotated with the `@Safe` annotation. Out of the NEP-17 methods, only the `transfer()` method should be writing to the contract and is thus not annotated as safe.
-
-:::info
-
-Neow3j uses Java's `assert` statement to throw exceptions on the NeoVM. Thus, there is no need of using an `if` statement with a followed `throw new Exception()` statement. Although, it may still be used like that. It is up to the developer to go either way, as it results in the exact same NeoVM code once compiled.
-
-:::
-
-```java
-@Safe
-public static String symbol() {
-    return "ALT";
-}
-
-@Safe
-public static int decimals() {
-    return decimals;
-}
-
-@Safe
-public static int totalSupply() {
-    return Storage.getInt(ctx, totalSupplyKey);
-}
-
-@Safe
-public static int balanceOf(Hash160 account) {
-    assert Hash160.isValid(account) : "Argument is not a valid address.";
-    return getBalance(account);
-}
-
-public static boolean transfer(Hash160 from, Hash160 to, int amount, Object[] data) {
-    assert Hash160.isValid(from) && Hash160.isValid(to) : "'from' or 'to' address is not a valid address.";
-    assert amount >= 0 : "The transfer amount must be non-negative.";
-    assert Runtime.checkWitness(from) : "No authorization.";
-
-    if (getBalance(from) < amount) {
-        return false;
-    }
-
-    if (from != to && amount != 0) {
-        deductFromBalance(from, amount);
-        addToBalance(to, amount);
-    }
-    if (ContractManagement.getContract(to) != null) {
-        onTransfer.fire(from, to, amount);
-        Contract.call(to, "onNEP17Payment", CallFlags.All, data);
-    }
-    return true;
-}
-```
-
-### Events
-
-The NEP-17 standard requires an event `Transfer` that contains the values `from`, `to`, and `amount`. For this, the class `Event3Args` can be used with the annotation `@DisplayName` to set the event's name that will be shown in the manifest and notifications when it has been fired.
-
-```java
-@DisplayName("Transfer")
-static Event3Args<Hash160, Hash160, Integer> onTransfer;
-```
-
-An event variable can effectively fire an event by using the `fire()` method with the corresponding arguments. For example, the `Transfer` event (represented by the `onTransfer` variable) should be fired whenever a transfer happens.
-
-```java
-onTransfer.fire(from, to, amount);
 ```
 
 ### Deploy
@@ -324,10 +269,9 @@ Once a deployment transaction is made (containing the contract and other paramet
 @OnDeployment
 public static void deploy(Object data, boolean update) {
     if (!update) {
-        throwIfSignerIsNotOwner();
         int initialSupply = 200_000_000;
-        Storage.put(ctx, totalSupplyKey, initialSupply);
-        assetMap.put(owner.toByteArray(), initialSupply);
+        Storage.put(Storage.getStorageContext(), totalSupplyKey, initialSupply);
+        assetMap.put(contractOwner().toByteArray(), initialSupply);
     }
 }
 ```
@@ -343,9 +287,11 @@ Additionally to changing the smart contract's script and manifest, the method `C
 :::
 
 ```java
-public static void update(ByteString nef, String manifest) {
-    throwIfSignerIsNotOwner();
-    ContractManagement.update(nef, manifest);
+public static void update(ByteString script, String manifest) {
+    if (!Runtime.checkWitness(contractOwner())) {
+        fireErrorAndAbort("No authorization.", "update");
+    }
+    ContractManagement.update(script, manifest);
 }
 ```
 
@@ -358,19 +304,107 @@ When the native method `ContractManagement.destroy()` is called from a smart con
 :::
 
 ```java
-public static void destroy() throws Exception {
-    throwIfSignerIsNotOwner();
+public static void destroy() {
+    if (!Runtime.checkWitness(contractOwner())) {
+        fireErrorAndAbort("No authorization.", "destroy");
+    }
     ContractManagement.destroy();
+}
+```
+
+### NEP-17 Methods
+
+The required NEP-17 methods are implemented as follows. If a method does not change the state of the contract (i.e., it is just used for reading), it can be annotated with the `@Safe` annotation. Out of the NEP-17 methods, only the `transfer()` method should be writing to the contract and is thus not annotated as safe.
+
+```java
+@Safe
+public static String symbol() {
+    return "ALT";
+}
+
+@Safe
+public static int decimals() {
+    return 2;
+}
+
+@Safe
+public static int totalSupply() {
+    return Storage.getInt(Storage.getReadOnlyContext(), totalSupplyKey);
+}
+
+public static boolean transfer(Hash160 from, Hash160 to, int amount, Object[] data) throws Exception {
+    if (!Hash160.isValid(from) || !Hash160.isValid(to)) {
+        throw new Exception("The parameters 'from' and 'to' must be 20-byte addresses.");
+    }
+    if (amount < 0) {
+        throw new Exception("The parameter 'amount' must be greater than or equal to 0.");
+    }
+    if (amount > getBalance(from) || !Runtime.checkWitness(from)) {
+        return false;
+    }
+
+    if (from != to && amount != 0) {
+        deductFromBalance(from, amount);
+        addToBalance(to, amount);
+    }
+
+    onTransfer.fire(from, to, amount);
+    if (ContractManagement.getContract(to) != null) {
+        Contract.call(to, "onNEP17Payment", CallFlags.All, data);
+    }
+    return true;
+}
+
+@Safe
+public static int balanceOf(Hash160 account) throws Exception {
+    if (!Hash160.isValid(account)) {
+        throw new Exception("The parameter 'account' must be a 20-byte address.");
+    }
+    return getBalance(account);
+}
+```
+
+### Events
+
+The NEP-17 standard requires an event `Transfer` that contains the values `from`, `to`, and `amount`. For this, the class `Event3Args` can be used with the annotation `@DisplayName` to set the event's name that will be shown in the manifest and notifications when it has been fired.
+
+```java
+@DisplayName("Transfer")
+    static Event3Args<Hash160, Hash160, Integer> onTransfer;
+
+/**
+ * This event is intended to be fired before aborting the VM. The first argument should be a message and the
+ * second argument should be the method name whithin which it has been fired.
+ */
+@DisplayName("Error")
+private static Event2Args<String, String> error;
+```
+
+An event variable can effectively fire an event by using the `fire()` method with the corresponding arguments. For example, the `Transfer` event (represented by the `onTransfer` variable) should be fired whenever a transfer happens.
+
+```java
+onTransfer.fire(from, to, amount);
+```
+
+### Custom Methods
+
+The example contract contains one custom method that is not specified in the NEP-11 standard. The method `contractOwner()` simply returns the script hash of the contract owner.
+
+```java
+@Safe
+public static Hash160 contractOwner() {
+    return StringLiteralHelper.addressToScriptHash("NM7Aky765FG8NhhwtxjXRx7jEL1cnw7PBP");
 }
 ```
 
 ### Private Helper Methods
 
-Private methods can be used to, for example, simplify and make the smart contract a bit more readable. The following private methods are used in the NEP-17 example contract. For example, in order to prevent writing the same exception message to check the witness of the owner, the private method `throwIfSignerIsNotOwner()` allows writing this code only once.
+Private methods can be used to simplify and make the smart contract more readable. The following private methods are used in the NEP-17 example contract.
 
 ```java
-private static void throwIfSignerIsNotOwner() {
-    assert Runtime.checkWitness(owner) : "The calling entity is not the owner of this contract.";
+private static void fireErrorAndAbort(String msg, String method) {
+    error.fire(msg, method);
+    Helper.abort();
 }
 
 private static void addToBalance(Hash160 key, int value) {
