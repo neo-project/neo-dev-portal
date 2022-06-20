@@ -331,6 +331,17 @@ export default function Tooling(props) {
                         docs_url: "https://github.com/neo-project/neo-modules",
                         supported_languages: ["c#"],
                         categories: ["sdks"]
+                    },
+                    {
+                        name: "Props",
+                        by: "COZ",
+                        description: "The PROPS project is general purpose smart contracts and developer framework for Neo N3.",
+                        icon_url: "/tooling/props_puppet_icon.svg",
+                        web_url: "https://props.coz.io/d",
+                        github_url: "https://github.com/CityOfZion/props",
+                        docs_url: "https://props.coz.io/d",
+                        supported_languages: ["js"],
+                        categories: ["sdks"]
                     }
 
                 ]
