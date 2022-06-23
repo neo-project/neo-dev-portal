@@ -19,6 +19,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
   ],
   scripts: [
     '/js/clarity.js',
+    'https://www.googletagmanager.com/gtag/js?id=G-5M9291B1QD',
+    '/js/ga.js',
   ],
   presets: [
     [
