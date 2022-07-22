@@ -87,7 +87,7 @@ byte[] Base58CheckDecode(string input)
 
    
 
-   ![](../../images/blockchain_paradigm/Base58CheckEncodeAndDecode.png)
+   ![](../images/blockchain_paradigm/Base58CheckEncodeAndDecode.png)
 
 
 
