@@ -36,13 +36,13 @@ signers中余下的字段定义了签名的作用范围。当 checkwitness 用�
 ### sysfee
 系统费用取决于交易脚本的大小，数量和NeoVM指令类型。每一个指令所对应的费用，请参考[opcode 费用](../虚拟机#费用)。Neo N3取消了每笔交易10 GAS的免费额度，系统费用总额受合约脚本的指令数量和指令类型影响。计算公式如下所示：
 
-![](../images/transaction/system_fee.png)
+![](images/transaction/system_fee.png)
 
 其中，*OpcodeSet* 为指令集，𝑂𝑝𝑐𝑜𝑑𝑒𝑃𝑟𝑖𝑐𝑒<sub>𝑖</sub>为第 *i* 种指令的费用，𝑛<sub>𝑖</sub>为第 *i* 种指令在合约脚本中的执行次数。
 ### netfee
 网络费是用户向Neo网络提交交易时支付的费用，作为共识节点的出块奖励。每笔交易的网络费存在一个基础值，用户支付的网络费需要大于或等于此基础值，否则交易无法通过验证。基础网络费计算公式如下所示：
 
-![network fee](../images/transaction/network_fee.png)
+![network fee](images/transaction/network_fee.png)
 
 其中，*VerificationCost*为虚拟机验证交易签名执行的指令相对应的费用，*tx.Length*为交易数据的字节长度，*FeePerByte*为交易每字节的费用，目前为0.00001GAS。
 
@@ -73,7 +73,7 @@ witnesses属性用于验证交易的有效性和完整性。Witness即“见证�
 
 #### 验证脚本
 
-验证脚本，常见为地址脚本，包括普通地址脚本和多签地址脚本，该地址脚本可以从钱包账户中直接获取，其构造方式，请参考[钱包-地址](wallets.md#地址)；
+验证脚本，常见为地址脚本，包括普通地址脚本和多签地址脚本，该地址脚本可以从钱包账户中直接获取，其构造方式，请参考[钱包-地址](Wallets.md#地址)；
 
 也可以为自定义的鉴权合约脚本。
 

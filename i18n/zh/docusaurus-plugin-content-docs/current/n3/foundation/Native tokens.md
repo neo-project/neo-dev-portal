@@ -10,8 +10,8 @@ GAS是燃料通证（fuel token），用于Neo网络的资源控制，最小单�
 
 Neo N3的创世区块将铸造准确数量的GAS代币，以对标NEO legacy链上流通的所有GAS代币。
 
-关于GAS的分配规则，可参考[治理与激励](../../governance.md)。
+关于GAS的分配规则，可参考[治理与激励](governance.md)。
 
 ## NEP17 资产
 
-NEP17 通证需要通过智能合约生成和管理，使用智能合约的存储区来存储信息，使用了账户模型。具体信息请见 [NEP-17](../../../develop/write/nep17.md)。
+NEP17 通证需要通过智能合约生成和管理，使用智能合约的存储区来存储信息，使用了账户模型。具体信息请见 [NEP-17](../develop/write/nep17.md)。

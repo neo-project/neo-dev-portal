@@ -29,7 +29,7 @@
 
 `Witness`是这个区块的验证脚本。它的结构是执行脚本（`InvocationScript`）加上验证脚本(`VerificationScript`)。执行脚本就包含进行验证所需要的参数，而验证脚本就是具体验证要使用的脚本。
 
-![](../../images/blockchain/nextconsensus_script.jpg)
+![](images/blockchain/nextconsensus_script.jpg)
 
 ## 区块
 
@@ -41,7 +41,7 @@
 | ？     | Header       | 区块头         | Header          | 区块头                       |
 | ?\*?   | Transactions  | 交易列表       | Transaction[] | 区块的主数据                                 |
 
-除去区块头，剩下的便是由一个交易列表组成的区块主体。严格讲，区块主体以交易列表长度开始，后面罗列各条交易。此轮共识的议长将从其内存池队列中挑出通过验证的一系列交易，将其交易哈希放入一个共识消息（`PrePareRequest`）中再发送到网络里。共识过程相对复杂，请参见 [共识机制](../../consensus/dbft.md) 章节。
+除去区块头，剩下的便是由一个交易列表组成的区块主体。严格讲，区块主体以交易列表长度开始，后面罗列各条交易。此轮共识的议长将从其内存池队列中挑出通过验证的一系列交易，将其交易哈希放入一个共识消息（`PrePareRequest`）中再发送到网络里。共识过程相对复杂，请参见 [共识机制](consensus/dbft.md) 章节。
 
 目前，每一个块中最多有512笔交易。
 
