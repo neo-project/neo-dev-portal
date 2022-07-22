@@ -67,7 +67,7 @@ function DropdownNavbarItemDesktop({items, position, className, ...props}) {
         'dropdown--show': showDropdown,
       })}>
       <NavLink
-        className={clsx('navbar__link', className)}
+        className={clsx('navbar__link flex items-center', className)} //this is where the locale selecdtor is
         {...props}
         onClick={props.to ? undefined : (e) => e.preventDefault()}
         onKeyDown={(e) => {

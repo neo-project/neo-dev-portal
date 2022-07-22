@@ -78,7 +78,7 @@ function DefaultNavbarItemDesktop({
   const element = (
     <NavLink
       className={clsx(
-        isDropdownItem ? 'dropdown__link' : 'navbar__item navbar__link text-secondary  hover:text-primary font-semibold', //this is where to edit the top nav bar menu item 
+        isDropdownItem ? 'dropdown__link text-secondary  hover:text-primary font-semibold w-full' : 'navbar__item navbar__link text-secondary  hover:text-primary font-semibold', //this is where to edit the top nav bar menu item 
         className,
       )}
       {...props}
