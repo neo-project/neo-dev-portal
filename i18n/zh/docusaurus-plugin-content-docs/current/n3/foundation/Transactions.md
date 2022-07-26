@@ -174,7 +174,7 @@ Action(Allow|Deny) 和 Condition (判断条件)
 
 - Boolean：true|false
 
-  “expression” = <bool>
+  “expression” = `<bool>`
 
   ```
   // 等价于 WitnessScope.Global
@@ -194,7 +194,7 @@ Action(Allow|Deny) 和 Condition (判断条件)
 
 - Not: 逻辑非，对其它条件求反
 
-  “expression”=<Condition>
+  “expression”=`<Condition>`
 
   ```
   // 只有当前合约不是 0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5 才允许使用签名
@@ -244,7 +244,7 @@ Action(Allow|Deny) 和 Condition (判断条件)
 
 - Or：逻辑或，连接其它条件求或
 
-  “expressions”=<Condition[]>
+  “expressions”=`<Condition[]>`
 
   ```
   // 只有当前合约是 0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5 或在入口处调用时才允许使用签名
@@ -270,7 +270,7 @@ Action(Allow|Deny) 和 Condition (判断条件)
 
 - ScriptHash：验证当前合约hash是否匹配，相当于 CustomContracts
 
-  “hash”= <UInt160>
+  “hash”= `<UInt160>`
 
   ```
   // 只允许合约 0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5 使用签名
@@ -290,7 +290,7 @@ Action(Allow|Deny) 和 Condition (判断条件)
 
 - Group：验证当前合约的公钥是否匹配，相当于 CustomGroups
 
-  “group”=<ECPoint>
+  “group”=`<ECPoint>`
 
   ```
   // 只允许经过公钥 021821807f923a3da004fb73871509d7635bcc05f41edef2a3ca5c941d8bbc1231认证的合约使用签名
@@ -327,7 +327,7 @@ Action(Allow|Deny) 和 Condition (判断条件)
 
 - CalledByContract：验证当前合约的上一级合约hash是否匹配
 
-  “hash”=<UInt160>
+  “hash”=`<UInt160>`
 
   ```
   // 只允许上级合约是 0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5 时使用签名
@@ -347,7 +347,7 @@ Action(Allow|Deny) 和 Condition (判断条件)
 
 - CalledByGroup：验证当前合约的上一级合约公钥是否匹配
 
-  “group”=<UInt160>
+  “group”=`<UInt160>`
 
   ```
   // 只允许上级合约是公钥 021821807f923a3da004fb73871509d7635bcc05f41edef2a3ca5c941d8bbc1231 认证过的合约时使用签名

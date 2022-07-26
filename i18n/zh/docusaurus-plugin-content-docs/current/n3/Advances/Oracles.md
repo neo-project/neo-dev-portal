@@ -24,13 +24,13 @@ Neo Oracle Service 是 Neo N3 内置的链外数据访问服务，它允许用�
 
 由于想要抄袭的Oracle节点无法提前预知数据，所以无法提交密文信息，从而避免了抄袭问题。
 
-![](assets\oracle_commit.png)
+![](assets/oracle_commit.png)
 
 ### 请求/响应模式
 
 Neo Oracle Service采用的是请求/响应模式的处理机制，这是一种异步模型。
 
-![](assets\oralce_response.png)
+![](assets/oracle_response.png)
 
 **流程**
 
