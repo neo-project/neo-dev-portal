@@ -11,7 +11,7 @@ sidebar: true
 
 <div align="center" style={{ padding: '0% 25% 0% 25%' }}>
   <img src="/tooling/neow3j.png" alt="neow3j" width="75%" style={{ padding: '0% 0% 5% 0%' }}/> 
-  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.17.1</small></sub></h1> 
+  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.19.0</small></sub></h1> 
 </div>
 
 Neow3j is a development toolkit that provides easy and reliable tools to build Neo dApps and Smart Contracts using the Java platform (Java, Kotlin, Android). Check out [neow3j.io](https://neow3j.io) for more detailed information on neow3j and the technical documentation.
@@ -34,11 +34,10 @@ package io.neow3j.examples.contractdevelopment.contracts;
 import io.neow3j.devpack.ByteString;
 import io.neow3j.devpack.Contract;
 import io.neow3j.devpack.Hash160;
-import io.neow3j.devpack.Helper;
 import io.neow3j.devpack.Runtime;
 import io.neow3j.devpack.Storage;
+import io.neow3j.devpack.StorageContext;
 import io.neow3j.devpack.StorageMap;
-import io.neow3j.devpack.StringLiteralHelper;
 import io.neow3j.devpack.annotations.DisplayName;
 import io.neow3j.devpack.annotations.ManifestExtra;
 import io.neow3j.devpack.annotations.OnDeployment;
@@ -49,46 +48,54 @@ import io.neow3j.devpack.constants.CallFlags;
 import io.neow3j.devpack.constants.NativeContract;
 import io.neow3j.devpack.constants.NeoStandard;
 import io.neow3j.devpack.contracts.ContractManagement;
-import io.neow3j.devpack.events.Event2Args;
 import io.neow3j.devpack.events.Event3Args;
 
+@DisplayName("AxLabsToken")
 @ManifestExtra(key = "name", value = "AxLabsToken")
 @ManifestExtra(key = "author", value = "AxLabs")
 @SupportedStandard(neoStandard = NeoStandard.NEP_17)
 @Permission(nativeContract = NativeContract.ContractManagement)
 public class FungibleToken {
 
-    static final StorageMap assetMap = new StorageMap(Storage.getStorageContext(), new byte[]{0x01});
-    static final byte[] totalSupplyKey = new byte[]{0x00};
+    static final int contractMapPrefix = 0;
+    static final byte[] contractOwnerKey = new byte[]{0x00};
+    static final byte[] totalSupplyKey = new byte[]{0x01};
 
-    // deploy, update, destroy
+    static final int assetMapPrefix = 1;
+
+    // region deploy, update, destroy
 
     @OnDeployment
     public static void deploy(Object data, boolean update) {
         if (!update) {
-            // Initialize the supply
+            StorageContext ctx = Storage.getStorageContext();
+            // Set the contract owner.
+            Storage.put(ctx, contractOwnerKey, (Hash160) data);
+            // Initialize the supply.
             int initialSupply = 200_000_000;
-            Storage.put(Storage.getStorageContext(), totalSupplyKey, initialSupply);
+            Storage.put(ctx, totalSupplyKey, initialSupply);
             // Allocate all tokens to the contract owner.
-            assetMap.put(contractOwner().toByteArray(), initialSupply);
+            new StorageMap(ctx, assetMapPrefix)
+                    .put(contractOwner(ctx).toByteArray(), initialSupply);
         }
     }
 
-    public static void update(ByteString script, String manifest) {
-        if (!Runtime.checkWitness(contractOwner())) {
-            fireErrorAndAbort("No authorization.", "update");
+    public static void update(ByteString script, String manifest) throws Exception {
+        if (!Runtime.checkWitness(contractOwner(Storage.getReadOnlyContext()))) {
+            throw new Exception("No authorization");
         }
-        ContractManagement.update(script, manifest);
+        new ContractManagement().update(script, manifest);
     }
 
-    public static void destroy() {
-        if (!Runtime.checkWitness(contractOwner())) {
-            fireErrorAndAbort("No authorization.", "destroy");
+    public static void destroy() throws Exception {
+        if (!Runtime.checkWitness(contractOwner(Storage.getReadOnlyContext()))) {
+            throw new Exception("No authorization");
         }
-        ContractManagement.destroy();
+        new ContractManagement().destroy();
     }
 
-    // NEP-17 methods
+    // endregion deploy, update, destroy
+    // region NEP-17 methods
 
     @Safe
     public static String symbol() {
@@ -112,17 +119,18 @@ public class FungibleToken {
         if (amount < 0) {
             throw new Exception("The parameter 'amount' must be greater than or equal to 0.");
         }
-        if (amount > getBalance(from) || !Runtime.checkWitness(from)) {
+        StorageContext ctx = Storage.getStorageContext();
+        if (amount > getBalance(ctx, from) || !Runtime.checkWitness(from)) {
             return false;
         }
 
         if (from != to && amount != 0) {
-            deductFromBalance(from, amount);
-            addToBalance(to, amount);
+            deductFromBalance(ctx, from, amount);
+            addToBalance(ctx, to, amount);
         }
 
         onTransfer.fire(from, to, amount);
-        if (ContractManagement.getContract(to) != null) {
+        if (new ContractManagement().getContract(to) != null) {
             Contract.call(to, "onNEP17Payment", CallFlags.All, data);
         }
         return true;
@@ -133,47 +141,45 @@ public class FungibleToken {
         if (!Hash160.isValid(account)) {
             throw new Exception("The parameter 'account' must be a 20-byte address.");
         }
-        return getBalance(account);
+        return getBalance(Storage.getReadOnlyContext(), account);
     }
 
-    // events
+    // endregion NEP-17 methods
+    // region events
 
     @DisplayName("Transfer")
     static Event3Args<Hash160, Hash160, Integer> onTransfer;
 
-    /**
-     * This event is intended to be fired before aborting the VM. The first argument should be a message and the
-     * second argument should be the method name whithin which it has been fired.
-     */
-    @DisplayName("Error")
-    private static Event2Args<String, String> error;
-
-    // custom methods
+    // endregion events
+    // region custom methods
 
     @Safe
     public static Hash160 contractOwner() {
-        return StringLiteralHelper.addressToScriptHash("NM7Aky765FG8NhhwtxjXRx7jEL1cnw7PBP");
+        return new StorageMap(Storage.getReadOnlyContext(), contractMapPrefix).getHash160(contractOwnerKey);
     }
 
-    // private helper methods
+    // endregion custom methods
+    // region private helper methods
 
-    private static void fireErrorAndAbort(String msg, String method) {
-        error.fire(msg, method);
-        Helper.abort();
+    // When storage context is already loaded, this is a cheaper method than `contractOwner()`.
+    private static Hash160 contractOwner(StorageContext ctx) {
+        return new StorageMap(ctx, contractMapPrefix).getHash160(contractOwnerKey);
     }
 
-    private static void addToBalance(Hash160 key, int value) {
-        assetMap.put(key.toByteArray(), getBalance(key) + value);
+    private static void addToBalance(StorageContext ctx, Hash160 key, int value) {
+        new StorageMap(ctx, assetMapPrefix).put(key.toByteArray(), getBalance(ctx, key) + value);
     }
 
-    private static void deductFromBalance(Hash160 key, int value) {
-        int oldValue = getBalance(key);
-        assetMap.put(key.toByteArray(), oldValue - value);
+    private static void deductFromBalance(StorageContext ctx, Hash160 key, int value) {
+        int oldValue = getBalance(ctx, key);
+        new StorageMap(ctx, assetMapPrefix).put(key.toByteArray(), oldValue - value);
     }
 
-    private static int getBalance(Hash160 key) {
-        return assetMap.getIntOrZero(key.toByteArray());
+    private static int getBalance(StorageContext ctx, Hash160 key) {
+        return new StorageMap(ctx, assetMapPrefix).getIntOrZero(key.toByteArray());
     }
+
+    // endregion private helper methods
 
 }
 ```
@@ -192,11 +198,10 @@ package io.neow3j.examples.contractdevelopment.contracts;
 import io.neow3j.devpack.ByteString;
 import io.neow3j.devpack.Contract;
 import io.neow3j.devpack.Hash160;
-import io.neow3j.devpack.Helper;
 import io.neow3j.devpack.Runtime;
 import io.neow3j.devpack.Storage;
+import io.neow3j.devpack.StorageContext;
 import io.neow3j.devpack.StorageMap;
-import io.neow3j.devpack.StringLiteralHelper;
 import io.neow3j.devpack.annotations.DisplayName;
 import io.neow3j.devpack.annotations.ManifestExtra;
 import io.neow3j.devpack.annotations.OnDeployment;
@@ -207,7 +212,6 @@ import io.neow3j.devpack.constants.CallFlags;
 import io.neow3j.devpack.constants.NativeContract;
 import io.neow3j.devpack.constants.NeoStandard;
 import io.neow3j.devpack.contracts.ContractManagement;
-import io.neow3j.devpack.events.Event2Args;
 import io.neow3j.devpack.events.Event3Args;
 ```
 
@@ -235,6 +239,7 @@ _For example, if you want to allow transferring NEO tokens from the contract, yo
 
 ```java
 @DisplayName("AxLabsToken")
+@ManifestExtra(key = "name", value = "AxLabsToken")
 @ManifestExtra(key = "author", value = "AxLabs")
 @SupportedStandard(neoStandard = NeoStandard.NEP_17)
 @Permission(nativeContract = NativeContract.ContractManagement)
@@ -243,7 +248,7 @@ public class FungibleToken {
 
 ### Constants
 
-You can set a constant value for the contract by using `final` variables. These values are always loaded when the contract is called and cannot be changed once the contract is deployed.
+You can set a constant value for the contract by using `final` variables. These values are always loaded when the contract is called and cannot be changed once the contract is deployed. If a final value does not include a method call (e.g., raw types, or a final `String` value, such as "name"), then these values are inlined during compilation.
 
 :::note
 
@@ -257,8 +262,9 @@ The contract owner of this example contract is fixed (i.e., it is a `final` vari
 :::
 
 ```java
-static final StorageMap assetMap = new StorageMap(Storage.getStorageContext(), new byte[]{0x01});
-static final byte[] totalSupplyKey = new byte[]{0x00};
+static final int contractMapPrefix = 0;
+static final byte[] contractOwnerKey = new byte[]{0x00};
+static final byte[] totalSupplyKey = new byte[]{0x01};
 ```
 
 ### Deploy
@@ -267,11 +273,17 @@ Once a deployment transaction is made (containing the contract and other paramet
 
 ```java
 @OnDeployment
-public static void deploy(Object data, boolean update) {
+public static void deploy(Object data, boolean update) throws Exception {
     if (!update) {
+        StorageContext ctx = Storage.getStorageContext();
+        // Set the contract owner.
+        Storage.put(ctx, contractOwnerKey, (Hash160) data);
+        // Initialize the supply.
         int initialSupply = 200_000_000;
-        Storage.put(Storage.getStorageContext(), totalSupplyKey, initialSupply);
-        assetMap.put(contractOwner().toByteArray(), initialSupply);
+        Storage.put(ctx, totalSupplyKey, initialSupply);
+        // Allocate all tokens to the contract owner.
+        new StorageMap(ctx, assetMapPrefix)
+                .put(contractOwner(ctx).toByteArray(), initialSupply);
     }
 }
 ```
@@ -287,11 +299,11 @@ Additionally to changing the smart contract's script and manifest, the method `C
 :::
 
 ```java
-public static void update(ByteString script, String manifest) {
-    if (!Runtime.checkWitness(contractOwner())) {
-        fireErrorAndAbort("No authorization.", "update");
+public static void update(ByteString script, String manifest) throws Exception {
+    if (!Runtime.checkWitness(contractOwner(Storage.getReadOnlyContext()))) {
+        throw new Exception("No authorization");
     }
-    ContractManagement.update(script, manifest);
+    new ContractManagement().update(script, manifest);
 }
 ```
 
@@ -304,11 +316,11 @@ When the native method `ContractManagement.destroy()` is called from a smart con
 :::
 
 ```java
-public static void destroy() {
-    if (!Runtime.checkWitness(contractOwner())) {
-        fireErrorAndAbort("No authorization.", "destroy");
+public static void destroy() throws Exception {
+    if (!Runtime.checkWitness(contractOwner(Storage.getReadOnlyContext()))) {
+        throw new Exception("No authorization");
     }
-    ContractManagement.destroy();
+    new ContractManagement().destroy();
 }
 ```
 
@@ -339,17 +351,18 @@ public static boolean transfer(Hash160 from, Hash160 to, int amount, Object[] da
     if (amount < 0) {
         throw new Exception("The parameter 'amount' must be greater than or equal to 0.");
     }
-    if (amount > getBalance(from) || !Runtime.checkWitness(from)) {
+    StorageContext ctx = Storage.getStorageContext();
+    if (amount > getBalance(ctx, from) || !Runtime.checkWitness(from)) {
         return false;
     }
 
     if (from != to && amount != 0) {
-        deductFromBalance(from, amount);
-        addToBalance(to, amount);
+        deductFromBalance(ctx, from, amount);
+        addToBalance(ctx, to, amount);
     }
 
     onTransfer.fire(from, to, amount);
-    if (ContractManagement.getContract(to) != null) {
+    if (new ContractManagement().getContract(to) != null) {
         Contract.call(to, "onNEP17Payment", CallFlags.All, data);
     }
     return true;
@@ -360,7 +373,7 @@ public static int balanceOf(Hash160 account) throws Exception {
     if (!Hash160.isValid(account)) {
         throw new Exception("The parameter 'account' must be a 20-byte address.");
     }
-    return getBalance(account);
+    return getBalance(Storage.getReadOnlyContext(), account);
 }
 ```
 
@@ -371,13 +384,6 @@ The NEP-17 standard requires an event `Transfer` that contains the values `from`
 ```java
 @DisplayName("Transfer")
     static Event3Args<Hash160, Hash160, Integer> onTransfer;
-
-/**
- * This event is intended to be fired before aborting the VM. The first argument should be a message and the
- * second argument should be the method name whithin which it has been fired.
- */
-@DisplayName("Error")
-private static Event2Args<String, String> error;
 ```
 
 An event variable can effectively fire an event by using the `fire()` method with the corresponding arguments. For example, the `Transfer` event (represented by the `onTransfer` variable) should be fired whenever a transfer happens.
@@ -388,12 +394,12 @@ onTransfer.fire(from, to, amount);
 
 ### Custom Methods
 
-The example contract contains one custom method that is not specified in the NEP-11 standard. The method `contractOwner()` simply returns the script hash of the contract owner.
+The example contract contains two custom methods that are not specified in the NEP-17 standard. The method `contractOwner()` simply returns the script hash of the contract owner.
 
 ```java
 @Safe
 public static Hash160 contractOwner() {
-    return StringLiteralHelper.addressToScriptHash("NM7Aky765FG8NhhwtxjXRx7jEL1cnw7PBP");
+    return new StorageMap(Storage.getReadOnlyContext(), contractMapPrefix).getHash160(contractOwnerKey);
 }
 ```
 
@@ -402,22 +408,22 @@ public static Hash160 contractOwner() {
 Private methods can be used to simplify and make the smart contract more readable. The following private methods are used in the NEP-17 example contract.
 
 ```java
-private static void fireErrorAndAbort(String msg, String method) {
-    error.fire(msg, method);
-    Helper.abort();
+// When storage context is already loaded, this is a cheaper method than `contractOwner()`.
+private static Hash160 contractOwner(StorageContext ctx) {
+    return new StorageMap(ctx, contractMapPrefix).getHash160(contractOwnerKey);
 }
 
-private static void addToBalance(Hash160 key, int value) {
-    assetMap.put(key.toByteArray(), getBalance(key) + value);
+private static void addToBalance(StorageContext ctx, Hash160 key, int value) {
+    new StorageMap(ctx, assetMapPrefix).put(key.toByteArray(), getBalance(ctx, key) + value);
 }
 
-private static void deductFromBalance(Hash160 key, int value) {
-    int oldValue = getBalance(key);
-    assetMap.put(key.toByteArray(), oldValue - value);
+private static void deductFromBalance(StorageContext ctx, Hash160 key, int value) {
+    int oldValue = getBalance(ctx, key);
+    new StorageMap(ctx, assetMapPrefix).put(key.toByteArray(), oldValue - value);
 }
 
-private static int getBalance(Hash160 key) {
-    return assetMap.getIntOrZero(key.toByteArray());
+private static int getBalance(StorageContext ctx, Hash160 key) {
+    return new StorageMap(ctx, assetMapPrefix).getIntOrZero(key.toByteArray());
 }
 ```
 
