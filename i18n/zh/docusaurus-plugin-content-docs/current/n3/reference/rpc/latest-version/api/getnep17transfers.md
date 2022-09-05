@@ -2,9 +2,9 @@
 
 返回指定地址内的所有 NEP-17 交易记录。
 
-> [!Note]
->
+:::note
 此方法由插件提供，需要安装 [TokensTracker](https://github.com/neo-project/neo-modules/releases) 、[LevelDBStore](https://github.com/neo-project/neo-modules/releases) 和 [RpcSever](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
+:::
 
 ## 参数说明
 

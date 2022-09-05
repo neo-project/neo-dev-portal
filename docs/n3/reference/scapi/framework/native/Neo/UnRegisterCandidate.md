@@ -6,9 +6,9 @@ Namespace: [Neo.SmartContract.Framework.Native](../../native.md)
 
 Assembly: Neo.SmartContract.Framework
 
-> [!Note]
->
-> Unregistering candidate requires the candidate's signature. It means candidate unregistering is only self-determined. 
+:::note
+ Unregistering candidate requires the candidate's signature. It means candidate unregistering is only self-determined. 
+:::
 
 ## Syntax
 

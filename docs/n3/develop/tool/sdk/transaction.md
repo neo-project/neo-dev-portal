@@ -2,9 +2,9 @@
 
 `RpcClient` encapsulates the transaction construction module, which allows you to construct transactions in Neo N3 with specific parameters and methods to personalize your functions. This document introduces the relevant methods.
 
-> [!Note]
->
-> If you use SDK to construct a transaction that requires a signature, you need to ensure that the RpcClient obeject and the network it is connected to are configured the same way, or the transaction constructed by the SDK will not be validated in the blockchain. To do so, load Neo-CLI config.json when constructing the RpcClient object, for example:
+:::note
+ If you use SDK to construct a transaction that requires a signature, you need to ensure that the RpcClient obeject and the network it is connected to are configured the same way, or the transaction constructed by the SDK will not be validated in the blockchain. To do so, load Neo-CLI config.json when constructing the RpcClient object, for example:
+:::
 >
 > RpcClient client = new RpcClient(new Uri("http://localhost:20332"), null, null, ProtocolSettings.Load("config.json"))
 

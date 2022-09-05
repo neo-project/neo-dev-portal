@@ -2,9 +2,9 @@
 
 Gets the customized properties of the NEP-11 token, where the name, description, image, and tokenURI properties are automatically decoded by UTF8.
 
-> [!Note]
->
-> You must install the plugin [TokensTracker](https://github.com/neo-project/neo-modules/releases), [LevelDBStore](https://github.com/neo-project/neo-modules/releases), and [RpcSever](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+:::note
+ You must install the plugin [TokensTracker](https://github.com/neo-project/neo-modules/releases), [LevelDBStore](https://github.com/neo-project/neo-modules/releases), and [RpcSever](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+:::
 
 ## Parameter Description
 

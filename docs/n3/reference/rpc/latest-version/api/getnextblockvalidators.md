@@ -2,9 +2,9 @@
 
 Gets the validators list of the next block.
 
-> [!Note]
->
-> You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+:::note
+ You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+:::
 
 ## Example
 
@@ -37,6 +37,5 @@ Response body:
 
 `result` returns an array containing multiple validators. Every validator contains information about the public key, the votes, and whether it is a validator or not.
 
-> [!Note]
->
-> The default vote of validator is 0 when voting has not started.
+:::note-replace
+ The default vote of validator is 0 when voting has not started.

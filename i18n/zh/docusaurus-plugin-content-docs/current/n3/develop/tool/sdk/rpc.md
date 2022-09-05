@@ -20,9 +20,9 @@ RpcClient client = new RpcClient(new Uri("http://seed1.neo.org:20332"), null, nu
 RpcClient client = new RpcClient(new Uri("http://localhost:20332"), null, null, ProtocolSettings.Load("config.json"));
 ```
 
-> [!Note]
->
-> 一个应用程序中一般只需要初始化一个 `RpcClient` 实例，而不需要在每个方法中初始化。
+:::note
+ 一个应用程序中一般只需要初始化一个 `RpcClient` 实例，而不需要在每个方法中初始化。
+:::
 
 ## 区块链数据
 

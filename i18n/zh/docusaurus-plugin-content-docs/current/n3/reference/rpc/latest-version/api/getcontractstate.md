@@ -1,9 +1,9 @@
 # getcontractstate 方法
 
 根据合约脚本散列或原生合约名称，查询合约的信息。
-> [!Note]
->
-> 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
+:::note
+ 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
+:::
 
 ## 参数说明
 

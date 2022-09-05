@@ -20,9 +20,9 @@ Local node (the local Neo-CLI that can be connected to main net, test net, or pr
 RpcClient client = new RpcClient(new Uri("http://localhost:20332"), null, null, ProtocolSettings.Load("config.json"));
 ```
 
-> [!Note]
->
-> Typically, only one RpcClient instance needs to be initialized in an application, not needing in each method.
+:::note
+ Typically, only one RpcClient instance needs to be initialized in an application, not needing in each method.
+:::
 
 ## Blockchain data
 

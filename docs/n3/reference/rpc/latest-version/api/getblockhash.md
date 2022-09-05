@@ -2,9 +2,9 @@
 
 Returns the hash value of the corresponding block based on the specified index.
 
-> [!Note]
->
-> You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+:::note
+ You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+:::
 
 ##  Parameter Description
 

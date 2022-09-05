@@ -245,9 +245,9 @@ neo> show gas
 Unclaimed gas: 16.7367406
 ```
 
-> [!NOTE]
->
-> 这里不包含已提取的 GAS，查看已提取的 GAS 请用 list asset 命令。
+:::note
+ 这里不包含已提取的 GAS，查看已提取的 GAS 请用 list asset 命令。
+:::
 
 在 Neo N3 中，某地址每次 NEO 数量发生改变时都会触发其 GAS 的自动提取。
 
@@ -888,9 +888,9 @@ Result Stack: [{"type":"Boolean","value":true}]
 Relay tx(no|yes): no
 ```
 
-> [!Note]
->
-> 当输入 invoke 命令后，节点调用合约中的 `operation` 方法，并将 `operation` 和 `contractParameters` 作为实参传入。如果合约里没有对 `operation` 和 `contractParameters` 做处理，将不能返回预期的结果。
+:::note
+ 当输入 invoke 命令后，节点调用合约中的 `operation` 方法，并将 `operation` 和 `contractParameters` 作为实参传入。如果合约里没有对 `operation` 和 `contractParameters` 做处理，将不能返回预期的结果。
+:::
 
 ###  update
 

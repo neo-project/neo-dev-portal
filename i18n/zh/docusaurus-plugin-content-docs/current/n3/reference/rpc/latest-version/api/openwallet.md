@@ -2,9 +2,9 @@
 
 打开指定钱包文件。为了安全该方法默认禁用，如确实需要使用，请要在 RpcServer 的配置文件中手动开启该方法。
 
-> [!Note]
->
-> 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用
+:::note
+ 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用
+:::
 
 ## 参数说明
 

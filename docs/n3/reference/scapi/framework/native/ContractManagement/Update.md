@@ -46,8 +46,8 @@ Response description:
 
 - Other: failed.
 
-> [!Note] 
->
-> The contract hash remains unchanged after the update.
+:::note
+The contract hash remains unchanged after the update.
+:::
 
 [Back](../ContractManagement.md)

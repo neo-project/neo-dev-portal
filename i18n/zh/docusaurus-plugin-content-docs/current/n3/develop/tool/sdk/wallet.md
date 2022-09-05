@@ -130,9 +130,9 @@ WalletAPI walletAPI = new WalletAPI(client);
 
 ### 查询余额
 
-> [!Note]
->
-> 账户余额的类型一般是 `BigInteger`，这是把小数部分取整后的一种表示，需要除以 `Factor` 才能得出Token 的实际数量。
+:::note
+ 账户余额的类型一般是 `BigInteger`，这是把小数部分取整后的一种表示，需要除以 `Factor` 才能得出Token 的实际数量。
+:::
 
 查询 NEP17 资产余额查询可以使用字符串参数：
 

@@ -210,9 +210,9 @@ You can refer to the following example：
 }
 ```
 
-> [!Note]
->
-> If the plugin RpcServer is installed, you also need to modify the port numbers in the plugin config.json file to make them different from each other and from the ports in config.json of the node.
+:::note
+ If the plugin RpcServer is installed, you also need to modify the port numbers in the plugin config.json file to make them different from each other and from the ports in config.json of the node.
+:::
 
 ## Installing consensus plugin
 
@@ -310,9 +310,9 @@ In the genesis block of the NEO network, 100 million NEO and 30 million GAS are 
 
    ![](../assets/initial-balance.png)
 
-> [!Note]
->
-> You must create multi-party signature address in at least three wallets so as to sign the transfer transaction successfully.
+:::note
+ You must create multi-party signature address in at least three wallets so as to sign the transfer transaction successfully.
+:::
 
 #### Transferring NEO to a normal address
 

@@ -94,9 +94,9 @@ witnesses属性用于验证交易的有效性和完整性。Witness即“见证�
 | `witnesses`   | 需先序列化数组长度`WriteVarInt(length)`之后再分别序列化数组各个元素 |
 
 
-> [!Note]
->
-> WriteVarInt(value) 是根据value的值，存储非定长类型, 根据取值范围决定存储大小。
+:::note
+ WriteVarInt(value) 是根据value的值，存储非定长类型, 根据取值范围决定存储大小。
+:::
 
 | Value 值范围 | 存储类型 |
 |--------------------|--------------|

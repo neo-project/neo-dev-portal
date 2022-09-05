@@ -80,9 +80,9 @@ Neo-CLI 支持单节点模式下正常生成区块，只需一个节点即可正
 ```
 
 ## 启动私有链
- > [!Note]
-   >
-   > 如果运行 Neo-CLI 之前节点同步了 Neo 测试网的区块文件，需要先删除 Data 目录，否则会导致私链无法正常出块。
+ :::note
+如果运行 Neo-CLI 之前节点同步了 Neo 测试网的区块文件，需要先删除 Data 目录，否则会导致私链无法正常出块。
+:::
 
 进入 neo-cli 目录，双击 `neo-cli.exe` 或打开 cmd 并运行`dotnet neo-cli.dll`即可启动私链。成功建立的私链如下图所示。
 
@@ -154,8 +154,8 @@ Neo-CLI 支持单节点模式下正常生成区块，只需一个节点即可正
 
 8. 重新打开共识节点钱包 `open wallet consensus.json`，使用 `send` 指令转出 NEO 和 GAS 到新钱包地址。例：`send neo NWu2gb7PzhZb4ci9LvW4gBYAQFMGb1s1o7 100000000`, `send gas NWu2gb7PzhZb4ci9LvW4gBYAQFMGb1s1o7 10000000`。
 
-   > [!Note]
-   >
-   > 每次转账都会消耗少量 GAS 作为手续费，请确保转账时有足够的 GAS （一般不超过 0.02 个gas）。
+:::note
+每次转账都会消耗少量 GAS 作为手续费，请确保转账时有足够的 GAS （一般不超过 0.02 个gas）。
+:::
 
    节点操作详细指令可参照[CLI 命令参考](../../../node/cli/cli.md)。

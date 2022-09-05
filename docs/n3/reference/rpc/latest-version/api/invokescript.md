@@ -2,9 +2,9 @@
 
 Returns the result after passing a script through the VM.
 
-> [!Note]
->
-> - This method is to test your VM script as if they ran on the blockchain at that point in time. This RPC call does not affect the blockchain in any way.
+:::note
+ - This method is to test your VM script as if they ran on the blockchain at that point in time. This RPC call does not affect the blockchain in any way.
+:::
 > - You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
 
 ### Parameter Description

@@ -211,9 +211,9 @@
 }
 ```
 
-> [!Note]
->
-> 如果安装了 RpcServer 插件，需要修改插件的 config.json 中的端口号，使其互不相同，且与节点的 config.json 中端口号也互不相同。
+:::note
+ 如果安装了 RpcServer 插件，需要修改插件的 config.json 中的端口号，使其互不相同，且与节点的 config.json 中端口号也互不相同。
+:::
 
 
 ## 安装共识插件
@@ -310,9 +310,9 @@ start cmd /k "cd c4 &&ping localhost -n 3 > nul&& dotnet neo-cli.dll"
 
    ![](../assets/initial-balance.png)
 
-> [!Note]
->
-> 至少3个共识钱包创建多方签名地址才能成功完成转账交易的签名。
+:::note
+ 至少3个共识钱包创建多方签名地址才能成功完成转账交易的签名。
+:::
 
 
 #### 提取 NEO/GAS 到普通地址

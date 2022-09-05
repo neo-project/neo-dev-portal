@@ -2,17 +2,15 @@
 
 验证地址是否是正确的 Neo 地址。
 
-> [!Note]
->
-> 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用
+:::note-replace
+ 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用
 
 ## 参数说明
 
 address：地址。
 
-> [!Note]
->
-> 由于 Neo N3 的 AddressVersion 已修改为53，所以标准地址均以 N 开头。
+:::note-replace
+ 由于 Neo N3 的 AddressVersion 已修改为53，所以标准地址均以 N 开头。
 
 ## 调用示例
 

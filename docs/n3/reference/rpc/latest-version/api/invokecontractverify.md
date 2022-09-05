@@ -2,9 +2,9 @@
 
 Invokes the contract method `Verify`. Unlike the method `invokefunction` which executes the contract by the Application trigger, `invokecontractverify` executes the contract by the Verification trigger and can pass parameters as `params` and `signers`. Specific parameter type and number depend on the smart contract to invoke.
 
-> [!Note]
->
-> - This method is used to test your VM script as if they ran on the blockchain at that point in time. This RPC call does not affect the blockchain in any way.
+:::note
+ - This method is used to test your VM script as if they ran on the blockchain at that point in time. This RPC call does not affect the blockchain in any way.
+:::
 > - You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
 
 ## Parameter Description
@@ -19,9 +19,9 @@ Invokes the contract method `Verify`. Unlike the method `invokefunction` which e
   * allowedcontracts: contracts of the signature can take effect, if scopes is CustomContracts
   * allowedgroups: pubkeys of the signature can take effect, if scopes is CustomGroups
   
-  > [!Note]
-  >
-  > You need to use the proper byte order of the address passed according to its data type. If the data type is Hash160, use the big endian script hash; if the data type is ByteArray, use the little endian scripthash.
+  :::note
+  You need to use the proper byte order of the address passed according to its data type. If the data type is Hash160, use the big endian script hash; if the data type is ByteArray, use the little endian scripthash.
+  :::
   
   For example:
   

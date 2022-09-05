@@ -58,9 +58,8 @@ Neo 中，账户即合约，地址代表的为一段合约代码，从私钥到�
 
 地址是由公钥经过一系列转换得到的一串由数字和字母构成的字符串。本节将介绍Neo中的公钥到地址的转换步骤。
 
-> [!Note]
->
-> Neo N3中的地址脚本发生了变动，不再使用 Opcode.CheckSig, OpCode.CheckMultiSig 指令， 换成使用互操作服务调用，即`SysCall "Neo.Crypto.ECDsaVerify".hash2uint`, `SysCall "Neo.Crypto.ECDsaCheckMultiSig".hash2unit` 方式。
+:::note-replace
+ Neo N3中的地址脚本发生了变动，不再使用 Opcode.CheckSig, OpCode.CheckMultiSig 指令， 换成使用互操作服务调用，即`SysCall "Neo.Crypto.ECDsaVerify".hash2uint`, `SysCall "Neo.Crypto.ECDsaCheckMultiSig".hash2unit` 方式。
 
 #### 普通地址
 
@@ -180,9 +179,8 @@ db3钱包文件是neo采用sqlite技术存储数据所使用存储文件，文�
 
 - `Version`：版本
 
-> [!Note]
->
-> db3钱包采用对称加密AES相关技术作为钱包的加密和解密方法。db3钱包常用在交易所钱包，方便大量的账户信息存储与检索查询。
+:::note-replace
+ db3钱包采用对称加密AES相关技术作为钱包的加密和解密方法。db3钱包常用在交易所钱包，方便大量的账户信息存储与检索查询。
 
 ### NEP6 钱包文件
 

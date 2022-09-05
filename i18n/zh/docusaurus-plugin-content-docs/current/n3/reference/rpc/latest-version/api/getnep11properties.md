@@ -2,9 +2,9 @@
 
 获取 NEP-11 资产的自定义属性，其中 name、description、image、tokenURI 属性会自动使用 UTF8 解码。
 
-> [!Note]
->
-> 此方法由插件提供，需要安装 [TokensTracker](https://github.com/neo-project/neo-modules/releases) 、[LevelDBStore](https://github.com/neo-project/neo-modules/releases) 和 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
+:::note
+ 此方法由插件提供，需要安装 [TokensTracker](https://github.com/neo-project/neo-modules/releases) 、[LevelDBStore](https://github.com/neo-project/neo-modules/releases) 和 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
+:::
 
 ## 参数说明
 

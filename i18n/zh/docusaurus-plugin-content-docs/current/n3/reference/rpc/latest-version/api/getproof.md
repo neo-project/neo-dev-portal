@@ -1,9 +1,9 @@
 # getproof 方法
 通过 root hash，合约 hash 和 storage key 查询得到 proof。
 
-> [!Note]
->
-> 此方法由插件提供，需要安装 [StateService](https://github.com/neo-project/neo-modules/releases) 和 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
+:::note
+ 此方法由插件提供，需要安装 [StateService](https://github.com/neo-project/neo-modules/releases) 和 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
+:::
 
 ## 参数说明
 

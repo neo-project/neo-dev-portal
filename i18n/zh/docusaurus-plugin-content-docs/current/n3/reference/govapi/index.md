@@ -13,9 +13,9 @@
 | [`RegisterCandidate`](scapi/framework/native/Neo/RegisterCandidate.md) | ECPoint publicKey | 可调，初始0.00001 |
 | [`UnregisterCandidate`](scapi/framework/native/Neo/UnregisterCandidate.md) | ECPoint publicKey | 0.00065536 (CpuFee) |
 
-> [!Note]
->
-> 注册/注销候选人均需要验证候选人地址的签名，即只有候选人自己才能执行注册/注销操作。
+:::note
+ 注册/注销候选人均需要验证候选人地址的签名，即只有候选人自己才能执行注册/注销操作。
+:::
 
 ### 候选人投票
 

@@ -2,9 +2,9 @@
 
 根据交易 txid 获取合约的事件信息。合约事件信息会保存到 ApplicationLogs 目录。
 
-> [!Note]
->
-> 此方法由插件提供，需要安装 [ApplicationLogs](https://github.com/neo-project/neo-modules/releases) 和 [LevelDBStore](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
+:::note
+ 此方法由插件提供，需要安装 [ApplicationLogs](https://github.com/neo-project/neo-modules/releases) 和 [LevelDBStore](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
+:::
 
 ## 参数说明
 
@@ -100,9 +100,9 @@
 
 - state：通知内容。其中 ByteString 为 Base64 编码表示的钱包地址，可以在 [Data Convertor](https://neo.org/converter/index) 进行转换。
 
-> [!Note]
->
-> 上例显示的是一个成功转账交易的日志，但如果传输失败或NeoVM执行异常，显示结果可能是以下情况:
+:::note
+ 上例显示的是一个成功转账交易的日志，但如果传输失败或NeoVM执行异常，显示结果可能是以下情况:
+:::
 >
 > - 转账失败: 不返回 Transfer notifications。执行状态 vmstate 显示 `HALT` 且 stack 值为 `False`。
 > - NeoVM 异常: 可能返回或不返回 Transfer notifications。执行状态 vmstate 显示 `FAULT` 。

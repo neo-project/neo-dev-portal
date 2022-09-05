@@ -2,9 +2,9 @@
 
 Broadcasts a new block in the NEO network.
 
-> [!Note]
->
-> You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+:::note
+ You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+:::
 
 ```json
 {

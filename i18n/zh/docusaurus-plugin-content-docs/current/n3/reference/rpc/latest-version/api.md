@@ -4,9 +4,9 @@
 
 要启用 RPC服务，你需要安装 [RpcServer 插件](https://github.com/neo-project/neo-modules/releases)，可参考 [安装插件](../../../node/cli/config.html#安装插件) 进行安装。启动 Neo-CLI 时无需添加参数。
 
-> [!Note]
->
-> 如果安装时找不到对应版本的文件，则表示当前未发布对应版本的 RpcServer 插件，开发者可以自行编译 [neo-modules](https://github.com/neo-project/neo-modules) 项目:
+:::note
+ 如果安装时找不到对应版本的文件，则表示当前未发布对应版本的 RpcServer 插件，开发者可以自行编译 [neo-modules](https://github.com/neo-project/neo-modules) 项目:
+:::
 > 
 > 1. 在 neo-cli.dll 所在的目录新建 Plugins 文件夹
 > 2. 将编译后的 RpcServer 文件放到 Plugins 文件夹中，然后重新启动 Neo-CLI。
@@ -111,9 +111,9 @@ http://127.0.0.1:10332/
 | [getstate](api/getstate.md)       | `\<roothash>``\<scripthash>``\<key>`           | 通过 root hash，合约 hash 和 storage key 查询 state。 |
 | [findstates](api/findstates.md)       | `\<roothash>``\<scripthash>``\<prefix>` [key] [count]          | 通过 root hash，合约 hash 和 storage key 的前缀查询 state。 |
 
-> [!Note]
->
-> RPC 中所有的金额（手续费、NEP-17 余额、钱包余额、转账金额等）相关的返回值均为无符号整数，通过 [RpcClient](https://github.com/neo-project/neo-modules/tree/master/src/RpcClient)（C# 轻节点 SDK） 请求时会自动根据资产精度自动换算。若开发者自行编写代码请求，则需要手动对返回值的精度进行处理。例如，返回值为 1234560，资产精度为 8，则实际金额为 0.0123456。
+:::note
+ RPC 中所有的金额（手续费、NEP-17 余额、钱包余额、转账金额等）相关的返回值均为无符号整数，通过 [RpcClient](https://github.com/neo-project/neo-modules/tree/master/src/RpcClient)（C# 轻节点 SDK） 请求时会自动根据资产精度自动换算。若开发者自行编写代码请求，则需要手动对返回值的精度进行处理。例如，返回值为 1234560，资产精度为 8，则实际金额为 0.0123456。
+:::
 
 ## GET 请求示例
 
@@ -170,9 +170,9 @@ http://127.0.0.1:10332
 }
 ```
 
-> [!Note]
->
-> 请将区块同步到最新高度后再使用 API，否则返回的结果可能不是最新的。
+:::note
+ 请将区块同步到最新高度后再使用 API，否则返回的结果可能不是最新的。
+:::
 
 ## 测试工具
 

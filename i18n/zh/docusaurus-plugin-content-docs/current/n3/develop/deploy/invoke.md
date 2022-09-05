@@ -63,9 +63,9 @@ invoke <scriptHash> <operation> [contractParameters=null] [sender=null] [signerA
 
 在 Neo-GUI 中，在调用合约时，可以点击下方的 `附加签名`，选择 `公钥` 然后点击  `签名` 来进行附加签名。
 
-> [!Note]
->
-> 在通过转账命令调用 NEP-17 合约的 transfer 方法时，钱包会自动对 from 字段进行附加签名。此时不需要手动添加。
+:::note
+ 在通过转账命令调用 NEP-17 合约的 transfer 方法时，钱包会自动对 from 字段进行附加签名。此时不需要手动添加。
+:::
 
 ## 合约之间的互相调用
 

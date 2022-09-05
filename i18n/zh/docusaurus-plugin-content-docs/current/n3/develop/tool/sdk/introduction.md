@@ -34,9 +34,8 @@
    ```
 
 
-> [!Note]
->
-> 如果使用SDK构造要添加签名的交易，需要确保构造的RpcClient对象和其连接的区块链网络有相同的配置，否则 SDK 构造的交易在区块链中将无法验签通过，具体做法是：构造RpcClient对象时Load Neo-CLI 节点的 config.json，例如： RpcClient client = new RpcClient(new Uri("http://localhost:20332"), null, null, ProtocolSettings.Load("config.json")) 。
+:::note-replace
+ 如果使用SDK构造要添加签名的交易，需要确保构造的RpcClient对象和其连接的区块链网络有相同的配置，否则 SDK 构造的交易在区块链中将无法验签通过，具体做法是：构造RpcClient对象时Load Neo-CLI 节点的 config.json，例如： RpcClient client = new RpcClient(new Uri("http://localhost:20332"), null, null, ProtocolSettings.Load("config.json")) 。
 
 ## 异常处理
 

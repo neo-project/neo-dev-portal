@@ -2,10 +2,9 @@
 
 Returns the balance of all NEP11 assets in the specified address.
 
-> [!Note]
->
+:::note
 You must install the plugin [TokensTracker](https://github.com/neo-project/neo-modules/releases), [LevelDBStore](https://github.com/neo-project/neo-modules/releases), and [RpcSever](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
-
+:::
 ## Parameter Description
 
 address: The address that you want to query balance.
@@ -64,9 +63,9 @@ Response body:
 }
 ```
 
-> [!Note]
->
-> - Only when your client synchronizes to the block that the contract was deployed, execution of this API will return the correct value, otherwise execution of the API will result in an error. 
+:::note
+ - Only when your client synchronizes to the block that the contract was deployed, execution of this API will return the correct value, otherwise execution of the API will result in an error. 
+:::
 > - When the input parameter is a script hash of a non-NEP11 smart contract, execution of the API will result in an error. 
 > - Make sure your client has been fully synchronized to the latest block height before using this API, otherwise the balance returned may not be up-to-date.
 

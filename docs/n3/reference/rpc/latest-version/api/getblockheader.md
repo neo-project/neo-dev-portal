@@ -4,9 +4,9 @@ Returns the corresponding block header information according to the specified sc
 
 The usage of this method is as same as `getblock`. The only difference is that `getblockeader` gets the block header and `getblock` gets the complete block.
 
-> [!Note]
->
-> You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+:::note
+ You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+:::
 
 ## Parameter Description
 

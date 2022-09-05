@@ -356,9 +356,8 @@ symbol
 }
 ```
 
-> [!Note]
->
-> 上例显示的是一个成功转账交易的日志，但如果传输失败或NeoVM执行异常，显示结果可能是以下情况:
+:::note-replace
+ 上例显示的是一个成功转账交易的日志，但如果传输失败或NeoVM执行异常，显示结果可能是以下情况:
 >
 > - 转账失败: 不返回 Transfer notifications。执行状态 vmstate 显示 `HALT` 且 stack 值为 `False`。
 > - NeoVM 异常: 可能返回或不返回 Transfer notifications。执行状态 vmstate 显示 `FAULT` 。
@@ -375,9 +374,9 @@ symbol
 
   - 转出账户地址：数组中的的第一个对象，类型为 bytearray，值为 "uXtKzX+CD2HS1NT5rqXrUEmN31U="，经过 base64 解码为 ByteArray 后再转换为字符串 "NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o"。
   
-    > [!Note]
-    >
-    > Neo 中 16 进制值如果前面加 0x，按大端序处理，如果没加 0x，按小端序处理。
+    ::note
+    Neo 中 16 进制值如果前面加 0x，按大端序处理，如果没加 0x，按小端序处理。
+    :::
     ```json
     {
       "type": "ByteString",
@@ -401,9 +400,8 @@ symbol
     }
     ```
 
-> [!Note]
->
-> 关于文件中 transfer 数据格式的转换，可以参考官方页面 [Neo数据转换](https://neo.org/converter/index)。
+:::note-replace
+ 关于文件中 transfer 数据格式的转换，可以参考官方页面 [Neo数据转换](https://neo.org/converter/index)。
 
 ## 处理提现交易
 
@@ -452,9 +450,8 @@ TXID: 0xae0675797c2d738dcadb21cec3f1809ff453ac291046a05ac679cbd95b79c856
 
 ### RPC 方法：openwallet
 
-> [!Note]
->
-> 在任何调用钱包相关操作的 RPC 方法之前，需要先调用 `openwallet` 这个 RPC 方法打开钱包。
+:::note-replace
+ 在任何调用钱包相关操作的 RPC 方法之前，需要先调用 `openwallet` 这个 RPC 方法打开钱包。
 
 "params"  是一个包含 2 个参数的数组。
 
