@@ -1,9 +1,9 @@
 # getstorage 方法
 
 根据合约脚本散列和存储的 key，返回存储的 value，key 和 value 均为 Base64 编码。
-:::note-replace
- 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用
-
+:::note
+此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用
+:::
 ## 参数说明
 
 script_hash/id: 合约脚本散列或合约id。

@@ -2,9 +2,9 @@
 
 使用 root hash 和 proof 进行验证，得到 key 对应存储区的值。
 
-:::note-replace
- 此方法由插件提供，需要安装 [StateService](https://github.com/neo-project/neo-modules/releases) 和 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
-
+:::note
+此方法由插件提供，需要安装 [StateService](https://github.com/neo-project/neo-modules/releases) 和 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
+:::
 ## 参数说明
 
 - roothash：state root 的 root hash。

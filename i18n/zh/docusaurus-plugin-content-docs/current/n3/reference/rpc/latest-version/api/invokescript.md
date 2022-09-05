@@ -2,10 +2,10 @@
 
 通过虚拟机传递脚本之后返回结果。
 
-:::note-replace
- - 此方法用于测试你的虚拟机脚本，如同在区块链上运行一样。这个 RPC 调用对区块链没有任何影响。
-> - 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用
-
+:::note
+- 此方法用于测试你的虚拟机脚本，如同在区块链上运行一样。这个 RPC 调用对区块链没有任何影响。
+- 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用
+:::
 ## 参数说明
 
 - script：一个由虚拟机运行的脚本，与 invokefunction 返回的 script 相同；

@@ -2,10 +2,10 @@
 
 从指定地址，向指定地址转账。
 
-:::note-replace
- - 执行此命令前需要 RPC 调用 openwallet 方法来打开钱包。
-> - 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
-
+:::note
+- 执行此命令前需要 RPC 调用 openwallet 方法来打开钱包。
+- 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用。
+:::
 ## 参数说明
 
 - asset_id：资产 ID（资产标识符），即 NEP-17合约的脚本哈希。

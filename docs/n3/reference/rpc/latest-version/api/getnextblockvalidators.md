@@ -37,5 +37,6 @@ Response body:
 
 `result` returns an array containing multiple validators. Every validator contains information about the public key, the votes, and whether it is a validator or not.
 
-:::note-replace
- The default vote of validator is 0 when voting has not started.
+:::note
+The default vote of validator is 0 when voting has not started.
+:::

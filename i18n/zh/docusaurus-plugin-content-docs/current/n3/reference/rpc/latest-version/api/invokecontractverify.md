@@ -2,10 +2,10 @@
 
 调用合约的验证（Verify）方法。该方法与 invokefunction 不同， invokefunction 是通过 Application 触发器执行智能合约，而 invokecontractverify 方法是通过 Verification 触发器执行智能合约。并且可以传入 Verify 的参数（params）、签名账户列表（signers）。具体参数类型和数量取决于所调用的智能合约。
 
-:::note-replace
- - 此方法用于测试你的虚拟机脚本，调用时只是在 RPC 对应的节点试运行脚本并返回结果，不会对区块链数据产生影响。
-> - 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用
-
+:::note
+- 此方法用于测试你的虚拟机脚本，调用时只是在 RPC 对应的节点试运行脚本并返回结果，不会对区块链数据产生影响。
+- 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用
+:::
 ## 参数说明
 
 - scripthash：智能合约脚本哈希。
@@ -18,9 +18,9 @@
   * allowedcontracts: 如果 scopes 是 CustomContracts，该字段是签名生效的合约 Hash 列表
   * allowedgroups: 如果 scopes 是 CustomGroups，该字段是签名生效的公钥列表。
 
-:::note-replace
- 你需要根据传入地址的数据类型，使用正确的字节序格式。如果数据类型为 Hash160，输入大端序 scripthash；如果数据类型为 ByteArray，则输入小端序 scripthash。
-
+:::note
+你需要根据传入地址的数据类型，使用正确的字节序格式。如果数据类型为 Hash160，输入大端序 scripthash；如果数据类型为 ByteArray，则输入小端序 scripthash。
+:::
 例如：
 
   ```json

@@ -356,8 +356,9 @@ symbol
 }
 ```
 
-:::note-replace
+:::note
  上例显示的是一个成功转账交易的日志，但如果传输失败或NeoVM执行异常，显示结果可能是以下情况:
+:::
 >
 > - 转账失败: 不返回 Transfer notifications。执行状态 vmstate 显示 `HALT` 且 stack 值为 `False`。
 > - NeoVM 异常: 可能返回或不返回 Transfer notifications。执行状态 vmstate 显示 `FAULT` 。
@@ -400,8 +401,9 @@ symbol
     }
     ```
 
-:::note-replace
+:::note
  关于文件中 transfer 数据格式的转换，可以参考官方页面 [Neo数据转换](https://neo.org/converter/index)。
+:::
 
 ## 处理提现交易
 
@@ -450,8 +452,9 @@ TXID: 0xae0675797c2d738dcadb21cec3f1809ff453ac291046a05ac679cbd95b79c856
 
 ### RPC 方法：openwallet
 
-:::note-replace
+:::note
  在任何调用钱包相关操作的 RPC 方法之前，需要先调用 `openwallet` 这个 RPC 方法打开钱包。
+:::
 
 "params"  是一个包含 2 个参数的数组。
 

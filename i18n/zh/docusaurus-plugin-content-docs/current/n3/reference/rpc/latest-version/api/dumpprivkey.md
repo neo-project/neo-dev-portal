@@ -2,11 +2,10 @@
 
 导出指定地址的私钥。
 
-:::note-replace
- - 执行此命令前需要 RPC 调用 openwallet 方法来打开钱包。
->
-> - 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用
-
+:::note
+- 执行此命令前需要 RPC 调用 openwallet 方法来打开钱包。
+- 此方法由插件提供，需要安装 [RpcServer](https://github.com/neo-project/neo-modules/releases) 插件才可以调用
+:::
 ## 参数说明
 
 address：要导出私钥的地址，该地址需为标准地址。

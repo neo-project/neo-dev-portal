@@ -13,10 +13,10 @@ Neo-GUI 是 Neo 区块链上的全节点的应用程序，采用 Electron 跨平
 
 Neo-GUI 是一个开源项目，可在 [GitHub](https://github.com/neo-ngd/Neo3-GUI/releases) 上下载对应系统版本的安装包，根据安装提示完成安装即可。
 
-:::note-replace
- - 请确认你的 Windows / macOS系统已安装 [.NET Core 5.0](https://dotnet.microsoft.com/download/dotnet-core/current/runtime) 。
-> - 安装时请避免将Neo-GUI安装在默认路径C:\Program Files下，否则需要以管理员权限运行客户端程序才能连接到网络同步数据。
-
+:::note
+- 请确认你的 Windows / macOS系统已安装 [.NET Core 5.0](https://dotnet.microsoft.com/download/dotnet-core/current/runtime) 。
+- 安装时请避免将Neo-GUI安装在默认路径C:\Program Files下，否则需要以管理员权限运行客户端程序才能连接到网络同步数据。
+:::
 ## 连接网络
 
 完成安装后，Neo-GUI默认连接到N3主网。
