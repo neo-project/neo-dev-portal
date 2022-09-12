@@ -249,7 +249,7 @@ export default function Tooling(props) {
                         by: "Neo Global Development",
                         description: "Get GAS on the Neo N3 TestNet for the development, testing, debugging, and deployment of smart contracts.",
                         icon_url: "/tooling/ngd.png",
-                        web_url: "https://neowish.ngd.network/#/",
+                        web_url: "https://n3t5wish.ngd.network/#/",
                         github_url: "",
                         docs_url: "",
                         supported_languages: [],
