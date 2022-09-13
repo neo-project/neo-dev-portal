@@ -157,17 +157,6 @@ export default function Tooling(props) {
                         categories: ["dev-env"],
                     },
                     {
-                        name: "Neo Playground",
-                        by: "AxLabs",
-                        description: "Neo playground is an online development environment using VS Code web client with a number of additional utilities.",
-                        icon_url: "/tooling/neo-playground.png",
-                        web_url: "https://neo-playground.dev/",
-                        github_url: "https://github.com/AxLabs",
-                        docs_url: "https://github.com/AxLabs",
-                        supported_languages: ["java"],
-                        categories: ["dev-env"]
-                    },
-                    {
                         name: "Neow3j",
                         by: "AxLabs",
                         description: "Neow3j is a reputable development toolkit to build dApps and Smart Contracts using the Java platform (Java, Kotlin, Android).",
