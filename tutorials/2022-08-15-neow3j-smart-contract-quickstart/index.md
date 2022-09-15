@@ -5,13 +5,13 @@ author: AxLabs
 tags: [ "NEOW3J", "SMART CONTRACT", "JAVA"]
 skill: beginner
 image: ./assets/neow3j-padded.png
-source: https://github.com/neow3j/neow3j-boilerplate-contracts
+source: https://github.com/neow3j/neow3j-boilerplate-contracts/tree/devportal-quickstart-tutorial
 sidebar: true
 ---
 
 <div align="center" style={{ padding: '0% 25% 0% 25%' }}>
   <img src="/tooling/neow3j.png" alt="neow3j" width="75%" style={{ padding: '0% 0% 5% 0%' }}/> 
-  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.17.1</small></sub></h1> 
+  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.19.0</small></sub></h1> 
 </div>
 
 ## 1. Introduction
@@ -59,8 +59,14 @@ You can either click on `Use this template` within GitHub to create your own rep
 
 ```
 git clone https://github.com/neow3j/neow3j-boilerplate-contracts.git
-cd neow3j-boilerplate
+cd neow3j-boilerplate-contracts && git checkout -b devportal-quickstart-tutorial
 ```
+
+:::note
+
+This tutorial is based on the branch `devportal-quickstart-tutorial`, it might not be on the same commit as the `main` branch.
+
+:::
 
 ## 3. Compilation
 

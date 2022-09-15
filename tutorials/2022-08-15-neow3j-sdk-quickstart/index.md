@@ -5,13 +5,13 @@ author: AxLabs
 tags: ["DAPP", "SDK", "NEOW3J", "JAVA", "KOTLIN"]
 skill: beginner
 image: ./assets/neow3j-padded.png
-source: https://github.com/neow3j/neow3j-boilerplate-sdk
+source: https://github.com/neow3j/neow3j-boilerplate-sdk/tree/devportal-quickstart-tutorial
 sidebar: true
 ---
 
 <div align="center" style={{ padding: '0% 25% 0% 25%' }}>
   <img src="/tooling/neow3j.png" alt="neow3j" width="75%" style={{ padding: '0% 0% 5% 0%' }}/> 
-  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.17.1</small></sub></h1> 
+  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.19.0</small></sub></h1> 
 </div>
 
 ## 1. Introduction
@@ -57,8 +57,14 @@ You can either click on `Use this template` within GitHub to create your own rep
 
 ```
 git clone https://github.com/neow3j/neow3j-boilerplate-sdk.git
-cd neow3j-boilerplate-sdk
+cd neow3j-boilerplate-sdk && git checkout -b devportal-quickstart-tutorial
 ```
+
+:::note
+
+This tutorial is based on the branch `devportal-quickstart-tutorial`, it might not be on the same commit as the `main` branch.
+
+:::
 
 ## 3. Building, Signing and Sending a Transaction
 
@@ -67,7 +73,6 @@ In the following example code, a transaction that transfer 10 NEO is built, sign
 ```java
 package com.axlabs.boilerplate;
 
-import io.neow3j.contract.GasToken;
 import io.neow3j.contract.NeoToken;
 import io.neow3j.crypto.WIF;
 import io.neow3j.protocol.Neow3j;
@@ -89,30 +94,38 @@ public class BuildAndSendTransaction {
 
     public static void main(String[] args) throws Throwable {
 
-        Neow3j neow3j = Neow3j.build(new HttpService("http://seed2t4.neo.org:20332"));
+        // Initialize Neow3j to connect to a testnet Neo node.
+        Neow3j neow3j = Neow3j.build(new HttpService("http://seed2t5.neo.org:20332"));
 
+        // Initialize Neo token.
         NeoToken neoToken = new NeoToken(neow3j);
-        Hash160 scriptHash = GasToken.SCRIPT_HASH;
 
+        // Define sender and recipient of transfer.
         Hash160 recipient = new Hash160("b897160506030c5d06dc087a21544b4853768012");
         String aliceWif = WIF.getWIFFromPrivateKey(
                 Numeric.hexStringToByteArray("6c54536dbd876b92bfc96dd7b9fd6a4286d9a51ac5e26b5cf9becfa27e330918"));
         Account alice = Account.fromWIF(aliceWif);
 
+        // Start building a transfer transaction of NEO.
         TransactionBuilder b = neoToken.transfer(alice, recipient, new BigInteger("10"));
 
+        // Set the signers, sign the transaction and get the signed transaction ready to be sent.
         Transaction tx = b.signers(AccountSigner.calledByEntry(alice))
                 .sign();
 
+        // Send the transaction.
         NeoSendRawTransaction response = tx.send();
 
+        // Make sure the node returns no error and then get the transaction hash and wait for execution.
         if (response.hasError()) {
             System.out.printf("Transaction was not successful. Error message from Neo node was: '%s'\n",
                     response.getError().getMessage());
         } else {
+            // Get the transaction hash and wait for the transaction to be persisted.
             Hash256 txHash = response.getSendRawTransaction().getHash();
             Await.waitUntilTransactionIsExecuted(txHash, neow3j);
 
+            // Get the transaction's application log and print it.
             NeoApplicationLog applicationLog = neow3j.getApplicationLog(txHash).send().getApplicationLog();
             System.out.println(applicationLog);
         }
@@ -128,7 +141,6 @@ The imports show the neow3j SDK classes that are used in the example contract. C
 ```java
 package com.axlabs.boilerplate;
 
-import io.neow3j.contract.GasToken;
 import io.neow3j.contract.NeoToken;
 import io.neow3j.crypto.WIF;
 import io.neow3j.protocol.Neow3j;
@@ -152,7 +164,7 @@ import java.math.BigInteger;
 The `Neow3j` class sets up a connection to a Neo N3 blockchain. The endpoint in the example code points to a testnet node. If you run a local Neo N3 network and want to interact with it through neow3j, you have to change this endpoint accordingly.
 
 ```java
-Neow3j neow3j = Neow3j.build(new HttpService("http://seed2t4.neo.org:20332"));
+Neow3j neow3j = Neow3j.build(new HttpService("http://seed2t5.neo.org:20332"));
 ```
 
 ### Initialize NeoToken
@@ -232,8 +244,10 @@ public class SubscribeToBlocks {
 
     public static void main(String[] args) throws IOException {
 
-        Neow3j neow3j = Neow3j.build(new HttpService("http://seed2t4.neo.org:20332"));
+        // Initialize Neow3j to connect to a testnet Neo node.
+        Neow3j neow3j = Neow3j.build(new HttpService("http://seed2t5.neo.org:20332"));
 
+        // Subscribe to new blocks on the testnet.
         neow3j.subscribeToNewBlocksObservable(true)
                 .subscribe((blockReqResult) -> {
                     System.out.println("#######################################");
@@ -253,7 +267,7 @@ public class SubscribeToBlocks {
 As in the previous example, first, we have to establish a connection to a blockchain by initializing a `Neow3j` object.
 
 ```java
-Neow3j neow3j = Neow3j.build(new HttpService("http://seed2t4.neo.org:20332"));
+Neow3j neow3j = Neow3j.build(new HttpService("http://seed2t5.neo.org:20332"));
 ```
 
 The method `subscribeToNewBlocksObservable()` creates an observable that emits every new block and the method `subscribe()` provides a callback function.

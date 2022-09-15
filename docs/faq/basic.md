@@ -16,7 +16,7 @@ Neo has a large number of worldwide developer communities that have been contrib
 - **COZ** (Global) - Main projects: [Neon Wallet](https://github.com/CityOfZion/neon-wallet), [Neon.js](https://github.com/CityOfZion/neon-js), [Dora](https://github.com/CityOfZion/dora), [Mamba](https://github.com/CityOfZion/neo-mamba), [Boa](https://github.com/CityOfZion/neo3-boa)
 - **NeoResearch** (Brazil) - Main projects: Core development, [NeoCompiler Eco](https://github.com/NeoResearch/neocompiler-eco), [neo-cpp-core](https://github.com/NeoResearch/neo-cpp-core)
 - **NSPCC** (Russia) - Main projects: [NeoFS](https://fs.neo.org/), [NeoGo](https://github.com/nspcc-dev/neo-go)
-- **AxLabs** (Switzerland) - Main projects: [neow3j](https://github.com/neow3j/neow3j), [Neo Playground](https://neo-playground.dev/)
+- **AxLabs** (Switzerland) - Main projects: [neow3j](https://github.com/neow3j/neow3j), [GrantShares](https://grantshares.io/)
 - **NEXT** (China) - Main projects: [NeoLine](https://github.com/NeoNEXT/neoline), [NeoTube](https://neo3.neotube.io/)
 - **NEO Tracker** (US) - Main projects: [NEO Tracker](https://n3.neotracker.io/), [NEO·ONE](https://n3.neo-one.io/)
 - **Red4Sec** (Spain) - Main projects: Core development, cybersecurity/auditing (https://red4sec.com/en)
