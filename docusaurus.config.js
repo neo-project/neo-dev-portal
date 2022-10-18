@@ -101,6 +101,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           // },
           {to: '/tutorials', label: 'Tutorials', position: 'right'},
           {to: '/resources', label: 'Resources & Tooling', position: 'right'},
+          {to: '/converter', label: 'Converter', position: 'right'},
           {
             type: 'doc',
             docId: 'faq/basic',
