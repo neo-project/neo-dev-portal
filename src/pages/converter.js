@@ -9,133 +9,133 @@ import CodeBlock from '@theme/CodeBlock';
 
 
 export default function Converter(props) {
-    const history = useHistory()
-    const search = props.location.search;
-    const params = new URLSearchParams(search);
-
-    const sampleTextsToConvert = [
-        "7472616e73666572",
-        "00a3e111",
-        "0x3346454E",
-        "5195086",
-        "3ff68d232a60f23a5805b8c40f7e61747f6f61ce",
-        "zmFvf3Rhfg/EuAVYOvJgKiON9j8=",
-        "AHVYXVTcKw==",
-        "03dab84c1243ec01ab2500e1a8c7a1546a26d734628180b0cf64e72bf776536997",
-        // "DARkYXRhAgBlzR0MFPdcrAXPVptVduMEs2lf1jQjxKIKDBT3XKwFz1abVXbjBLNpX9Y0I8SiChTAHwwIdHJhbnNmZXIMFKNSbimM12LkFYX/8KGvm2ttFxulQWJ9W1I=",
-        // "DCECbzTesnBofh/Xng1SofChKkBC7jhVmLxCN1vk\u002B49xa2pBVuezJw==",
-        // "nature post exhibit betray village royal educate worth quantum simple essence trust",
-    ]
-
-    const [text, setText] = React.useState(params.get('text') ?? "")
-
-    React.useEffect(()=>{
-        if (text.trim().length === 0){
-            const params = new URLSearchParams()
-            params.delete("text")
-            history.push({ search: params.toString() })
-            return;
-        }
-
-        const params = new URLSearchParams()
-        params.append("text", text)
-        history.push({ search: params.toString() })
-    },[text])
-
-    const conversionList = [
-        {
-            title: "Hexadecimal little-endian string to UTF8 string",
-            func: (t) => { return Neon.u.hexstring2str(t) },
-            codes: [
-                {
-                    "label": "neon-js",
-                    "code": `Neon.u.hexstring2str("${text}")`,
-                }
-            ]
-        },
-        {
-            title: "Reversed Hex",
-            func: (t) => { return Neon.u.reverseHex(t) },
-            codes: [
-                {
-                    "label": "neon-js",
-                    "code": `Neon.u.reverseHex("${text}")`,
-                }
-            ]
-        },
-        {
-            title: "Hexadecimal little-endian string to Base64 string",
-            func: (t) => { return Neon.u.hex2base64(t) },
-            codes: [
-                {
-                    "label": "neon-js",
-                    "code": `Neon.u.hex2base64("${text}")`,
-                }
-            ]
-        },
-        {
-            title: "UTF8 string to hexadecimal string",
-            func: (t) => { return Neon.u.str2hexstring(t) },
-            codes: [
-                {
-                    "label": "neon-js",
-                    "code": `Neon.u.str2hexstring("${text}")`,
-                }
-            ]
-        },
-        {
-            title: "Base64 encoding",
-            func: (t) => { return Neon.u.hex2base64(Neon.u.str2hexstring(t)) },
-            codes: [
-                {
-                    "label": "neon-js",
-                    "code": `Neon.u.hex2base64(Neon.u.str2hexstring("${text}"))`,
-                }
-            ]
-        },
-        {
-            title: "Base64 to Hex string",
-            func: (t) => { return Neon.u.base642hex(t) },
-            codes: [
-                {
-                    "label": "neon-js",
-                    "code": `Neon.u.base642hex("${text}")`,
-                }
-            ]
-        },
-        {
-            title: "Script hash to Neo3 address",
-            func: (t) => {return  t.length == 40 ? Neon.create.account(t).address : "" },
-            codes: [
-                {
-                    "label": "neon-js",
-                    "code": `Neon.create.account("${text}").address`,
-                }
-            ]
-        },
-        {
-            title: "Public key to Neo3 Address",
-            func: (t) => { return t.length == 66 ? Neon.create.account(t).address : "" },
-            codes: [
-                {
-                    "label": "neon-js",
-                    "code": `Neon.create.account("${text}").address`,
-                }
-            ]
-        },
-    ]
-
-    const run = (f) => {
-        try {
-            return f(text)
-        } catch (error) {
-            return error.toString()
-        }
-    }
-
     return (
         <BrowserOnly>
             {() => {
+
+                const history = useHistory()
+                const search = props.location.search;
+                const params = new URLSearchParams(search);
+
+                const sampleTextsToConvert = [
+                    "7472616e73666572",
+                    "00a3e111",
+                    "0x3346454E",
+                    "5195086",
+                    "3ff68d232a60f23a5805b8c40f7e61747f6f61ce",
+                    "zmFvf3Rhfg/EuAVYOvJgKiON9j8=",
+                    "AHVYXVTcKw==",
+                    "03dab84c1243ec01ab2500e1a8c7a1546a26d734628180b0cf64e72bf776536997",
+                    // "DARkYXRhAgBlzR0MFPdcrAXPVptVduMEs2lf1jQjxKIKDBT3XKwFz1abVXbjBLNpX9Y0I8SiChTAHwwIdHJhbnNmZXIMFKNSbimM12LkFYX/8KGvm2ttFxulQWJ9W1I=",
+                    // "DCECbzTesnBofh/Xng1SofChKkBC7jhVmLxCN1vk\u002B49xa2pBVuezJw==",
+                    // "nature post exhibit betray village royal educate worth quantum simple essence trust",
+                ]
+
+                const [text, setText] = React.useState(params.get('text') ?? "")
+
+                React.useEffect(() => {
+                    if (text.trim().length === 0) {
+                        const params = new URLSearchParams()
+                        params.delete("text")
+                        history.push({ search: params.toString() })
+                        return;
+                    }
+
+                    const params = new URLSearchParams()
+                    params.append("text", text)
+                    history.push({ search: params.toString() })
+                }, [text])
+
+                const conversionList = [
+                    {
+                        title: "Hexadecimal little-endian string to UTF8 string",
+                        func: (t) => { return Neon.u.hexstring2str(t) },
+                        codes: [
+                            {
+                                "label": "neon-js",
+                                "code": `Neon.u.hexstring2str("${text}")`,
+                            }
+                        ]
+                    },
+                    {
+                        title: "Reversed Hex",
+                        func: (t) => { return Neon.u.reverseHex(t) },
+                        codes: [
+                            {
+                                "label": "neon-js",
+                                "code": `Neon.u.reverseHex("${text}")`,
+                            }
+                        ]
+                    },
+                    {
+                        title: "Hexadecimal little-endian string to Base64 string",
+                        func: (t) => { return Neon.u.hex2base64(t) },
+                        codes: [
+                            {
+                                "label": "neon-js",
+                                "code": `Neon.u.hex2base64("${text}")`,
+                            }
+                        ]
+                    },
+                    {
+                        title: "UTF8 string to hexadecimal string",
+                        func: (t) => { return Neon.u.str2hexstring(t) },
+                        codes: [
+                            {
+                                "label": "neon-js",
+                                "code": `Neon.u.str2hexstring("${text}")`,
+                            }
+                        ]
+                    },
+                    {
+                        title: "Base64 encoding",
+                        func: (t) => { return Neon.u.hex2base64(Neon.u.str2hexstring(t)) },
+                        codes: [
+                            {
+                                "label": "neon-js",
+                                "code": `Neon.u.hex2base64(Neon.u.str2hexstring("${text}"))`,
+                            }
+                        ]
+                    },
+                    {
+                        title: "Base64 to Hex string",
+                        func: (t) => { return Neon.u.base642hex(t) },
+                        codes: [
+                            {
+                                "label": "neon-js",
+                                "code": `Neon.u.base642hex("${text}")`,
+                            }
+                        ]
+                    },
+                    {
+                        title: "Script hash to Neo3 address",
+                        func: (t) => { return t.length == 40 ? Neon.create.account(t).address : "" },
+                        codes: [
+                            {
+                                "label": "neon-js",
+                                "code": `Neon.create.account("${text}").address`,
+                            }
+                        ]
+                    },
+                    {
+                        title: "Public key to Neo3 Address",
+                        func: (t) => { return t.length == 66 ? Neon.create.account(t).address : "" },
+                        codes: [
+                            {
+                                "label": "neon-js",
+                                "code": `Neon.create.account("${text}").address`,
+                            }
+                        ]
+                    },
+                ]
+
+                const run = (f) => {
+                    try {
+                        return f(text)
+                    } catch (error) {
+                        return error.toString()
+                    }
+                }
                 return (
                     <Layout>
                         <div className="twcontainer  max-w-6xl px-4 lg:px-0 mx-auto py-20">
@@ -149,7 +149,7 @@ export default function Converter(props) {
                                 {/* <button onClick={(e) => { runConversions() }} className="rounded bg-primary text-white uppercase p-2 font-semibold">Convert</button> */}
                             </div>
 
-                            <div className={`mt-8 ${text === "" ? "hidden" : "" }`}>
+                            <div className={`mt-8 ${text === "" ? "hidden" : ""}`}>
                                 <p className='font-medium'>Conversion results</p>
                                 <div className='mt-4 flex flex-col gap-4'>
                                     {
