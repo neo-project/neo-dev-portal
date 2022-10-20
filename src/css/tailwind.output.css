@@ -1047,6 +1047,10 @@ a:hover{
   white-space: pre-wrap;
 }
 
+.break-all{
+  word-break: break-all;
+}
+
 .rounded-full{
   border-radius: 9999px;
 }
