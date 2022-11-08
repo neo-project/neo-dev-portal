@@ -5,24 +5,28 @@ author: AxLabs
 tags: ["NEP-11", "JAVA", "NEOW3J"]
 skill: beginner
 image: "./assets/neow3j-padded.png"
-source: https://github.com/neow3j/neow3j-examples-java/blob/ddd90914ea4ec5f928066a582012043bbce01525/src/main/java/io/neow3j/examples/contractdevelopment/contracts/NonFungibleToken.java
+source: https://github.com/neow3j/neow3j-examples-java/blob/7000d804257f8d573ac8cc369aa2a3abb303a751/src/main/java/io/neow3j/examples/contractdevelopment/contracts/NonFungibleToken.java
 sidebar: true
 ---
 
 <div align="center" style={{ padding: '0% 25% 0% 25%' }}>
   <img src="/tooling/neow3j.png" alt="neow3j" width="75%" style={{ padding: '0% 0% 5% 0%' }}/>
-  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.19.0</small></sub></h1>
+  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.19.1</small></sub></h1>
 </div>
 
-Neow3j is a development toolkit that provides easy and reliable tools to build Neo dApps and Smart Contracts using the Java platform (Java, Kotlin, Android). Check out [neow3j.io](https://neow3j.io) for more detailed information on neow3j and the technical documentation.
+Neow3j is a development toolkit that provides easy and reliable tools to build Neo dApps and Smart Contracts using the
+Java platform (Java, Kotlin, Android). Check out [neow3j.io](https://neow3j.io) for more detailed information on neow3j
+and the technical documentation.
 
 ## 1. Setup
 
-If you haven't already set up your environment to use the neow3j library, you can check out our tutorial about setting up a neow3j project [here](/tutorials/neow3j-smart-contract-quickstart).
+If you haven't already set up your environment to use the neow3j library, you can check out our tutorial about setting
+up a neow3j project [here](/tutorials/neow3j-smart-contract-quickstart).
 
 ## 2. NEP-11 Overview
 
-The NEP-11 is the non-fungible token (NFT) standard on Neo N3. Have a look at its official documentation [here](https://github.com/neo-project/proposals/blob/master/nep-11.mediawiki).
+The NEP-11 is the non-fungible token (NFT) standard on Neo N3. Have a look at its official documentation
+[here](https://github.com/neo-project/proposals/blob/master/nep-11.mediawiki).
 
 ## 3. Example NEP-11 Contract
 
@@ -34,7 +38,9 @@ This example contract supports **indivisible** NFTs (i.e., `decimals` is equal t
 
 <br />
 
-The NEP-11 standard also describes what methods are required if divisible NTFs should be supported. Some of the methods required for divisible NFTS deviate from the ones discussed here. Check out the documentation of the NEP-11 standard [here](https://github.com/neo-project/proposals/blob/master/nep-11.mediawiki) for more details.
+The NEP-11 standard also describes what methods are required if divisible NTFs should be supported. Some of the methods
+required for divisible NFTS deviate from the ones discussed here. Check out the documentation of the NEP-11 standard
+[here](https://github.com/neo-project/proposals/blob/master/nep-11.mediawiki) for more details.
 
 :::
 
@@ -362,7 +368,9 @@ public class NonFungibleToken {
 
 ### Imports
 
-The imports show the neow3j devpack classes that are used in the example contract. Check out neow3j devpack's [javadoc](https://javadoc.io/doc/io.neow3j/devpack/latest/index.html) for a full overview of classes and methods that are supported.
+The imports show the neow3j devpack classes that are used in the example contract. Check out neow3j devpack's
+[javadoc](https://javadoc.io/doc/io.neow3j/devpack/latest/index.html) for a full overview of classes and methods that
+are supported.
 
 ```java
 package io.neow3j.examples.contractdevelopment.contracts;
@@ -394,7 +402,8 @@ import io.neow3j.devpack.events.Event4Args;
 
 ### Contract-specific Information
 
-Annotations on top of the smart contract's class represent contract-specific information. The following annotations are used in the example contract:
+Annotations on top of the smart contract's class represent contract-specific information. The following annotations are
+used in the example contract:
 
 _`@DisplayName`_
 
@@ -402,16 +411,22 @@ Specifies the contract's name. If this annotation is not present, the class name
 
 _`@ManifestExtra`_
 
-Adds the provided key-value pair information in the manifest's `extra` field. You can also use `@ManifestsExtras` to gather multiple `@ManifestExtra` annotations (results in the same as when using single `@ManifestExtra` annotations).
+Adds the provided key-value pair information in the manifest's `extra` field. You can also use `@ManifestsExtras` to
+gather multiple `@ManifestExtra` annotations (results in the same as when using single `@ManifestExtra` annotations).
 
 _`@SupportedStandard`_
 
-Sets the `supportedStandards` field in the manifest. You can use `neoStandard = ` with the enum `NeoStandard` to use an official standard (see [here](https://github.com/neo-project/proposals#readme)), or `customStandard = ` with a custom string value.
+Sets the `supportedStandards` field in the manifest. You can use `neoStandard = ` with the enum `NeoStandard` to use an
+official standard (see [here](https://github.com/neo-project/proposals#readme)), or `customStandard = ` with a custom
+string value.
 
 _`Permission`_
-Specifies, which third-party contracts and methods the smart contract is allowed to call. By default (i.e., if no permission annotation is set), the contract is not allowed to call any contract. Use `contract = ` and `methods = ` to specify, respectively, which contracts and methods are allowed.
+Specifies, which third-party contracts and methods the smart contract is allowed to call. By default (i.e., if no
+permission annotation is set), the contract is not allowed to call any contract. Use `contract = ` and `methods = ` to
+specify, respectively, which contracts and methods are allowed.
 
-_For example, if you want to allow transferring NEO tokens from the contract, you can add the annotation `@Permission(nativeContract = NativeContract.NeoToken, methods = "transfer")`._
+_For example, if you want to allow transferring NEO tokens from the contract, you can add the annotation
+`@Permission(nativeContract = NativeContract.NeoToken, methods = "transfer")`._
 
 ```java
 @DisplayName("FurryFriends")
@@ -423,16 +438,21 @@ public class NonFungibleToken {
 
 ### Constants
 
-You can set a constant value for the contract by using `final` variables. These values are always loaded when the contract is called and cannot be changed once the contract is deployed. If a final value does not include a method call (e.g., raw types, or a final `String` value, such as "name"), then these values are inlined during compilation.
+You can set a constant value for the contract by using `final` variables. These values are always loaded when the
+contract is called and cannot be changed once the contract is deployed. If a final value does not include a method call
+(e.g., raw types, or a final `String` value, such as "name"), then these values are inlined during compilation.
 
 :::note
 
-All contract constants and all methods must be `static` (since the object-orientation of the JVM is different on the NeoVM).
+All contract constants and all methods must be `static` (since the object-orientation of the JVM is different on the
+NeoVM).
 
 :::
 :::tip
 
-The contract owner of this example contract is fixed (i.e., it is a `final` variable). If you intend to provide a way to change such a variable, you should not store it as a `final` variable. Rather, you would store it as a value in the storage, which provides the possibility to be modified through a method.
+The contract owner of this example contract is fixed (i.e., it is a `final` variable). If you intend to provide a way to
+change such a variable, you should not store it as a `final` variable. Rather, you would store it as a value in the
+storage, which provides the possibility to be modified through a method.
 
 :::
 
@@ -459,7 +479,11 @@ static final String propTokenURI = "tokenURI";
 
 ### Deploy
 
-Once a deployment transaction is made (containing the contract and other parameters), the contract data is first stored on the blockchain and then the native contract `ContractManagement` calls the smart contract's `deploy()` method. In neow3j, that method is marked with the annotation `@OnDeployment`. In the example, when the smart contract is deployed, the private method `initializeContract` is called to initialize the contract's storage (see further below in the section about private helper methods).
+Once a deployment transaction is made (containing the contract and other parameters), the contract data is first stored
+on the blockchain and then the native contract `ContractManagement` calls the smart contract's `deploy()` method. In
+neow3j, that method is marked with the annotation `@OnDeployment`. In the example, when the smart contract is deployed,
+the private method `initializeContract` is called to initialize the contract's storage (see further below in the section
+about private helper methods).
 
 ```java
 @OnDeployment
@@ -475,11 +499,15 @@ public static void deploy(Object data, boolean update) throws Exception {
 
 ### Update and Destroy
 
-In order to update the contract, the following method first checks that the contract owner witnessed the transaction and then the native `ContractManagement.update()` method is called. When updating a smart contract, you can change the smart contract's code and its manifest. This means that you can update how the contract programmatically manages its storage context.
+In order to update the contract, the following method first checks that the contract owner witnessed the transaction and
+then the native `ContractManagement.update()` method is called. When updating a smart contract, you can change the smart
+contract's code and its manifest. This means that you can update how the contract programmatically manages its storage
+context.
 
 :::note
 
-Additionally to changing the smart contract's script and manifest, the method `ContractManagement.update()` eventually calls the smart contract's `deploy()` method (shown above) with the boolean `update` set to true.
+Additionally to changing the smart contract's script and manifest, the method `ContractManagement.update()` eventually
+calls the smart contract's `deploy()` method (shown above) with the boolean `update` set to true.
 
 :::
 
@@ -492,11 +520,14 @@ public static void update(ByteString script, String manifest) throws Exception {
 }
 ```
 
-The example contract also provides the option to destroy the smart contract. As well as the `update()` method, it first verifies that the contract owner witnessed the transaction and then calls the method `ContractManagement.destroy()` method.
+The example contract also provides the option to destroy the smart contract. As well as the `update()` method, it first
+verifies that the contract owner witnessed the transaction and then calls the method `ContractManagement.destroy()`
+method.
 
 :::caution
 
-When the native method `ContractManagement.destroy()` is called from a smart contract, the whole smart contract's storage context is erased, and the contract can no longer be used.
+When the native method `ContractManagement.destroy()` is called from a smart contract, the whole smart contract's
+storage context is erased, and the contract can no longer be used.
 
 :::
 
@@ -511,7 +542,9 @@ public static void destroy() throws Exception {
 
 ### NEP-11 Methods
 
-The required NEP-11 methods are implemented as follows. If a method does not change the state of the contract (i.e., it is just used for reading), it can be annotated with the `@Safe` annotation. Out of the required NEP-11 methods, only the `transfer()` method should be writing to the contract's storage and, thus, is not annotated as safe.
+The required NEP-11 methods are implemented as follows. If a method does not change the state of the contract (i.e., it
+is just used for reading), it can be annotated with the `@Safe` annotation. Out of the required NEP-11 methods, only the
+`transfer()` method should be writing to the contract's storage and, thus, is not annotated as safe.
 
 ```java
 @Safe
@@ -577,7 +610,9 @@ public static boolean transfer(Hash160 to, ByteString tokenId, Object data) thro
 
 ### Non-divisible NEP-11 Methods
 
-The NEP-11 standard specifies non-divisible as well as divisible NFT smart contracts. Since this smart contract is indivisible (i.e., its decimals are 0), it is required to implement a specific method `ownerOf` for it. It returns the script hash of the owner the token with the specified token id.
+The NEP-11 standard specifies non-divisible as well as divisible NFT smart contracts. Since this smart contract is
+indivisible (i.e., its decimals are 0), it is required to implement a specific method `ownerOf` for it. It returns the
+script hash of the owner the token with the specified token id.
 
 ```java
 @Safe
@@ -595,7 +630,11 @@ public static Hash160 ownerOf(ByteString tokenId) throws Exception {
 
 ### NEP-11 Optional Methods
 
-The NEP-11 standard describes two optional methods called `tokens()` and `properties()`. Meaning that if methods with these names and parameters are implemented, they must follow the standard. Below you can see the implementation of these two methods. The `tokens()` method iterates through the `registryMap` and returns an `Iterator` based on the key-value pairs that are found in the registry. The `properties()` method returns a map of the provided token's properties stored in the contract's storage. This includes its name, and if present its description, image, and URI.
+The NEP-11 standard describes two optional methods called `tokens()` and `properties()`. Meaning that if methods with
+these names and parameters are implemented, they must follow the standard. Below you can see the implementation of these
+two methods. The `tokens()` method iterates through the `registryMap` and returns an `Iterator` based on the key-value
+pairs that are found in the registry. The `properties()` method returns a map of the provided token's properties stored
+in the contract's storage. This includes its name, and if present its description, image, and URI.
 
 ```java
 @Safe
@@ -635,7 +674,10 @@ public static Map<String, String> properties(ByteString tokenId) throws Exceptio
 
 ### Events
 
-The NEP-11 standard requires an event `Transfer` that contains the values `from`, `to`, `amount`, and `tokenId`. For this, the class `Event4Args` can be used with the annotation `@DisplayName` to set the event's name that will be shown in the manifest and notifications when it has been fired. The event `Mint` is an additional custom event that is fired whenever a new NFT is minted.
+The NEP-11 standard requires an event `Transfer` that contains the values `from`, `to`, `amount`, and `tokenId`. For
+this, the class `Event4Args` can be used with the annotation `@DisplayName` to set the event's name that will be shown
+in the manifest and notifications when it has been fired. The event `Mint` is an additional custom event that is fired
+whenever a new NFT is minted.
 
 ```java
 @DisplayName("Mint")
@@ -657,9 +699,13 @@ The example contract contains some custom methods, that are not specified in the
 
 The method `contractOwner()` simply returns the script hash of the contract owner.
 
-The method `mint()` can be invoked by the contract owner in order to mint new NFT tokens. It stores the tokenId in the `registryMap`, its properties in the `propertiesMap`, and its owner in the `ownerMap`. Further, it increases the owner's balance, and the total supply by 1, before it fires the `Mint` event.
+The method `mint()` can be invoked by the contract owner in order to mint new NFT tokens. It stores the tokenId in the
+`registryMap`, its properties in the `propertiesMap`, and its owner in the `ownerMap`. Further, it increases the owner's
+balance, and the total supply by 1, before it fires the `Mint` event.
 
-The method `burn()` can be invoked by the owner of a token. It deletes all information about the token and updates the balance and total supply accordingly. If the intent of burning a token need not require the storage to be freed, the token could also just be sent to a *burner address*.
+The method `burn()` can be invoked by the owner of a token. It deletes all information about the token and updates the
+balance and total supply accordingly. If the intent of burning a token need not require the storage to be freed, the
+token could also just be sent to a *burner address*.
 
 ```java
 @Safe
@@ -732,7 +778,8 @@ public static void burn(ByteString tokenId) throws Exception {
 
 ### Private Helper Methods
 
-Private methods can be used to simplify and make the smart contract more readable. The following private methods are used in the NEP-11 example contract.
+Private methods can be used to simplify and make the smart contract more readable. The following private methods are
+used in the NEP-11 example contract.
 
 ```java
 private static void initializeContract(Hash160 contractOwner) {
@@ -777,7 +824,9 @@ private static byte[] createTokensOfPrefix(Hash160 owner) {
 
 ## 5. Compile the Contract
 
-The contract can be compiled using the gradle plugin. First, set the `className` in the file `gradle.build` to the contract's class name. Then, the gradle task `neow3jCompile` can be executed from the project's root path to compile the contract.
+The contract can be compiled using the gradle plugin. First, set the `className` in the file `gradle.build` to the
+contract's class name. Then, the gradle task `neow3jCompile` can be executed from the project's root path to compile the
+contract.
 
 ```bash
 ./gradlew neow3jCompile
@@ -797,11 +846,14 @@ The filenames can deviate according to what the contract's name is. See [here](#
 
 :::
 
-Now, the contract's `.manifest.json` and `.nef` files can be used to deploy the contract. Neow3j's SDK can be used to do so. Check out the example [here](https://github.com/neow3j/neow3j-examples-java/blob/4d82df91c27bf9d4992c166e1ae98045bd24fbbd/src/main/java/io/neow3j/examples/contractdevelopment/DeployFromFiles.java) about how to deploy a contract with its manifest and nef files.
+Now, the contract's `.manifest.json` and `.nef` files can be used to deploy the contract. Neow3j's SDK can be used to do
+so. Check out the example [here](https://github.com/neow3j/neow3j-examples-java/blob/4d82df91c27bf9d4992c166e1ae98045bd24fbbd/src/main/java/io/neow3j/examples/contractdevelopment/DeployFromFiles.java)
+about how to deploy a contract with its manifest and nef files.
 
 ## About
 
-Feel free to report any issues that might arise. Open an issue [here](https://github.com/neow3j/neow3j/issues/new/choose) to help us directly including it in our backlog.
+Feel free to report any issues that might arise. Open an issue
+[here](https://github.com/neow3j/neow3j/issues/new/choose) to help us directly including it in our backlog.
 
 
 <!---
