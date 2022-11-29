@@ -34,3 +34,6 @@ There you have it. Multiple records on NeoNS is a very powerful feature. Hope th
 
 You can read more about NeoNS API [here](/docs/n3/neons/index).
 
+Check out the sample application at [https://github.com/cityOfZion/inbox](https://github.com/cityOfZion/inbox)
+
+
