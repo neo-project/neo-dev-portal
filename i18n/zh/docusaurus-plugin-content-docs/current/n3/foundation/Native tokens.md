@@ -1,3 +1,8 @@
+---
+sidebar_label: '通证模型'
+sidebar_position: 2
+---
+
 # 通证模型
 
 ## 原生通证

@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Introduction to Neo'
+sidebar_label: 'Neo 介绍'
 sidebar_position: 0
 ---
 

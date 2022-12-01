@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Overview'
+sidebar_label: '简介'
 sidebar_position: 0
 slug: /
 ---

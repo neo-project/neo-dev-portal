@@ -1,3 +1,8 @@
+---
+sidebar_label: '使用 Neo-CLI'
+sidebar_position: 2
+---
+
 # 使用 Neo-CLI 客户端
 
 Neo-CLI 作为客户端，在 P2P 网络中充当一个节点，同时，该程序也是一个跨平台的钱包，处理各种资产的相关交易。

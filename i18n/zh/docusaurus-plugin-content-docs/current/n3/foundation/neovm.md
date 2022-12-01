@@ -1,4 +1,9 @@
-# NEO 虚拟机（NeoVM）
+---
+sidebar_label: 'Neo 虚拟机'
+sidebar_position: 8
+---
+
+# Neo 虚拟机（NeoVM）
 
 ## 简介 
 

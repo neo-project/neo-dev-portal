@@ -1,3 +1,8 @@
+---
+sidebar_label: '钱包'
+sidebar_position: 3
+---
+
 # 钱包
 
 钱包是Neo的基础组件，是用户接入Neo网络的载体，负责完成与之相关一系列的工作和任务。

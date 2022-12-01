@@ -1,3 +1,7 @@
+---
+sidebar_label: '合约费用'
+---
+
 # 合约收费机制
 
 用户在使用 Neo 网络时，需要支付一定的费用，总手续费包含系统费 (System Fee) 和网络费 (Network Fee)，费用单位为 GAS。

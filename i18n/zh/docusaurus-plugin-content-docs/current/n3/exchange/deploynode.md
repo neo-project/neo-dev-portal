@@ -1,3 +1,8 @@
+---
+sidebar_label: '部署 Neo 节点'
+sidebar_position: 1
+---
+
 # 在服务器中部署 Neo 节点
 
 ## 安装节点

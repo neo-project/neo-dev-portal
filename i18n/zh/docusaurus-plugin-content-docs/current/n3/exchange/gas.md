@@ -1,3 +1,8 @@
+---
+sidebar_label: '分发 GAS'
+sidebar_position: 4
+---
+
 # 给用户分发 GAS
 
 交易所可以选择是否给用户分发 GAS。GAS 用来支付 Neo 区块链的记账费和附加服务费。

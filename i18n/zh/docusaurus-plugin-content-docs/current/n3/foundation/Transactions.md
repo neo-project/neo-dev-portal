@@ -1,3 +1,8 @@
+---
+sidebar_label: '交易'
+sidebar_position: 5
+---
+
 # 交易
 
 Neo区块去掉区块头部分就是一串交易构成的区块主体，因而交易是整个Neo系统的基础部件。钱包、智能合约、账户和交易相互作用但最终都转化成交易被记入区块链中。在Neo的P2P网络传输中，信息被打包成`InvPayload`信息包来传送（Inv即Inventory）。不同信息包有自己需要的特定数据，`InventoryType.Tx` 用于标识网络中的InvPayload信息包内装的是交易数据。
