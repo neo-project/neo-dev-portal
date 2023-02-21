@@ -99,12 +99,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           //   position: 'right',
           //   label: 'NeoFS',
           // },
-          {
-            type: 'doc',
-            docId: 'recipes/readme',
-            position: 'right',
-            label: 'Recipes',
-          },
+          // {
+          //   type: 'doc',
+          //   docId: 'recipes/readme',
+          //   position: 'right',
+          //   label: 'Recipes',
+          // },
           {to: '/tutorials', label: 'Tutorials', position: 'right'},
           {to: '/resources', label: 'Resources & Tooling', position: 'right'},
           {to: '/converter', label: 'Converter', position: 'right'},

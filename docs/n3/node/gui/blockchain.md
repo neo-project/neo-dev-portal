@@ -1,3 +1,6 @@
+---
+sidebar_position: 1
+---
 # Viewing Blockchain Information
 
 You can click `Block` on the Neo-GUI main page to enter the blockchain page to view detailed information of blocks, transactions, and assets on the Neo blockchain.
