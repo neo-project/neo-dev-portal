@@ -132,9 +132,9 @@ WalletAPI walletAPI = new WalletAPI(client);
 
 ### Inquiring balance
 
-> [!Note]
->
-> The type of account balance is usually BigInteger, which is a representation after rounding the decimal part. It needs to be divided by Factor to get the actual Token amount.
+:::note
+ The type of account balance is usually BigInteger, which is a representation after rounding the decimal part. It needs to be divided by Factor to get the actual Token amount.
+:::
 
 Inquiry NEP-17 asset balance using the string parameter:
 

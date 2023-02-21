@@ -1,9 +1,9 @@
 # getproof Method
 Gets proof by querying root hash, contract hash, and storage key.
 
-> [!Note]
->
-> You must install the plugin [StateService](https://github.com/neo-project/neo-modules/releases) and [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+:::note
+ You must install the plugin [StateService](https://github.com/neo-project/neo-modules/releases) and [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+:::
 
 ## Parameter Description
 

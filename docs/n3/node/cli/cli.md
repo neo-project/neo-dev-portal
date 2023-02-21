@@ -247,9 +247,9 @@ neo> show gas
 unclaimed gas: 16.7367406
 ```
 
-> [!NOTE]
->
-> This command does not show the GAS that has been claimed. Use `list asset` instead.
+:::note
+ This command does not show the GAS that has been claimed. Use `list asset` instead.
+:::
 
 On Neo N3, The GAS in an account is claimed automatically every time when the number of Neo in the account changes.  
 
@@ -869,9 +869,9 @@ Output:
     Relay tx(no|yes): no
 
 
-> [!Note]
->
-> After entering the invoke command, the node invokes the `operation` method, and passes `operation` and `contractParameters` as arguments. If `operation` and `contractParameters` are not processed in the contract, the expected result will not be returned.
+:::note
+ After entering the invoke command, the node invokes the `operation` method, and passes `operation` and `contractParameters` as arguments. If `operation` and `contractParameters` are not processed in the contract, the expected result will not be returned.
+:::
 
 ###  update
 
