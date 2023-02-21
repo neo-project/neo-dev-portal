@@ -90,7 +90,7 @@
 
 | 方法 | 参数 | 费用（GAS） | 返回结果 |
 | ---- | ------------------------------------ | ---- | ---- |
-| [`GetCommittee`](scapi/framework/native/Neo/GetCommittee.md) | null | 0.04194304 (CpuFee) | 返回当前委员会（Array<ECPoint>） |
+| [`GetCommittee`](scapi/framework/native/Neo/GetCommittee.md) | null | 0.04194304 (CpuFee) | 返回当前委员会（`Array<ECPoint>`） |
 
 ## 共识节点
 
@@ -104,7 +104,7 @@
 
 | 方法 | 参数 | 费用（GAS） | 返回结果 |
 | ---- | ------------------------------------ | ---- | ---- |
-| [`GetNextBlockValidators`](scapi/framework/native/Neo/GetNextBlockValidators.md) | null | 0.04194304 (CpuFee) | 返回下个块（正在持久化的块）的共识节点（Array<ECPoint>） |
+| [`GetNextBlockValidators`](scapi/framework/native/Neo/GetNextBlockValidators.md) | null | 0.04194304 (CpuFee) | 返回下个块（正在持久化的块）的共识节点（`Array<ECPoint>`） |
 
 ## Token分配
 
