@@ -1,3 +1,6 @@
+---
+sidebar_position: 2
+---
 # Wallet
 
 The wallet is a database file of Neo-GUI used to store Neo account and asset information in the account. This file is very important and must be properly kept and safely backed up.

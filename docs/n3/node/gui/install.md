@@ -1,3 +1,6 @@
+---
+sidebar_position: 0
+---
 # Installing Neo-GUI
 
 Neo-GUI is a full-node application on the Neo blockchain. It uses Electron cross-platform technology and currently can run on Windows 10 and macOS systems.
