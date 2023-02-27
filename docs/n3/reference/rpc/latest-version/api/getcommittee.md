@@ -1,9 +1,9 @@
 # getcommittee Method
 
 Gets the public key list of current Neo committee members.
-> [!Note]
->
-> Before you can invoke this method you must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases).
+:::note
+ Before you can invoke this method you must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases).
+:::
 
 ## Example
 

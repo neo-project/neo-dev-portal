@@ -8,7 +8,7 @@ Assembly: Neo.SmartContract.Framework
 
 ## Syntax
 
-```c#
+```cs
 public enum OracleResponseCode : byte
 {
     Success = 0x00,
@@ -48,7 +48,7 @@ public enum OracleResponseCode : byte
 
 You need to fill in the callback function name in [Oracle.Rqeuest](Oracle/Request.md). The order of the parameter data types of the callback function is fixed and must be `string url, byte[] userData, int code, byte[] result`. The code can be judged in the contract and different logic codes can be executed. Such as:
 
-```c#
+```cs
 public static void Callback(string url, byte[] userData, int code, byte[] result)
 {
     switch (code)

@@ -8,7 +8,7 @@ Assembly: Neo.SmartContract.Framework
 
 ## Syntax
 
-```c#
+```cs
 public static extern long GetFeePerByte();
 ```
 
@@ -18,7 +18,7 @@ Return:
 
 ## Example
 
-```c#
+```cs
 public static void Test()
 {
     var feePerByte = Policy.GetFeePerByte();

@@ -661,7 +661,7 @@ In the off-chain function `this.verify` above, by examining the signature and th
 
 Then, using the on-chain function `this.contract.isValidClaim`, the agency reads the validity (whether revoked) of the `passportClaim` ID. 
 
-```c#
+```cs
 // seraph-id-smart-contracts/Issuer/Issuer.cs
 // Line 121
         public static bool IsValidClaim(string id)

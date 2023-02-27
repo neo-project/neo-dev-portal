@@ -2,9 +2,9 @@
 
 Transfer from the specified address to the destination address.
 
-> [!Note]
->
-> Before you can invoke this method you must:
+:::note
+ Before you can invoke this method you must:
+:::
 >
 > 1. Install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) 
 > 2. Call the RPC method `openwallet` to open the wallet first.

@@ -1,3 +1,6 @@
+---
+sidebar_position: 3
+---
 # Contract
 
 In the Neo-GUI homepage click **Contract** to enter the contract page, where you can quickly search, deploy, or invoke a contract.

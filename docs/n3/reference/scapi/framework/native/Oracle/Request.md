@@ -8,7 +8,7 @@ Assembly: Neo.SmartContract.Framework
 
 ## Syntax
 
-```c#
+```cs
 public static extern void Request(string url, string filter, string callback, object userData, long gasForResponse);
 ```
 
@@ -22,7 +22,7 @@ Parameters：
 
 ## Example
 
-```c#
+```cs
 namespace demo
 {
     [DisplayName("Oracle Demo")]

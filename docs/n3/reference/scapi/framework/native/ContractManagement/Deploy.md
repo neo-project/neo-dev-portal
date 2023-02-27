@@ -8,7 +8,7 @@ Assembly: Neo.SmartContract.Framework
 
 ## Syntax
 
-```c#
+```cs
 public static extern Contract Deploy(ByteString nefFile, string manifest);
 public static extern Contract Deploy(ByteString nefFile, string manifest, object data);
 ```
@@ -20,7 +20,7 @@ Parameters:
 
 ## Example
 
-```c#
+```cs
 public class Contract1 : SmartContract.Framework.SmartContract
 {
     private static byte[] nef = "4e4546336e656f6e00000000000000000000000000000000000000000000000000000000332e302e302e30000000000000000000000000000000000000000000000000000211407060ba5f".HexToBytes();
@@ -51,7 +51,7 @@ Response description:
 
 Usually, you can define the method `_deploy` in the contract and execute the neo-cli command `deploy contract.nef` to deploy the contract.
 
-```c#
+```cs
 public static void _deploy(object data, bool update)
 {
     if (update) return;

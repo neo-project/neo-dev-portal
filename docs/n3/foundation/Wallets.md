@@ -70,13 +70,13 @@ The address script in Neo N3 has changed not using the Opcode.CheckSig and OpCod
 
 #### Ordinary Address
 
-1. Build a `CheckSig` script with the public key, and the format is as follows:
+1. Build a `CheckSig` script with the public key, and the format is as follows:  
 
-    ```
-    0x0C + 0x21 + Public Key (Compressed 33 bytes) + 0x41 + 0x56e7b327
-    ```
 
-    ![](images/wallets/account_address_script_checksign.png)
+```0x0C + 0x21 + Public Key (Compressed 33 bytes) + 0x41 + 0x56e7b327```
+
+
+![Account Address](images/wallets/account_address_script_checksign.png)
 
 2. Calculate script hash of the contract (20 bytes, make once SHA256 and RIPEMD160 of the script). 
 
@@ -232,7 +232,7 @@ An NEP6 wallet file complies with the NEP6 standard, and the file name extension
 	"extra": null
 }
 ```
-> In this example the password is 1
+In this example the password is 1
 
 | Field                           | Description                                                  |
 | ------------------------------- | ------------------------------------------------------------ |
@@ -307,7 +307,7 @@ Neo employs the `ECDSA` algorithm to sign the transaction through the wallet com
 
 C# code：
 
-```c#
+```cs
         public static byte[] Sign(byte[] message, byte[] prikey, byte[] pubkey)
         {
             using (var ecdsa = ECDsa.Create(new ECParameters

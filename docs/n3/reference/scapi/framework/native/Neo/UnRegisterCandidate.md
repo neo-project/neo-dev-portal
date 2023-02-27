@@ -6,13 +6,13 @@ Namespace: [Neo.SmartContract.Framework.Native](../../native.md)
 
 Assembly: Neo.SmartContract.Framework
 
-> [!Note]
->
-> Unregistering candidate requires the candidate's signature. It means candidate unregistering is only self-determined. 
+:::note
+ Unregistering candidate requires the candidate's signature. It means candidate unregistering is only self-determined. 
+:::
 
 ## Syntax
 
-```c#
+```cs
 public static extern bool UnRegisterCandidate(ECPoint pubkey);
 ```
 
@@ -22,7 +22,7 @@ Parameter:
 
 ## Example
 
-```c#
+```cs
 public class Contract1 : SmartContract.Framework.SmartContract
 {
     private static readonly byte[] pubkey = "02e8ff17c567d62f274fe247cc884a2a6cd3b8fd0d779a8c5856289a560accacb4".HexToBytes();

@@ -130,7 +130,7 @@ A token contract which burns tokens MUST trigger a `Transfer` event with the `to
 
 NEP17 methods are as follows. For the complete code refer to [NEP-17 contract code](https://github.com/neo-project/examples/tree/master/csharp/NEP17).
 
-```c#
+```cs
 using Neo;
 using Neo.SmartContract;
 using Neo.SmartContract.Framework;
@@ -189,7 +189,7 @@ This section summaries NEP-17 changes compared to the previous NEP-5 protocol.
 
 The name method is moved to the manifest file, and you need to add `[DisplayName("Token Name")]` when writing the contract.
 
-```c#
+```cs
 [DisplayName("Token Name")]
 [ManifestExtra("Author", "Neo")]
 [ManifestExtra("Email", "dev@neo.org")]

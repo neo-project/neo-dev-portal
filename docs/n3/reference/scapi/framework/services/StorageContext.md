@@ -10,7 +10,7 @@ Assembly: Neo.SmartContract.Framework
 
 ## Syntax
 
-```c#
+```cs
 public class StorageContext
 ```
 

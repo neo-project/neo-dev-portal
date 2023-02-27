@@ -8,7 +8,7 @@ Assembly: Neo.SmartContract.Framework
 
 ## Syntax
 
-```c#
+```cs
 public static extern Block GetBlock(uint index);
 public static extern Block GetBlock(UInt256 hash);
 ```
@@ -20,7 +20,7 @@ Parameters：
 
 ## Example
 
-```c#
+```cs
 public class Contract1 : SmartContract.Framework.SmartContract
 {
     public static void Test()

@@ -14,7 +14,7 @@ This document introduces the following SDK features:
 
 Read the nef and manifest.json files of the contract:
 
-```C#
+```cs
 // read nefFile & manifestFile
 NefFile nefFile;
 using (var stream = new BinaryReader(File.OpenRead(nefFilePath), Encoding.UTF8, false))
@@ -27,14 +27,14 @@ ContractManifest manifest = ContractManifest.Parse(File.ReadAllBytes(manifestFil
 
 Construct a contract deployment transaction:
 
-```c#
+```cs
 // create the deploy contract transaction
 Transaction transaction = await contractClient.CreateDeployContractTxAsync(nefFile.ToArray(), manifest, senderKeyPair);
 ```
 
 After the transaction is constructed, you need to broadcast it on the blockchain:
 
-```c#
+```cs
 // Broadcast the transaction over the Neo network
 await client.SendRawTransactionAsync(transaction);
 Console.WriteLine($"Transaction {transaction.Hash.ToString()} is broadcasted!");
@@ -42,7 +42,7 @@ Console.WriteLine($"Transaction {transaction.Hash.ToString()} is broadcasted!");
 
 After the transaction is added to the blockchain you can get the transaction execution status to check if the contract is deployed successfully:
 
-```c#
+```cs
 // print a message after the transaction is on chain
 WalletAPI neoAPI = new WalletAPI(client);
 await neoAPI.WaitTransactionAsync(transaction)
@@ -51,7 +51,7 @@ await neoAPI.WaitTransactionAsync(transaction)
 
 Here is the complete code:
 
-```c#
+```cs
 using Neo.Network.P2P.Payloads;
 using Neo.Network.RPC;
 using Neo.SmartContract;
@@ -112,7 +112,7 @@ namespace ConsoleApp1
 
 `ContractClient` provides the method `TestInvokeAsync` to simulate the contract invocation, which does not affect the data on the chain after execution. You can directly invoke the contract method that reads the data. For example, the following example invokes the name method in the NEO native contract.
 
-```c#
+```cs
 // choose a neo node with rpc opened
 RpcClient client = new RpcClient("http://127.0.0.1:10332");
 ContractClient contractClient = new ContractClient(client);
@@ -127,7 +127,7 @@ Console.WriteLine($"The name is {invokeResult.Stack.Single().GetString()}");
 
 Or you can use `MakeScript` to construct the script you want to execute and then invoke the method `InvokeScriptAsync` in `RpcClient`to get the execution result.
 
-```c#
+```cs
 // choose a neo node with rpc opened
 RpcClient client = new RpcClient("http://127.0.0.1:10332");
 
@@ -148,7 +148,7 @@ Generally invoking a deployed contract on the blockchain contains the following 
 
     Take the `transfer` method of native contract Neo as an example:
 
-    ```c#
+    ```cs
     // construct the script, in this example, we will transfer 1024 NEO to receiver
     UInt160 scriptHash = NativeContract.NEO.Hash;
     byte[] script = scriptHash.MakeScript("transfer", sender, receiver, 1024);
@@ -156,7 +156,7 @@ Generally invoking a deployed contract on the blockchain contains the following 
 
 2. Construct the transaction：
 
-    ```c#
+    ```cs
     // initialize the TransactionManagerFactory with rpc client and magic
     // fill the script and cosigners
     TransactionManager txManager = await new TransactionManagerFactory(client, 5195086)
@@ -167,14 +167,14 @@ Generally invoking a deployed contract on the blockchain contains the following 
     
 3. Broadcast the transaction on the blockchain:
 
-    ```c#
+    ```cs
     // broadcasts the transaction over the Neo network
     await client.SendRawTransactionAsync(tx).ConfigureAwait(false);
     ```
 
 4. Wait until the transaction is added to the blockchain and then get the transaction execution status to make sure the contract is invoked successfully:
 
-    ```c#
+    ```cs
     // print a message after the transaction is on chain
     WalletAPI neoAPI = new WalletAPI(client);
     await neoAPI.WaitTransactionAsync(tx)
@@ -187,14 +187,14 @@ For complete code refer to [Transaction Construction](transaction.md).
 
 `Nep17API` encapsulates the method that generates transfer transactions. The above transaction process can be simplified to:
 
-```c#
+```cs
 Nep17API nep17API = new Nep17API(client);
 Transaction tx = await nep17API.CreateTransferTxAsync(scriptHash, sendKey, receiver, 1).ConfigureAwait(false);
 ```
 
 Additionally, `Nep17API` also provides a set of simple methods to get data:
 
-```c#
+```cs
 // get nep17 name
 string name = await nep17API.NameAsync(NativeContract.NEO.Hash).ConfigureAwait(false);
 

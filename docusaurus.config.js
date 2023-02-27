@@ -11,9 +11,21 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon-32x32.png',
-  organizationName: 'neo.org', // Usually your GitHub org/user name.
-  projectName: 'docs', // Usually your repo name.
+  organizationName: 'https://github.com/neo-project', // Usually your GitHub org/user name.
+  projectName: 'neo-dev-portal', // Usually your repo name.
   onBrokenLinks: 'ignore', //this is here only for TESTING
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en", "zh"],
+    localeConfigs: {
+      en: {
+        label: 'English',
+      },
+      ja: {
+        label: '中文',
+      },
+    },
+  },
   plugins: [
     './src/plugins/custom-tags-list-plugin.js',
   ],
@@ -33,6 +45,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           priority: 0.5,
         },
         docs: {
+          routeBasePath: "docs",
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: 'https://github.com/neo-project/neo-dev-portal//blob/master',
           showLastUpdateAuthor: true,
@@ -99,6 +112,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           //   position: 'right',
           //   label: 'NeoFS',
           // },
+          // {
+          //   type: 'doc',
+          //   docId: 'recipes/readme',
+          //   position: 'right',
+          //   label: 'Recipes',
+          // },
           {to: '/tutorials', label: 'Tutorials', position: 'right'},
           {to: '/resources', label: 'Resources & Tooling', position: 'right'},
           {to: '/converter', label: 'Converter', position: 'right'},
@@ -108,8 +127,10 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             position: 'right',
             label: 'FAQ',
           },
-          // {to: '/walletconnect', label: 'WalletConnect', position: 'right'},
-         
+          {
+            type: 'localeDropdown',
+            position: 'right',
+          },
         ],
       },
       footer: {

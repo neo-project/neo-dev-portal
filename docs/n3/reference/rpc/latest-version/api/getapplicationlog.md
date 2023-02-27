@@ -2,9 +2,9 @@
 
 Returns the contract event information based on the specified txid. The contract event information is stored under the ApplicationLogs directory.
 
-> [!Note]
->
-> You must install the plugins [ApplicationLogs](https://github.com/neo-project/neo-modules/releases) and [LevelDBStore](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+:::note
+ You must install the plugins [ApplicationLogs](https://github.com/neo-project/neo-modules/releases) and [LevelDBStore](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+:::
 
 ## Parameter Description
 
@@ -98,9 +98,9 @@ Response description:
 
 - state: Notification content, where ByteString is Base64-encoded wallet address and can be converted at https://neo.org/converter/index.
 
-> [!Note]
->
-> This example shows the log of a successful token transfer, however, in case of a failed transfer or NeoVM exception, the outcomes can be:
+:::note
+ This example shows the log of a successful token transfer, however, in case of a failed transfer or NeoVM exception, the outcomes can be:
+:::
 >
 > - Failed transfer: no Transfer notification event is returned, execution ends in a `HALT` state with a stack value of `False`.
 > - NeoVM exception: a Transfer notification event may or may not be returned, but execution ends in a `FAULT` state.

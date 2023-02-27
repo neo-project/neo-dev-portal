@@ -3,7 +3,7 @@
 Welcome to Neo Developer Portal Repository.
 This is an open-source community effort, so feel free to suggest new topics, add new content, and provide examples wherever you think it might be helpful. All documentation can be edited via GitHub.
 
-**How to contribute**
+**How to contribute**  
 Neo Developer Portal is built using [Docusaurus](https://docusaurus.io/) v2.
 
 

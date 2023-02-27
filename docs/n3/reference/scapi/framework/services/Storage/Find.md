@@ -8,7 +8,7 @@ Assembly: Neo.SmartContract.Framework
 
 ## Syntax
 
-```c#
+```cs
 public static extern Iterator Find(StorageContext context, byte[] prefix, FindOptions options = FindOptions.None);
 public static extern Iterator Find(StorageContext context, ByteString prefix, FindOptions options = FindOptions.None);
 ```
@@ -22,7 +22,7 @@ Return value: The iterator composed of the elements  that meet conditions in the
 
 ## Example
 
-```c#
+```cs
 public class Contract1 : SmartContract.Framework.SmartContract
 {
     public static void Main()

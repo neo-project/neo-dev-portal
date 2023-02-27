@@ -8,13 +8,13 @@ Assembly: Neo.SmartContract.Framework
 
 ## Syntax
 
-```c#
+```cs
 public static extern UInt160 CreateStandardAccount(ECPoint pubKey);
 ```
 
 ## Example
 
-```c#
+```cs
 public class Contract1 : SmartContract.Framework.SmartContract
 {
         public static UInt160 CreateStandardAccount(byte[] pubKey)

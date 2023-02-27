@@ -2,9 +2,9 @@
 
 Invokes a smart contract with its scripthash based on the specified operation and parameters and returns the result.
 
-> [!Note]
->
-> - This method is used to test your VM script as if they ran on the blockchain at that point in time. This RPC call does not affect the blockchain in any way.
+:::note
+ - This method is used to test your VM script as if they ran on the blockchain at that point in time. This RPC call does not affect the blockchain in any way.
+:::
 > - You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
 
 ## Parameter Description
@@ -28,9 +28,9 @@ Invokes a smart contract with its scripthash based on the specified operation an
     * Global: Global. Global. The risk is extremely high because the contract may transfer all assets in the address. Only choose it when the contract is extremely trusted.
   * allowedcontracts: contracts of the signature can take effect, if scopes is CustomContracts
   * allowedgroups: pubkeys of the signature can take effect, if scopes is CustomGroups
-> [!Note]
->
-> You need to use the proper byte order of the address passed according to its data type. If the data type is Hash160, use the big endian script hash; if the data type is ByteArray, use the little endian scripthash.
+:::note
+ You need to use the proper byte order of the address passed according to its data type. If the data type is Hash160, use the big endian script hash; if the data type is ByteArray, use the little endian scripthash.
+:::
 
 For example:
 
