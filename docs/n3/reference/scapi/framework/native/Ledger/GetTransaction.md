@@ -8,7 +8,7 @@ Assembly: Neo.SmartContract.Framework
 
 ## Syntax
 
-```c#
+```cs
 public static extern Transaction GetTransaction(UInt256 hash);
 ```
 
@@ -18,7 +18,7 @@ Parameter:
 
 ## Example
 
-```c#
+```cs
 public class Contract1 : SmartContract.Framework.SmartContract
 {
     public static void Test(UInt256 hash)

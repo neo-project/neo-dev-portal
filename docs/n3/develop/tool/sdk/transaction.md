@@ -12,7 +12,7 @@
 
 1. Construct a transaction script to determine what functions the transaction will perform, such as a transfer transaction:
 
-    ```c#
+    ```cs
     // construct the script, in this example, we will transfer 1 NEO to the receiver
     UInt160 scriptHash = NativeContract.NEO.Hash;
     byte[] script = scriptHash.MakeScript("transfer", sender, receiver, 1，"data");
@@ -20,7 +20,7 @@
 
 2. Construct `TransactionManagerFactory` with the parameter `RpcClient `; Construct `TransactionManager` with the parameters `Script` and`Signers`:
 
-    ```c#
+    ```cs
     TransactionManager txManager = await new TransactionManagerFactory(client)
             .MakeTransactionAsync(script, signers).ConfigureAwait(false);
     ```
@@ -29,13 +29,13 @@
 
     - single signature
 
-    ```c#
+    ```cs
     // add signature for the transaction with sendKey
     txManager.AddSignature(sendKey);
     ```
     - multiple signatures
     
-    ```c#
+    ```cs
     // add multi-signatures for the transaction with sendKey
     txManager.AddMultiSig(key1, 2, receiverKey.PublicKey, key2.PublicKey, key3.PublicKey);
     txManager.AddMultiSig(key2, 2, receiverKey.PublicKey, key2.PublicKey, key3.PublicKey);
@@ -44,7 +44,7 @@
     
       The nature of multi-signature comes from multi-signature contracts. You need to construct a multi-signature contract before you can obtain the multi-signature address and transfer assets. The following example uses 3 accounts to create a multi-signature contract which requires at least 2 account signatures for signing.
 
-    ```c#
+    ```cs
     // create a multi-signature contract, which needs at least 2 of 3 KeyPairs to sign
     Contract multiContract = Contract.CreateMultiSigContract(2, sendKey.PublicKey, key2.PublicKey, key3.PublicKey);
     // get the scripthash of the multi-signature contract
@@ -55,7 +55,7 @@
 
     If there are not enough signatures or fees an exception will be thrown.
 
-    ```c#
+    ```cs
     // sign the transaction with the added signatures
     Transaction tx = await txManager.SignAsync().ConfigureAwait(false);
     ```
@@ -66,7 +66,7 @@
 
 The following example implements a function that transfers 1024 NEO from the sender account to the receiver account. You need to pay attention to the difference between the script and the signature in a transaction for constructing different transactions.
 
-```c#
+```cs
 using Neo;
 using Neo.Network.P2P.Payloads;
 using Neo.Network.RPC;
@@ -126,7 +126,7 @@ namespace ConsoleApp1
 
 `WalletAPI` encapsulates the above process, so you can simplify the NEP17 transfer as follows:
 
-```c#
+```cs
 using Neo;
 using Neo.Network.P2P.Payloads;
 using Neo.Network.RPC;
@@ -173,7 +173,7 @@ namespace ConsoleApp1
 
 The following example implements a function that transfers 10 GAS to a multi-signature account. The scripthash of a multi-signature account is obtained from the scripthash of the multi-signature contract. As the sender is a normal account, the process of adding a signature is the same as last example.
 
-```c#
+```cs
 using Neo;
 using Neo.Network.P2P.Payloads;
 using Neo.Network.RPC;
@@ -243,7 +243,7 @@ namespace ConsoleApp1
 
 The following example implements a function that transfers 1024 GAS from a multi-signature account. The scripthash of the multi-signature account is obtained from the scripthash of the multi-signature contract. To transfer assets from a multi-signature account, you need to add signatures required by the multi-signature contract.
 
-```c#
+```cs
 using Neo;
 using Neo.Network.P2P.Payloads;
 using Neo.Network.RPC;

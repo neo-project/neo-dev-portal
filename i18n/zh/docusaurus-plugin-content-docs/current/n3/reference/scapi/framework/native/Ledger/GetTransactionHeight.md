@@ -8,7 +8,7 @@
 
 ## 语法
 
-```c#
+```cs
 public static extern int GetTransactionHeight(UInt256 hash);
 ```
 
@@ -18,7 +18,7 @@ public static extern int GetTransactionHeight(UInt256 hash);
 
 ## 示例
 
-```c#
+```cs
 public class Contract1 : SmartContract.Framework.SmartContract
 {
     public static int Test(UInt256 txHash)

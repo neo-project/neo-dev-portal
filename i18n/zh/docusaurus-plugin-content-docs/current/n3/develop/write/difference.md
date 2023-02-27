@@ -33,14 +33,14 @@
 
 Neo Legacy：
 
-```c#
+```cs
 using Neo.SmartContract.Framework;
 using Neo.SmartContract.Framework.Services.Neo;
 using System;
 ```
 Neo N3：
 
-```c#
+```cs
 using Neo;
 using Neo.SmartContract;
 using Neo.SmartContract.Framework;
@@ -61,13 +61,13 @@ using System;
 
 Neo Legacy
 
-```c#
+```cs
 private static readonly byte[] InitialOwnerScriptHash = "AJhZmdHxW44FWMiMxD5bTiF7UgHcp3g2Fr".ToScriptHash();
 ```
 
 Neo N3
 
-```c#
+```cs
 [InitialValue("NiNmXL8FjEUEs1nfX9uHFBNaenxDHJtmuB", ContractParameterType.Hash160)]
 static readonly UInt160 Owner = default;
 ```
@@ -162,7 +162,7 @@ Neo N3 新增了大量原生合约，将 Neo Legacy 中的大量互操作服务�
 
 Neo Legacy ：
 
-```c#
+```cs
 public static readonly string mapName = "asset";
 
 public static void Put(byte[] key, BigInteger value) => Storage.CurrentContext.CreateMap(mapName).Put(key, value);
@@ -172,7 +172,7 @@ public static BigInteger Get(byte[] key) => Storage.CurrentContext.CreateMap(map
 
 Neo N3：
 
-```c#
+```cs
 public static readonly string mapName = "asset";
 
 public static void Put(UInt160 key, BigInteger value) => assetMap.Put(key, value);
@@ -196,7 +196,7 @@ Neo N3：
 
 实现 OnNEP17Payment 即可完成 TokenSale 操作，发送者、转账金额再也不用从交易中逐个分析再累加汇总，而是可以直接从参数中拿到。示例代码如下：
 
-```c#
+```cs
 public static void OnNEP17Payment(UInt160 from, BigInteger amount, object data)
 {
     if (Runtime.CallingScriptHash == NEO.Hash)
@@ -234,7 +234,7 @@ Neo N3：
 
 Neo Legacy ：
 
-```c#
+```cs
 [Appcall("XXXXXXXXXX")]//ScriptHash
 public static extern int AnotherContract(string arg);
 
@@ -246,7 +246,7 @@ public static void Main()
 
 Neo N3 ：
 
-```c#
+```cs
 [Contract("0102030405060708090A0102030405060708090A")]
 public class Contract1
 {
@@ -263,7 +263,7 @@ public static void Call()
 
 Neo Legacy：
 
-```c#
+```cs
 delegate object Dyncall(string method, object[] args);
 public static object Main(string operation, object[] args)
 {
@@ -279,7 +279,7 @@ Neo N3：
 
 可以直接调用 `Contract.Call()` 完成合约的动态调用：
 
-```c#
+```cs
 public static bool Transfer(UInt160 from, UInt160 to, BigInteger amount, object data)
 {
     Contract.Call(to, "onNEP17Payment", CallFlags.All, new object[] { from, amount, data });

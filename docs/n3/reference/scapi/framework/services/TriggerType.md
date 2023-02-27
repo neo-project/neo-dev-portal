@@ -10,7 +10,7 @@ Assembly: Neo.SmartContract.Framework
 
 ## Syntax
 
-```c#
+```cs
 public enum TriggerType : byte
 {
     OnPersist = 0x01,

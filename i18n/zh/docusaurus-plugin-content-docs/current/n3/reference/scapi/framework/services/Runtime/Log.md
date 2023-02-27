@@ -8,7 +8,7 @@
 
 ## 语法
 
-```c#
+```cs
 public static extern void Log(string message)
 ```
 
@@ -18,7 +18,7 @@ public static extern void Log(string message)
 
 ## 示例
 
-```c#
+```cs
 public class Contract1 : SmartContract.Framework.SmartContract
 {
     public static void Main(bool debug)

@@ -8,13 +8,13 @@
 
 ## 语法
 
-```c#
+```cs
 public static extern void Destroy();
 ```
 
 ## 示例
 
-```c#
+```cs
 public class Contract1 : SmartContract.Framework.SmartContract
 {
     private static readonly UInt160 Owner = "NXsG3zwpwcfvBiA3bNMx6mWZGEro9ZqTqM".ToScriptHash();

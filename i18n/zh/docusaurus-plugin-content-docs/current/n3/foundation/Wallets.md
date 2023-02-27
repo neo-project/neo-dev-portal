@@ -301,7 +301,7 @@ NEP6提案：<https://github.com/neo-project/proposals/blob/master/nep-6.mediawi
 
 C# 示例代码：
 
-```c#
+```cs
         public static byte[] Sign(byte[] message, byte[] prikey, byte[] pubkey)
         {
             using (var ecdsa = ECDsa.Create(new ECParameters

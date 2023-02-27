@@ -4,7 +4,7 @@
 
 我们来看一下这个基础的hello world合约：
 
-```c#
+```cs
 using Neo;
 using Neo.SmartContract;
 using Neo.SmartContract.Framework;
@@ -88,7 +88,7 @@ Neo提供了基于键值对的数据访问接口。可以使用键从智能合�
 
 例如，如果你想将token的总供应量存储到存储区:
 
-```c#
+```cs
 // 键是 totalSupply ，值是100000000
 Storage.Put(Storage.CurrentContext, "totalSupply", 100000000);
 ```
@@ -97,7 +97,7 @@ Storage.Put(Storage.CurrentContext, "totalSupply", 100000000);
 
 对于基本类型的存储 `Storage` 类非常的有效，而对于结构化数据，你可以使用 `StorageMap` 来存储，这个类可以在智能合约存储中将整个容器存储在一个键中。
 
-```c#
+```cs
 // 获取storageMap中的总供应量。这个键名称为“contract”的Map可以用来表示整个容器
 StorageMap contract = new(Storage.CurrentContext, nameof(contract))
 var value = contract.Get("totalSupply");
@@ -134,7 +134,7 @@ C#的基本类型是:
 
 分析完之前那个基本的hello world合约后，我们来分析一下这个具有真实意义的智能合约。这里我们提供了一个非常简单的DNS系统，它是用C#编写的。DNS的主要功能是为用户存储域名。除了事件外，它包含了上面所说的所有概念。我们可以研究一下这个合约，学习如何开发一个基本的智能合约。源代码在这里:
 
-```c#
+```cs
 using Neo.SmartContract;
 using Neo.SmartContract.Framework;
 using Neo.SmartContract.Framework.Native;
@@ -178,7 +178,7 @@ namespace Domain
 
 合约中可以声明特性：
 
-```c#
+```cs
 [ManifestExtra("Author", "Neo")]
 [ManifestExtra("Email", "dev@neo.org")]
 [ManifestExtra("Description", "This is a contract example")]
@@ -202,7 +202,7 @@ public class Contract1 : SmartContract
 
 也可以添加其它字段，如：
 
-```c#
+```cs
 [ManifestExtra("Name", "sample contract")]
 [ManifestExtra("Version", "1.0.0")]
 ```
@@ -211,7 +211,7 @@ public class Contract1 : SmartContract
 
 理论上来说，智能合约可以有任意的入口函数，合约中 public static 类型的方法都可以用作入口函数被外部调用，例如:
 
-```c#
+```cs
 using Neo.SmartContract;
 using Neo.SmartContract.Framework;
 
@@ -241,7 +241,7 @@ namespace Neo.Compiler.MSIL.UnitTests.TestClasses
 
 当合约地址被包含在交易签名中时, 合约需要实现函数Verify，用来提供在验证签名时, 需要执行的具体逻辑。
 
-```c#
+```cs
 public static bool Verify()
 {
     return Runtime.CheckWitness(Owner);
@@ -258,7 +258,7 @@ public static bool Verify()
 
 在我们的 `DNS智能合约` 中，`Register` 方法首先检查调用合约的人是否是域名的所属者。这里我们使用 `Runtime.CheckWitness` 方法。然后我们首先试着去获取域名的所属者，看看该域名是否已经存在于存储区。如果没有，我们可以使用 `Storage.Put` 方法来存储域名-> 所属者的键值对。
 
-```c#
+```cs
 private static bool Register(string domain, byte[] owner)
 {
     if (!Runtime.CheckWitness(owner)) return false;
@@ -275,7 +275,7 @@ private static bool Register(string domain, byte[] owner)
 
 在智能合约中，事件是区块链与应用程序前端(或后端)进行通信的一种方式，后者可以“监听”某些事件，并在事件发生时做一些操作。你可以使用这个机制来更新外部数据库、做一些分析或更新 UI。在某些特定的合约标准中，它定义了一些应该发布的事件。本节没有涉及到这方面的相关内容，但是它对于其他智能合约而言确实非常有用。例如，在 NEP-17 Token 标准中，事件 `转账` 应该在用户调用转账方法时触发。
 
-```c#
+```cs
 //当对NEP-17资产进行转账时调用
 [DisplayName("Transfer")]
 public static event Action<byte[], byte[], BigInteger> OnTransfer;
@@ -286,7 +286,7 @@ Transfer 是事件名。
 
 在智能合约中, 新添加了Json正/反序列化功能, 可以用来处理类型的存储与发送. 合约示例如下:
 
-```c#
+```cs
 using Neo.SmartContract.Framework.Native;
 using Neo.SmartContract.Framework.Services;
 

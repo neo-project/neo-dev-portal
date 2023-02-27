@@ -12,13 +12,13 @@ Interface definition：
 
 1. Encoding method: Encoding byte[] format data into Base58 string format
 
-   ```c#
+   ```cs
    string Encode(byte[] input)
    ```
    
 2. Decoding Method: Decoding Base58 string format data into byte[] format
 
-   ```c#
+   ```cs
    byte[] Decode(string input)
    ```
 
@@ -61,13 +61,13 @@ Interface definition:
 
 1. Encoding method: encode byte array data into checkable Base58 string format
 
-   ```c#
+   ```cs
    string Base58CheckEncode(byte[] input)
    ```
 
 2. Decoding method：decode checkable Base58 string data into byte array format
 
-   ```c#
+   ```cs
    byte[] Base58CheckDecode(string input)
    ```
 

@@ -8,7 +8,7 @@
 
 ## 语法
 
-```c#
+```cs
 public static extern byte[] Get(StorageContext context, byte[] key);
 public static extern byte[] Get(StorageContext context, ByteString key);
 ```
@@ -22,7 +22,7 @@ public static extern byte[] Get(StorageContext context, ByteString key);
 
 ## 示例
 
-```c#
+```cs
 public class Contract1 : SmartContract.Framework.SmartContract
 {
     public static void Main()

@@ -8,7 +8,7 @@
 
 ## 语法
 
-```c#
+```cs
 public enum NamedCurve : byte
 {
     secp256k1 = 22,

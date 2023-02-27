@@ -8,7 +8,7 @@
 
 ## 语法
 
-```c#
+```cs
 public static extern TriggerType Trigger { get; }
 ```
 
@@ -16,7 +16,7 @@ public static extern TriggerType Trigger { get; }
 
 ## 示例
 
-```c#
+```cs
 public static bool Main()
 {
     if (Runtime.Trigger == TriggerType.Verification)

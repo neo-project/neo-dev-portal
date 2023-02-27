@@ -71,7 +71,7 @@ invoke <scriptHash> <operation> [contractParameters=null] [sender=null] [signerA
 
 在 Neo N3 中，所有的合约都可以动态调用，且合约编写更加简单。
 
-```c#
+```cs
 public class Contract1 : SmartContract
     {
         delegate object Dyncall(string method, object[] args);

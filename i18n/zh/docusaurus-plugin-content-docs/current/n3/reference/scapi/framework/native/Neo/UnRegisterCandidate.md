@@ -12,7 +12,7 @@
 
 ## 语法
 
-```c#
+```cs
 public static extern bool UnRegisterCandidate(ECPoint pubkey);
 ```
 
@@ -22,7 +22,7 @@ public static extern bool UnRegisterCandidate(ECPoint pubkey);
 
 ## 示例
 
-```c#
+```cs
 public class Contract1 : SmartContract.Framework.SmartContract
 {
     private static readonly byte[] pubkey = "02e8ff17c567d62f274fe247cc884a2a6cd3b8fd0d779a8c5856289a560accacb4".HexToBytes();

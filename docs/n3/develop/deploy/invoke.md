@@ -71,7 +71,7 @@ When invoking a contract in Neo-GUI, you can click `Cosignature` at the bottom o
 
 In Neo N3, all contracts can be invoked dynamically, and writing a contract is much easier.
 
-```c#
+```cs
 public class Contract1 : SmartContract
     {
         delegate object Dyncall(string method, object[] args);

@@ -69,7 +69,7 @@ Neo Oracle Service采用的是请求/响应模式的处理机制，这是一种�
 
 以下是一个调用Oracle 服务的合约示例：
 
-```c#
+```cs
 using Neo.SmartContract;
 using Neo.SmartContract.Framework;
 using Neo.SmartContract.Framework.Native;

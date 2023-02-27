@@ -8,7 +8,7 @@
 
 ## 语法
 
-```c#
+```cs
 public extern bool Next();
 ```
 
@@ -16,7 +16,7 @@ public extern bool Next();
 
 ## 示例
 
-```c#
+```cs
 public class Contract1 : SmartContract
 {
     public static void Main()

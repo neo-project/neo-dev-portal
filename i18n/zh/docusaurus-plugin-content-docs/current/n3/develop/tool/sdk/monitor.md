@@ -9,7 +9,7 @@
 
 获取最新区块高度或哈希：
 
-```c#
+```cs
 // choose a neo node with rpc opened
 RpcClient client = new RpcClient(new Uri("http://localhost:20332"), null, null, ProtocolSettings.Load("config.json"));
 
@@ -22,7 +22,7 @@ uint count = await client.GetBlockCountAsync().ConfigureAwait(false);
 
 获取指定高度或哈希的区块内具体数据，包括交易列表等；结果可以是Base64编码的字符串或者Json字符串：
 
-```c#
+```cs
 // get the Base64 string of the block with block height
 string blockHex = await client.GetBlockHexAsync("166396").ConfigureAwait(false);
 
@@ -38,7 +38,7 @@ RpcBlock block = await client.GetBlockAsync("0x4e61cd9d76e30e9147ee0f5b9c92f4447
 
 通过 `RpcClient` 获取合约脚本、哈希与 manifest 的信息：
 
-```c#
+```cs
 // get NEO contract state
 ContractState contractState = await client.GetContractStateAsync(NativeContract.NEO.Hash.ToString()).ConfigureAwait(false);
 ```
@@ -49,7 +49,7 @@ ContractState contractState = await client.GetContractStateAsync(NativeContract.
 
 调用原生合约 `PolicyContract` 中的方法 `policyAPI` 获取 Policy 相关信息：
 
-```c#
+```cs
 // choose a neo node with rpc opened
 PolicyAPI policyAPI = new PolicyAPI(new RpcClient(new Uri("http://localhost:20332"), null,null, ProtocolSettings.Load("config.json")));
 
@@ -71,7 +71,7 @@ bool isBlocked = await policyAPI.IsBlockedAsync(account).ConfigureAwait(false);
 
 NEP17 是 Neo N3 中的资产标准，NEO 和 GAS 都基于 NEP17 原生合约。调用 `Nep17API` 可以获取 NEP17 合约的名称、标记、小数位和总量等信息：
 
-```c#
+```cs
 // get nep17 token info
 Nep17API nep17API = new Nep17API(new RpcClient(new Uri("http://localhost:20332"), null,null, ProtocolSettings.Load("config.json")));
 RpcNep17TokenInfo tokenInfo = await nep17API.GetTokenInfoAsync(NativeContract.NEO.Hash).ConfigureAwait(false);

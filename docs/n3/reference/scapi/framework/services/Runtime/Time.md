@@ -8,7 +8,7 @@ Assembly: Neo.SmartContract.Framework
 
 ## Syntax
 
-```c#
+```cs
 public static extern uint Time
 ```
 
@@ -16,7 +16,7 @@ Attribute: unix time stamp. Unsigned Integer.
 
 ## Example
 
-```c#
+```cs
 public static bool Main()
 {
     if (Runtime.Time >= 1587959138)

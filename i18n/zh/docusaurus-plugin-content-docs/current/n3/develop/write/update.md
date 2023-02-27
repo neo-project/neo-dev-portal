@@ -9,7 +9,7 @@
 ### 实现 Update 方法
 要使用合约升级的功能，需要在原有合约中实现升级方法，合约模板中已默认实现了 `Update` 方法，如下所示：
 
-```c#
+```cs
 public static bool Verify() => IsOwner();
 
 public static void Update(ByteString nefFile, string manifest)
@@ -44,7 +44,7 @@ public static void Update(ByteString nefFile, string manifest)
 
 要使用合约销毁的功能，需要在原有合约中实现销毁方法。合约模板中已默认实现了 `destroy` 方法，如下所示：
 
-```c#
+```cs
 public static bool Verify() => IsOwner();
 
 public static void Destroy()

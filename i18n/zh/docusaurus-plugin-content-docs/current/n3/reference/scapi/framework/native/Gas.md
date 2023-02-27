@@ -10,7 +10,7 @@ GasToken 同时也是NEP-17合约，继承了NEP-17合约所有的属性和方�
 
 ## 语法
 
-```c#
+```cs
 public class GAS
 ```
 

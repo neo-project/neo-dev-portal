@@ -8,7 +8,7 @@
 
 ## 语法
 
-```c#
+```cs
 public static extern long GetFeePerByte();
 ```
 
@@ -18,7 +18,7 @@ public static extern long GetFeePerByte();
 
 ## 示例
 
-```c#
+```cs
 public static void Test()
 {
     var feePerByte = Policy.GetFeePerByte();

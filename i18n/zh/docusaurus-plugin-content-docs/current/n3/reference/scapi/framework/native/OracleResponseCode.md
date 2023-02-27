@@ -8,7 +8,7 @@
 
 ## 语法
 
-```c#
+```cs
 public enum OracleResponseCode : byte
 {
     Success = 0x00,
@@ -53,7 +53,7 @@ Error：其它错误
 
 在合约中可以对code进行判断，执行不同的逻辑代码。如：
 
-```c#
+```cs
 public static void Callback(string url, byte[] userData, int code, byte[] result)
 {
     switch (code)

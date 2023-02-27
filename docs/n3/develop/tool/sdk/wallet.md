@@ -11,7 +11,7 @@ Most operations in Neo blockchain are related to accounts. A wallet is the colle
 
 An account is the user identity in Neo, which is essentially a private and public key pair ( `KeyPair` ) .
 
-```c# 
+```cs 
 // create a new KeyPair
 byte[] privateKey = new byte[32];
 using (RandomNumberGenerator rng = RandomNumberGenerator.Create())
@@ -27,7 +27,7 @@ Private key is an authorization tool used to sign transactions. Having a private
 
 `"0x450d6c2a04b5b470339a745427bae6828400cf048400837d73c415063835e005"`
 
-```c# 
+```cs 
   // export private key to hex string
   string privateHex = keyPair.PrivateKey.ToHexString();
 
@@ -41,7 +41,7 @@ WIF is another string representation of the private key, which is equivalent to 
 
 `"KyXwTh1hB76RRMquSvnxZrJzQx7h9nQP2PCRL38v6VDb5ip3nf1p"`
 
-```c# 
+```cs 
   // export KeyPair as WIF
   string wif = keyPair.Export();
 
@@ -55,7 +55,7 @@ The public key verifies the signature of the private key. It corresponds to the 
 
 `"02f9ec1fd0a98796cf75b586772a4ddd41a0af07a1dbdf86a7238f74fb72503575"`
 
-```c# 
+```cs 
   // export public key hex string
   string publicHex = keyPair.PublicKey.ToString();
 
@@ -68,7 +68,7 @@ The public key verifies the signature of the private key. It corresponds to the 
 ScriptHash, corresponding to `UInt160` in Neo, is essentially a 20-bit byte array generated from the public key by script construction and hash algorithm. Since the hash algorithm is not reversible, the public key cannot be calculated backwards from the script hash. ScriptHash is usually expressed as a reversed hexadecimal string in big-endian order：
 `"0xb0a31817c80ad5f87b6ed390ecb3f9d312f7ceb8"`
 
-```c# 
+```cs 
   // get ScriptHash of KeyPair account
   UInt160 scriptHash = Contract.CreateSignatureContract(keyPair.PublicKey).ScriptHash;
   string strScriptHash = scriptHash.ToString();
@@ -78,7 +78,7 @@ ScriptHash, corresponding to `UInt160` in Neo, is essentially a 20-bit byte arra
 
 Address is another string form of ScriptHash and can be transformed to or from ScriptHash. As the unique identifier of the account, address is the most commonly used account form. It is similar to the account number for a traditional account, when you transfer money you transfer it to a specified address. A common address format is: `"Ncm9TEzrp8SSer6Wa3UCSLTRnqzwVhCfuE"`
 
-```c# 
+```cs 
 using Neo.Wallets;
 
 // ScriptHash to address
@@ -95,7 +95,7 @@ Here is an example:
 
 Create a new NEP6 wallet with an account and save as JSON file:
 
-```c# 
+```cs 
 // create wallet
 string path = "wallet_new.json";
 string password = "MyPass";
@@ -109,7 +109,7 @@ wallet_new.Save();
 
 Read the NEP6 wallet from the JSON file and decrypt the account:
 
-```c# 
+```cs 
 // load wallet from nep6 wallet
 NEP6Wallet wallet = new NEP6Wallet(path);
 KeyPair keyPair2;
@@ -124,7 +124,7 @@ using (wallet.Unlock(password))
 ### Initialization
 Initializing `WalletAPI`：
 
-```c#
+```cs
 // choose a neo node with rpc opened
 RpcClient client = new RpcClient(new Uri("http://localhost:20332"), null, null, ProtocolSettings.Load("config.json"));
 WalletAPI walletAPI = new WalletAPI(client);
@@ -138,7 +138,7 @@ WalletAPI walletAPI = new WalletAPI(client);
 
 Inquiry NEP-17 asset balance using the string parameter:
 
-```c#
+```cs
 // get the neo balance of account
 string tokenHash = NativeContract.NEO.Hash.ToString();
 string address = "NZs2zXSPuuv9ZF6TDGSWT1RBmE8rfGj7UW";
@@ -147,7 +147,7 @@ BigInteger balance = await walletAPI.GetTokenBalanceAsync(tokenHash, address).Co
 
 or using the parameter of ScriptHash type:
 
-```c#
+```cs
 // Get the NEO balance of account
 UInt160 tokenScriptHash = Utility.GetScriptHash(tokenHash, ProtocolSettings.Default);
 UInt160 accountHash = Utility.GetScriptHash(address, ProtocolSettings.Default);
@@ -157,7 +157,7 @@ BigInteger balance = await nep17API.BalanceOfAsync(tokenScriptHash, accountHash)
 
 In Neo N3 NEO and GAS are both NEP17 assets with the fixed scripthash. Here we provide a simpler interface:
 
-```c#
+```cs
 // Get the NEO balance
 uint neoBalance = await walletAPI.GetNeoBalanceAsync(address).ConfigureAwait(false);
 
@@ -171,14 +171,14 @@ In Neo N3 GAS is automatically claimed when NEO is transferred. You can construc
 
 1. First check the claimable GAS amount at current address:
 
-    ```c#
+    ```cs
     // Get the claimable GAS of one address
     string address = "NZs2zXSPuuv9ZF6TDGSWT1RBmE8rfGj7UW";
     decimal gasAmount = await walletAPI.GetUnclaimedGasAsync(address).ConfigureAwait(false);
     ```
     or use ScriptHash of the account to check:
 
-    ```c#
+    ```cs
     string address = "NZs2zXSPuuv9ZF6TDGSWT1RBmE8rfGj7UW";
     UInt160 accountHash = Utility.GetScriptHash(address);
     decimal gasAmount = await walletAPI.GetUnclaimedGasAsync(accountHash).ConfigureAwait(false);
@@ -186,14 +186,14 @@ In Neo N3 GAS is automatically claimed when NEO is transferred. You can construc
 
 2. Construct a transaction sending NEO to yourself:
 
-    ```c#
+    ```cs
     // Claiming GAS needs the KeyPair of account. You can also use wif or private key hex string
     string wif = "L1rFMTamZj85ENnqNLwmhXKAprHuqr1MxMHmCWCGiXGsAdQ2dnhb";
     Transaction transaction = await walletAPI.ClaimGasAsync(wif).ConfigureAwait(false);
     ```
     or use `KeyPair`:
     
-    ```c#
+    ```cs
     KeyPair keyPair = Utility.GetKeyPair(wif);
     Transaction transaction = await walletAPI.ClaimGasAsync(keyPair).ConfigureAwait(false);
     ```
@@ -204,7 +204,7 @@ In Neo N3 GAS is automatically claimed when NEO is transferred. You can construc
 
 Use string parameters: 
 
-```c#
+```cs
 string tokenHash = NativeContract.NEO.Hash.ToString();
 string wif = "L1rFMTamZj85ENnqNLwmhXKAprHuqr1MxMHmCWCGiXGsAdQ2dnhb";
 string address = "NZs2zXSPuuv9ZF6TDGSWT1RBmE8rfGj7UW";
@@ -219,7 +219,7 @@ await neoAPI.WaitTransactionAsync(transaction)
 ```
 or use `KeyPair` and  `UInt160` (ScriptHash):
 
-```c#
+```cs
 string wif = "L1rFMTamZj85ENnqNLwmhXKAprHuqr1MxMHmCWCGiXGsAdQ2dnhb";
 string address = "NZs2zXSPuuv9ZF6TDGSWT1RBmE8rfGj7UW";
 

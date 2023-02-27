@@ -8,13 +8,13 @@
 
 ## 语法
 
-```c#
+```cs
 public static extern byte GetCallFlags();
 ```
 
 ## 示例
 
-```c#
+```cs
 public class Contract1 : SmartContract.Framework.SmartContract
 {
         public static int GetCallFlags()

@@ -8,7 +8,7 @@
 
 ## 语法
 
-```c#
+```cs
 Put(StorageContext context, byte[] key, ByteString value);
 Put(StorageContext context, byte[] key, byte[] value);
 Put(StorageContext context, byte[] key, BigInteger value);
@@ -31,7 +31,7 @@ Put(StorageContext context, ByteString key, ByteString value, StorageFlags flags
 
 ## 示例
 
-```c#
+```cs
 public class Contract1 : SmartContract.Framework.SmartContract
 {
     public static void Main()

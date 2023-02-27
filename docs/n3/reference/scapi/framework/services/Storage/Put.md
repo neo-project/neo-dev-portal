@@ -8,7 +8,7 @@ Assembly: Neo.SmartContract.Framework
 
 ## Syntax
 
-```c#
+```cs
 Put(StorageContext context, byte[] key, ByteString value);
 Put(StorageContext context, byte[] key, byte[] value);
 Put(StorageContext context, byte[] key, BigInteger value);
@@ -32,7 +32,7 @@ Return value: void.
 
 ## Example
 
-```c#
+```cs
 public class Contract1 : SmartContract.Framework.SmartContract
 {
     public static void Main()

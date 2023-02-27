@@ -8,7 +8,7 @@
 
 ## 语法
 
-```c#
+```cs
 public static extern BigInteger UnclaimedGas(UInt160 account, uint end);
 ```
 
@@ -19,7 +19,7 @@ public static extern BigInteger UnclaimedGas(UInt160 account, uint end);
 
 ## 示例
 
-```c#
+```cs
 public class Contract1 : SmartContract.Framework.SmartContract
 {
     private static readonly UInt160 account = "NXsG3zwpwcfvBiA3bNMx6mWZGEro9ZqTqM".ToScriptHash();

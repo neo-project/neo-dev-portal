@@ -8,7 +8,7 @@
 
 ## 语法
 
-```c#
+```cs
 public class Iterator
 public class Iterator<T> : Iterator, IApiInterface
 ```

@@ -12,13 +12,13 @@ Neo使用的字母表为：**123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrs
 
 - 编码方法：把byte[]数据编码成Base58字符串String数据
 
-```c#
+```cs
 string Encode(byte[] input)
 ```
 
 - 解码方法：Base58字符串String解码成byte[]数据
 
-```c#
+```cs
 byte[] Decode(string input)
 ```
 
@@ -61,13 +61,13 @@ Base58Check是基于Base58的改进型编解码方法。通过对原数据添加
 
 - 编码方法：把 byte[] 数据编码成带校验功能 Base58 字符串 String 数据
 
-```c#
+```cs
 string Base58CheckEncode(byte[] input)
 ```
 
 - 解码方法：把带校验功能 Base58 字符串 String 解码成 byte[] 数据
 
-```c#
+```cs
 byte[] Base58CheckDecode(string input)
 ```
 

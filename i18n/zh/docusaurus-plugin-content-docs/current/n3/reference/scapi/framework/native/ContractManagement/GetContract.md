@@ -8,7 +8,7 @@
 
 ## 语法
 
-```c#
+```cs
 public static extern Contract GetContract(UInt160 hash);
 ```
 
@@ -18,7 +18,7 @@ public static extern Contract GetContract(UInt160 hash);
 
 ## 示例
 
-```c#
+```cs
 public class Contract1 : SmartContract.Framework.SmartContract
 {
     private static UInt160 ScriptHash = "NXsG3zwpwcfvBiA3bNMx6mWZGEro9ZqTqM".ToScriptHash();

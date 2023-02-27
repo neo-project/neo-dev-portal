@@ -8,7 +8,7 @@ Assembly: Neo.SmartContract.Framework
 
 ## Syntax
 
-```c#
+```cs
 public extern bool Next();
 ```
 
@@ -16,7 +16,7 @@ Returned value: Whether the cursor moves to the end of the collection.
 
 ## Example
 
-```c#
+```cs
 public class Contract1 : SmartContract
 {
     public static void Main()

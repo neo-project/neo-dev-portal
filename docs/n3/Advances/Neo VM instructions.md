@@ -20,7 +20,7 @@ NeoVM has following built-in data types:
 - `CompoundType` : Compound type, which includes  `Array`, `Map` and `Struct`。
 - `PrimitiveType`: Basic type which includes `Boolean`, `ByteString` and `Integer`。
 
-```c#
+```cs
 // boolean type
 private static readonly byte[] TRUE = { 1 };
 private static readonly byte[] FALSE = { 0 };

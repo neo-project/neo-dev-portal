@@ -22,7 +22,7 @@ NeoVM 内置的数据类型如下表所示
 - `PrimitiveType` ：基本类型，包括`Boolean`、`ByteString`和`Integer`。
 
 
-```c#
+```cs
 // boolean 类型
 private static readonly byte[] TRUE = { 1 };
 private static readonly byte[] FALSE = { 0 };

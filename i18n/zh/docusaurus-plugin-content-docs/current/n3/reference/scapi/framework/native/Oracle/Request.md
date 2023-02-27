@@ -8,7 +8,7 @@
 
 ## 语法
 
-```c#
+```cs
 public static extern void Request(string url, string filter, string callback, object userData, long gasForResponse);
 ```
 
@@ -22,7 +22,7 @@ public static extern void Request(string url, string filter, string callback, ob
 
 ## 示例
 
-```c#
+```cs
 namespace demo
 {
     [DisplayName("Oracle Demo")]

@@ -8,7 +8,7 @@
 
 ## 语法
 
-```c#
+```cs
 public static extern bool CheckWitness(UInt160 hash);
 public static extern bool CheckWitness(ECPoint pubkey);
 ```
@@ -22,7 +22,7 @@ public static extern bool CheckWitness(ECPoint pubkey);
 
 ## 示例
 
-```c#
+```cs
 public class Contract1 : FunctionCode
 {
     public static void Main()

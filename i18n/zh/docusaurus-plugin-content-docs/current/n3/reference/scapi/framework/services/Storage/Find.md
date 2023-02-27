@@ -8,7 +8,7 @@
 
 ## 语法
 
-```c#
+```cs
 public static extern Iterator Find(StorageContext context, byte[] prefix, FindOptions options = FindOptions.None);
 public static extern Iterator Find(StorageContext context, ByteString prefix, FindOptions options = FindOptions.None);
 ```
@@ -22,7 +22,7 @@ public static extern Iterator Find(StorageContext context, ByteString prefix, Fi
 
 ## 示例
 
-```c#
+```cs
 public class Contract1 : SmartContract.Framework.SmartContract
 {
     public static void Main()

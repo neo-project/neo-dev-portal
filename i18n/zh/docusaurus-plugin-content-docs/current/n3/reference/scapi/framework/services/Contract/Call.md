@@ -8,7 +8,7 @@
 
 ## 语法
 
-```c#
+```cs
 public static extern object Call(UInt160 scriptHash, string method, object[] arguments)
 ```
 
@@ -20,7 +20,7 @@ public static extern object Call(UInt160 scriptHash, string method, object[] arg
 
 ## 示例
 
-```c#
+```cs
  public class Contract1 : SmartContract
  {
      delegate object Dyncall(string method, object[] args);

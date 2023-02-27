@@ -8,7 +8,7 @@ Assembly：Neo.SmartContract.Framework
 
 ## Syntax
 
-```c#
+```cs
 public enum NamedCurve : byte
 {
     secp256k1 = 22,

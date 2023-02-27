@@ -8,7 +8,7 @@
 
 ## 语法
 
-```c#
+```cs
 public static extern uint GetExecFeeFactor();
 ```
 
@@ -18,7 +18,7 @@ public static extern uint GetExecFeeFactor();
 
 ## 示例
 
-```c#
+```cs
 public static void Test()
 {
     var factor = Policy.GetExecFeeFactor();

@@ -8,7 +8,7 @@
 
 ## 语法
 
-```c#
+```cs
 public static extern StorageContext CurrentContext { get; }
 ```
 

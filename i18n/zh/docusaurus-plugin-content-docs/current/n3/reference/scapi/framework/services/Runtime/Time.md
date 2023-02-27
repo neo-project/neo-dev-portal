@@ -8,7 +8,7 @@
 
 ## 语法
 
-```c#
+```cs
 public static extern uint Time
 ```
 
@@ -16,7 +16,7 @@ public static extern uint Time
 
 ## 示例
 
-```c#
+```cs
 public static bool Main()
 {
     if (Runtime.Time >= 1587959138)

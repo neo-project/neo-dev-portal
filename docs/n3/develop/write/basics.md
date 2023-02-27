@@ -4,7 +4,7 @@ In this tutorial, you will learn the basics of developing a smart contract.
 
 Let's have a look at our basic hello world contract.
 
-```c#
+```cs
 using Neo;
 using Neo.SmartContract;
 using Neo.SmartContract.Framework;
@@ -63,7 +63,7 @@ namespace Helloworld
 
 Inside the contract class, the property defined with `static readonly` or `const` is the contract property which can be used as constants and can not be changed. For instance, when we want to define a Owner of that contract or the factor number which will be used in the later asset transfer, we can define these constants in this way:
 
-```c#
+```cs
 // Represents onwner of this contract, which is a fixed address. Usually should be the contract creator
 [InitialValue("NiNmXL8FjEUEs1nfX9uHFBNaenxDHJtmuB", ContractParameterType.Hash160)]
 static readonly UInt160 Owner = default;
@@ -76,7 +76,7 @@ These properties defined in contract property are usually constants that can be 
 
 In addition, developer can define static method  in contract and return a constant, which is exposing the method  out of the contract and let end-user can call the method to get the fixed value when they try to query the smart contract. For instance, when you create you own token, you have to define a name which you may want everyone use you contract can check he name with this method.
 
-```c#
+```cs
 public static string Name() => "name of the token";
 ```
 
@@ -88,7 +88,7 @@ Neo has provided data access interface based on key-value pairs. Data records ma
 
 For instance, if you want to store the total supply of your token into storage:
 
-```c#
+```cs
 // Key is totalSupply and value is 100000000
 Storage.Put(Storage.CurrentContext, "totalSupply", 100000000);
 ```
@@ -97,7 +97,7 @@ Here `CurrentContext` Returns the current store context. After obtaining the sto
 
 `Storage` work well for storing primitive values and while you can use an `StorageMap`  which can be used for storing structured data, this will store the entire container in a single key in smart contract storage.
 
-```c#
+```cs
 //Get the totalSupply in the storageMap. The Map is used an entire container with key name "contract"
 StorageMap contract = new(Storage.CurrentContext, nameof(contract))
 var value = contract.Get("totalSupply");
@@ -133,7 +133,7 @@ The basic types of C# are:
 
 After analyzing the basic hello world contract, let us move to your first real-world smart contract. Here we provide a very simple DNS system which was written in C#. The main function of the DNS is store the domain for users. It contains all the points above except the events. We can investigate this smart contract to learn how to make a basic smart contract. The source code is here:
 
-```c#
+```cs
 using Neo.SmartContract;
 using Neo.SmartContract.Framework;
 using Neo.SmartContract.Framework.Native;
@@ -177,7 +177,7 @@ Let's slice it and learn it step by step.
 
 You can declare more features:
 
-```c#
+```cs
 [ManifestExtra("Author", "Neo")]
 [ManifestExtra("Email", "dev@neo.org")]
 [ManifestExtra("Description", "This is a contract example")]
@@ -201,7 +201,7 @@ public class Contract1 : SmartContract
 
 You can also add other fields, such as:
 
-```c#
+```cs
 [ManifestExtra("Name", "sample contract")]
 [ManifestExtra("Version", "1.0.0")]
 ```
@@ -210,7 +210,7 @@ You can also add other fields, such as:
 
 Theoretically, smart contracts can have any entry points. Methods of the public static type in the contract can be used as an entry function to be invoked externally, for example:
 
-```c#
+```cs
 using Neo.SmartContract;
 using Neo.SmartContract.Framework;
 
@@ -240,7 +240,7 @@ A smart contract trigger is a mechanism that triggers the execution of smart con
 
 A Verification trigger is used to call the contract as a verification function, which can accept multiple parameters and should return a valid Boolean value, indicating the validity of the transaction or block.
 
-```c#
+```cs
 public static bool Verify()
 {
     return Runtime.CheckWitness(Owner);
@@ -257,7 +257,7 @@ Usually this method is used to check whether an specified address is the the con
 
 Inside our `DNS smart contract`, the `Register` function is firstly check if the owner is the same as the one who invoke the contract. Here we use the `Runtime.CheckWitness` function. Then we try to fetch the domain owner first to see if the domain is already exists in the storage. If not, we can store our domain->owner pair using the `Storage.Put`method.
 
-```c#
+```cs
 private static bool Register(string domain, byte[] owner)
 {
     if (!Runtime.CheckWitness(owner)) return false;
@@ -274,7 +274,7 @@ Similar to the Register method, the Delete function check the owner first and if
 
 In Smart contract, events are a way  to communicate that something happened on the blockchain to your app front-end (or back-end), which can be 'listening' for certain events and take action when they happen. You might use this to update an external database, do analytics, or update a UI. In some specified contract standard,  it defined some events should be posted. It is not cover in this page, but is very useful for the other smart contracts. For instance, in the NEP-17 Token, the events `transfer` should be fired when user invoke the transfer function.
 
-```c#
+```cs
 //Should be called when caller transfer NEP-17 asset.
 [DisplayName("Transfer")]
 public static event Action<byte[], byte[], BigInteger> OnTransfer;
@@ -286,7 +286,7 @@ Transfer is the event name.
 
 In Neo N3 smart contract, the Json serialization/deserialization feature is added:
 
-```c#
+```cs
 using Neo.SmartContract.Framework.Native;
 using Neo.SmartContract.Framework.Services;
 

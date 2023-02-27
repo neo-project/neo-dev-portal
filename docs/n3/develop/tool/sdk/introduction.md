@@ -28,7 +28,7 @@ The .NET version of the project cannot be earlier than the .NET version used by 
 
 4. Add the following code to the desired project file header:
 
-   ```c#
+   ```cs
    using Neo.Network.RPC;
    ```
 

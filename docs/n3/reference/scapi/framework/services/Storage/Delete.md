@@ -8,7 +8,7 @@ Assembly: Neo.SmartContract.Framework
 
 ## Syntax
 
-```c#
+```cs
 public static extern void Delete(StorageContext context, byte[] key);
 public static extern void Delete(StorageContext context, ByteString key);
 ```
@@ -22,7 +22,7 @@ Parameters:
 
 Return value: void.
 
-```c#
+```cs
 public static extern void Delete(byte[] key);
 public static extern void Delete(string key);
 ```
@@ -35,7 +35,7 @@ Return value: void.
 
 ## Example
 
-```c#
+```cs
 public class Contract1 : SmartContract.Framework.SmartContract
 {
     public static void Main()

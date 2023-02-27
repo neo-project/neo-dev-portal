@@ -10,7 +10,7 @@
 
 ## 语法
 
-```c#
+```cs
 public enum TriggerType : byte
 {
     OnPersist = 0x01,

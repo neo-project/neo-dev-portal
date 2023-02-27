@@ -8,13 +8,13 @@
 
 ## 语法
 
-```c#
+```cs
 public static extern UInt160 CreateStandardAccount(ECPoint pubKey);
 ```
 
 ## 示例
 
-```c#
+```cs
 public class Contract1 : SmartContract.Framework.SmartContract
 {
         public static UInt160 CreateStandardAccount(byte[] pubKey)

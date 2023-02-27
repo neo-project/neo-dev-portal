@@ -6,7 +6,7 @@ NEP17 协议是 Neo 补充协议中的第17号协议，替代了原先的NEP5协
 
 **totalSupply**    
 
-```c#
+```cs
 public static BigInteger totalSupply()
 ```
 
@@ -14,7 +14,7 @@ public static BigInteger totalSupply()
 
 **symbol**
 
-```c#
+```cs
 public static string symbol()
 ```
 
@@ -26,7 +26,7 @@ public static string symbol()
 
 **decimals**
 
-```c#
+```cs
 public static byte decimals()
 ```
 
@@ -36,7 +36,7 @@ public static byte decimals()
 
 **balanceOf**
 
-```c#
+```cs
 public static BigInteger balanceOf(byte[] account)
 ```
 
@@ -48,7 +48,7 @@ public static BigInteger balanceOf(byte[] account)
 
 **transfer**
 
-```c#
+```cs
 public static bool transfer(byte[] from, byte[] to, BigInteger amount)
 ```
 从账户`from`转移数量为`amount`的token到地址`to`。
@@ -69,7 +69,7 @@ public static bool transfer(byte[] from, byte[] to, BigInteger amount)
 
 **事件 Transfer**
 
-```c#
+```cs
 public static event transfer(byte[] from, byte[] to, BigInteger amount)
 ```
 
@@ -81,7 +81,7 @@ public static event transfer(byte[] from, byte[] to, BigInteger amount)
 
 NEP17 合约方法如下，完整的合约代码可参考 [GitHub 源码](https://github.com/neo-project/examples/tree/master/csharp/NEP17)。
 
-```c#
+```cs
 using Neo;
 using Neo.SmartContract;
 using Neo.SmartContract.Framework;
@@ -140,7 +140,7 @@ namespace Template.NEP17.CSharp
 
 移除了 name 方法，将 name 方法放到了 manifest 中，在写合约时要添加 `[DisplayName("Token Name")]`。
 
-```c#
+```cs
 [DisplayName("Token Name")]
 [ManifestExtra("Author", "Neo")]
 [ManifestExtra("Email", "dev@neo.org")]

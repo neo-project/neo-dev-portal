@@ -9,7 +9,7 @@ For some specific information of contracts, such as the block maximum transactio
 
 Gets the latest block height or hash:
 
-```c#
+```cs
 // choose a neo node with rpc opened
 RpcClient client = new RpcClient(new Uri("http://localhost:20332"), null, null, ProtocolSettings.Load("config.json"));
 
@@ -22,7 +22,7 @@ uint count = await client.GetBlockCountAsync().ConfigureAwait(false);
 
 Gets the specific data inside a block, including transaction list, etc.
 
-```c#
+```cs
 // get the Base64 string of the block with block height
 string blockHex = await client.GetBlockHexAsync("166396").ConfigureAwait(false);
 
@@ -38,7 +38,7 @@ RpcBlock block = await client.GetBlockAsync("0x4e61cd9d76e30e9147ee0f5b9c92f4447
 
 Gets the contract script, hash, and manifest through `RpcClient`:
 
-```c#
+```cs
 // get NEO contract state
 ContractState contractState = await client.GetContractStateAsync(NativeContract.NEO.Hash.ToString()).ConfigureAwait(false);
 ```
@@ -49,7 +49,7 @@ For more information refer to [RPC invocation methods](rpc.md).
 
 Invokes the method  `policyAPI` in the native contract `PolicyContract` to get the Policy related information:
 
-```c#
+```cs
 // choose a neo node with rpc opened
 PolicyAPI policyAPI = new PolicyAPI(new RpcClient(new Uri("http://localhost:20332"), null,null, ProtocolSettings.Load("config.json")));
 
@@ -71,7 +71,7 @@ bool isBlocked = await policyAPI.IsBlockedAsync(account).ConfigureAwait(false);
 
 NEP17 is an asset standard for Neo N3, such as NEO and GAS, both of which are assets based on NEP17 native contract. You can invoke  `Nep17API`  to get the name, mark, decimal place, and amount of the NEP17 contract.
 
-```c#
+```cs
 // get nep17 token info
 Nep17API nep17API = new Nep17API(new RpcClient(new Uri("http://localhost:20332"), null,null, ProtocolSettings.Load("config.json")));
 RpcNep17TokenInfo tokenInfo = await nep17API.GetTokenInfoAsync(NativeContract.NEO.Hash).ConfigureAwait(false);

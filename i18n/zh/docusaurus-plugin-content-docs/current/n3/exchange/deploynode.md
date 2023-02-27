@@ -43,7 +43,6 @@ ApplicationLogs 和 TokensTracker 插件需在初始同步之前就必须安装�
 
 在启动 Neo-CLI 前需先配置 config.json 文件中的参数，请参阅 [配置与启动](../node/cli/config.md)。
 
-> [!Caution]
->
-> 当设置自动打开钱包时，请确保防火墙打开并处于安全环境， 谨慎使用。
-
+:::caution
+当设置自动打开钱包时，请确保防火墙打开并处于安全环境， 谨慎使用。
+:::

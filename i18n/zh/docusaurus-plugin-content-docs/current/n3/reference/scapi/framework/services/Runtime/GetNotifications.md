@@ -8,7 +8,7 @@
 
 ## 语法
 
-```c#
+```cs
 public static extern Notification[] GetNotifications(UInt160 hash = null)
 ```
 
@@ -20,7 +20,7 @@ public static extern Notification[] GetNotifications(UInt160 hash = null)
 
 ## 示例
 
-```c#
+```cs
 public class Contract1 : SmartContract.Framework.SmartContract
 {
     public static void Main()

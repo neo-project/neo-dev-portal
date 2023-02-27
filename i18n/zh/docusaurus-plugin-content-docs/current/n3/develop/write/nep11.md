@@ -21,7 +21,7 @@ NEP11 协议是 Neo 补充协议中的第 11 号协议，定义了 NFT（非同�
 
 TokenState 的示例代码如下：
 
-```c#
+```cs
 public class MyTokenState : Nep11TokenState
 {
     public string Image { get; set; }
@@ -36,7 +36,7 @@ public class MyTokenState : Nep11TokenState
 
 继承 `Nep11Token<Nep11TokenState>` 后，需要重写 Symbol 方法，如下：
 
-```c#
+```cs
 public override string Symbol() => "MNFT";
 ```
 
@@ -44,7 +44,7 @@ public override string Symbol() => "MNFT";
 
 `Nep11Token` 基类中并不包含如何分发 NFT 的方法，开发者可以根据需求定制。本示例中为了让合约拥有者有权限发行 NFT 资产，创建了 `Airdrop` 方法，其功能是合约拥有者可以向指定地址空投一个 NFT。
 
-```c#
+```cs
 public static bool Airdrop(UInt160 to, string name)
 {
     if (!IsOwner()) throw new Exception("No authorization.");
@@ -61,7 +61,7 @@ public static bool Airdrop(UInt160 to, string name)
 
 完整的合约示例代码如下：
 
-```c#
+```cs
 using Neo;
 using Neo.SmartContract;
 using Neo.SmartContract.Framework;
@@ -108,7 +108,7 @@ namespace Contract1
 
 如果想让用户通过 GAS 购买 NFT，可以添加如下方法：
 
-```c#
+```cs
 public static void OnNEP17Payment(UInt160 from, BigInteger amount, object _)
 {
     

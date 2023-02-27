@@ -8,7 +8,7 @@
 
 ## 语法
 
-```c#
+```cs
 public enum Role : byte
 {
     StateValidator = 4,

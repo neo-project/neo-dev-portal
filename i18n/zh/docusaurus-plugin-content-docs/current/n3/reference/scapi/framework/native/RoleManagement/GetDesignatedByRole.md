@@ -8,7 +8,7 @@
 
 ## 语法
 
-```c#
+```cs
 public static extern Cryptography.ECC.ECPoint[] GetDesignatedByRole(Role role, uint index);
 ```
 
@@ -23,7 +23,7 @@ public static extern Cryptography.ECC.ECPoint[] GetDesignatedByRole(Role role, u
 
 ## 示例
 
-```c#
+```cs
 public static void Test()
 {
     var nodes = RoleManagement.GetDesignatedByRole(Role.Oracle, 0);

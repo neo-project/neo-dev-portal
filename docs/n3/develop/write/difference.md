@@ -33,14 +33,14 @@ In Neo N3, the old neon (Neo.Compiler.MSIL) has been deprecated. You need to use
 
 Neo Legacy：
 
-```c#
+```cs
 using Neo.SmartContract.Framework;
 using Neo.SmartContract.Framework.Services.Neo;
 using System;
 ```
 Neo N3：
 
-```c#
+```cs
 using Neo;
 using Neo.SmartContract;
 using Neo.SmartContract.Framework;
@@ -61,13 +61,13 @@ using System;
 
 Neo Legacy
 
-```c#
+```cs
 private static readonly byte[] InitialOwnerScriptHash = "AJhZmdHxW44FWMiMxD5bTiF7UgHcp3g2Fr".ToScriptHash();
 ```
 
 Neo N3
 
-```c#
+```cs
 [InitialValue("NiNmXL8FjEUEs1nfX9uHFBNaenxDHJtmuB", ContractParameterType.Hash160)]
 static readonly UInt160 Owner = default;
 ```
@@ -153,7 +153,7 @@ Neo N3 introduces a large number of native contracts, moving massive interoperab
 
 Neo Legacy ：
 
-```c#
+```cs
 public static readonly string mapName = "asset";
 
 public static void Put(byte[] key, BigInteger value) => Storage.CurrentContext.CreateMap(mapName).Put(key, value);
@@ -163,7 +163,7 @@ public static BigInteger Get(byte[] key) => Storage.CurrentContext.CreateMap(map
 
 Neo N3：
 
-```c#
+```cs
 public static readonly string mapName = "asset";
 
 public static void Put(UInt160 key, BigInteger value) => assetMap.Put(key, value);
@@ -187,7 +187,7 @@ Neo N3：
 
 TokenSale can be implemented via OnNEP17Payment. The sender and transfer amount no longer need to be analyzed from the transaction one by one and then summed up, but can be directly obtained from the parameters. Here is an example:
 
-```c#
+```cs
 public static void OnNEP17Payment(UInt160 from, BigInteger amount, object data)
 {
     if (Runtime.CallingScriptHash == NEO.Hash)
@@ -225,7 +225,7 @@ When invoking a contract, the exception message is printed as the result of the 
 
 Neo Legacy ：
 
-```c#
+```cs
 [Appcall("XXXXXXXXXX")]//ScriptHash
 public static extern int AnotherContract(string arg);
 
@@ -237,7 +237,7 @@ public static void Main()
 
 Neo N3 ：
 
-```c#
+```cs
 [Contract("0102030405060708090A0102030405060708090A")]
 public class Contract1
 {
@@ -254,7 +254,7 @@ public static void Call()
 
 Neo Legacy：
 
-```c#
+```cs
 delegate object Dyncall(string method, object[] args);
 public static object Main(string operation, object[] args)
 {
@@ -270,7 +270,7 @@ Neo N3：
 
 You can invoke `Contract.Call()` to complete the dynamic call of the contract.
 
-```c#
+```cs
 public static bool Transfer(UInt160 from, UInt160 to, BigInteger amount, object data)
 {
     Contract.Call(to, "onNEP17Payment", CallFlags.All, new object[] { from, amount, data });

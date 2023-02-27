@@ -10,7 +10,7 @@
 
 1. 构造交易脚本，决定交易要执行什么样的功能，比如转账交易：
 
-    ```c#
+    ```cs
     // construct the script, in this example, we will transfer 1 NEO to the receiver
     UInt160 scriptHash = NativeContract.NEO.Hash;
     byte[] script = scriptHash.MakeScript("transfer", sender, receiver, 1, "data");
@@ -18,7 +18,7 @@
 
 2. 构造 `TransactionManagerFactory`，将`RpcClient`作为参数; 构造`TransactionManager`, 将`Script`和`Signers`作为参数。
 
-    ```c#
+    ```cs
     TransactionManager txManager = await new TransactionManagerFactory(client)
             .MakeTransactionAsync(script, signers).ConfigureAwait(false);
     ```
@@ -27,13 +27,13 @@
 
     - 单签
     
-    ```c#
+    ```cs
     // add signature for the transaction with sendKey
     txManager.AddSignature(sendKey);
     ```
     - 多签
     
-    ```c#
+    ```cs
     // add multi-signatures for the transaction with sendKey
     txManager.AddMultiSig(key1, 2, receiverKey.PublicKey, key2.PublicKey, key3.PublicKey);
     txManager.AddMultiSig(key2, 2, receiverKey.PublicKey, key2.PublicKey, key3.PublicKey);
@@ -42,7 +42,7 @@
 
       多签的本质来源于多签合约，需要先构建多签合约才能获取多签地址，进行多签转账。下面的示例使用了3个账户构成多签，验签时需要至少2个账户签名
     
-    ```c#
+    ```cs
     // create a multi-signature contract, which needs at least 2 of 3 KeyPairs to sign
     Contract multiContract = Contract.CreateMultiSigContract(2, sendKey.PublicKey, key2.PublicKey, key3.PublicKey);
     // get the scripthash of the multi-signature contract
@@ -53,7 +53,7 @@
 
     如果签名数量不够或手续费不够会引发异常。
 
-    ```c#
+    ```cs
     // sign the transaction with the added signatures
     Transaction tx = await txManager.SignAsync().ConfigureAwait(false);
     ```
@@ -63,7 +63,7 @@
 
 下面的示例实现了从sender账户转账1024个NEO到receiver账户的功能。构建不同交易时需要关注交易中脚本和所需签名的不同。
 
-```c#
+```cs
 using Neo;
 using Neo.Network.P2P.Payloads;
 using Neo.Network.RPC;
@@ -123,7 +123,7 @@ namespace ConsoleApp1
 
 `WalletAPI` 封装了上面的过程，NEP17 转账可以简化为：
 
-```c#
+```cs
 using Neo;
 using Neo.Network.P2P.Payloads;
 using Neo.Network.RPC;
@@ -170,7 +170,7 @@ namespace ConsoleApp1
 
 下面的示例实现了向多签账户转账 10 个 GAS 的功能。多签账户的 scripthash 由多签合约脚本的 hash 得来。因为发送方为普通账户，添加签名的过程与上一个示例没有区别。
 
-```c#
+```cs
 using Neo;
 using Neo.Network.P2P.Payloads;
 using Neo.Network.RPC;
@@ -241,7 +241,7 @@ namespace ConsoleApp1
 
 下面的示例实现了从多签账户转出1024个GAS的功能。多签账户的scripthash由多签合约脚本的hash得来。因为需要从多签账户转账，添加签名时要根据多签合约要求的签名数量添加。
 
-```c#
+```cs
 using Neo;
 using Neo.Network.P2P.Payloads;
 using Neo.Network.RPC;

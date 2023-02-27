@@ -8,13 +8,13 @@
 
 ## 语法
 
-```c#
+```cs
 public static extern ECPoint[] GetNextBlockValidators();
 ```
 
 ## 示例
 
-```c#
+```cs
 public class Contract1 : SmartContract.Framework.SmartContract
 {
     public static object Test()
