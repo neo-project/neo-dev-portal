@@ -11,7 +11,7 @@ sidebar: true
 
 <div align="center" style={{ padding: '0% 25% 0% 25%' }}>
   <img src="/tooling/neow3j.png" alt="neow3j" width="75%" style={{ padding: '0% 0% 5% 0%' }}/> 
-  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.19.3</small></sub></h1> 
+  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.20.0</small></sub></h1> 
 </div>
 
 ## 1. Introduction
@@ -95,14 +95,11 @@ contract and want to compile your contract in the same code.
 You will find an example for the compiler usage `com.axlabs.helloworld.Deployment` in the boilerplate project.
 
 ```java
-CompilationUnit res = new Compiler().compile(
-    HelloWorldSmartContract.class.getCanonicalName(),
-    substitutions);
+CompilationUnit res = new Compiler().compile(HelloWorldSmartContract.class.getCanonicalName());
 ```
 
-The name of the contract to compile as well as a map of placeholder substitutions is passed to the compiler. The
-compilation result is a `CompilationUnit` which gives access to the NEF file and the contract manifest. They are used to
-call the `ContractManagement` contract - a contract that is native to the Neo blockchain.
+The compilation result is a `CompilationUnit` which gives access to the NEF file and the contract manifest. They are
+used to call the `ContractManagement` contract - a contract that is native to the Neo blockchain.
 
 ```java
 TransactionBuilder builder = new ContractManagement(neow3j)

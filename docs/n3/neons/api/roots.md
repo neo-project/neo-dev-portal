@@ -20,8 +20,6 @@ curl --request POST \
   "jsonrpc": "2.0",
   "method": "invokefunction",
   "params": [ "0x152fa9ceeb2c83f40e3d3d6da6c1f8898dd4891a", "roots",
-                         [],
-    []
 ],
   "id": 1
 }
