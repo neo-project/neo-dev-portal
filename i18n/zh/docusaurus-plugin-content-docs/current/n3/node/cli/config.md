@@ -99,48 +99,44 @@ Neo-CLI 在执行过程中会访问配置文件 `config.json`。启动 Neo-CLI �
 
 一些附加功能被独立封装在插件中用以调用，目的是为了提升节点的安全性，稳定性和灵活性。用户可以自行选取所需要的扩展功能而不用每次在启动 Neo-CLI 时通过附加参数来调用，避免了很多人为的失误操作同时简化了打开钱包，调用 API 等一系列繁琐的指令。
 
+下表列出了目前所有的插件：
+
+|插件|描述|包含 API||
+|--- |--- |--- |--- |
+| ApplicationLogs | 同步智能合约和 NativeContract 的日志（Notify）  | [getapplicationlog](https://github.com/neo-project/docs/blob/cad14667651edfccad1eec508ab2af80889d6762/docs/zh-cn/reference/rpc/latest-version/api/getapplicationlog.html) | 推荐                          |
+| DBFTPlugin      | dBFT 共识插件                                   |                                                              | 作为共识节点时必选            |
+| LevelDBStore    | 区块链数据使用 LevelDB 存储引擎                 |                                                              | 必选                          |
+| MPTTrie         | 使用 LevelDB 存储 MPT 数据 |                                                              | 作为 StateRoot 共识节点时必选 |
+| OracleService   | Oracle 服务插件                                 |                                                              | 作为 Oracle 服务节点时必选    |
+| RocksDBStore    | 区块链数据使用 RocksDBStore 存储引擎            |                                                              | 和 LevelDBStore 二选一        |
+| RpcServer       | 提供节点的 RPC 功能                             | [RPC API](https://github.com/neo-project/docs/blob/cad14667651edfccad1eec508ab2af80889d6762/docs/zh-cn/reference/rpc/latest-version/api.html#命令列表) | 必选                          |
+| SQLiteWallet    | 提供基于SQLite的.db3钱包功能 |                                                              | 可选 |
+| StatesDumper    | 导出 Neo-CLI 状态数据                           |                                                              | 可选                          |
+| StateService    | StateRoot 共识服务插件                          | [getstateroot](https://github.com/neo-project/docs/blob/cad14667651edfccad1eec508ab2af80889d6762/docs/zh-cn/reference/rpc/latest-version/api/getstateroot.html) [getproof](https://github.com/neo-project/docs/blob/cad14667651edfccad1eec508ab2af80889d6762/docs/zh-cn/reference/rpc/latest-version/api/getproof.html) [verifyproof](https://github.com/neo-project/docs/blob/cad14667651edfccad1eec508ab2af80889d6762/docs/zh-cn/reference/rpc/latest-version/api/verifyproof.html) [getstateheight](https://github.com/neo-project/docs/blob/cad14667651edfccad1eec508ab2af80889d6762/docs/zh-cn/reference/rpc/latest-version/api/getstateheight.html) | 作为 StateRoot 共识节点时必选 |
+| TokensTracker   | 提供NEP-11、NEP-17余额及交易历史的RPC查询功能。 | [getnep11balances](https://github.com/neo-project/docs/blob/cad14667651edfccad1eec508ab2af80889d6762/docs/zh-cn/reference/rpc/latest-version/api/getnep11balances.html) [getnep11properties](https://github.com/neo-project/docs/blob/cad14667651edfccad1eec508ab2af80889d6762/docs/zh-cn/reference/rpc/latest-version/api/getnep11properties.html) [getnep11transfers](https://github.com/neo-project/docs/blob/cad14667651edfccad1eec508ab2af80889d6762/docs/zh-cn/reference/rpc/latest-version/api/getnep11transfers.html) [getnep17balances](https://github.com/neo-project/docs/blob/cad14667651edfccad1eec508ab2af80889d6762/docs/zh-cn/reference/rpc/latest-version/api/getnep17balances.html) [getnep17transfers](https://github.com/neo-project/docs/blob/cad14667651edfccad1eec508ab2af80889d6762/docs/zh-cn/reference/rpc/latest-version/api/getnep17transfers.html) | 推荐                          |
+
 安装插件有两种方式：
 
+- （推荐）使用内部命令 install/uninstall 自动下载或卸载插件，操作更为简便。
+
+  例如：
+
+  ```
+  neo> install StatesDumper
+  Downloading from https://github.com/neo-project/neo-modules/releases/download/v3.1.0/StatesDumper.zip
+  Install successful, please restart neo-cli.
+  ```
+
+  ```
+  neo> uninstall StatesDumper
+  Uninstall successful, please restart neo-cli.
+  ```
+
+  在安装或卸载完毕后，请重启 Neo-CLI 使操作生效。
+
 - 从 GitHub 下载插件包
-- 使用内部命令自动下载
 
-### 从 GitHub 下载插件
-
-下表列出了所有插件，选取所需要的插件进行下载，将下载的插件包解压到 neo-cli 根目录下。
-
-|Plugin|Description|API Included||
-|--- |--- |--- |--- |
-|[ApplicationLogs](https://github.com/neo-project/neo-modules/releases/download/v3.1.0/ApplicationLogs.zip)|Synchronizes the smart contract log with the NativeContract log (Notify)|[getapplicationlog](../../reference/rpc/latest-version/api/getapplicationlog)|Recommended|
-|[DBFTPlugin](https://github.com/neo-project/neo-modules/releases/download/v3.1.0/DBFTPlugin.zip)|dBFT consensus plugin||Mandatory when served as a consensus node|
-|[LevelDBStore](https://github.com/neo-project/neo-modules/releases/download/v3.1.0/LevelDBStore.zip)|Uses LevelDB to store the blockchain data||Mandatory|
-|[OracleService](https://github.com/neo-project/neo-modules/releases/download/v3.1.0/OracleService.zip)|Oracle service plugin||Mandatory when served as an Oracle node|
-|[RocksDBStore](https://github.com/neo-project/neo-modules/releases/download/v3.1.0/RocksDBStore.zip)|Uses RocksDBStore to store the blockchain data||An alternative to LevelDBStore|
-|[TokensTracker](https://github.com/neo-project/neo-modules/releases/download/v3.1.0/TokensTracker.zip)|Enquiries NEP-11 and NEP-17 assets balance and transactions history of accounts through RPC|[getnep11balances](../../reference/rpc/latest-version/api/getnep11balances)  [getnep11properties](../../reference/rpc/latest-version/api/getnep11properties)  [getnep11transfers](../../reference/rpc/latest-version/api/getnep11transfers)  [getnep17balances](../../reference/rpc/latest-version/api/getnep17balances)  [getnep17transfers](../../reference/rpc/latest-version/api/getnep17transfers)  
-|Recommended|
-|[RpcServer](https://github.com/neo-project/neo-modules/releases/download/v3.1.0/RpcServer.zip)|Enables RPC for the node|[RPC API](../../reference/rpc/latest-version/api)|Mandatory|
-|[StatesDumper](https://github.com/neo-project/neo-modules/releases/download/v3.1.0/StatesDumper.zip)|Exports Neo-CLI status data.||Optional|
-|[StateService](https://github.com/neo-project/neo-modules/releases/download/v3.1.0/StateService.zip)|StateRoot consensus service plugin|[getstateroot](../../reference/rpc/latest-version/api/getstateroot)  
-[getproof](../../reference/rpc/latest-version/api/getproof)  
-[verifyproof](../../reference/rpc/latest-version/api/verifyproof)  
-[getstateheight](../../reference/rpc/latest-version/api/getstateheight)|Mandatory when served as a StateRoot consensus node|
-
-
-### 使用命令下载插件
-
-使用内部命令自动下载或卸载插件，操作更为简便。例如：
-
-```
-neo> install StatesDumper
-Downloading from https://github.com/neo-project/neo-modules/releases/download/v3.1.0/StatesDumper.zip
-Install successful, please restart neo-cli.
-```
-
-```
-neo> uninstall StatesDumper
-Uninstall successful, please restart neo-cli.
-```
-
-在安装或卸载完毕后，请重启 Neo-CLI 使操作生效。
+  前往[此链接](https://github.com/neo-project/neo-modules/releases)下载所需插件的最新版本，将下载的插件包解压到 neo-cli 根目录下。
 
 ## 启动 Neo 节点
 
