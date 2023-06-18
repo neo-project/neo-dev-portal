@@ -99,48 +99,44 @@ To connect the node to your private net, refer to [Setting up Private Chain](../
 
 Some additional functionalities are individually encapsulated in plug-ins for the purpose of improving node security, stability, and flexibility. The user can select the desired extension functionality instead of invoking it with additional parameters every time starting neo-cli, thus avoiding many human errors and some tedious instructions such as opening a wallet and calling APIs. 
 
-You can choose one of the following ways to install plugins:
-
-- Download the plugin package from GitHub
-- Use the CLI command to install automatically
-
-### Downloading plugins from GitHub
-
-Download the plugins you need from the following table, and then unzip the packages under the neo-cli root directory.
+The following table lists all the plugins:
 
 |Plugin|Description|API Included||
 |--- |--- |--- |--- |
-|[ApplicationLogs](https://github.com/neo-project/neo-modules/releases/download/v3.1.0/ApplicationLogs.zip)|Synchronizes the smart contract log with the NativeContract log (Notify)|[getapplicationlog](../../reference/rpc/latest-version/api/getapplicationlog)|Recommended|
-|[DBFTPlugin](https://github.com/neo-project/neo-modules/releases/download/v3.1.0/DBFTPlugin.zip)|dBFT consensus plugin||Mandatory when served as a consensus node|
-|[LevelDBStore](https://github.com/neo-project/neo-modules/releases/download/v3.1.0/LevelDBStore.zip)|Uses LevelDB to store the blockchain data||Mandatory|
-|[OracleService](https://github.com/neo-project/neo-modules/releases/download/v3.1.0/OracleService.zip)|Oracle service plugin||Mandatory when served as an Oracle node|
-|[RocksDBStore](https://github.com/neo-project/neo-modules/releases/download/v3.1.0/RocksDBStore.zip)|Uses RocksDBStore to store the blockchain data||An alternative to LevelDBStore|
-|[TokensTracker](https://github.com/neo-project/neo-modules/releases/download/v3.1.0/TokensTracker.zip)|Enquiries NEP-11 and NEP-17 assets balance and transactions history of accounts through RPC|[getnep11balances](../../reference/rpc/latest-version/api/getnep11balances)  [getnep11properties](../../reference/rpc/latest-version/api/getnep11properties)  [getnep11transfers](../../reference/rpc/latest-version/api/getnep11transfers)  [getnep17balances](../../reference/rpc/latest-version/api/getnep17balances)  [getnep17transfers](../../reference/rpc/latest-version/api/getnep17transfers)  
-|Recommended|
-|[RpcServer](https://github.com/neo-project/neo-modules/releases/download/v3.1.0/RpcServer.zip)|Enables RPC for the node|[RPC API](../../reference/rpc/latest-version/api)|Mandatory|
-|[StatesDumper](https://github.com/neo-project/neo-modules/releases/download/v3.1.0/StatesDumper.zip)|Exports Neo-CLI status data.||Optional|
-|[StateService](https://github.com/neo-project/neo-modules/releases/download/v3.1.0/StateService.zip)|StateRoot consensus service plugin|[getstateroot](../../reference/rpc/latest-version/api/getstateroot)  
-[getproof](../../reference/rpc/latest-version/api/getproof)  
-[verifyproof](../../reference/rpc/latest-version/api/verifyproof)  
-[getstateheight](../../reference/rpc/latest-version/api/getstateheight)|Mandatory when served as a StateRoot consensus node|
+|ApplicationLogs|Synchronizes the smart contract log with the NativeContract log (Notify)|[getapplicationlog](../../reference/rpc/latest-version/api/getapplicationlog)|Recommended|
+|DBFTPlugin|dBFT consensus plugin||Mandatory when served as a consensus node|
+|LevelDBStore|Uses LevelDB to store the blockchain data||Mandatory|
+|MPTTrie|Uses LevelDB to store the MPT data||Mandatory when served as a StateRoot consensus node|
+|OracleService|Oracle service plugin||Mandatory when served as an Oracle node|
+|RocksDBStore|Uses RocksDBStore to store the blockchain data||An alternative to LevelDBStore|
+|RpcServer|Enables RPC for the node|[RPC API](../../reference/rpc/latest-version/api)|Mandatory|
+|SQLiteWallet|A SQLite-based wallet provider that supports wallet files with .db3 suffix||Optional|
+|StatesDumper|Exports Neo-CLI status data.||Optional|
+|StateService|StateRoot consensus service plugin|[getstateroot](../../reference/rpc/latest-version/api/getstateroot) [getproof](../../reference/rpc/latest-version/api/getproof.html) [verifyproof](../../reference/rpc/latest-version/api/verifyproof.html) [getstateheight](../../reference/rpc/latest-version/api/getstateheight.html)  |Mandatory when served as a StateRoot consensus node|
+|TokensTracker|Enquiries NEP-11 and NEP-17 assets balance and transactions history of accounts through RPC|[getnep11balances](../../reference/rpc/latest-version/api/getnep11balances)  [getnep11properties](../../reference/rpc/latest-version/api/getnep11properties)  [getnep11transfers](../../reference/rpc/latest-version/api/getnep11transfers)  [getnep17balances](../../reference/rpc/latest-version/api/getnep17balances)  [getnep17transfers](../../reference/rpc/latest-version/api/getnep17transfers)  |Recommended|
 
+You can choose one of the following ways to install plugins:
 
-### Downloading plugins using command
+- (Recommended) Use the CLI command install/uninstall to install or uninstall plugins automatically.
 
-It is easier to automatically install or uninstall the plugin using commands, for example:
+  For example:
 
-```
-neo> install StatesDumper
-Downloading from https://github.com/neo-project/neo-modules/releases/download/v3.1.0/StatesDumper.zip
-Install successful, please restart neo-cli.
-```
+  ```
+  neo> install StatesDumper
+  Downloading from https://github.com/neo-project/neo-modules/releases/download/v3.1.0/StatesDumper.zip
+  Install successful, please restart neo-cli.
+  ```
 
-```
-neo> uninstall StatesDumper
-Uninstall successful, please restart neo-cli.
-```
+  ```
+  neo> uninstall StatesDumper
+  Uninstall successful, please restart neo-cli.
+  ```
 
-After installation, restart Neo-CLI for the plugin to take effect.
+  After installation, restart Neo-CLI for the plugin to take effect.
+
+- Download the plugin package from GitHub
+
+  Download the latest version plugin you need from [here](https://github.com/neo-project/neo-modules/releases) and then unzip the package under the neo-cli root directory.
 
 ## Starting the NEO node
 
