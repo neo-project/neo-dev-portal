@@ -1,0 +1,190 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.docs.category.Foundational topics": {
+    "message": "基础知识",
+    "description": "The label for category Foundational topics in sidebar docs"
+  },
+  "sidebar.docs.category.Cryptography": {
+    "message": "密码学",
+    "description": "The label for category Cryptography in sidebar docs"
+  },
+  "sidebar.docs.category.Consensus mechanism": {
+    "message": "共识机制",
+    "description": "The label for category Consensus mechanism in sidebar docs"
+  },
+  "sidebar.docs.category.Neo Nodes & Clients": {
+    "message": "Neo 节点",
+    "description": "The label for category Neo Nodes & Clients in sidebar docs"
+  },
+  "sidebar.docs.category.Neo-CLI": {
+    "message": "Neo-CLI",
+    "description": "The label for category Neo-CLI in sidebar docs"
+  },
+  "sidebar.docs.category.Neo-GUI": {
+    "message": "Neo-GUI",
+    "description": "The label for category Neo-GUI in sidebar docs"
+  },
+  "sidebar.docs.category.Reference": {
+    "message": "开发参考",
+    "description": "The label for category Reference in sidebar docs"
+  },
+  "sidebar.docs.category.RPC API": {
+    "message": "RPC API",
+    "description": "The label for category RPC API in sidebar docs"
+  },
+  "sidebar.docs.category.latest-version": {
+    "message": "最新版本",
+    "description": "The label for category latest-version in sidebar docs"
+  },
+  "sidebar.docs.category.api": {
+    "message": "api",
+    "description": "The label for category api in sidebar docs"
+  },
+  "sidebar.docs.category.Smart Contract API": {
+    "message": "智能合约 API",
+    "description": "The label for category Smart Contract API in sidebar docs"
+  },
+  "sidebar.docs.category.Neo.SmartContract.Framework": {
+    "message": "Neo.SmartContract.Framework",
+    "description": "The label for category Neo.SmartContract.Framework in sidebar docs"
+  },
+  "sidebar.docs.category.Framework.Native": {
+    "message": "Framework.Native",
+    "description": "The label for category Framework.Native in sidebar docs"
+  },
+  "sidebar.docs.category.ContractManagement": {
+    "message": "ContractManagement",
+    "description": "The label for category ContractManagement in sidebar docs"
+  },
+  "sidebar.docs.category.Gas": {
+    "message": "Gas",
+    "description": "The label for category Gas in sidebar docs"
+  },
+  "sidebar.docs.category.Ledger": {
+    "message": "Ledger",
+    "description": "The label for category Ledger in sidebar docs"
+  },
+  "sidebar.docs.category.Neo": {
+    "message": "Neo",
+    "description": "The label for category Neo in sidebar docs"
+  },
+  "sidebar.docs.category.Oracle": {
+    "message": "Oracle",
+    "description": "The label for category Oracle in sidebar docs"
+  },
+  "sidebar.docs.category.Policy": {
+    "message": "Policy",
+    "description": "The label for category Policy in sidebar docs"
+  },
+  "sidebar.docs.category.RoleManagement": {
+    "message": "RoleManagement",
+    "description": "The label for category RoleManagement in sidebar docs"
+  },
+  "sidebar.docs.category.Framework.Service": {
+    "message": "Framework.Service",
+    "description": "The label for category Framework.Service in sidebar docs"
+  },
+  "sidebar.docs.category.Contract": {
+    "message": "Contract",
+    "description": "The label for category Contract in sidebar docs"
+  },
+  "sidebar.docs.category.Iterator": {
+    "message": "Iterator",
+    "description": "The label for category Iterator in sidebar docs"
+  },
+  "sidebar.docs.category.Runtime": {
+    "message": "Runtime",
+    "description": "The label for category Runtime in sidebar docs"
+  },
+  "sidebar.docs.category.Storage": {
+    "message": "Storage",
+    "description": "The label for category Storage in sidebar docs"
+  },
+  "sidebar.docs.category.Governance API": {
+    "message": "治理 API",
+    "description": "The label for category Governance API in sidebar docs"
+  },
+  "sidebar.docs.category.Advances": {
+    "message": "进阶知识",
+    "description": "The label for category Advances in sidebar docs"
+  },
+  "sidebar.docs.category.NeoFS": {
+    "message": "NeoFS",
+    "description": "The label for category NeoFS in sidebar docs"
+  },
+  "sidebar.docs.category.NeoFS Overview": {
+    "message": "NeoFS 概述",
+    "description": "The label for category NeoFS Overview in sidebar docs"
+  },
+  "sidebar.docs.category.NeoFS Capabilities": {
+    "message": "NeoFS 性能",
+    "description": "The label for category NeoFS Capabilities in sidebar docs"
+  },
+  "sidebar.docs.category.NeoNS": {
+    "message": "NeoNS",
+    "description": "The label for category NeoNS in sidebar docs"
+  },
+  "sidebar.docs.category.API": {
+    "message": "API",
+    "description": "The label for category API in sidebar docs"
+  },
+  "sidebar.docs.category.Development Guide": {
+    "message": "开发指南",
+    "description": "The label for category Development Guide in sidebar docs"
+  },
+  "sidebar.docs.category.Neo Network": {
+    "message": "Neo 网络",
+    "description": "The label for category Neo Network in sidebar docs"
+  },
+  "sidebar.docs.category.private-chain": {
+    "message": "私有链",
+    "description": "The label for category private-chain in sidebar docs"
+  },
+  "sidebar.docs.category.Writing Smart contracts": {
+    "message": "合约编写",
+    "description": "The label for category Writing Smart contracts in sidebar docs"
+  },
+  "sidebar.docs.category.Deploying and Invoking Smart Contracts": {
+    "message": "部署与调用",
+    "description": "The label for category Deploying and Invoking Smart Contracts in sidebar docs"
+  },
+  "sidebar.docs.category.Development Tools": {
+    "message": "开发工具",
+    "description": "The label for category Development Tools in sidebar docs"
+  },
+  "sidebar.docs.category.Neo SDK": {
+    "message": "Neo SDK",
+    "description": "The label for category Neo SDK in sidebar docs"
+  },
+  "sidebar.docs.category.Exchange": {
+    "message": "交易所",
+    "description": "The label for category Exchange in sidebar docs"
+  },
+  "sidebar.recipesSidebar.category.Dapps": {
+    "message": "Dapps",
+    "description": "The label for category Dapps in sidebar recipesSidebar"
+  },
+  "sidebar.recipesSidebar.category.Encryption": {
+    "message": "加密",
+    "description": "The label for category Encryption in sidebar recipesSidebar"
+  },
+  "sidebar.recipesSidebar.category.NeoFS": {
+    "message": "NeoFS",
+    "description": "The label for category NeoFS in sidebar recipesSidebar"
+  },
+  "sidebar.recipesSidebar.category.NeoNS": {
+    "message": "NeoNS",
+    "description": "The label for category NeoNS in sidebar recipesSidebar"
+  },
+  "sidebar.recipesSidebar.category.Oracle": {
+    "message": "Oracle",
+    "description": "The label for category Oracle in sidebar recipesSidebar"
+  },
+  "sidebar.recipesSidebar.category.Wallet": {
+    "message": "钱包",
+    "description": "The label for category Wallet in sidebar recipesSidebar"
+  }
+}

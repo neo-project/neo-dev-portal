@@ -1,4 +1,4 @@
-# C# Smart Contract Framework
+# Smart Contract Framework (C#)
 
 The .NET framework is an encapsulation of the Smart Contract API, which helps .NET programmers obtain the blockchain data, persistent storage data, and NeoVM execution status easily using the classes, methods, and properties of the core Neo module.
 
