@@ -1,6 +1,7 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
+
 // With JSDoc @type annotations, IDEs can provide config autocompletion
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 (module.exports = {
@@ -87,7 +88,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
         debug: false
       },
       prism: {
-        additionalLanguages: ['csharp','go',],
+        theme: darkCodeTheme,
+        additionalLanguages: ['java','csharp','go'],
       },
       colorMode: {
         defaultMode: 'light',
@@ -173,10 +175,6 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
           },
         ],
         copyright: `Copyright © Neo Team 2014-2023`,
-      },
-      prism: {
-        theme: lightCodeTheme,
-        additionalLanguages: ['java']
       },
     }),
 });
