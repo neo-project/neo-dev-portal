@@ -57,6 +57,7 @@ import io.neow3j.devpack.Runtime;
 import io.neow3j.devpack.Storage;
 import io.neow3j.devpack.StorageContext;
 import io.neow3j.devpack.StorageMap;
+import io.neow3j.devpack.StringLiteralHelper;
 import io.neow3j.devpack.annotations.DisplayName;
 import io.neow3j.devpack.annotations.ManifestExtra;
 import io.neow3j.devpack.annotations.OnDeployment;
@@ -76,11 +77,13 @@ import io.neow3j.devpack.events.Event4Args;
 @SupportedStandard(neoStandard = NeoStandard.NEP_11)
 @Permission(nativeContract = NativeContract.ContractManagement)
 public class NonFungibleToken {
+    
+    // Alice's address
+    static final Hash160 owner = StringLiteralHelper.addressToScriptHash("NM7Aky765FG8NhhwtxjXRx7jEL1cnw7PBP");
 
-    static final int contractMapPrefix = 0;
+    static final byte contractMapPrefix = 0;
     static final byte[] totalSupplyKey = new byte[]{0x00};
     static final byte[] tokensOfKey = new byte[]{0x01};
-    static final byte[] contractOwnerKey = new byte[]{0x02};
 
     static final int registryMapPrefix = 1;
     static final int ownerOfMapPrefix = 2;
@@ -100,12 +103,10 @@ public class NonFungibleToken {
     // region deploy, update, destroy
 
     @OnDeployment
-    public static void deploy(Object data, boolean update) throws Exception {
+    public static void deploy(Object data, boolean update) {
         if (!update) {
-            initializeContract((Hash160) data);
-        }
-        if (!Runtime.checkWitness(contractOwner())) {
-            throw new Exception("No authorization");
+            StorageMap contractMap = new StorageMap(Storage.getStorageContext(), contractMapPrefix);
+            contractMap.put(totalSupplyKey, 0);
         }
     }
 
@@ -252,10 +253,10 @@ public class NonFungibleToken {
 
     @Safe
     public static Hash160 contractOwner() {
-        return new StorageMap(Storage.getReadOnlyContext(), contractMapPrefix).getHash160(contractOwnerKey);
+        return owner;
     }
 
-    public static void mint(Hash160 owner, ByteString tokenId, Map<String, String> properties) throws Exception {
+    public static void mint(Hash160 to, ByteString tokenId, Map<String, String> properties) throws Exception {
         if (!Runtime.checkWitness(contractOwner())) {
             throw new Exception("No authorization");
         }
@@ -283,12 +284,12 @@ public class NonFungibleToken {
         }
 
         registryMap.put(tokenId, tokenId);
-        new StorageMap(ctx, ownerOfMapPrefix).put(tokenId, owner.toByteArray());
-        new StorageMap(ctx, createTokensOfPrefix(owner)).put(tokenId, 1);
+        new StorageMap(ctx, ownerOfMapPrefix).put(tokenId, to.toByteArray());
+        new StorageMap(ctx, createTokensOfPrefix(to)).put(tokenId, 1);
 
-        increaseBalanceByOne(ctx, owner);
+        increaseBalanceByOne(ctx, to);
         incrementTotalSupplyByOne(ctx);
-        onMint.fire(owner, tokenId, properties);
+        onMint.fire(to, tokenId, properties);
     }
 
     public static void burn(ByteString tokenId) throws Exception {
@@ -319,17 +320,6 @@ public class NonFungibleToken {
 
     // endregion custom methods
     // region private helper methods
-
-    private static void initializeContract(Hash160 contractOwner) {
-        StorageMap contractMap = new StorageMap(Storage.getStorageContext(), contractMapPrefix);
-        contractMap.put(totalSupplyKey, 0);
-        contractMap.put(contractOwnerKey, contractOwner);
-    }
-
-    // When storage context is already loaded, this is a cheaper method than `contractOwner()`.
-    private static Hash160 contractOwner(StorageContext ctx) {
-        return new StorageMap(ctx, contractMapPrefix).getHash160(contractOwnerKey);
-    }
 
     private static int getBalance(StorageContext ctx, Hash160 owner) {
         return new StorageMap(ctx, balanceMapPrefix).getIntOrZero(owner.toByteArray());
@@ -385,6 +375,7 @@ import io.neow3j.devpack.Runtime;
 import io.neow3j.devpack.Storage;
 import io.neow3j.devpack.StorageContext;
 import io.neow3j.devpack.StorageMap;
+import io.neow3j.devpack.StringLiteralHelper;
 import io.neow3j.devpack.annotations.DisplayName;
 import io.neow3j.devpack.annotations.ManifestExtra;
 import io.neow3j.devpack.annotations.OnDeployment;
@@ -457,10 +448,12 @@ storage, which provides the possibility to be modified through a method.
 :::
 
 ```java
-static final int contractMapPrefix = 0;
+// Alice's address
+static final Hash160 owner = StringLiteralHelper.addressToScriptHash("NM7Aky765FG8NhhwtxjXRx7jEL1cnw7PBP");
+
+static final byte contractMapPrefix = 0;
 static final byte[] totalSupplyKey = new byte[]{0x00};
 static final byte[] tokensOfKey = new byte[]{0x01};
-static final byte[] contractOwnerKey = new byte[]{0x02};
 
 static final int registryMapPrefix = 1;
 static final int ownerOfMapPrefix = 2;
@@ -481,18 +474,14 @@ static final String propTokenURI = "tokenURI";
 
 Once a deployment transaction is made (containing the contract and other parameters), the contract data is first stored
 on the blockchain and then the native contract `ContractManagement` calls the smart contract's `deploy()` method. In
-neow3j, that method is marked with the annotation `@OnDeployment`. In the example, when the smart contract is deployed,
-the private method `initializeContract` is called to initialize the contract's storage (see further below in the section
-about private helper methods).
+neow3j, that method is marked with the annotation `@OnDeployment`.
 
 ```java
 @OnDeployment
-public static void deploy(Object data, boolean update) throws Exception {
+public static void deploy(Object data, boolean update) {
     if (!update) {
-        initializeContract((Hash160) data);
-    }
-    if (!Runtime.checkWitness(contractOwner())) {
-        throw new Exception("No authorization");
+        StorageMap contractMap = new StorageMap(Storage.getStorageContext(), contractMapPrefix);
+        contractMap.put(totalSupplyKey, 0);
     }
 }
 ```
@@ -710,10 +699,10 @@ token could also just be sent to a *burner address*.
 ```java
 @Safe
 public static Hash160 contractOwner() {
-    return new StorageMap(Storage.getReadOnlyContext(), contractMapPrefix).getHash160(contractOwnerKey);
+    return owner;
 }
 
-public static void mint(Hash160 owner, ByteString tokenId, Map<String, String> properties) throws Exception {
+public static void mint(Hash160 to, ByteString tokenId, Map<String, String> properties) throws Exception {
     if (!Runtime.checkWitness(contractOwner())) {
         throw new Exception("No authorization");
     }
@@ -741,12 +730,12 @@ public static void mint(Hash160 owner, ByteString tokenId, Map<String, String> p
     }
 
     registryMap.put(tokenId, tokenId);
-    new StorageMap(ctx, ownerOfMapPrefix).put(tokenId, owner.toByteArray());
-    new StorageMap(ctx, createTokensOfPrefix(owner)).put(tokenId, 1);
+    new StorageMap(ctx, ownerOfMapPrefix).put(tokenId, to.toByteArray());
+    new StorageMap(ctx, createTokensOfPrefix(to)).put(tokenId, 1);
 
-    increaseBalanceByOne(ctx, owner);
+    increaseBalanceByOne(ctx, to);
     incrementTotalSupplyByOne(ctx);
-    onMint.fire(owner, tokenId, properties);
+    onMint.fire(to, tokenId, properties);
 }
 
 public static void burn(ByteString tokenId) throws Exception {
@@ -782,17 +771,6 @@ Private methods can be used to simplify and make the smart contract more readabl
 used in the NEP-11 example contract.
 
 ```java
-private static void initializeContract(Hash160 contractOwner) {
-    StorageMap contractMap = new StorageMap(Storage.getStorageContext(), contractMapPrefix);
-    contractMap.put(totalSupplyKey, 0);
-    contractMap.put(contractOwnerKey, contractOwner);
-}
-
-// When storage context is already loaded, this is a cheaper method than `contractOwner()`.
-private static Hash160 contractOwner(StorageContext ctx) {
-    return new StorageMap(ctx, contractMapPrefix).getHash160(contractOwnerKey);
-}
-
 private static int getBalance(StorageContext ctx, Hash160 owner) {
     return new StorageMap(ctx, balanceMapPrefix).getIntOrZero(owner.toByteArray());
 }
