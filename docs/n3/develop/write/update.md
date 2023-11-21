@@ -24,7 +24,7 @@ If you want to update the contract later, you must implement the `update` method
 ### Updating the contract
 1. Get the compiled NEF file and Manifest file of the new contract ready
 
-2. Base64-encode the NEF file with the tool like [File to Base64 online](https://www.hitoy.org/tool/file_base64.php)
+2. Base64-encode the NEF file with the tool like [File to Base64 online](https://base64.guru/converter/encode/file)
 
 3. Compress and escape the Manifest file with the tool like [JSON compressed and escaped online](http://www.bejson.com/zhuanyi/)
 
