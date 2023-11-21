@@ -25,7 +25,7 @@ public static void Update(ByteString nefFile, string manifest)
 
 1. 准备好新合约编译后的 NEF 文件和 Manifest 文件
 
-2. 获得 Base64 格式的 NEF，可使用 [文件在线转 Base64](https://www.hitoy.org/tool/file_base64.php)
+2. 获得 Base64 格式的 NEF，可使用 [文件在线转 Base64](https://base64.guru/converter/encode/file)
 
 3. 获得压缩转义的 Manifest，可使用 [JSON在线压缩转义](http://www.bejson.com/zhuanyi/)
 
