@@ -157,15 +157,15 @@ export default function Tooling(props) {
                         categories: ["dev-env"],
                     },
                     {
-                        name: "Neo Playground",
+                        name: "Neow3j",
                         by: "AxLabs",
-                        description: "Neo playground is an online development environment using VS Code web client with a number of additional utilities.",
+                        description: "Neow3j is a reputable development toolkit to build dApps and Smart Contracts using the Java platform (Java, Kotlin, Android).",
                         icon_url: "/tooling/neow3j.png",
-                        web_url: "https://neo-playground.dev/",
-                        github_url: "https://github.com/AxLabs",
-                        docs_url: "https://github.com/AxLabs",
+                        web_url: "https://neow3j.io/",
+                        github_url: "https://github.com/neow3j/neow3j",
+                        docs_url: "https://neow3j.io/",
                         supported_languages: ["java"],
-                        categories: ["dev-env", "sdks"]
+                        categories: ["sdks", "cdks"]
                     },
                     {
                         name: "boa",
@@ -198,17 +198,6 @@ export default function Tooling(props) {
                         github_url: "https://github.com/neo-project/neo-devpack-dotnet",
                         docs_url: "https://github.com/neo-project/neo-devpack-dotnet",
                         supported_languages: ["c#"],
-                        categories: ["cdks"]
-                    },
-                    {
-                        name: "Neow3j",
-                        by: "AxLabs",
-                        description: "Neow3j is a Java library that aims to provide easy and reliable integration with Neo nodes. ",
-                        icon_url: "/tooling/neow3j.png",
-                        web_url: "https://neow3j.io/",
-                        github_url: "https://github.com/neow3j/neow3j",
-                        docs_url: "https://neow3j.io/",
-                        supported_languages: ["java"],
                         categories: ["cdks"]
                     },
                     {
@@ -330,6 +319,17 @@ export default function Tooling(props) {
                         github_url: "https://github.com/neo-project/neo-modules",
                         docs_url: "https://github.com/neo-project/neo-modules",
                         supported_languages: ["c#"],
+                        categories: ["sdks"]
+                    },
+                    {
+                        name: "Props",
+                        by: "COZ",
+                        description: "The PROPS project is general purpose smart contracts and developer framework for Neo N3.",
+                        icon_url: "/tooling/props_puppet_icon.svg",
+                        web_url: "https://props.coz.io/d",
+                        github_url: "https://github.com/CityOfZion/props",
+                        docs_url: "https://props.coz.io/d",
+                        supported_languages: ["js"],
                         categories: ["sdks"]
                     }
 

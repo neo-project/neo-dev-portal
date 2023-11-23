@@ -8,7 +8,7 @@ Assembly: Neo.SmartContract.Framework
 
 ## Syntax
 
-```c#
+```cs
 public static extern TriggerType Trigger { get; }
 ```
 
@@ -16,7 +16,7 @@ Attribute：[TriggerType](../TriggerType.md).
 
 ## Example
 
-```c#
+```cs
 public static bool Main()
 {
     if (Runtime.Trigger == TriggerType.Verification)

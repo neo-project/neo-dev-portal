@@ -8,7 +8,7 @@ Assembly: Neo.SmartContract.Framework
 
 ## Syntax
 
-```c#
+```cs
 public static extern bool CheckWitness(UInt160 hash);
 public static extern bool CheckWitness(ECPoint pubkey);
 ```
@@ -23,7 +23,7 @@ Return value: Whether if the verification has been done, boolean.
 
 ## Example
 
-```c#
+```cs
 public class Contract1 : SmartContract
 {
     public static void Main()

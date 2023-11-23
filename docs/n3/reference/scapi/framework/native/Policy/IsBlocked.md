@@ -8,7 +8,7 @@ Assembly: Neo.SmartContract.Framework
 
 ## Syntax
 
-```c#
+```cs
 public static extern bool IsBlocked(UInt160 account);
 ```
 
@@ -22,7 +22,7 @@ Return:
 
 ## Example
 
-```c#
+```cs
 public class Contract1 : SmartContract.Framework.SmartContract
 {
     private static readonly UInt160 account = "NXsG3zwpwcfvBiA3bNMx6mWZGEro9ZqTqM".ToScriptHash();

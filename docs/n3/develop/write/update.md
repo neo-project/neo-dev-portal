@@ -9,7 +9,7 @@ In some cases you want to upgrade the smart contracts deployed on the blockchain
 ### Implementing the Update interface
 To enable the update function, you need to implement the `Update` method in the contract. In the contract template this method has been implemented by default, as follows:
 
-```c#
+```cs
 public static bool Verify() => IsOwner();
 
 public static void Update(ByteString nefFile, string manifest)
@@ -43,7 +43,7 @@ To destroy a contract, you need to reserve the destruction method in the contrac
 
 To use the contract destroy feature, you need to implement the destroy method in the original contract. The `destroy` method has been implemented by default in the contract template as follows.
 
-```c#
+```cs
 public static bool Verify() => IsOwner();
 
 public static void Destroy()

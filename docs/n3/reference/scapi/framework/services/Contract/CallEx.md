@@ -8,7 +8,7 @@ Assembly:  Neo.SmartContract.Framework
 
 ## Syntax
 
-```c#
+```cs
 public static extern object CallEx(UInt160 scriptHash, string method, object[] arguments, CallFlags flag)
 ```
 
@@ -21,7 +21,7 @@ Parameters:
 
 ## Example
 
-```c#
+```cs
 public class Contract1 : SmartContract
  {
      delegate object Dyncall(string method, object[] args);

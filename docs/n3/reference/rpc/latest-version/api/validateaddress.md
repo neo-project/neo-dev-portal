@@ -2,9 +2,9 @@
 
 Verifies that the address is a valid NEO address.
 
-> [!Note]
->
-> You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+:::note
+ You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+:::
 
 ```json
 {
@@ -19,9 +19,9 @@ Verifies that the address is a valid NEO address.
 
 address: Address.
 
-> [!Note]
->
-> The NEO standard address begins with N because AddressVersion in Neo N3 has been modified to 53.
+:::note
+ The NEO standard address begins with N because AddressVersion in Neo N3 has been modified to 53.
+:::
 
 ## Example
 

@@ -1,3 +1,6 @@
+---
+sidebar_position: 0
+---
 # Installing Neo-GUI
 
 Neo-GUI is a full-node application on the Neo blockchain. It uses Electron cross-platform technology and currently can run on Windows 10 and macOS systems.
@@ -13,9 +16,9 @@ It has these main functions:
 
 Neo-GUI is an open source project, thus you can download the installation package of the corresponding system version on [GitHub](https://github.com/neo-ngd/Neo3-GUI/releases) , and complete the installation according to the prompts.
 
-> [!Note]
->
-> - Make sure your Windows / macOS system has [.NET Core 5.0](https://dotnet.microsoft.com/download/dotnet-core/current/runtime) installed.
+:::note
+ - Make sure your Windows / macOS system has [.NET Core 5.0](https://dotnet.microsoft.com/download/dotnet-core/current/runtime) installed.
+:::
 >
 > - When installing on the Windows system, do not install Neo-GUI under the default path C:\Program Files, or you have to run the client with the administrator privileges to connect the client to the network and download the blockchain data.
 

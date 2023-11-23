@@ -8,7 +8,7 @@ Assembly: Neo.SmartContract.Framework
 
 ## Syntax
 
-```c#
+```cs
 public static extern Cryptography.ECC.ECPoint[] GetDesignatedByRole(Role role, uint index);
 ```
 
@@ -23,7 +23,7 @@ returns:
 
 ## Example
 
-```c#
+```cs
 public static void Test()
 {
     var nodes = RoleManagement.GetDesignatedByRole(Role.Oracle, 0);

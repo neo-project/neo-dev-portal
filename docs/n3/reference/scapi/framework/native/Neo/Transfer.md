@@ -6,13 +6,13 @@ Namespace: [Neo.SmartContract.Framework.Native](../../native.md)
 
 Assembly: Neo.SmartContract.Framework
 
-> [!Note]
->
-> The method will check sender's signature, whether caller is sender, whether receiver is payable, and whether sender's balance is enough.
+:::note
+ The method will check sender's signature, whether caller is sender, whether receiver is payable, and whether sender's balance is enough.
+:::
 
 ## Syntax
 
-```c#
+```cs
 public static extern bool Transfer(UInt160 from, UInt160 to, BigInteger amount, object data = null);
 ```
 
@@ -25,7 +25,7 @@ Parameters:
 
 ## Example
 
-```c#
+```cs
 public class Contract1 : SmartContract.Framework.SmartContract
 {
     private static readonly UInt160 from = "NXsG3zwpwcfvBiA3bNMx6mWZGEro9ZqTqM".ToScriptHash();

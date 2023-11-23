@@ -8,7 +8,7 @@ Assembly: Neo.SmartContract.Framework
 
 ## Syntax
 
-```c#
+```cs
 public static extern byte[] Get(StorageContext context, byte[] key);
 public static extern byte[] Get(StorageContext context, ByteString key);
 ```
@@ -23,7 +23,7 @@ Return Value: The value corresponding to the key as a byte array.
 
 ## Example
 
-```c#
+```cs
 public class Contract1 : SmartContract.Framework.SmartContract
 {
     public static void Main()

@@ -18,9 +18,9 @@ This document is applicable to Neo N3. It is recommended you use NEO SDK in conj
 
 1. In Visual Studio 2019, create a new .NET project
 
-   > [!Note]
-   >
-   > The .NET version of the project cannot be earlier than the .NET version used by the Neo SDK.
+:::note
+The .NET version of the project cannot be earlier than the .NET version used by the Neo SDK.
+:::
 
 2. Right-click the project and select `Manage NuGet Packages`.
 
@@ -28,13 +28,13 @@ This document is applicable to Neo N3. It is recommended you use NEO SDK in conj
 
 4. Add the following code to the desired project file header:
 
-   ```c#
+   ```cs
    using Neo.Network.RPC;
    ```
 
-> [!Note]
->
-> If you use SDK to construct a transaction that requires a signature, you need to ensure that the RpcClient obeject and the network it is connected to are configured the same way, or the transaction constructed by the SDK will not be validated in the blockchain. To do so, load Neo-CLI config.json when constructing the RpcClient object, for example:
+:::note
+ If you use SDK to construct a transaction that requires a signature, you need to ensure that the RpcClient obeject and the network it is connected to are configured the same way, or the transaction constructed by the SDK will not be validated in the blockchain. To do so, load Neo-CLI config.json when constructing the RpcClient object, for example:
+:::
 >
 > RpcClient client = new RpcClient(new Uri("http://localhost:20332"), null, null, ProtocolSettings.Load("config.json"))
 

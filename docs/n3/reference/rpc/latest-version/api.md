@@ -4,13 +4,13 @@ Each NEO-CLI node provides an API interface for obtaining blockchain data from i
 
 To start a node that provides an RPC service, you must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases). Refer to [Installing plugins](../../../node/cli/config.html#installing-plugins) for instructions. No need to add an argument when starting Neo-CLI.
 
-\> [!Note]
-\>
-\> If the desired version of file is not found during installation, it is because the corresponding version of RpcServer plug-in has not been released yet. In that case, you can compile the project [neo-modules](https://github.com/neo-project/neo-modules) by yourself:
-\>
-\> 1. Create the folder Plugins under the directory where neo-cli.dll locates.
-\> 2. Put the RpcServer file you has complied in the Plugins folder and then restart Neo-CLI.
+:::note
 
+If the desired version of file is not found during installation, it is because the corresponding version of RpcServer plug-in has not been released yet. In that case, you can compile the project [neo-modules](https://github.com/neo-project/neo-modules) by yourself:
+
+1. Create the folder Plugins under the directory where neo-cli.dll locates.
+2. Put the RpcServer file you has complied in the Plugins folder and then restart Neo-CLI.
+:::
 ## Listening ports
 
 After the JSON-RPC server is started, it will listen to the TCP port. By default it is the port 10332 of the local address (127.0.0.1), which is
@@ -112,10 +112,10 @@ You can modify the port in config.json in the RpcServer folder.
 | [getstate](api/getstate.md)             | <roothash\><scripthash\><key\>                  | Queries `state` with the `root hash`, `contract hash` and `storage key`. |
 | [findstates](api/findstates.md)         | <roothash\><scripthash\><prefix\> [key] [count] | Queries `state` with the prefix of `root hash`, `contract hash` and `storage key`. |
 
-\> [!Note]
-\>
-\> For RPC API, all the return values related to the amount such as fees, NEP-17 asset balance, wallet balance, transfer amount, etc. are unsigned integer, which are automatically converted according to the asset decimal when requested by [RpcClient](https://github.com/neo-project/neo-modules/tree/master/src/RpcClient) (C# light node SDK). If you write the request by yourselves, you need to convert the amount manually. For example, if the return value is 1234560 and the asset decimal is 8, the  actual amount is 0.0123456.
+:::note
 
+For RPC API, all the return values related to the amount such as fees, NEP-17 asset balance, wallet balance, transfer amount, etc. are unsigned integer, which are automatically converted according to the asset decimal when requested by [RpcClient](https://github.com/neo-project/neo-modules/tree/master/src/RpcClient) (C# light node SDK). If you write the request by yourselves, you need to convert the amount manually. For example, if the return value is 1234560 and the asset decimal is 8, the  actual amount is 0.0123456.
+:::
 ## GET request example
 
 The format of a typical JSON-RPC GET request is as follows:
@@ -171,10 +171,9 @@ After sending the request, you will get the following response：
 }
 ```
 
-\> [!Note]
-\>
-\> To make sure you get the latest result synchronize your client to the latest block height before you use the API.
-
+:::note
+To make sure you get the latest result synchronize your client to the latest block height before you use the API.
+:::
 ## Test tools
 
 You can use the Chrome extension in Postman to facilitate the test (Installation of the Chrome extension requires Internet connection). A test screenshot is shown below:

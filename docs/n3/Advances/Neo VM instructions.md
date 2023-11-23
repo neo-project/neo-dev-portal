@@ -20,7 +20,7 @@ NeoVM has following built-in data types:
 - `CompoundType` : Compound type, which includes  `Array`, `Map` and `Struct`。
 - `PrimitiveType`: Basic type which includes `Boolean`, `ByteString` and `Integer`。
 
-```c#
+```cs
 // boolean type
 private static readonly byte[] TRUE = { 1 };
 private static readonly byte[] FALSE = { 0 };
@@ -49,6 +49,14 @@ The constant instructions mainly complete the function of pushing constants or a
 | Bytecode | 0x00, 0x01, 0x02, 0x03, 0x04, 0x05                                                  |
 | Fee | 0.00000001 GAS, 0.00000001 GAS, 0.00000001 GAS, 0.00000001 GAS, 0.00000004 GAS, 0.00000004 GAS |
 | Function   | Push an integer onto the stack, the bit length of which is specified with the number 8\16\32\64\128\256. |
+
+#### PUSHT/PUSHF
+
+| Instruction | PUSHT, PUSHF                                      |
+| ----------- | ------------------------------------------------- |
+| Bytecode    | 0x08, 0x09                                        |
+| Fee         | 0.00000001 GAS                                    |
+| Function    | Push the Boolean value True/False onto the stack. |
 
 #### PUSHA
 

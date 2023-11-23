@@ -21,7 +21,7 @@ Particularly, it is recommended that developers name the image field `Image` in 
 
 The `TokenState`  code example is as follows：
 
-```c#
+```cs
 public class MyTokenState : Nep11TokenState
 {
     public string Image { get; set; }
@@ -36,7 +36,7 @@ public class MyTokenState : Nep11TokenState
 
 After inheriting `Nep11Token<Nep11TokenState>` you need to rewrite the Symbol method, as follows:
 
-```c#
+```cs
 public override string Symbol() => "MNFT";
 ```
 
@@ -44,7 +44,7 @@ public override string Symbol() => "MNFT";
 
 The base class `Nep11Token` doesn't include the method for NFT distribution. Developers can write it on demand. In this example we create a method `Airdrop`, which functions airdrop of NFT to the specified address, to enable the contract owner to issue NFT assets.
 
-```c#
+```cs
 public static bool Airdrop(UInt160 to, string name)
 {
     if (!IsOwner()) throw new Exception("No authorization.");
@@ -61,7 +61,7 @@ In the above code segment, the `Mint` method is inherited from `Nep11Token`. To 
 
 The complete code is as follows:
 
-```c#
+```cs
 using Neo;
 using Neo.SmartContract;
 using Neo.SmartContract.Framework;
@@ -108,7 +108,7 @@ namespace Contract1
 
 To enable the user to purchase NFT with GAS, you can add the following method:
 
-```c#
+```cs
 public static void OnNEP17Payment(UInt160 from, BigInteger amount, object _)
 {
     

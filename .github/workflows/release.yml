@@ -13,7 +13,7 @@ jobs:
         with:
           submodules: true
       - name: Build Docusaurus
-        run: yarn install && NODE_ENV=production CI=false yarn run build  
+        run: yarn install && NODE_ENV=production CI=false NODE_OPTIONS=--openssl-legacy-provider yarn run build  
       - name: Deploy to Azure
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1

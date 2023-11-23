@@ -8,7 +8,7 @@ Assembly: Neo.SmartContract.Framework
 
 ## Syntax
 
-```c#
+```cs
 public static extern void Log(string message)
 ```
 
@@ -19,7 +19,7 @@ Parameters:
 
 ## Example
 
-```c#
+```cs
 public class Contract1 : SmartContract.Framework.SmartContract
 {
     public static void Main(bool debug)

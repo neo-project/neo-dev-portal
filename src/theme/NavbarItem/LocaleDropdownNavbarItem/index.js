@@ -51,7 +51,7 @@ export default function LocaleDropdownNavbarItem({
       href="#"
       mobile={mobile}
       label={
-        <span>
+        <span className='flex items-center'>
           <IconLanguage className={styles.iconLanguage} />
           <span>{dropdownLabel}</span>
         </span>

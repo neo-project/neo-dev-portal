@@ -8,7 +8,7 @@ Assembly: Neo.SmartContract.Framework
 
 ## Syntax
 
-```c#
+```cs
 public static extern Notification[] GetNotifications(UInt160 hash = null)
 ```
 
@@ -20,7 +20,7 @@ Return value: All notifications during the contract execution.
 
 ## Example
 
-```c#
+```cs
 public class Contract1 : SmartContract.Framework.SmartContract
 {
     public static void Main()

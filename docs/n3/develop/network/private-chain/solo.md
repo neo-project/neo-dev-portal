@@ -83,9 +83,9 @@ Here is an example:
 
 ## Starting the private chain
 
-> [!Note]
->
-> If the node has downloaded Neo test net block files, you need to delete the Data folder before running Neo-CLI, otherwise the private chain will not be able to properly generate blocks.
+:::note
+ If the node has downloaded Neo test net block files, you need to delete the Data folder before running Neo-CLI, otherwise the private chain will not be able to properly generate blocks.
+:::
 
 To start the private chain, enter the neo-cli directory and run neo-cli.exe, or run the command line and enter  `dotnet neo-cli.dll`. The private chain is set up successfully when it goes as shown below:
 
@@ -160,9 +160,9 @@ In the genesis block of the Neo network, 100 million NEO and 30 million GAS are 
 
 8. Open the wallet `consensus.json` again and transfer NEO and GAS to the new created wallet with the `send` command. For example, `send neo NWu2gb7PzhZb4ci9LvW4gBYAQFMGb1s1o7 100000000`, `send gas NWu2gb7PzhZb4ci9LvW4gBYAQFMGb1s1o7 10000000`.
 
-   > [!Note]
-   >
-   > The wallet that sends tokens should have enough GAS as a few fee (usually no more than 0.02 GAS) will be charged at the time of transfer.
+:::note
+The wallet that sends tokens should have enough GAS as a few fee (usually no more than 0.02 GAS) will be charged at the time of transfer.
+:::
 
    For more Neo-CLI commands refer to [CLI command reference](../../../node/cli/cli.md).
 
