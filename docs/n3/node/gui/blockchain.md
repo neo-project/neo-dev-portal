@@ -47,7 +47,7 @@ You can view the following information by switching tabs in this page:
 - **Transaction**: Displays the basic information of the transaction, such as the block, size, time stamp, as well as the transaction transfer record and the witness of the transaction.
 - **Notifications**: Displays the execution log of the smart contract in the transaction, including information such as whether the NEP-17 transfer was successful.
 
-For information about the basic concept of transactions refer to [Transaction](../../basic/concept/transaction.md).
+For information about the basic concept of transactions refer to [Transaction](../../foundation/Transactions.md).
 
 ## Assets
 

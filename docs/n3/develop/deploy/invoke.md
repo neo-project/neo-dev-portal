@@ -103,7 +103,7 @@ The key statement is `Contract.Call(scriptHash, method, flags, params)`, where:
 
 - `scriptHash` is the script hash of the contract invoked. It is ByteArray type and little endian.
 - `method` is the method of the contract invoked, such as  `name`, `balanceOf`, or `transfer`. String type.
-- `flags` defines special behaviors allowed when invoking smart contracts. See [CallFlags Enumerator](https://docs.neo.org/docs/zh-cn/reference/scapi/framework/services/CallFlags.html#%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E) for details.
+- `flags` defines special behaviors allowed when invoking smart contracts. See [CallFlags Enumerator](../../reference/scapi/framework/services/CallFlags.md) for details.
 - `params` is the parameter list of the method of the invoked contract. Array type.
 
 ### Invocation permission
