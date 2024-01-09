@@ -46,7 +46,7 @@ The system fee depends on the transaction's script, i.e., its size, number and t
 
 ![](images/transaction/system_fee.png)
 
-where *OpcodeSet* is opcode set, *OpcodePrice<sub>i</sub>* is the cost of opcode i, *n<sub>i</sub>* is the execution times of instruction i in the contract script. For each opcode fee refer to [Fees for Instructions](../../reference/fees.md#fees-for-instructions).
+where *OpcodeSet* is opcode set, *OpcodePrice<sub>i</sub>* is the cost of opcode i, *n<sub>i</sub>* is the execution times of instruction i in the contract script. For each opcode fee refer to [Fees for Instructions](../Advances/Neo VM instructions.md).
 
 ### netfee
 
@@ -88,7 +88,7 @@ By repeating this step, the invocation script can push multiple signatures for t
 
 #### Verification Script
 
-Verification script, commonly known as address script, includes normal address script and multi-signature address script. The address script can be directly obtained from the wallet account. For information about the construction refer to [Wallets](wallets.md#address).
+Verification script, commonly known as address script, includes normal address script and multi-signature address script. The address script can be directly obtained from the wallet account. For information about the construction refer to [Wallets](Wallets.md).
 
 It can also be used as a custom authentication contract script.
 

@@ -2,7 +2,7 @@
 
 Each NEO-CLI node provides an API interface for obtaining blockchain data from it, making it easy to develop blockchain applications. The interface is provided via [JSON-RPC](http://wiki.geekdream.com/Specification/json-rpc_2.0.html), and the underlying protocol uses HTTP/HTTPS for communication. 
 
-To start a node that provides an RPC service, you must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases). Refer to [Installing plugins](../../../node/cli/config.html#installing-plugins) for instructions. No need to add an argument when starting Neo-CLI.
+To start a node that provides an RPC service, you must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases). Refer to [Installing plugins](../../../node/cli/config#installing-plugins) for instructions. No need to add an argument when starting Neo-CLI.
 
 :::note
 
@@ -116,6 +116,7 @@ You can modify the port in config.json in the RpcServer folder.
 
 For RPC API, all the return values related to the amount such as fees, NEP-17 asset balance, wallet balance, transfer amount, etc. are unsigned integer, which are automatically converted according to the asset decimal when requested by [RpcClient](https://github.com/neo-project/neo-modules/tree/master/src/RpcClient) (C# light node SDK). If you write the request by yourselves, you need to convert the amount manually. For example, if the return value is 1234560 and the asset decimal is 8, the  actual amount is 0.0123456.
 :::
+
 ## GET request example
 
 The format of a typical JSON-RPC GET request is as follows:
