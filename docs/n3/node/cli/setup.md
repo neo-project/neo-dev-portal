@@ -33,8 +33,8 @@ The following table lists the minimum and recommended hardware requirements for 
   **CentOS:**
 
   ```
-  sudo wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-  sudo yum -y install epel-release-latest-7.noarch.rpm
+  sudo wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+  sudo yum -y install epel-release-latest-9.noarch.rpm
   sudo yum  -y install leveldb-devel libunwind-devel libsqlite3x-devel sqlite3*
   ```
 
