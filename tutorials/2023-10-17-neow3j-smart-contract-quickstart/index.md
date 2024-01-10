@@ -1,4 +1,5 @@
 ---
+slug: neow3j-devpack-quickstart
 title: 'neow3j - Java Smart Contract Quickstart'
 description: "In this quickstart guide, you will set up a smart contract project and get introduced to all tools necessary for contract development in Java."
 author: AxLabs
@@ -11,7 +12,7 @@ sidebar: true
 
 <div align="center" style={{ padding: '0% 25% 0% 25%' }}>
   <img src="/tooling/neow3j.png" alt="neow3j" width="75%" style={{ padding: '0% 0% 5% 0%' }}/> 
-  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.21.1</small></sub></h1> 
+  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.21.2</small></sub></h1> 
 </div>
 
 ## 1. Introduction

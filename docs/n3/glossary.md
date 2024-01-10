@@ -39,7 +39,7 @@ The script hash is generated from the smart contract script with the RIPEMD-160 
 
 #### Opcode
 
-Opcodes are similar to instructions in assembly language. For all OpCode, refer to [OpCode source](https://github.com/neo-project/neo-vm/blob/master/src/neo-vm/OpCode.cs).
+Opcodes are similar to instructions in assembly language. For all OpCode, refer to [OpCode source](https://github.com/neo-project/neo/blob/master/src/Neo.VM/OpCode.cs).
 
 #### Cryptographic private key
 
@@ -55,7 +55,7 @@ The NEP-17 proposal outlines a token standard for the Neo blockchain that will p
 
 #### SysCall
 
-The system call is a special operation code, through which you can call the interoperable service layer interface. By calling the interoperable service layer interface, NeoVM can access data such as block, transaction , contract, and asset information that are required for running smart contracts. For more information refer to the files in  [Neo smart contract module](https://github.com/neo-project/neo/tree/master/src/neo/SmartContract) starting with  `ApplicationEngine.` , such as  `ApplicationEngine.Contract.cs`, `ApplicationEngine.Blockchain.cs`.
+The system call is a special operation code, through which you can call the interoperable service layer interface. By calling the interoperable service layer interface, NeoVM can access data such as block, transaction , contract, and asset information that are required for running smart contracts. For more information refer to the files in  [Neo smart contract module](https://github.com/neo-project/neo/tree/master/src/Neo/SmartContract) starting with  `ApplicationEngine.` , such as  `ApplicationEngine.Contract.cs`, `ApplicationEngine.Blockchain.cs`.
 
 #### Dynamic Call
 
@@ -63,7 +63,7 @@ A special system call that invokes another contract within a contract. It can be
 
 #### Storage
 
-Each smart contract deployed on the Neo blockchain has a private storage area for storing application data. When creating a smart contract or transaction to use this contract, the contract code needs to read and write its storage. Each contract can declare a storage area. For more information refer to [Storage](../reference/scapi/framework/services/storage).
+Each smart contract deployed on the Neo blockchain has a private storage area for storing application data. When creating a smart contract or transaction to use this contract, the contract code needs to read and write its storage. Each contract can declare a storage area. For more information refer to [Storage](reference/scapi/framework/services/Storage.md).
 
 #### NEF
 

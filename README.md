@@ -18,7 +18,7 @@ Neo Developer Portal is built using [Docusaurus](https://docusaurus.io/) v2.
     1. Neo developer portal team will review your PR
     2. Acceptable PRs will be approved and merged into `dev` branch
 5. Release
-    1. Neo developer portal team will periodically merge `dev` into `main` branch and it will automatically deploy to [docs.neo.org](http://docs.neo.org) 
+    1. Neo developer portal team will periodically merge `dev` into `main` branch and it will automatically deploy to [developers.neo.org](https://developers.neo.org/docs) 
     2. View history of releases on Github
 
 

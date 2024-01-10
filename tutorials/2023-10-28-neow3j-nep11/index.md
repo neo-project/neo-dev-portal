@@ -1,4 +1,5 @@
 ---
+slug: neow3j-nep11
 title: 'neow3j - Implementing a NEP-11 (NFT) Smart Contract in Java'
 description: "This tutorial describes an example implementation of a NEP-11 smart contract developed in Java using the neow3j library."
 author: AxLabs
@@ -11,7 +12,7 @@ sidebar: true
 
 <div align="center" style={{ padding: '0% 25% 0% 25%' }}>
   <img src="/tooling/neow3j.png" alt="neow3j" width="75%" style={{ padding: '0% 0% 5% 0%' }}/>
-  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.21.1</small></sub></h1>
+  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.21.2</small></sub></h1>
 </div>
 
 Neow3j is a development toolkit that provides easy and reliable tools to build Neo dApps and Smart Contracts using the

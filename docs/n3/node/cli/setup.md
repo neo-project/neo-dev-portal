@@ -13,7 +13,7 @@ The following table lists the minimum and recommended hardware requirements for 
 
 |           | Minimum                                              | Recommended                                          |
 | --------- | ---------------------------------------------------- | ---------------------------------------------------- |
-| System    | Windows 10<br/>Ubuntu 16.04/18.04<br/>CentOS 7.4/7.6 | Windows 10<br/>Ubuntu 16.04/18.04<br/>CentOS 7.4/7.6 |
+| System    | Windows 10/11<br/>Ubuntu 16.04/18.04/20.04<br/>CentOS 7.4/7.6/7.7 | Windows 10/11<br/>Ubuntu 16.04/18.04/20.04<br/>CentOS 7.4/7.6/7.7 |
 | CPU       | Dual core                                            | Quad core                                            |
 | Memory    | 8G                                                   | 16G                                                  |
 | Hard Disk | 50G SSD hard drive                                   | 100G SSD hard drive                                  |
@@ -33,8 +33,8 @@ The following table lists the minimum and recommended hardware requirements for 
   **CentOS:**
 
   ```
-  sudo wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-  sudo yum -y install epel-release-latest-7.noarch.rpm
+  sudo wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+  sudo yum -y install epel-release-latest-9.noarch.rpm
   sudo yum  -y install leveldb-devel libunwind-devel libsqlite3x-devel sqlite3*
   ```
 
@@ -42,7 +42,8 @@ The following table lists the minimum and recommended hardware requirements for 
 
   ```
   "Storage": {
-     "Engine": "RocksDBStore"
+     "Engine": "RocksDBStore",
+     "Path": "Data_RocksDB_{0}"
    },
   ```
 
@@ -72,7 +73,7 @@ You can download and compile the Neo-CLI source directly from Github.
 
 ### Publishing using Visual Studio (Windows)
 
-If you has Visual Studio 2019 installed on your Windows system, this way is recommended:
+If you has Visual Studio 2019 or later version installed on your Windows system, this way is recommended:
 
 1. In Visual Studio, open the project file neo-node.sln.
 2. In the Solution panel, right click `neo-cli` and select `Publish`.
