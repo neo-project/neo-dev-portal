@@ -16,7 +16,7 @@ From the programming language perspective, only when a smart contract will be us
 
 Smart contracts are deployed by invoking APIs. Usually we use Neo-CLI or Neo-GUI to deploy smart contracts. 
 
-Deploying and invoking smart contracts cost fees. For more information, refer to [Fees](../../reference/fees.md).
+Deploying and invoking smart contracts cost fees. For more information, refer to [Fees](../../fees.md).
 
 ## Before you start
 Make sure you have done the following:

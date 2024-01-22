@@ -6,5 +6,5 @@ Neo.SmartContract.Framework mainly provides the following API methods：
 
 - A series of native contract methods that can be invoked in the smart contract，see [Neo.SmartContract.Framework.Native](https://developers.neo.org/docs/n3/reference/scapi/framework/native). 
 - Interoperability services layer methods, see [Neo.SmartContract.Framework.Service](https://developers.neo.org/docs/n3/reference/scapi/framework/services).
-- Methods provided by the framework，see [Neo.SmartContract.Framework](https://developers.neo.org/docs/n3/reference/scapi/framework/framework).
+- Methods provided by the framework，see [Neo.SmartContract.Framework](https://developers.neo.org/docs/n3/reference/scapi/framework).
 
