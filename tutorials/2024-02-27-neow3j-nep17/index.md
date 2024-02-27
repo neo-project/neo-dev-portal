@@ -6,7 +6,7 @@ author: AxLabs
 tags: ["NEP-17", "JAVA", "NEOW3J"]
 skill: beginner
 image: "./assets/neow3j-padded.png"
-source: "https://github.com/neow3j/neow3j-examples-java/blob/7000d804257f8d573ac8cc369aa2a3abb303a751/src/main/java/io/neow3j/examples/contractdevelopment/contracts/FungibleToken.java"
+source: "https://github.com/neow3j/neow3j-examples-java/blob/7d462fab0dc27f7472b0cacf4beba6c08a7682e8/src/main/java/io/neow3j/examples/contractdevelopment/contracts/FungibleToken.java"
 sidebar: true
 ---
 
@@ -39,6 +39,7 @@ package io.neow3j.examples.contractdevelopment.contracts;
 import io.neow3j.devpack.ByteString;
 import io.neow3j.devpack.Contract;
 import io.neow3j.devpack.Hash160;
+import io.neow3j.devpack.Helper;
 import io.neow3j.devpack.Runtime;
 import io.neow3j.devpack.Storage;
 import io.neow3j.devpack.StorageContext;
@@ -75,13 +76,15 @@ public class FungibleToken {
         if (!update) {
             StorageContext ctx = Storage.getStorageContext();
             // Set the contract owner.
-            Storage.put(ctx, contractOwnerKey, (Hash160) data);
+            Hash160 initialOwner = (Hash160) data;
+            if (!Hash160.isValid(initialOwner)) Helper.abort("Invalid deployment parameter");
+            Storage.put(ctx, contractOwnerKey, initialOwner);
             // Initialize the supply.
             int initialSupply = 200_000_000;
             Storage.put(ctx, totalSupplyKey, initialSupply);
             // Allocate all tokens to the contract owner.
-            new StorageMap(ctx, assetMapPrefix)
-                    .put(contractOwner(ctx).toByteArray(), initialSupply);
+            new StorageMap(ctx, assetMapPrefix).put(initialOwner, initialSupply);
+            onTransfer.fire(null, initialOwner, initialSupply);
         }
     }
 
@@ -205,6 +208,7 @@ package io.neow3j.examples.contractdevelopment.contracts;
 import io.neow3j.devpack.ByteString;
 import io.neow3j.devpack.Contract;
 import io.neow3j.devpack.Hash160;
+import io.neow3j.devpack.Helper;
 import io.neow3j.devpack.Runtime;
 import io.neow3j.devpack.Storage;
 import io.neow3j.devpack.StorageContext;
@@ -295,17 +299,19 @@ the `initialSupply` is set to 200'000'000 and it is allocated to the smart contr
 
 ```java
 @OnDeployment
-public static void deploy(Object data, boolean update) throws Exception {
+public static void deploy(Object data, boolean update) {
     if (!update) {
         StorageContext ctx = Storage.getStorageContext();
         // Set the contract owner.
-        Storage.put(ctx, contractOwnerKey, (Hash160) data);
+        Hash160 initialOwner = (Hash160) data;
+        if (!Hash160.isValid(initialOwner)) Helper.abort("Invalid deployment parameter");
+        Storage.put(ctx, contractOwnerKey, initialOwner);
         // Initialize the supply.
         int initialSupply = 200_000_000;
         Storage.put(ctx, totalSupplyKey, initialSupply);
         // Allocate all tokens to the contract owner.
-        new StorageMap(ctx, assetMapPrefix)
-                .put(contractOwner(ctx).toByteArray(), initialSupply);
+        new StorageMap(ctx, assetMapPrefix).put(initialOwner, initialSupply);
+        onTransfer.fire(null, initialOwner, initialSupply);
     }
 }
 ```

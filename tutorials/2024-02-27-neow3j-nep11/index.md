@@ -6,7 +6,7 @@ author: AxLabs
 tags: ["NEP-11", "JAVA", "NEOW3J"]
 skill: beginner
 image: "./assets/neow3j-padded.png"
-source: https://github.com/neow3j/neow3j-examples-java/blob/7000d804257f8d573ac8cc369aa2a3abb303a751/src/main/java/io/neow3j/examples/contractdevelopment/contracts/NonFungibleToken.java
+source: "https://github.com/neow3j/neow3j-examples-java/blob/7d462fab0dc27f7472b0cacf4beba6c08a7682e8/src/main/java/io/neow3j/examples/contractdevelopment/contracts/NonFungibleToken.java"
 sidebar: true
 ---
 
@@ -243,9 +243,6 @@ public class NonFungibleToken {
     // endregion optional NEP-11 methods
     // region events
 
-    @DisplayName("Mint")
-    private static Event3Args<Hash160, ByteString, Map<String, String>> onMint;
-
     @DisplayName("Transfer")
     private static Event4Args<Hash160, Hash160, Integer, ByteString> onTransfer;
 
@@ -290,7 +287,7 @@ public class NonFungibleToken {
 
         increaseBalanceByOne(ctx, to);
         incrementTotalSupplyByOne(ctx);
-        onMint.fire(to, tokenId, properties);
+        onTransfer.fire(null, to, 1, tokenId);
     }
 
     public static void burn(ByteString tokenId) throws Exception {
@@ -666,13 +663,9 @@ public static Map<String, String> properties(ByteString tokenId) throws Exceptio
 
 The NEP-11 standard requires an event `Transfer` that contains the values `from`, `to`, `amount`, and `tokenId`. For
 this, the class `Event4Args` can be used with the annotation `@DisplayName` to set the event's name that will be shown
-in the manifest and notifications when it has been fired. The event `Mint` is an additional custom event that is fired
-whenever a new NFT is minted.
+in the manifest and notifications when it has been fired.
 
 ```java
-@DisplayName("Mint")
-private static Event3Args<Hash160, ByteString, Map<String, String>> onMint;
-
 @DisplayName("Transfer")
 private static Event4Args<Hash160, Hash160, Integer, ByteString> onTransfer;
 ```
@@ -691,7 +684,7 @@ The method `contractOwner()` simply returns the script hash of the contract owne
 
 The method `mint()` can be invoked by the contract owner in order to mint new NFT tokens. It stores the tokenId in the
 `registryMap`, its properties in the `propertiesMap`, and its owner in the `ownerMap`. Further, it increases the owner's
-balance, and the total supply by 1, before it fires the `Mint` event.
+balance, and the total supply by 1, before it fires the `Transfer` event.
 
 The method `burn()` can be invoked by the owner of a token. It deletes all information about the token and updates the
 balance and total supply accordingly. If the intent of burning a token need not require the storage to be freed, the
@@ -736,7 +729,7 @@ public static void mint(Hash160 to, ByteString tokenId, Map<String, String> prop
 
     increaseBalanceByOne(ctx, to);
     incrementTotalSupplyByOne(ctx);
-    onMint.fire(to, tokenId, properties);
+    onTransfer.fire(null, to, 1, tokenId);
 }
 
 public static void burn(ByteString tokenId) throws Exception {
