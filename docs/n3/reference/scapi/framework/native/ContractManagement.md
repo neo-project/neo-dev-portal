@@ -20,11 +20,13 @@ public class ContractManagement
 
 ## Methods
 
-| Name                                                         | Description                                        |
-| ------------------------------------------------------------ | -------------------------------------------------- |
-| GetMinimumDeploymentFee()                                    | Gets the minimum fee of contract deployment        |
-| [GetContract(UInt160 hash)](ContractManagement/GetContract.md) | Gets the contract based on the given contract hash |
-| [Deploy(byte[] nefFile, string manifest)](ContractManagement/Deploy.md) | Deploys the contract                               |
-| [Update(byte[] nefFile, string manifest)](ContractManagement/Update.md) | Updates the contract                               |
-| [Destroy()](ContractManagement/Destroy.md)                   | Destroys the contract                              |
+| Name                                                         | Description                                          |
+| ------------------------------------------------------------ | ---------------------------------------------------- |
+| [GetMinimumDeploymentFee()](ContractManagement/GetMinimumDeploymentFee) | Gets the minimum fee of contract deployment          |
+| [GetContract(UInt160 hash)](ContractManagement/GetContract.md) | Gets the contract based on the given contract hash   |
+| [GetContractById(int id)](ContractManagement/GetContractById.md) | Maps the specified ID to the deployed contract       |
+| [GetContractHashes()](ContractManagement/GetContractHashes.md) | Gets the hashes of all non-native deployed contracts |
+| [Deploy(byte[] nefFile, string manifest)](ContractManagement/Deploy.md) | Deploys the contract                                 |
+| [Update(byte[] nefFile, string manifest)](ContractManagement/Update.md) | Updates the contract                                 |
+| [Destroy()](ContractManagement/Destroy.md)                   | Destroys the contract                                |
 
