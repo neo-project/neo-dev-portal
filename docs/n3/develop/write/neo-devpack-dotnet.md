@@ -59,6 +59,27 @@ Create a new project, Neo.SmartContract.Template
 
 ## Neo.Compiler.CSharp
 
+Neo.Compiler.CSharp (nccs) is the Neo smart contract compiler that compiles the C# language into NeoVM executable OpCodes.
+
+In the project file of the contract project template, you'll see this code, 
+
+
+```xml
+<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Message Text="Start NeoContract converter, Source File: $(ProjectPath)" Importance="high"></Message>
+    <Exec Command="nccs $(BaseNameArgument) $(NullableArgument) $(CheckedArgument) $(DebugArgument) &quot;$(ProjectPath)&quot;" />
+</Target>
+```
+
+whose purpose is to call `nccs` for a secondary compilation after a successful C# compilation, compiling it to a `nef` file and outputting the `manifest.json` file.
+
+Among them, nef is the NEO Executable Format, which mainly contains the executable code of the contract, the specific structure can refer to [GitHub](https://github.com/neo-project/neo/blob/master/src/Neo/SmartContract/NefFile.cs).
+
+manifest.json represents the manifest of a smart contract.
+When a smart contract is deployed, it must explicitly declare the features and permissions it will use.
+
+When it is running, it will be limited by its declared list of features and permissions, and cannot make any behavior beyond the scope of the list.
+
 ### Install Compiler
 
 ```
@@ -85,7 +106,7 @@ dotnet tool update --global Neo.Compiler.CSharp
 
 ### Compiling contract file (Terminal)
 
-Run the following command to build your contract：
+Go to the project path, run the following command to build your contract：
 
 ```
 dotnet build
