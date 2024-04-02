@@ -62,6 +62,26 @@ Create a new project, Neo.SmartContract.Template
 ### Install Compiler
 
 ```
+dotnet tool install --global Neo.Compiler.CSharp
+```
+
+### List all dotnet tools
+
+```
+dotnet tool list
+```
+
+### Uninstall Compiler
+
+```
+dotnet tool uninstall --global Neo.Compiler.CSharp
+```
+
+### Update Compiler
+
+```
+dotnet tool update --global Neo.Compiler.CSharp
+```
 
 ### Compiling contract file (Terminal)
 
