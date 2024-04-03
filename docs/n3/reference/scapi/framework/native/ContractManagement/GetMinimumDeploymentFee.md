@@ -1,6 +1,6 @@
 # ContractManagement.GetMinimumDeploymentFee Method
 
-Get the minimum GAS fee for deploying a contract.
+Gets the minimum GAS fee required for deploying a contract.
 
 Namespace: [Neo.SmartContract.Framework.Native](../../native.md)
 
