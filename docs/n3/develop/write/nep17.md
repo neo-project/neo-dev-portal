@@ -191,20 +191,15 @@ The name method is moved to the manifest file, and you need to add `[DisplayName
 
 ```cs
 [DisplayName("Token Name")]
-[ManifestExtra("Author", "Neo")]
-[ManifestExtra("Email", "dev@neo.org")]
-[ManifestExtra("Description", "This is a NEP17 example")]
+[ContractAuthor("core-dev", "dev@neo.org")]
+[ContractEmail("dev@neo.org")]
+[ContractDescription("This is a NEP17 example")]
 [SupportedStandards("NEP-17")]
-public partial class NEP17 : SmartContract
+public class NEP17 : Nep17Token
 {
-    [DisplayName("Transfer")]
-    public static event Action<UInt160, UInt160, BigInteger> OnTransfer;
+    public override string Symbol { [Safe] get => "EXAMPLE"; }
 
-    public static string Symbol() => "TokenSymbol";
-
-    public static ulong Decimals() => 8;
-    
-    //……
+    public override byte Decimals { [Safe] get => 8; }
 }
 ```
 

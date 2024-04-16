@@ -5,18 +5,19 @@ In this tutorial, you will learn the basics of developing a smart contract.
 Let's have a look at our basic hello world contract.
 
 ```cs
-using Neo;
-using Neo.SmartContract;
 using Neo.SmartContract.Framework;
+using Neo.SmartContract.Framework.Attributes;
 using Neo.SmartContract.Framework.Native;
 using Neo.SmartContract.Framework.Services;
 using System;
+using System.ComponentModel;
 
 namespace Helloworld
 {
-    [ManifestExtra("Author", "Neo")]
-    [ManifestExtra("Email", "dev@neo.org")]
-    [ManifestExtra("Description", "This is a contract example")]
+    [DisplayName("MyContract")]
+    [ContractAuthor("core-dev", "dev@neo.org")]
+    [ContractVersion("0.0.1")]
+    [ContractDescription("This is a contract example")]
     public class Contract1 : SmartContract
     {
         //TODO: Replace it with your own address.

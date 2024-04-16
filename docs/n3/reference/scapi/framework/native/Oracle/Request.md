@@ -26,9 +26,9 @@ Parameters：
 namespace demo
 {
     [DisplayName("Oracle Demo")]
-    [ManifestExtra("Author", "Neo")]
-    [ManifestExtra("Email", "dev@neo.org")]
-    [ManifestExtra("Description", "This is a Oracle contract example")]
+    [ContractAuthor("core-dev", "dev@neo.org")]
+    [ContractEmail("dev@neo.org")]
+    [ContractDescription("This is a Oracle contract example")]
     public class OracleDemo: SmartContract
     {
         static readonly string PreResponseData = "ResponseData";

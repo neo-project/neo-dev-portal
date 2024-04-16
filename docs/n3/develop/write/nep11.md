@@ -37,7 +37,7 @@ public class MyTokenState : Nep11TokenState
 After inheriting `Nep11Token<Nep11TokenState>` you need to rewrite the Symbol method, as follows:
 
 ```cs
-public override string Symbol() => "MNFT";
+public override string Symbol { [Safe] get => "MNFT"; }
 ```
 
 ## Distribution Method
@@ -80,7 +80,7 @@ namespace Contract1
 
         private static bool IsOwner() => Runtime.CheckWitness(Owner);
 
-        public override string Symbol() => "MNFT";
+        public override string Symbol { [Safe] get => "MNFT"; }
 
         public static bool Airdrop(UInt160 to, string name)
         {
