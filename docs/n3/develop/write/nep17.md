@@ -128,7 +128,7 @@ A token contract which creates new tokens MUST trigger a `Transfer` event with t
 
 A token contract which burns tokens MUST trigger a `Transfer` event with the `to` address set to `null` when tokens are burned.
 
-NEP17 methods are as follows. For the complete code refer to [NEP-17 contract code](https://github.com/neo-project/examples/tree/master/csharp/NEP17).
+NEP17 methods are as follows. For the complete code refer to [NEP-17 contract code](https://github.com/neo-project/neo-devpack-dotnet/tree/master/examples/Example.SmartContract.NEP17).
 
 ```cs
 using Neo;
