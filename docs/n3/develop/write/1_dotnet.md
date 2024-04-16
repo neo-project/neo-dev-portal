@@ -1,12 +1,24 @@
-# Neo Devpack Dotnet
+# Using Neo Devpack Dotnet
 
-Designed for developers, Neo Devpack Dotnet is a comprehensive toolkit for creating Neo contracts using .net.  It offers convenient contract project templates and a compiler. 
+Designed for developers, Neo Devpack Dotnet is a comprehensive toolkit for creating Neo contracts using .net. It offers convenient contract project templates and a compiler. 
 
-Note:
+When developing and deploying a contract, the typical process is the following: 
 
-Ensure that you install project templates and compilers with matching or the most recent versions when setting them up.
+- Installing a project template
+- Creating a project using templates
+- Writing a contract
+- Compiling the contract
+- Deploying and testing it
 
-If it's been a long while since you last updated your project templates and compiler, make sure to update both when using them again.
+This document covers the usage of project templates and the compiler. For further details on writing and deploying your contract, refer to the subsequent sections.
+
+:::note
+
+- Ensure that you install project templates and compilers with matching or the most recent versions when setting them up.
+
+- If it's been a long while since you last updated your project templates and compiler, make sure to update both when using them again.
+
+:::
 
 ## Neo.SmartContract.Template
 
@@ -36,7 +48,7 @@ dotnet new uninstall Neo.SmartContract.Template
 dotnet new update Neo.SmartContract.Template
 ```
 
-### Creating a project using templates (Terminal)
+### Create a project using templates with Terminal
 
 ```
 dotnet new neocontract
@@ -44,9 +56,9 @@ dotnet new neocontract
 
 The project name defaults to the name of the current directory, you can also specify the project name with `-n, --name <name>`, e.g. `dotnet new neocontract -n MyFirstContract`.
 
-### Creating a project using templates (Visual Studio)
+### Create a project using templates with Visual Studio
 
-Create a new project, Neo.SmartContract.Template
+In the Visual Studio interface, create a new project, Neo.SmartContract.Template, as shown in the following screenshots:
 
 ![](../assets/neo-devpack-dotnet-1.png)
 
@@ -100,9 +112,9 @@ dotnet tool uninstall --global Neo.Compiler.CSharp
 dotnet tool update --global Neo.Compiler.CSharp
 ```
 
-### Compiling the contract file with Terminal
+### Compile the contract file with Terminal
 
-Go to the project path, run the following command to build your contract：
+In the Terminal interface, go to the project path and run the following command to build your contract：
 
 ```
 dotnet build
@@ -116,20 +128,19 @@ nccs
 
 Related contract files are outputted under `bin\sc` path in the contract project directory.
 
-### Compiling the contract file with Visual Studio
+### Compile the contract file with Visual Studio
 
-Build -> Build Solution (Ctrl + Shift + B)
+In the Visual Studio interface, click Build -> Build Solution (Ctrl + Shift + B).
 
 ## Versioning tips
 
-After successfully creating the project, open it and check if the version of the NuGet package `Neo.SmartContract.Framework` matches the version of `Neo.Compiler.CSharp`. If the compiler is up-to-date but Neo.SmartContract.Framework is not, please manually update it to ensure the proper compilation of the project.
+- After successfully creating the project, open it and check if the version of the NuGet package `Neo.SmartContract.Framework` matches the version of `Neo.Compiler.CSharp`. If the compiler is up-to-date but Neo.SmartContract.Framework is not, please manually update it to ensure the proper compilation of the project.
 
-If you're working on an older contract project, make sure to compile it using the appropriate compiler version.
+- If you're working on an older contract project, make sure to compile it using the appropriate compiler version.
 
-If you are updating a contract project from a long time ago, please update the NuGet package `Neo.SmartContract.Framework` and the compiler to the latest version, and also slightly modify the contract code.
+- If you are updating a contract project that is quite old, ensure that you have upgraded both the NuGet package `Neo.SmartContract.Framework` and the compiler to the latest versions, and also make necessary modifications to the contract code.
 
-For the most current way of writing contract code, see this document or [GitHub](https://github.com/neo-project/neo-devpack-dotnet/tree/master/examples). 
-Among other things, the example contracts in GitHub may contain code for the upcoming version (unreleased) of the template and compiler.
+- For the most current way of writing contract code, see this document or [GitHub](https://github.com/neo-project/neo-devpack-dotnet/tree/master/examples). Among other things, the example contracts in GitHub may contain code for the upcoming version (unreleased) of the template and compiler.
 
 ## References 
 
