@@ -28,21 +28,21 @@ sidebar_label: '合约费用'
 | 执行费用（GAS） | 操作码（OpCode）指令名称                                     |
 | --------------- | ------------------------------------------------------------ |
 | 0.00032768      | CALLT                                                        |
-| 0.00008192      | APPEND, REVERSEITEMS, SETITEM, VALUES                        |
+| 0.00008192      | VALUES, APPEND, SETITEM, REVERSEITEMS, CONVERT               |
 | 0.00004096      | PUSHDATA4                                                    |
-| 0.00002048      | CAT, CONVERT, LEFT, MEMCPY, RIGHT, SUBSTR                    |
-| 0.00000512      | CALL, CALL_L, CALLA, NEWARRAY, NEWARRAY_T, NEWSTRUCT, PACK, PUSHDATA2, THROW, UNPACK |
+| 0.00002048      | MEMCPY, CAT, SUBSTR, LEFT, RIGHT, MODPOW, PACKMAP, PACKSTRUCT, PACK, UNPACK |
+| 0.00000512      | PUSHDATA2, CALL, CALL_L, CALLA, THROW, NEWARRAY, NEWARRAY_T, NEWSTRUCT |
 | 0.00000256      | NEWBUFFER                                                    |
-| 0.00000064      | HASKEY, INITSLOT, PICKITEM                                   |
-| 0.00000032      | EQUAL, NOTEQUAL                                              |
-| 0.00000016      | CLEAR, CLEARITEMS, INITSSLOT, KEYS, NEWARRAY0, NEWSTRUCT0, POPITEM, REMOVE, REVERSEN, ROLL, XDROP |
-| 0.00000008      | ADD, AND, BOOLAND, BOOLOR, DIV, GE, GT, LE, LT, MAX, MIN, MOD, MUL, NEWMAP, NUMEQUAL, NUMNOTEQUAL, OR, PUSHDATA1, SHL, SHR, SUB, WITHIN, XOR |
-| 0.00000004      | ABS, DEC, ENDFINALLY, ENDTRY, ENDTRY_L, INC, INVERT, NEGATE, NOT, NZ, PUSHA, PUSHINT128, PUSHINT256, SIGN, SIZE, TRY, TRY_L |
-| 0.00000002      | DEPTH, DROP, DUP, ISNULL, ISTYPE, JMP, JMP_L, JMPEQ, JMPEQ_L, JMPGE, JMPGE_L, JMPGT, JMPGT_L, JMPIF, JMPIF_L, JMPIFNOT, JMPIFNOT_L, JMPLE, JMPLE_L, JMPLT, JMPLT_L, JMPNE, JMPNE_L, LDARG, LDARG0, LDARG1, LDARG2, LDARG3, LDARG4, LDARG5, LDARG6, LDLOC, LDLOC0, LDLOC1, LDLOC2, LDLOC3, LDLOC4, LDLOC5, LDLOC6, LDSFLD, LDSFLD0, LDSFLD1, LDSFLD2, LDSFLD3, LDSFLD4, LDSFLD5, LDSFLD6, NIP, OVER, PICK, REVERSE3, REVERSE4, ROT, STARG, STARG0, STARG1, STARG2, STARG3, STARG4, STARG5, STARG6, STLOC, STLOC0, STLOC1, STLOC2, STLOC3, STLOC4, STLOC5, STLOC6, STSFLD, STSFLD0, STSFLD1, STSFLD2, STSFLD3, STSFLD4, STSFLD5, STSFLD6, SWAP, TUCK |
-| 0.00000001      | ASSERT, NOP, PUSH0, PUSH1, PUSH10, PUSH11, PUSH12, PUSH13, PUSH14, PUSH15, PUSH16, PUSH2, PUSH3, PUSH4, PUSH5, PUSH6, PUSH7, PUSH8, PUSH9, PUSHINT16, PUSHINT32, PUSHINT64, PUSHINT8, PUSHM1, PUSHNULL, PUSHT, PUSHF |
-| 0               | ABORT,RET,SYSCALL                                            |
+| 0.00000064      | INITSLOT, POW, SQRT, HASKEY, PICKITEM                        |
+| 0.00000032      | EQUAL, NOTEQUAL, MODMUL                                      |
+| 0.00000016      | XDROP, CLEAR, ROLL, REVERSEN, INITSSLOT, NEWARRAY0, NEWSTRUCT0, KEYS, REMOVE, CLEARITEMS, POPITEM |
+| 0.00000008      | PUSHDATA1, AND, OR, XOR, ADD, SUB, MUL, DIV, MOD, SHL, SHR, BOOLAND, BOOLOR, NUMEQUAL, NUMNOTEQUAL, LT, LE, GT, GE, MIN, MAX, WITHIN, NEWMAP |
+| 0.00000004      | PUSHINT128, PUSHINT256, PUSHA, TRY, TRY_L, ENDTRY, ENDTRY_L, ENDFINALLY, INVERT, SIGN, ABS, NEGATE, INC, DEC, NOT, NZ, SIZE |
+| 0.00000002      | JMP, JMP_L, JMPIF, JMPIF_L, JMPIFNOT, JMPIFNOT_L, JMPEQ, JMPEQ_L, JMPNE, JMPNE_L, JMPGT, JMPGT_L, JMPGE, JMPGE_L, JMPLT, JMPLT_L, JMPLE, JMPLE_L, DEPTH, DROP, NIP, DUP, OVER, PICK, TUCK, SWAP, ROT, REVERSE3, REVERSE4, LDSFLD0, LDSFLD1, LDSFLD2, LDSFLD3, LDSFLD4, LDSFLD5, LDSFLD6, LDSFLD, STSFLD0, STSFLD1, STSFLD2, STSFLD3, STSFLD4, STSFLD5, STSFLD6, STSFLD, LDLOC0, LDLOC1, LDLOC2, LDLOC3, LDLOC4, LDLOC5, LDLOC6, LDLOC, STLOC0, STLOC1, STLOC2, STLOC3, STLOC4, STLOC5, STLOC6, STLOC, LDARG0, LDARG1, LDARG2, LDARG3, LDARG4, LDARG5, LDARG6, LDARG, STARG0, STARG1, STARG2, STARG3, STARG4, STARG5, STARG6, STARG, ISNULL, ISTYPE |
+| 0.00000001      | PUSHINT8, PUSHINT16, PUSHINT32, PUSHINT64, PUSHT, PUSHF, PUSHNULL, PUSHM1, PUSH0, PUSH1, PUSH2, PUSH3, PUSH4, PUSH5, PUSH6, PUSH7, PUSH8, PUSH9, PUSH10, PUSH11, PUSH12, PUSH13, PUSH14, PUSH15, PUSH16, NOP, ASSERT |
+| 0               | ABORT, RET, SYSCALL                                          |
 
-参考：[ApplicationEngine.OpCodePrices.cs](https://github.com/neo-project/neo/blob/master/src/neo/SmartContract/ApplicationEngine.OpCodePrices.cs)
+参考：[ApplicationEngine.OpCodePrices.cs](https://github.com/neo-project/neo/blob/master/src/Neo/SmartContract/ApplicationEngine.OpCodePrices.cs)
 
 ### 系统调用费用
 
@@ -75,15 +75,15 @@ sidebar_label: '合约费用'
 
 参考：
 
-[ApplicationEngine.Contract.cs](https://github.com/neo-project/neo/blob/master/src/neo/SmartContract/ApplicationEngine.Contract.cs)
+[ApplicationEngine.Contract.cs](https://github.com/neo-project/neo/blob/master/src/Neo/SmartContract/ApplicationEngine.Contract.cs)
 
-[ApplicationEngine.Crypto.cs](https://github.com/neo-project/neo/blob/master/src/neo/SmartContract/ApplicationEngine.Crypto.cs)
+[ApplicationEngine.Crypto.cs](https://github.com/neo-project/neo/blob/master/src/Neo/SmartContract/ApplicationEngine.Crypto.cs)
 
-[ApplicationEngine.Contract.cs](https://github.com/neo-project/neo/blob/master/src/neo/SmartContract/ApplicationEngine.Contract.cs)
+[ApplicationEngine.Contract.cs](https://github.com/neo-project/neo/blob/master/src/Neo/SmartContract/ApplicationEngine.Contract.cs)
 
-[ApplicationEngine.Iterator.cs](https://github.com/neo-project/neo/blob/master/src/neo/SmartContract/ApplicationEngine.Iterator.cs)
+[ApplicationEngine.Iterator.cs](https://github.com/neo-project/neo/blob/master/src/Neo/SmartContract/ApplicationEngine.Iterator.cs)
 
-[ApplicationEngine.Runtime.cs](https://github.com/neo-project/neo/blob/master/src/neo/SmartContract/ApplicationEngine.Runtime.cs)
+[ApplicationEngine.Runtime.cs](https://github.com/neo-project/neo/blob/master/src/Neo/SmartContract/ApplicationEngine.Runtime.cs)
 
 [ApplicationEngine.Storage.cs](https://github.com/neo-project/neo/blob/master/src/neo/SmartContract/ApplicationEngine.Storage.cs)
 
@@ -109,7 +109,7 @@ sidebar_label: '合约费用'
 
 其他未列出的原生合约方法的手续费均为 0.00032768 GAS。
 
-参考：[neo/SmartContract/Native](https://github.com/neo-project/neo/tree/master/src/neo/SmartContract/Native)
+参考： [neo/SmartContract/Native](https://github.com/neo-project/neo/tree/master/src/Neo/SmartContract/Native)
 
 ### 存储区费用
 
@@ -125,7 +125,7 @@ sidebar_label: '合约费用'
 | 非首次写入存储区，且新数据大小 > 旧数据大小 | 与上一条相同                                                 | 修改 value 为`hello neo3.0 preview5`, 共 21 字节 | 0.005 + (21-12)×0.001 = **0.014** GAS |
 | 删除 value                                  | 0                                                            | 删除 value                                       | **0** GAS                             |
 
-参考：[ApplicationEngine.Storage.cs](https://github.com/neo-project/neo/blob/master/src/neo/SmartContract/ApplicationEngine.Storage.cs)
+参考：[ApplicationEngine.Storage.cs](https://github.com/neo-project/neo/blob/master/src/Neo/SmartContract/ApplicationEngine.Storage.cs)
 
 ## 网络手续费
 
@@ -140,7 +140,7 @@ sidebar_label: '合约费用'
 
 参考：
 
-[PolicyContract.cs](https://github.com/neo-project/neo/blob/master/src/neo/SmartContract/Native/PolicyContract.cs)
+[PolicyContract.cs](https://github.com/neo-project/neo/blob/master/src/Neo/SmartContract/Native/PolicyContract.cs)
 
 [Transaction.cs#L302](https://github.com/neo-project/neo/blob/ee898bf41667cdbe3b836b3bd08c2d3199046c2e/src/neo/Network/P2P/Payloads/Transaction.cs#L302)
 
@@ -162,6 +162,6 @@ sidebar_label: '合约费用'
 
 参考：
 
-[PolicyContract.cs](https://github.com/neo-project/neo/blob/master/src/neo/SmartContract/Native/PolicyContract.cs)
+[PolicyContract.cs](https://github.com/neo-project/neo/blob/master/src/Neo/SmartContract/Native/PolicyContract.cs)
 
 [Transaction.cs#L302](https://github.com/neo-project/neo/blob/ee898bf41667cdbe3b836b3bd08c2d3199046c2e/src/neo/Network/P2P/Payloads/Transaction.cs#L302)
