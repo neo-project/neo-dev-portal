@@ -49,7 +49,7 @@
   ul, ol {
     list-style: revert;
   }
-  ul, ol {
+  ul {
     list-style-position: inside; 
   }
   ul, ol {
