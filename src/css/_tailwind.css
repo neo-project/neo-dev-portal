@@ -49,6 +49,12 @@
   ul, ol {
     list-style: revert;
   }
+ul {
+  list-style-position: inside; 
+}
+ul {
+  margin-left: 20px; 
+}
 
 }
 
