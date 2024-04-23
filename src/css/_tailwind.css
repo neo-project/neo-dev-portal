@@ -17,6 +17,7 @@
   }
 }
 
+
 @layer base {
   html {
     @apply text-secondary;
@@ -44,6 +45,11 @@
   .markdown a {
     @apply text-primary
   }
+
+  ul, ol {
+    list-style: revert;
+  }
+
 }
 
 * {
