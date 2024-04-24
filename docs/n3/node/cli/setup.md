@@ -20,52 +20,52 @@ The following table lists the minimum and recommended hardware requirements for 
 
 ## Installing Neo-CLI package
 
-1. Download the latest [Neo-CLI](https://github.com/neo-project/neo-cli/releases) package according to your operating system on Github and unzip it.
+1. Download the latest [Neo-CLI](https://github.com/neo-project/neo-cli/releases) package according to your operating system on GitHub and unzip it.
 
 2. On Linux, install the LevelDB and SQLite3 dev packages. 
 
-  **Ubuntu:**
+    **Ubuntu:**
 
-  ```
-  sudo apt-get install libleveldb-dev sqlite3 libsqlite3-dev libunwind8-dev
-  ```
+    ```
+    sudo apt-get install libleveldb-dev sqlite3 libsqlite3-dev libunwind8-dev
+    ```
+ 
+    **CentOS:**
+ 
+    ```
+    sudo wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch. rpm
+    sudo yum -y install epel-release-latest-9.noarch.rpm
+    sudo yum  -y install leveldb-devel libunwind-devel libsqlite3x-devel sqlite3*
+    ```
+ 
+    If you use RocksDB as the storage, modify config.json, as shown below：
+ 
+    ```
+    "Storage": {
+       "Engine": "RocksDBStore",
+       "Path": "Data_RocksDB_{0}"
+    },
+    ```
+ 
+    and then enter the following command on ubuntu 18.04：
+ 
+    ```
+    sudo apt-get install librocksdb-dev
+    ```
 
-  **CentOS:**
-
-  ```
-  sudo wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
-  sudo yum -y install epel-release-latest-9.noarch.rpm
-  sudo yum  -y install leveldb-devel libunwind-devel libsqlite3x-devel sqlite3*
-  ```
-
-  If you use RocksDB as the storage, modify config.json, as shown below：
-
-  ```
-  "Storage": {
-     "Engine": "RocksDBStore",
-     "Path": "Data_RocksDB_{0}"
-   },
-  ```
-
-  and then enter the following command on ubuntu 18.04：
-
-  ```
-  sudo apt-get install librocksdb-dev
-  ```
-
-  If using Windows, you can skip this step as those files are already included in the installation package.
+3. If using Windows10/11, you can skip this step as those files are already included in the installation package. Some versions of Windows Server require [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019 (x64)](https://aka.ms/vs/16/release/vc_redist.x64.exe) to be installed first.
 
 ## Publishing from Neo-CLI source code
 
-You can download and compile the Neo-CLI source directly from Github.
+You can download and compile the Neo-CLI source directly from GitHub.
 
 ### Installing required files
 
-1. Git clone Neo-CLI source code from [Github](https://github.com/neo-project/neo-node) or using the following command:
+1. Git clone Neo-CLI source code from [GitHub](https://github.com/neo-project/neo-node) or using the following command:
 
-  ```
- $ git clone https://github.com/neo-project/neo-node.git
-  ```
+    ```
+    $ git clone https://github.com/neo-project/neo-node.git
+    ```
 
 2. Download [LevelDB](https://github.com/neo-ngd/leveldb/releases) and unzip the package for later use.
 
