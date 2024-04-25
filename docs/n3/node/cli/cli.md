@@ -75,7 +75,8 @@ The commands listed in the table below requires you to open the wallet before in
 | ----------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [balanceof](#balanceof) | `<tokenHash>` `<address>`                                      | Queries the balance of specified token at the specified address |
 | [decimals](#decimals)   | `<tokenHash>`                                                 | Queries the precision of specified token                     |
-| [name](#name)           | `<tokenHash>`                                                 | Queries the specified token name                             |
+| [name](#name)           | `<tokenHash>`                                                 | Queries the name of specified token                             |
+| [totalsupply](#totalsupply)           | `<tokenHash>`                                                 | Queries the  total supply of specified token                             |
 | [transfer](#transfer)   | `<tokenHash>` `<to>` `<amount>`  \[from=null] \[data=null] \[signersAccounts=null] | Invokes the transfer method to transfer the specified token  |
 
 #### Native contract commands
@@ -161,7 +162,7 @@ String to Hex String            307835356466386434393530656261356165663964346434
 String to Base64                MHg1NWRmOGQ0OTUwZWJhNWFlZjlkNGQ0ZDI2MTBmODI3ZmNkNGE3YmI5
 ```
 
-If you see messy codes that is because some data types cannot be converted. 
+If you see messy codes that is because some data types cannot be converted. You can also use https://neo.org/converter to convert.
 
 ### create wallet
 
@@ -321,6 +322,58 @@ VM State: HALT
 Gas Consumed: 0.0125075
 Result Stack: [{"type":"Integer","value":"8"}]
 Result : 8
+```
+
+### name
+
+Queries the name of specified token
+
+##### Syntax
+
+ `name <tokenHash>`
+
+##### Parameters
+
+`tokenHash`: The token hash
+
+##### Example
+
+```
+neo> name 0xd2a4cff31913016155e38e474a2c06d08be276cf
+Result: GasToken
+
+neo> name gas
+Result: GasToken
+```
+
+### totalsupply
+
+Queries the total supply of specified token
+
+##### Syntax
+
+ `totalsupply <tokenHash>`
+
+##### Parameters
+
+`tokenHash`: The token hash
+
+##### Example
+
+```
+neo> totalsupply 0xd2a4cff31913016155e38e474a2c06d08be276cf
+Invoking script with: 'wh8MC3RvdGFsU3VwcGx5DBTPduKL0AYsSkeO41VhARMZ88+k0kFifVtS'
+VM State: HALT
+Gas Consumed: 0.019671
+Result Stack: [{"type":"Integer","value":"5200017313646450"}]
+Result: 52000173.1364645
+
+neo> totalsupply neo
+Invoking script with: 'wh8MC3RvdGFsU3VwcGx5DBT1Y+pAvCg9TQ4FxI6jBbPyoHNA70FifVtS'
+VM State: HALT
+Gas Consumed: 0.019671
+Result Stack: [{"type":"Integer","value":"100000000"}]
+Result: 100000000
 ```
 
 ### transfer
