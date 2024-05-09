@@ -32,6 +32,7 @@ All the commands described in this document conform with these conventions:
 | Command                                           | Parameters                             | Description                                                  |
 | ------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------ |
 | [create wallet](#create-wallet)                   | \<path>                                | Creates a wallet file.                                       |
+| [delete address](#delete-address)                   | \<address>                                | Delete an address from wallet.                                       |
 | [open wallet](#open-wallet)                       | \<path>                                | Opens a wallet file.                                         |
 | close wallet                                      |                                        | Closes the current wallet.                                   |
 | [upgrade wallet](#upgrade-wallet)                 | \<path>                                | Upgrades old wallet files.                                   |
@@ -194,6 +195,23 @@ ScriptHash: 0x19d69593a368ba01b2aac8dc0a67d7b675e1e640
 ```
 
 The wallet file is generated under the neo-cli root directory. If you want to set other path, you need to create the folder in advance.
+
+### delete address
+
+Delete an address from wallet. 
+
+##### Syntax
+
+ `delete address <address>` 
+
+##### Example
+
+```
+neo> delete address NL4zw2c1MdaXYmGt4NWTPXFcyuNjCQrpNL
+Warning: Irrevocable operation!
+Are you sure to delete account NL4zw2c1MdaXYmGt4NWTPXFcyuNjCQrpNL? (no|yes): yes
+Address 0xde6b70cbd0989167094b60b474e8f6658233b501 deleted.
+```
 
 ### open wallet
 
@@ -1177,6 +1195,7 @@ Output block details via block height or block hash.
 ##### Example
 
 ```
+neo> show block 332
 -------------Block-------------
 
       Timestamp: 2024/5/9 16:28:42
@@ -1220,6 +1239,7 @@ Output contract details by contract name or contract hash.
 ##### Example
 
 ```
+neo> show contract 0xd2a4cff31913016155e38e474a2c06d08be276cf
 -------------Contract-------------
 
                 Name: GasToken
@@ -1295,6 +1315,7 @@ Output transaction details via transaction hash.
 ##### Example
 
 ```
+neo> show tx 0xf5a0bc050795ae0cf2bea36655d65585dc72246464ec27f79e919ed6f301a843
 -------------Transaction-------------
 
         Timestamp: 2024/5/9 16:28:42
