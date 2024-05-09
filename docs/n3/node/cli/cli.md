@@ -53,6 +53,7 @@ The commands listed in the table below requires you to open the wallet before in
 | [import watchonly](#import-watchonly) | \<addressOrFile> | Imports the watch-only address (e.g. contract address)|
 | [send](#send)                                  | \<id \| alias> \<address> \<amount> \[from=null] \[data=null] \[signerAccounts=null] | Sends assets to the specified address.                       |
 | [sign](#sign)                                     | \<jsonObjectToSign>                    | Signs the transaction. The parameter is the json string that records the transaction information. |
+| [cancel](#cancel)                                     | \<txid> [sender=null] [signerAccounts=null]                    | Cancel unconfirmed transactions (in memory pool) |
 
 #### Contract commands
 
@@ -819,6 +820,25 @@ Signed Output:
 ```
 
 The signed json string is returned. If the signature is complete, you can broadcast the transaction using the command `relay`.
+
+### cancel
+
+Cancel unconfirmed transactions (in memory pool).
+Only transactions in the memory pool can be canceled, e.g. if you send two identical transactions, you can cancel one of them in a short time (before the consensus node confirms it).
+
+##### Syntax
+
+`cancel <txid> [sender=null] [signerAccounts=null]` 
+
+##### Example
+
+```
+neo> cancel 0x38d11429a6d34d2ed86213a2a020eece795f48e569b5d05a0ef3616778b03a78
+Network fee: 0.01232521 Total fee: 0.01232521 GAS
+Relay tx? (no|yes): yes
+Signed and relayed transaction with hash:
+0x26bb0b2c052aa545500e4e982028c0ca782f7e66e256908637f506c8c740e1c0
+```
 
 ### deploy
 
