@@ -17,7 +17,7 @@ Use the RPC API [getcontractstate method](../../reference/rpc/latest-version/api
 
 The detailed contract information is displayed in Neo-GUI. You can also view the manifest and nef files.
 
-## Invoking a contract
+## Invoking a contract with Neo Node Clients
 
 ### Invoking a contract using Neo-CLI
 
@@ -127,4 +127,33 @@ Assuming that the contract A calls the contract B, the following table details t
 | Permissions of contract A include a Groups B                 | Prompts that contract A will call any contract in group B and asks whether to authorize the signature to group B. | Default and adds CustomGroups according to the user's decision | Determined by the user      |
 | The contract defined in the Permissions of contract A is wildcard * and the method is m<br/>{"contract":"\*", "method": "m"} | Prompts that contract A will call the method m of any contract and asks whether to authorize the signature to contract B. | Default or Global according to the user's decision           | Determined by the user      |
 | The contract defined in the Permissions of contract A is wildcard * and the method is wildcard \*<br/>{"contract":"\*", "method": "\*"} | Prompts that contract A will call any method of any contract and asks whether to set the signature to Global. | Default or Global according to the user's decision           | Determined by the user      |
+
+## Invoking a contract with wallets/dAPIs
+
+You can use browser wallets to invoke a smart contract, which is helpful for creating a front-end interface on Neo.
+
+### Available Wallets
+
+Below is a list of several wallets that allow users to invoke smart contracts on front-end interfaces across different platforms. While additional wallets may also be available, the ones listed here operate with slight variations in invocation. 
+
+- [Neoline](https://neoline.io/en/)
+  - [Neoline Dapi Doc](https://neoline.io/dapi/N3.html)
+
+#### Desktop
+
+- [Neon](https://neon.coz.io/)
+  - [WalletConnect SDK](https://github.com/CityOfZion/wallet-connect-sdk)
+  - [WalletConnect SDK Guide](https://github.com/CityOfZion/wallet-connect-sdk/blob/main/README.md)
+- [O3 Wallet](https://o3.network/#/wallet)
+
+#### Mobile
+
+- [OneGate](https://onegate.space/)
+- [Neoline Mobile](https://neoline.io/en/)
+
+OneGate & Neoline Mobile support the [Neo Dapi](https://github.com/neo-ngd/neo-dapi-monorepo). Here you can learn more about [Neo dapi demo](https://github.com/neo-ngd/neo-dapi-demo).
+
+### Usage Example
+
+Here is an [example](https://neo-dapp-demo.vercel.app/) that is applicable to all of the wallets listed above. In this example, you can learn how to connect to a wallet and call methods supported by these wallets. Corresponding source code can be found at [dAPP Demo](https://github.com/ShaySong99/neo-dapp-demo).
 
