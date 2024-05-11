@@ -36,15 +36,19 @@ dotnet new install Neo.SmartContract.Template
 dotnet new list
 ```
 
-There are three templates by default after installing Neo.SmartContract.  
+ There are three default templates available after installing Neo.SmartContract: 
 
-- neocontractowner (Standard contract template with Owner, includes GetOwner and SetOwner methods)
+- neocontractowner - Standard contract template with Owner, including GetOwner and SetOwner methods)
 
-- neocontractoracle (A contract template using OracleRequest)
+- neocontractoracle - A contract template using OracleRequest)
 
-- neocontractnep17 (NEP-17 Contract Template, includes Mint and Burn methods)
+- neocontractnep17 - NEP-17 Contract Template, including Mint and Burn methods)
 
-Note: The previous `neocontract` template was renamed to `neocontractowner`.
+:::note
+
+The `neocontract` template used before has been renamed to `neocontractowner`.
+
+:::
 
 ### Uninstall the template
 

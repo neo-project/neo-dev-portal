@@ -150,11 +150,10 @@ The base class `Nep11Token` also provides the following methods and events:
 | -------- | ------------------------------------------------------------ | --------------- | ------------------------------------------------------------ |
 | transfer | Hash160（from） Hash160（to） Integer（amount） ByteArray（tokenId） | Transfer  event | When the `from` address is set to `null` tokens are created; When the `to` address set to `null`tokens are burned. |
 
+#### Compatibility check
 
-#### Add compatibility check
-
-All contracts that add the `[SupportedStandards("NEP-17")]` attribute or `[SupportedStandards("NEP-11")]` attribute will trigger the compatibility checks.
-The compatibility check checks method names, parameters, return values, events, etc. to see if they conform to the standard, and reports an error if the check fails.
+Compatibility checks will be activated for any contract that includes the `[SupportedStandards("NEP-17")]` or `[SupportedStandards("NEP-11")]` attribute.
+The Compatibility Check reviews method names, parameters, return values, events, and similar elements to ensure they comply with the standard, and alerts about any failures in the check.
 
 ## See also
 

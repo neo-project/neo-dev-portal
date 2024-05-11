@@ -305,7 +305,7 @@ In Neo N3.x, the payable check has been removed and the corresponding logic has 
 
 The ability of the contract to receive assets has been changed from a fixed constant to the code logic within the contract.
 
-### Add compatibility check
+### Compatibility check
 
-All contracts that add the `[SupportedStandards("NEP-17")]` attribute or `[SupportedStandards("NEP-11")]` attribute will trigger the compatibility checks.
-The compatibility check checks method names, parameters, return values, events, etc. to see if they conform to the standard, and reports an error if the check fails.
+Compatibility checks will be activated for any contract that includes the `[SupportedStandards("NEP-17")]` or `[SupportedStandards("NEP-11")]` attribute.
+The Compatibility Check reviews method names, parameters, return values, events, and similar elements to ensure they comply with the standard, and alerts about any failures in the check.
