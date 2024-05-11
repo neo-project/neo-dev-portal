@@ -37,7 +37,7 @@ public class MyTokenState : Nep11TokenState
 After inheriting `Nep11Token<Nep11TokenState>` you need to rewrite the Symbol method, as follows:
 
 ```cs
-public override string Symbol() => "MNFT";
+public override string Symbol { [Safe] get => "MNFT"; }
 ```
 
 ## Distribution Method
@@ -80,7 +80,7 @@ namespace Contract1
 
         private static bool IsOwner() => Runtime.CheckWitness(Owner);
 
-        public override string Symbol() => "MNFT";
+        public override string Symbol { [Safe] get => "MNFT"; }
 
         public static bool Airdrop(UInt160 to, string name)
         {
@@ -149,6 +149,11 @@ The base class `Nep11Token` also provides the following methods and events:
 | Name     | Parameters                                                   | Returns         | Description                                                  |
 | -------- | ------------------------------------------------------------ | --------------- | ------------------------------------------------------------ |
 | transfer | Hash160（from） Hash160（to） Integer（amount） ByteArray（tokenId） | Transfer  event | When the `from` address is set to `null` tokens are created; When the `to` address set to `null`tokens are burned. |
+
+#### Compatibility check
+
+Compatibility checks will be activated for any contract that includes the `[SupportedStandards("NEP-17")]` or `[SupportedStandards("NEP-11")]` attribute.
+The Compatibility Check reviews method names, parameters, return values, events, and similar elements to ensure they comply with the standard, and alerts about any failures in the check.
 
 ## See also
 
