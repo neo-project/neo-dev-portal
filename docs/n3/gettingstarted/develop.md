@@ -50,7 +50,7 @@ Since many developers are concerned about how to publish their own contract asse
 
 3. Run VS Code and install the C# extension as prompted.
 
-   ![](../../zh-cn/gettingstarted/assets/extension.png)
+   ![](assets/extension.png)
 
 4. Open the `Nep17` folder to edit the Nep17 template。
 
