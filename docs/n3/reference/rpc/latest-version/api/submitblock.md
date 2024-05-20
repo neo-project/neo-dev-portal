@@ -15,7 +15,7 @@ Broadcasts a new block in the NEO network.
 }
 ```
 
-### Parameter Description
+## Parameter Description
 
 hex: A Base64-encoded string of a serialized block.
 

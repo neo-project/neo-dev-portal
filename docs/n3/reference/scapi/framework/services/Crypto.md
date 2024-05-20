@@ -19,6 +19,6 @@ public static class Crypto
 | CheckSig(Cryptography.ECC.ECPoint, ByteString)          | Checks the signature for the current script container |
 | CheckMultisig(Cryptography.ECC.ECPoint[], ByteString[]) | Checks the signatures for the current script container |
 
-# Constructor
+## Constructor
 
 Crypto is a static class and does not require a constructor.

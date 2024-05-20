@@ -21,4 +21,3 @@ public enum NamedCurve : byte
 Use in [CryptoLib.VerifyWithECDsa](../native/CryptoLib.md) method.
 
 Reference [RFC 4492](https://tools.ietf.org/html/rfc4492#section-5.1.1).
-

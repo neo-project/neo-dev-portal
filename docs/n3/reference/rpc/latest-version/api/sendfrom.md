@@ -3,19 +3,22 @@
 Transfer from the specified address to the destination address.
 
 :::note
- Before you can invoke this method you must:
-:::
->
-> 1. Install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) 
-> 2. Call the RPC method `openwallet` to open the wallet first.
+Before you can invoke this method you must:
 
-### Parameter Description
+1. Install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) 
+
+2. Call the RPC method `openwallet` to open the wallet first.
+
+:::
+
+## Parameter Description
 
 * asset_id: Asset ID（asset identifier）, the script hash of nep-17 contract.
 
   e.g. NEO is 0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5
 
-​        GAS is 0xd2a4cff31913016155e38e474a2c06d08be276cf
+​       GAS is 0xd2a4cff31913016155e38e474a2c06d08be276cf
+
 * from: transfering address.
 * address: destination address.
 * value: Transfer amount

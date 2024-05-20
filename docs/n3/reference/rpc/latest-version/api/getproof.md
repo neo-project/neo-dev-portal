@@ -1,4 +1,5 @@
 # getproof Method
+
 Gets proof by querying root hash, contract hash, and storage key.
 
 :::note

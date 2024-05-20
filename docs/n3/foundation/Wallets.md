@@ -78,11 +78,11 @@ The address script in Neo N3 has changed not using the Opcode.CheckSig and OpCod
 
 ![Account Address](images/wallets/account_address_script_checksign.png)
 
-2. Calculate script hash of the contract (20 bytes, make once SHA256 and RIPEMD160 of the script). 
+1. Calculate script hash of the contract (20 bytes, make once SHA256 and RIPEMD160 of the script). 
 
-3. Add the version prefix in the hash (Currently, the Neo protocol version is 53 and the corresponding byte is  `0x35`).
+2. Add the version prefix in the hash (Currently, the Neo protocol version is 53 and the corresponding byte is  `0x35`).
 
-4. Make Base58Check encoding for the above byte data.
+3. Make Base58Check encoding for the above byte data.
 
 Example：
 

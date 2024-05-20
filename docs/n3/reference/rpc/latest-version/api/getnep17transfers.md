@@ -24,7 +24,7 @@ Before invoking the method, you need to modify the following fields in the Token
 
 ## Example
 
-##### Example 1 - Set the start time:
+### Example 1 - Set the start time
 
 Request body:
 
@@ -70,7 +70,7 @@ Response body:
 }
 ```
 
-##### Example 2 - Set both timestamps:
+### Example 2 - Set both timestamps
 
 Request body:
 

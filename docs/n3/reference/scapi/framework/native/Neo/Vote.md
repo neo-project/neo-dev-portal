@@ -7,9 +7,12 @@ Namespace: [Neo.SmartContract.Framework.Native](../../native.md)
 Assembly: Neo.SmartContract.Framework
 
 :::note
- - Voting towards non-candidate is recorded but not taken into account in committee & validator election. However, such votes will be effective as soon as the voted address becomes a candidate.
+
+- Voting towards non-candidate is recorded but not taken into account in committee & validator election. However, such votes will be effective as soon as the voted address becomes a candidate.
+
+- Voter's signature will be checked. 
+
 :::
-> - Voter's signature will be checked. 
 
 ## Syntax
 

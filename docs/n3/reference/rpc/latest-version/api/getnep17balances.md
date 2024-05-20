@@ -57,7 +57,11 @@ Response body:
 
 
 :::note
+
 - Only when your client synchronizes to the block that the contract was deployed, execution of this API will return the correct value, otherwise execution of the API will result in an error. 
+
 - When the input parameter is a script hash of a non-NEP17 smart contract, execution of the API will result in an error. 
+
 - Make sure your client has been fully synchronized to the latest block height before using this API, otherwise the balance returned may not be up-to-date.
+
 :::

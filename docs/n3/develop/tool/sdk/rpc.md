@@ -27,6 +27,7 @@ RpcClient client = new RpcClient(new Uri("http://localhost:20332"), null, null, 
 ## Blockchain data
 
 ### GetBestBlockHashAsync
+
 Gets the hash of the highest block in the blockchain:
 
 ```cs
@@ -36,6 +37,7 @@ UInt256 hash256 = UInt256.Parse(hexString);
 ```
 
 ### GetBlockAsync
+
 Gets the detailed block information by the block hash or block index.
 
 ```cs

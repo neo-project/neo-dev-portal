@@ -24,5 +24,5 @@ public static void Test()
     var feePerByte = Policy.GetFeePerByte();
 }
 ```
-[Back](../Policy.md)
 
+[Back](../Policy.md)

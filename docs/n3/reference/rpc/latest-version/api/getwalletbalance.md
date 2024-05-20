@@ -3,11 +3,13 @@
 Returns the balance of the corresponding asset in the wallet, based on the specified asset number. This method applies to the contract assets that conform to [NEP-17](https://github.com/neo-project/proposals/blob/1937ff56a09ac7e8380637e61129e9359e01a1b6/nep-17.mediawiki) standards.
 
 :::note
- Before you can invoke this method you must:
+Before you can invoke this method you must:
+
+1. Install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) 
+
+2. Call the RPC method `openwallet` to open the wallet first.
+
 :::
->
-> 1. Install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) 
-> 2. Call the RPC method `openwallet` to open the wallet first.
 
 ## Parameter Description
 

@@ -38,6 +38,7 @@ using Neo.SmartContract.Framework;
 using Neo.SmartContract.Framework.Services.Neo;
 using System;
 ```
+
 Neo N3：
 
 ```cs
@@ -114,6 +115,7 @@ Neo N3 adds a new security method. You can execute the contract in a read-only m
 Neo N3 introduces a large number of native contracts, moving massive interoperable services from Neo Legacy to native contracts. The major changes are as follows.
 
 - Upgraded the Blockchain class to a Ledger native contract, e.g. `Blockchain.GetBlock()` changed to `Ledger.GetBlock()`.
+
 - Added the ContractManagement native contract to query contracts and manage their updating and destruction.
 
 - Moved the contract part of the Blockchain class to the ContractManagement native contract, e.g. `Blockchain.GetContract()` changed to `ContractManagement .GetContract()`.
@@ -133,8 +135,8 @@ Neo N3 introduces a large number of native contracts, moving massive interoperab
 - The Transaction class has been extensively updated to fit the data structure of Neo N3 transactions.
 - Added a new Crypto class and moved some of the methods provided by the SmartContract class to this class.
 - Moved a number of classes:
-  -  Account
-  -  Asset
+  - Account
+  - Asset
   - Header
   - InvocationTransaction
   - TransactionAttribute

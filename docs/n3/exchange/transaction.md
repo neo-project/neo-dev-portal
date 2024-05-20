@@ -422,11 +422,11 @@ The exchange can choose one of the following way to send assets to users:
 
 ### Neo-CLI Command: send
 
-##### Syntax
+#### Syntax
 
 `send <id|alias> <address> <amount>|all [from=null] [signerAccounts=null]`
 
-##### Parameters
+#### Parameters
 
 - `id|alias`: asset ID or asset abbreviations, e.g. neo, gas
 - `address`: address to transfer assets to
@@ -437,7 +437,7 @@ The exchange can choose one of the following way to send assets to users:
 
 This command verifies the wallet password. 
 
-##### Example
+#### Example
 
 Transfer 100 Neo to the address NYxb4fSZVKAz8YsgaPK2WkT3KcAE9b3Vag: 
 

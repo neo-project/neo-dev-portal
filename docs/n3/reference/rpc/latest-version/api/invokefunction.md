@@ -3,31 +3,35 @@
 Invokes a smart contract with its scripthash based on the specified operation and parameters and returns the result.
 
 :::note
- - This method is used to test your VM script as if they ran on the blockchain at that point in time. This RPC call does not affect the blockchain in any way.
+
+- This method is used to test your VM script as if they ran on the blockchain at that point in time. This RPC call does not affect the blockchain in any way.
+
+- You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+
 :::
-> - You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
 
 ## Parameter Description
 
-* scripthash: Smart contract scripthash. You need to use the proper byte order of the address passed according to its data type. If the data type is Hash160, use the big endian scripthash; if the data type is ByteArray, use the little endian scripthash.
+- scripthash: Smart contract scripthash. You need to use the proper byte order of the address passed according to its data type. If the data type is Hash160, use the big endian scripthash; if the data type is ByteArray, use the little endian scripthash.
 
-* operation: The operation name (string)
+- operation: The operation name (string)
 
-* params: Optional. The parameters to be passed into the smart contract operation
+- params: Optional. The parameters to be passed into the smart contract operation
 
-* signers: Optional. List of contract signature accounts.
+- signers: Optional. List of contract signature accounts.
 
-  * account: signature account
-  * scopes: signature's valid scopes, allowed values are:
-    * None: Only transactions are signed and no contracts are allowed to use this signature.
-    * CalledByEntry: It only applies to the chain call entry. That is,  if the user invokes contract A, and then contract A calls contract B, only contract A can use the signature. It is recommended as the default value for the wallet.
-    * CustomContracts: Custom contract. The signature can be used in the specified contract.
+  - account: signature account
+  - scopes: signature's valid scopes, allowed values are:
+    - None: Only transactions are signed and no contracts are allowed to use this signature.
+    - CalledByEntry: It only applies to the chain call entry. That is,  if the user invokes contract A, and then contract A calls contract B, only contract A can use the signature. It is recommended as the default value for the wallet.
+    - CustomContracts: Custom contract. The signature can be used in the specified contract.
       It can be used in conjunction with CalledByEntry.
-    * CustomGroups: Custom contract groups that can be used in a specified contract group.
+    - CustomGroups: Custom contract groups that can be used in a specified contract group.
       It can be used in conjunction with CalledByEntry.
-    * Global: Global. Global. The risk is extremely high because the contract may transfer all assets in the address. Only choose it when the contract is extremely trusted.
-  * allowedcontracts: contracts of the signature can take effect, if scopes is CustomContracts
-  * allowedgroups: pubkeys of the signature can take effect, if scopes is CustomGroups
+    - Global: Global. Global. The risk is extremely high because the contract may transfer all assets in the address. Only choose it when the contract is extremely trusted.
+  - allowedcontracts: contracts of the signature can take effect, if scopes is CustomContracts
+  - allowedgroups: pubkeys of the signature can take effect, if scopes is CustomGroups
+
 :::note
  You need to use the proper byte order of the address passed according to its data type. If the data type is Hash160, use the big endian script hash; if the data type is ByteArray, use the little endian scripthash.
 :::
@@ -141,7 +145,7 @@ Response description:
 
 If the execution result of contract includes iterators, the iteration times are constrained according to the `MaxIteratorResultItems` value configured in the  `RpcServer` `config` file. The default limit is 100 times.
 
-In the following example, up to 6 returned results are actually available. When the `MaxIteratorResultItems ` value is 5, only 5 iterations are returned and `truncated` is true, indicating that there is still data to be returned.
+In the following example, up to 6 returned results are actually available. When the `MaxIteratorResultItems` value is 5, only 5 iterations are returned and `truncated` is true, indicating that there is still data to be returned.
 
 ```
 {
@@ -184,7 +188,7 @@ In the following example, up to 6 returned results are actually available. When 
 }
 ```
 
-When the `MaxIteratorResultItems ` value is greater than or equal to 6, then 6 iterations are returned and `truncated` is false, indicating that all data has been returned.
+When the `MaxIteratorResultItems` value is greater than or equal to 6, then 6 iterations are returned and `truncated` is false, indicating that all data has been returned.
 
 ```
 {

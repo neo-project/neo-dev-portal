@@ -1,4 +1,5 @@
 # getstateheight Method
+
 Queries the stateroot height.
 
 :::note

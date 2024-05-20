@@ -35,4 +35,5 @@ public class Contract1 : SmartContract.Framework.SmartContract
     }
 }
 ```
+
 [Back](../Ledger.md)

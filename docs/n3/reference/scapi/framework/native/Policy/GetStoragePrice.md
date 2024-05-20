@@ -24,5 +24,6 @@ public static void Test()
     var price = Policy.GetStoragePrice();
 }
 ```
+
 [Back](../Policy.md)
 
