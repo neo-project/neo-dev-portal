@@ -1,4 +1,4 @@
-﻿# getblockcount Method
+# getblockcount Method
 
 Gets the block count of the blockchain.
 

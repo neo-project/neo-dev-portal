@@ -1,4 +1,4 @@
-﻿# getrawtransaction Method
+# getrawtransaction Method
 
 Returns the corresponding transaction information based on the specified hash value.
 

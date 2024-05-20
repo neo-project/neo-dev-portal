@@ -1,4 +1,4 @@
-﻿# listaddress Method
+# listaddress Method
 
 Lists all the addresses in the current wallet.
 

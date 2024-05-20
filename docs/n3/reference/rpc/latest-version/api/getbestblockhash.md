@@ -1,4 +1,4 @@
-﻿# getbestblockhash Method
+# getbestblockhash Method
 
 Returns the latest block hash of the block chain.
 

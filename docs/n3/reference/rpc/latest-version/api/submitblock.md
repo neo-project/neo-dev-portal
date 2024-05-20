@@ -1,4 +1,4 @@
-﻿# submitblock Method
+# submitblock Method
 
 Broadcasts a new block in the NEO network.
 

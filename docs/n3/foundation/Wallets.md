@@ -202,34 +202,34 @@ An NEP6 wallet file complies with the NEP6 standard, and the file name extension
 
 ```json
 {
-	"name": null,
-	"version": "3.0",
-	"scrypt": {
-		"n": 16384,
-		"r": 8,
-		"p": 8
-	},
-	"accounts": [
-		{
-			"address": "Nf8iN8CABre87oDaDrHSnMAyVoU9jYa2FR",
-			"label": null,
-			"isdefault": false,
-			"lock": false,
-			"key": "6PYM9DxRY8RMhKHp512xExRVLeB9DSkW2cCKCe65oXgL4tD2kaJX2yb9vD",
-			"contract": {
-				"script": "DCEDYgBftumtbwC64LbngHbZPDVrSMrEuHXNP0tJzPlOdL5BdHR2qg==",
-				"parameters": [
-					{
-						"name": "signature",
-						"type": "Signature"
-					}
-				],
-				"deployed": false
-			},
-			"extra": null
-		}
-	],
-	"extra": null
+    "name": null,
+    "version": "3.0",
+    "scrypt": {
+        "n": 16384,
+        "r": 8,
+        "p": 8
+    },
+    "accounts": [
+        {
+            "address": "Nf8iN8CABre87oDaDrHSnMAyVoU9jYa2FR",
+            "label": null,
+            "isdefault": false,
+            "lock": false,
+            "key": "6PYM9DxRY8RMhKHp512xExRVLeB9DSkW2cCKCe65oXgL4tD2kaJX2yb9vD",
+            "contract": {
+                "script": "DCEDYgBftumtbwC64LbngHbZPDVrSMrEuHXNP0tJzPlOdL5BdHR2qg==",
+                "parameters": [
+                    {
+                        "name": "signature",
+                        "type": "Signature"
+                    }
+                ],
+                "deployed": false
+            },
+            "extra": null
+        }
+    ],
+    "extra": null
 }
 ```
 In this example the password is 1
@@ -265,17 +265,17 @@ An NEP6 wallet uses scrypt algorithm as the core method of wallet encryption and
 2. Calculate a `derivedkey` by the scrypt algorithm, and divide the 64-byte data into two halves as `derivedhalf1` and `derivedhalf2` Scrypt uses the following parameters:
 
     - ciphertext: The entered password (UTF-8 format)
-	- salt: address hash
-	- n: 16384
-	- r: 8
-	- p: 8
-	- length: 64
+    - salt: address hash
+    - n: 16384
+    - r: 8
+    - p: 8
+    - length: 64
 
 3. Do xor operation on the private key and `derivedhalf1`, and then get `encryptedkey` by using AES256 to encrypt it with `derivedhalf2`
 
 4. Concatenate data according to the following format and obtain `NEP2Key` by using Base58Check encoding of it
 
-	`0x01` + `0x42` + `0xe0` + address hash + `encryptedkey`
+    `0x01` + `0x42` + `0xe0` + address hash + `encryptedkey`
 
 **Decryption steps**：
 
@@ -340,18 +340,18 @@ Example:
 | Function Name   |  Description                                                  |
 | ---------------- | ------------------------------------------------------------ |
 | Import wallet file     |  Import the account information from the specified wallet file   |
-| Export wallet file     |  Store the account information (including private key, password, address, etc.) in the specified wallet file such as db3 wallet file, nep6 json file.  			  |
+| Export wallet file     |  Store the account information (including private key, password, address, etc.) in the specified wallet file such as db3 wallet file, nep6 json file.                |
 | Unlock wallet         | Verify user password to prevent leaks                   |
-| Create private key         | Recommend safe random generator			     	  |
+| Create private key         | Recommend safe random generator                       |
 | Import private key         | Add new private key to the wallet with wif format or digital certificate   |
-| Export private key         | Export accounts' private key         			  |
+| Export private key         | Export accounts' private key                       |
 | Generate public key         | Obtain public key by ECC algorithm with private key |
 | Generate address         |  Generate address based on private key               |
-| Import address         | Add new address to the wallet  						  |
+| Import address         | Add new address to the wallet                            |
 | Export address         | Export accounts' address                               |
 | Import offline data |  Load block data in `chain.acc` file to reduce synchronization time    |
-| Export offline data | Export block data in `chain.acc` file 				  |
-| Synchronize block data     |                                        		      |
+| Export offline data | Export block data in `chain.acc` file                   |
+| Synchronize block data     |                                                      |
 | Transfer             | Transfer to other addresses                              |
 | Sign             | Sign data, such as transactions                              |
 | Claim Gas          | Claim the newly allocated gas from the neo held by the account |

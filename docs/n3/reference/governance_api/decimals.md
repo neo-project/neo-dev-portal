@@ -4,7 +4,7 @@ Returns token decimals.
 
 ## Contract
 
-	Nep17Token
+    Nep17Token
 
 ## Example
 
@@ -18,8 +18,8 @@ Respond content:
 
 ```json
 {
-	"Type":"Integer",
-	"value":"0"
+    "Type":"Integer",
+    "value":"0"
 }
 ```
 

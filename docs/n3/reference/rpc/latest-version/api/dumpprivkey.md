@@ -1,4 +1,4 @@
-﻿# dumpprivkey Method
+# dumpprivkey Method
 
 Exports the private key of the specified address.
 

@@ -1,4 +1,4 @@
-﻿# getcontractstate Method
+# getcontractstate Method
 
 Queries the contract information with the contract script hash or native contract name. 
 

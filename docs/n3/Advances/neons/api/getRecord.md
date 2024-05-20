@@ -246,14 +246,14 @@ Response body #5
 
 ```json5
 {
-	"jsonrpc": "2.0",
-	"id": 1,
-	"result": {
-		"script": "IAwLZXhwaXJlZC5uZW8SwB8MCWdldFJlY29yZAwUtsvAuQCZmxOMoLKgXYpTdrdVg1NBYn1bUg==",
-		"state": "FAULT",
-		"gasconsumed": "1083138",
-		"exception": "An unhandled exception was thrown. The name has expired.",
-		"stack": []
-	}
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+        "script": "IAwLZXhwaXJlZC5uZW8SwB8MCWdldFJlY29yZAwUtsvAuQCZmxOMoLKgXYpTdrdVg1NBYn1bUg==",
+        "state": "FAULT",
+        "gasconsumed": "1083138",
+        "exception": "An unhandled exception was thrown. The name has expired.",
+        "stack": []
+    }
 }
 ```

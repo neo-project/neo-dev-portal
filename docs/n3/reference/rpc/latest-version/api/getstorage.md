@@ -1,4 +1,4 @@
-﻿# getstorage Method
+# getstorage Method
 
 Returns the stored value according to the contract script hash and the stored key. Both key and value are Base64-encoded.
 

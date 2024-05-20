@@ -1,4 +1,4 @@
-﻿# sendtoaddress Method
+# sendtoaddress Method
 
 Transfers to the specified address.
 

@@ -1,4 +1,4 @@
-﻿﻿# invokescript Method
+# invokescript Method
 
 Returns the result after passing a script through the VM.
 

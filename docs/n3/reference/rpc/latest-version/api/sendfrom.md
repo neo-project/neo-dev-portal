@@ -1,4 +1,4 @@
-﻿# sendfrom Method
+# sendfrom Method
 
 Transfer from the specified address to the destination address.
 

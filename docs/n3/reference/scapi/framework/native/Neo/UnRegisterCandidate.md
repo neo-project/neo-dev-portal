@@ -39,8 +39,8 @@ Response body:
 
 ```json
 {
-	"Type":"Boolean",
-	"value":"true"
+    "Type":"Boolean",
+    "value":"true"
 }
 ```
 

@@ -1,4 +1,4 @@
-﻿# getblockhash Method
+# getblockhash Method
 
 Returns the hash value of the corresponding block based on the specified index.
 

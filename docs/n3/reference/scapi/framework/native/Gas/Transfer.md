@@ -39,8 +39,8 @@ Respond:
 
 ```json
 {
-	"type":"Boolean",
-	"value":"true"
+    "type":"Boolean",
+    "value":"true"
 }
 ```
 

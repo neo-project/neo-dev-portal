@@ -1,4 +1,4 @@
-﻿# getblock Method
+# getblock Method
 
 Returns the corresponding block information according to the specified hash or index.
 

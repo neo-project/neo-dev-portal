@@ -1,4 +1,4 @@
-﻿# getpeers Method
+# getpeers Method
 
 Gets a list of nodes that the node is currently connected/disconnected from.
 

@@ -1,4 +1,4 @@
-﻿# sendrawtransaction Method
+# sendrawtransaction Method
 
 Broadcasts transactions over the NEO network.
 

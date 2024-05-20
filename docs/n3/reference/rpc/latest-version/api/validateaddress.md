@@ -1,4 +1,4 @@
-﻿# validateaddress Method
+# validateaddress Method
 
 Verifies that the address is a valid NEO address.
 

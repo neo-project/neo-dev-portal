@@ -1,4 +1,4 @@
-﻿# gettransactionheight method
+# gettransactionheight method
 
 Returns the transaction height with the specified transaction hash.
 

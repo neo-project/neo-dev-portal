@@ -1,4 +1,4 @@
-﻿# getwalletunclaimedgas Method
+# getwalletunclaimedgas Method
 
 Gets the amount of unclaimed GAS in the wallet.
 

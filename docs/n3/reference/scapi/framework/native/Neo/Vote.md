@@ -42,8 +42,8 @@ public class Contract1 : SmartContract.Framework.SmartContract
 
 ```json
 {
-	"type":"Boolean",
-	"value":"true"
+    "type":"Boolean",
+    "value":"true"
 }
 ```
 

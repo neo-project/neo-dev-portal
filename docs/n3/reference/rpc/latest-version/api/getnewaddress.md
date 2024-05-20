@@ -1,4 +1,4 @@
-﻿# getnewaddress Method
+# getnewaddress Method
 
 Creates a new address.
 

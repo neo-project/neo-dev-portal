@@ -1,4 +1,4 @@
-﻿# sendmany Method
+# sendmany Method
 
 Bulk transfer order, and you can specify a change address.
 
@@ -75,29 +75,29 @@ Request text (with fromAddress):
   "method": "sendmany",
   "params": [
      "NY9nnDv7cAJ44C2xeRScrXfzkrCJfFWYku",
-	[
-	    {
-			    "asset": "0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5", 
-			    "value": 100, 
-					"address": "NbtvbHpwv6nswDtVFpKEyooHhDHwZh2LHf"
-			}, 
-			{
-			     "asset": "0xd2a4cff31913016155e38e474a2c06d08be276cf", 
-					 "value": 100, 
-					 "address": "NbtvbHpwv6nswDtVFpKEyooHhDHwZh2LHf"
-			},
-			    {
-			    "asset": "0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5", 
-			    "value": 100, 
-					"address": "NPTvd2T1zi7ioj3LmvpeBd45pPvAJU3gvr"
-			}, 
-			{
-			     "asset": "0xd2a4cff31913016155e38e474a2c06d08be276cf", 
-					 "value": 100, 
-					 "address": "NPTvd2T1zi7ioj3LmvpeBd45pPvAJU3gvr"
-			}
-	 ]
-	 ],
+    [
+        {
+                "asset": "0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5", 
+                "value": 100, 
+                    "address": "NbtvbHpwv6nswDtVFpKEyooHhDHwZh2LHf"
+            }, 
+            {
+                 "asset": "0xd2a4cff31913016155e38e474a2c06d08be276cf", 
+                     "value": 100, 
+                     "address": "NbtvbHpwv6nswDtVFpKEyooHhDHwZh2LHf"
+            },
+                {
+                "asset": "0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5", 
+                "value": 100, 
+                    "address": "NPTvd2T1zi7ioj3LmvpeBd45pPvAJU3gvr"
+            }, 
+            {
+                 "asset": "0xd2a4cff31913016155e38e474a2c06d08be276cf", 
+                     "value": 100, 
+                     "address": "NPTvd2T1zi7ioj3LmvpeBd45pPvAJU3gvr"
+            }
+     ]
+     ],
   "id": 1
 }
 ```

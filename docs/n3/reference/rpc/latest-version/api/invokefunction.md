@@ -1,4 +1,4 @@
-﻿# invokefunction Method
+# invokefunction Method
 
 Invokes a smart contract with its scripthash based on the specified operation and parameters and returns the result.
 

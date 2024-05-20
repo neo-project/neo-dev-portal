@@ -1,4 +1,4 @@
-﻿﻿# getversion Method
+# getversion Method
 
 Returns the version information of the node.
 

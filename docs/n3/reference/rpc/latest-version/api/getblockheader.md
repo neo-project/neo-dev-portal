@@ -1,4 +1,4 @@
-﻿# getblockheader Method
+# getblockheader Method
 
 Returns the corresponding block header information according to the specified script hash or index.
 

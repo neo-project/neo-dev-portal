@@ -1,4 +1,4 @@
-﻿# importprivkey Method
+# importprivkey Method
 
 Imports the private key to the wallet.
 
