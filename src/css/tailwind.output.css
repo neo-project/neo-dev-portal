@@ -451,6 +451,18 @@ a:hover{
   color: rgb(0 229 153 / var(--tw-text-opacity));
 }
 
+ul, ol {
+  list-style: revert;
+}
+
+ul {
+  list-style-position: inside;
+}
+
+ul, ol {
+  margin-left: 20px;
+}
+
 *, ::before, ::after{
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;

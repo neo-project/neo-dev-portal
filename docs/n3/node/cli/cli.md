@@ -23,7 +23,7 @@ All the commands described in this document conform with these conventions:
 | ------- | --------- |
 | version | Shows the current Neo-CLI version |
 | help [plugin-name] | Help menu, which can also show plugin related commands. |
-| [parse](#parse) \<value> | Convert the input string into various supported data format |
+| [parse](#parse) `<value>` | Convert the input string into various supported data format |
 | clear   | Clear screen      |
 | exit    | Exit program      |
 
@@ -31,11 +31,11 @@ All the commands described in this document conform with these conventions:
 
 | Command                                           | Parameters                             | Description                                                  |
 | ------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------ |
-| [create wallet](#create-wallet)                   | \<path>                                | Creates a wallet file.                                       |
-| [delete address](#delete-address)                   | \<address>                                | Delete an address from wallet.                                       |
-| [open wallet](#open-wallet)                       | \<path>                                | Opens a wallet file.                                         |
+| [create wallet](#create-wallet)                   | `<path>`                               | Creates a wallet file.                                       |
+| [delete address](#delete-address)                   | `<address>`                                | Delete an address from wallet.                                       |
+| [open wallet](#open-wallet)                       | `<path>`                                | Opens a wallet file.                                         |
 | close wallet                                      |                                        | Closes the current wallet.                                   |
-| [upgrade wallet](#upgrade-wallet)                 | \<path>                                | Upgrades old wallet files.                                   |
+| [upgrade wallet](#upgrade-wallet)                 | `<path>`                                | Upgrades old wallet files.                                   |
 
 The commands listed in the table below requires you to open the wallet before invoking.
 
@@ -47,21 +47,21 @@ The commands listed in the table below requires you to open the wallet before in
 | list key                                          |                               | Lists all public keys in your wallet.                |
 | [show gas](#show-gas)                             |                               | Lists all the GAS in your wallet.                    |
 | [create address](#create-address)                 | [count=1]                     | Creates address / batch create address               |
-| [import key](#import-key)                         | \<wifOrFile>          | Imports a private key / bulk import of private keys. |
+| [import key](#import-key)                         | `<wifOrFile>`          | Imports a private key / bulk import of private keys. |
 | [export key](#export-key)                         | \[path=null] \[scriptHash=null] | Exports private keys.                                |
-| [import multisigaddress](#import-multisigaddress) | \<m> \<publicKeys>                                           | Creates a multi-signature contract.                  |
-| [import watchonly](#import-watchonly) | \<addressOrFile> | Imports the watch-only address (e.g. contract address)|
-| [send](#send)                                  | \<id \| alias> \<address> \<amount> \[from=null] \[data=null] \[signerAccounts=null] | Sends assets to the specified address.                       |
-| [sign](#sign)                                     | \<jsonObjectToSign>                    | Signs the transaction. The parameter is the json string that records the transaction information. |
-| [cancel](#cancel)                                     | \<txid> [sender=null] [signerAccounts=null]                    | Cancel unconfirmed transactions (in memory pool) |
+| [import multisigaddress](#import-multisigaddress) | `<m>` `<publicKeys>`                                           | Creates a multi-signature contract.                  |
+| [import watchonly](#import-watchonly) | `<addressOrFile>` | Imports the watch-only address (e.g. contract address)|
+| [send](#send)                                  | `<id>` `<alias>` `<address>` `<amount>` \[from=null] \[data=null] \[signerAccounts=null] | Sends assets to the specified address.                       |
+| [sign](#sign)                                     | `<jsonObjectToSign>`                    | Signs the transaction. The parameter is the json string that records the transaction information. |
+| [cancel](#cancel)                                     | `<txid>` [sender=null] [signerAccounts=null]                    | Cancel unconfirmed transactions (in memory pool) |
 
 #### Contract commands
 
 | Command           | Parameters                                                   | Description        |
 | ----------------- | ------------------------------------------------------------ | ------------------ |
-| [deploy](#deploy) | \<nefFilePath> [manifestFile]                                | Deploys a contract |
-| [invoke](#invoke) | \<scripthash> \<operation> \[contractParameters=null] \[sender=null] \[signerAccounts=null] \[maxGas=20] | Invokes a contract |
-| [update](#update) | \<scriptHash> \<filePath> \<manifestPath> \<sender> \[signerAccounts=null] | Upgrade a contract |
+| [deploy](#deploy) | `<nefFilePath>` [manifestFile]                                | Deploys a contract |
+| [invoke](#invoke) | `<scripthash>` `<operation>` \[contractParameters=null] \[sender=null] \[signerAccounts=null] \[maxGas=20] | Invokes a contract |
+| [update](#update) | `<scriptHash>` `<filePath>` `<manifestPath>` `<sender>` \[signerAccounts=null] | Upgrade a contract |
 
 
 #### Node commands
@@ -75,11 +75,11 @@ The commands listed in the table below requires you to open the wallet before in
 
 | Command                 | Parameters                                                   | Description                                                  |
 | ----------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [balanceof](#balanceof) | \<tokenHash> \<address>                                      | Queries the balance of specified token at the specified address |
-| [decimals](#decimals)   | \<tokenHash>                                                 | Queries the precision of specified token                     |
-| [name](#name)           | \<tokenHash>                                                 | Queries the name of specified token                             |
-| [totalsupply](#totalsupply)           | \<tokenHash>                                                 | Queries the  total supply of specified token                             |
-| [transfer](#transfer)   | \<tokenHash> \<to> \<amount>  \[from=null] \[data=null] \[signersAccounts=null] | Invokes the transfer method to transfer the specified token  |
+| [balanceof](#balanceof) | `<tokenHash>` `<address>`                                      | Queries the balance of specified token at the specified address |
+| [decimals](#decimals)   | `<tokenHash>`                                                 | Queries the precision of specified token                     |
+| [name](#name)           | `<tokenHash>`                                                 | Queries the name of specified token                             |
+| [totalsupply](#totalsupply)           | `<tokenHash>`                                                 | Queries the  total supply of specified token                             |
+| [transfer](#transfer)   | `<tokenHash>` `<to>` `<amount>`  \[from=null] \[data=null] \[signersAccounts=null] | Invokes the transfer method to transfer the specified token  |
 
 #### Native contract commands
 
@@ -91,14 +91,14 @@ The commands listed in the table below requires you to open the wallet before in
 
 | Command         | Parameters          | Description                                                  |
 | --------------- | ------------------- | ------------------------------------------------------------ |
-| [relay](#relay) | \<jsonObjectToSign> | Broadcasts the transaction. The parameter is the json string that records the transaction information. |
-| [broadcast addr](#broadcast-addr) |  \<payload IP address> \<port>   | Broadcasts the IP address of the node |
-| [broadcast block](#broadcast-block) |  \<block hash \| block height>  | Broadcasts a block |
-| [broadcast getblocks](#broadcast-getblocks) |  \<block hash>  | Broadcasts the getblocks request |
-| [broadcast getdata](#broadcast-getdata) |  \<inventory type> \<payload>  | Broadcasts the getdata request |
-| [broadcast getheaders](#broadcast-getheaders) |  \<block index>  | Broadcasts the getheaders request |
-| [broadcast inv](#broadcast-inv) |  \<inventory type> \<payload>  | Broadcasts the inventory data |
-| [broadcast transaction](#broadcast-transaction) |  \<transaction hash>  | Broadcasts a transaction |
+| [relay](#relay) | `<jsonObjectToSign>` | Broadcasts the transaction. The parameter is the json string that records the transaction information. |
+| [broadcast addr](#broadcast-addr) |  `<payload IP address>` `<port>`   | Broadcasts the IP address of the node |
+| [broadcast block](#broadcast-block) |  `<block hash \| block height>`  | Broadcasts a block |
+| [broadcast getblocks](#broadcast-getblocks) |  `<block hash>`  | Broadcasts the getblocks request |
+| [broadcast getdata](#broadcast-getdata) |  `<inventory type>` `<payload>`  | Broadcasts the getdata request |
+| [broadcast getheaders](#broadcast-getheaders) |  `<block index>`  | Broadcasts the getheaders request |
+| [broadcast inv](#broadcast-inv) |  `<inventory type>` `<payload>`  | Broadcasts the inventory data |
+| [broadcast transaction](#broadcast-transaction) |  `<transaction hash>`  | Broadcasts a transaction |
 
 #### Plugin commands
 
@@ -107,36 +107,36 @@ The commands listed in the table below requires you to open the wallet before in
 | [plugins](#plugins)           |               | Lists loaded plugins                     |
 | [install](#install)           | [Plugin name] | Installs the specified plugin            |
 | uninstall                   | [Plugin name] | Uninstalls the specified plugin          |
-| [dump storage](#dump-storage) | \<key>        | Exports all or the specified state data. This command requires installation of the StatesDumper plugin. |
+| [dump storage](#dump-storage) | `<key>`        | Exports all or the specified state data. This command requires installation of the StatesDumper plugin. |
 | [start consensus](#start-consensus) |  | Starts consensus. This command requires installation of the DBFTPlugin plugin. |
 | [start oracle](#start-oracle) | | Starts Oracle. This command requires installation of the OracleService plugin. |
 | [stop oracle](#stop-oracle) | | Stops Oracle. This command requires installation of the OracleService plugin. |
-| [state root](#state-root) | \<index> | Queries the state root with index. This command requires installation of the StateService plugin. |
+| [state root](#state-root) | `<index>` | Queries the state root with index. This command requires installation of the StateService plugin. |
 | state height | | Queries the state height. This command requires installation of the StateService plugin. |
-| [get proof](#get-proof) | \<rootHash> \<scriptHash> \<key> | Gets proof with root hash, contract hash, and storage key. |
-| [verify proof](#verify-proof) | \<rootHash> \<proof> | Verifies with root hash and proof. |
+| [get proof](#get-proof) | `<rootHash>` `<scriptHash>` `<key>` | Gets proof with root hash, contract hash, and storage key. |
+| [verify proof](#verify-proof) | `<rootHash>` `<proof>` | Verifies with root hash and proof. |
 
 #### Voting commands
 
 | Command                                       | Parameters                    | Description                                                 |
 | --------------------------------------------- | ----------------------------- | ----------------------------------------------------------- |
-| [get accountstate](#get-accountstate)         | \<address>                    | Gets the latest voting information of the specified account |
+| [get accountstate](#get-accountstate)         | `<address>`                    | Gets the latest voting information of the specified account |
 | [get candidates](#get-candidates)             |                               | Gets candidates' public keys and votes                      |
 | [get committee](#get-committee)               |                               | Gets the committee member's public key                      |
 | [get next validators](#get-next-validators)   |                               | Gets the next validator's  public key                       |
-| [register candidate](#register-candidate)     | \<account> [maxGas=1010]      | Registers the candidate                                     |
-| [unregister candidate](#unregister-candidate) | \<account>                    | Unregisters the candidate                                   |
-| [vote](#vote)                                 | \<senderAccount> \<publicKey> | Votes for candidates                                        |
-| [unvote](#unvote)                             | \<senderAccount>              | Cancel the voting                                           |
+| [register candidate](#register-candidate)     | `<account>` [maxGas=1010]      | Registers the candidate                                     |
+| [unregister candidate](#unregister-candidate) | `<account>`                    | Unregisters the candidate                                   |
+| [vote](#vote)                                 | `<senderAccount>` `<publicKey>` | Votes for candidates                                        |
+| [unvote](#unvote)                             | `<senderAccount>`              | Cancel the voting                                           |
 
 #### Block Commands
 
 | Command                         | Parameters                             | Description                                                  |
 | ------------------------------- | -------------------------------------- | ------------------------------------------------------------ |
-| [export blocks](#export-blocks) | \<start> \[block count] \[export path] | Exports the blockchain data from the specified block height. The exported data  can be used for offline synchronization. |
-| [show block](#show-blocks) | \<indexOrHash> | Output block details via block height or block hash. |
-| [show contract](#show-contract) | \<nameOrHash> | Output contract details by contract name or contract hash. |
-| [show tx](#show-tx) | \<hash> | Output transaction details via transaction hash. |
+| [export blocks](#export-blocks) | `<start>` \[block count] \[export path] | Exports the blockchain data from the specified block height. The exported data  can be used for offline synchronization. |
+| [show block](#show-blocks) | `<indexOrHash>` | Output block details via block height or block hash. |
+| [show contract](#show-contract) | `<nameOrHash>` | Output contract details by contract name or contract hash. |
+| [show tx](#show-tx) | `<hash>` | Output transaction details via transaction hash. |
 
 #### Log Commands
 
@@ -153,7 +153,7 @@ Converts the input string into various supported data formats.
 
 ##### Syntax
 
- `parse <value>`
+> parse `<value>`
 
 ##### Example
 

@@ -6,11 +6,11 @@ This tutorial will guide you through the process of migrating Neo and GAS tokens
 
 1. Click the icon in the upper right corner and click `Create wallet`.
 
-    ![](assets/picture1.png)
+    ![](assets/Picture1.png)
 
 2. Select `Neo N3` to create a Neo N3 wallet.
 
-    ![](assets/picture2.png)
+    ![](assets/Picture2.png)
 
 3. Input your wallet name and password and click `Create` . A new Neo N3 wallet is successfully created. 
    
@@ -18,7 +18,7 @@ This tutorial will guide you through the process of migrating Neo and GAS tokens
     >
     > Please follow the prompt to back up your private key carefully.
    
-    ![](assets/picture3.png)
+    ![](assets/Picture3.png)
 
 4. Go to the [Migration To N3](https://migration.neo.org/) website. Click `CONNECT WALLET`.
 
