@@ -36,6 +36,20 @@ dotnet new install Neo.SmartContract.Template
 dotnet new list
 ```
 
+ There are three default templates available after installing Neo.SmartContract: 
+
+- neocontractowner - Standard contract template with Owner, including GetOwner and SetOwner methods)
+
+- neocontractoracle - A contract template using OracleRequest)
+
+- neocontractnep17 - NEP-17 Contract Template, including Mint and Burn methods)
+
+:::note
+
+The `neocontract` template used before has been renamed to `neocontractowner`.
+
+:::
+
 ### Uninstall the template
 
 ```
@@ -51,10 +65,10 @@ dotnet new update Neo.SmartContract.Template
 ### Create a project using templates with Terminal
 
 ```
-dotnet new neocontract
+dotnet new neocontractowner
 ```
 
-The project name defaults to the name of the current directory, you can also specify the project name with `-n, --name <name>`, e.g. `dotnet new neocontract -n MyFirstContract`.
+The project name defaults to the name of the current directory, you can also specify the project name with `-n, --name <name>`, e.g. `dotnet new neocontractowner -n MyFirstContract`.
 
 ### Create a project using templates with Visual Studio
 
@@ -63,8 +77,6 @@ In the Visual Studio interface, create a new project, Neo.SmartContract.Template
 ![](../assets/neo-devpack-dotnet-1.png)
 
 ![](../assets/neo-devpack-dotnet-2.png)
-
-
 
 ## Neo.Compiler.CSharp
 

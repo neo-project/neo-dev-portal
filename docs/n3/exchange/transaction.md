@@ -140,12 +140,12 @@ You need to replace these strings when querying the user's balance:
 
   **decimals**
 
-  - Syntax: `public static byte decimals()`
+  - Syntax: `public override byte Decimals { [Safe] get => 8; }`
   - Remarks: "decimals" returns the number of decimals used by the token.
 
   **symbol**
 
-  - Syntax: `public static string symbol()`
+  - Syntax: `public override string Symbol { [Safe] get => "EXAMPLE"; }`
   - Remarks: "symbol" returns the token symbol.
 
 

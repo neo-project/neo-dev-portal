@@ -128,46 +128,136 @@ A token contract which creates new tokens MUST trigger a `Transfer` event with t
 
 A token contract which burns tokens MUST trigger a `Transfer` event with the `to` address set to `null` when tokens are burned.
 
-NEP17 methods are as follows. For the complete code refer to [NEP-17 contract code](https://github.com/neo-project/examples/tree/master/csharp/NEP17).
+NEP17 methods are as follows. For the complete code refer to [NEP-17 contract code](https://github.com/neo-project/neo-devpack-dotnet/tree/master/examples/Example.SmartContract.NEP17).
 
 ```cs
-using Neo;
-using Neo.SmartContract;
 using Neo.SmartContract.Framework;
+using Neo.SmartContract.Framework.Attributes;
 using Neo.SmartContract.Framework.Native;
 using Neo.SmartContract.Framework.Services;
 using System;
+using System.ComponentModel;
 using System.Numerics;
 
-namespace Template.NEP17.CSharp
+namespace NEP17
 {
-    public partial class NEP17 : SmartContract
+    /// <inheritdoc />
+    [DisplayName("SampleNep17Token")]
+    [ContractAuthor("core-dev", "dev@neo.org")]
+    [ContractVersion("0.0.1")]
+    [ContractDescription("A sample NEP-17 token")]
+    [ContractSourceCode("https://github.com/neo-project/neo-devpack-dotnet/tree/master/examples/")]
+    [ContractPermission(Permission.WildCard, Method.WildCard)]
+    [SupportedStandards(NepStandard.Nep17)]
+    public class SampleNep17Token : Nep17Token
     {
-        public static BigInteger TotalSupply() => TotalSupplyStorage.Get();
+        #region Owner
 
-        public static BigInteger BalanceOf(UInt160 account)
+        private const byte PrefixOwner = 0xff;
+
+        private static readonly UInt160 InitialOwner = "NUuJw4C4XJFzxAvSZnFTfsNoWZytmQKXQP";
+
+        [Safe]
+        public static UInt160 GetOwner()
         {
-            if (!ValidateAddress(account)) throw new Exception("The parameters account SHOULD be a 20-byte non-zero address.");
-            return AssetStorage.Get(account);
+            var currentOwner = Storage.Get(new[] { PrefixOwner });
+
+            if (currentOwner == null)
+                return InitialOwner;
+
+            return (UInt160)currentOwner;
         }
 
-        public static bool Transfer(UInt160 from, UInt160 to, BigInteger amount, object data)
+        private static bool IsOwner() => Runtime.CheckWitness(GetOwner());
+
+        public delegate void OnSetOwnerDelegate(UInt160 newOwner);
+
+        [DisplayName("SetOwner")]
+        public static event OnSetOwnerDelegate OnSetOwner;
+
+        public static void SetOwner(UInt160? newOwner)
         {
-            if (!ValidateAddress(from) || !ValidateAddress(to)) throw new Exception("The parameters from and to SHOULD be 20-byte non-zero addresses.");
-            if (amount <= 0) throw new Exception("The parameter amount MUST be greater than 0.");
-            if (!Runtime.CheckWitness(from) && !from.Equals(ExecutionEngine.CallingScriptHash)) throw new Exception("No authorization.");
-            if (AssetStorage.Get(from) < amount) throw new Exception("Insufficient balance.");
-            if (from == to) return true;
+            if (IsOwner() == false)
+                throw new InvalidOperationException("No Authorization!");
+            if (newOwner != null && newOwner.IsValid)
+            {
+                Storage.Put(new[] { PrefixOwner }, newOwner);
+                OnSetOwner(newOwner);
+            }
+        }
 
-            AssetStorage.Reduce(from, amount);
-            AssetStorage.Increase(to, amount);
+        #endregion
 
-            OnTransfer(from, to, amount);
+        #region Minter
 
-            // Validate payable
-            if (IsDeployed(to)) Contract.Call(to, "onNEP17Payment", new object[] { from, amount, data });
+        private const byte PrefixMinter = 0xfd;
+
+        private static readonly UInt160 InitialMinter = "NUuJw4C4XJFzxAvSZnFTfsNoWZytmQKXQP";
+
+        [Safe]
+        public static UInt160 GetMinter()
+        {
+            var currentMinter = Storage.Get(new[] { PrefixMinter });
+
+            if (currentMinter == null)
+                return InitialMinter;
+
+            return (UInt160)currentMinter;
+        }
+
+        private static bool IsMinter() => Runtime.CheckWitness(GetMinter());
+
+        public delegate void OnSetMinterDelegate(UInt160 newMinter);
+
+        [DisplayName("SetMinter")]
+        public static event OnSetMinterDelegate OnSetMinter;
+
+        public static void SetMinter(UInt160 newMinter)
+        {
+            if (IsOwner() == false)
+                throw new InvalidOperationException("No Authorization!");
+            if (!newMinter.IsValid) return;
+            Storage.Put(new[] { PrefixMinter }, newMinter);
+            OnSetMinter(newMinter);
+        }
+
+        public new static void Mint(UInt160 to, BigInteger amount)
+        {
+            if (IsOwner() == false && IsMinter() == false)
+                throw new InvalidOperationException("No Authorization!");
+            Nep17Token.Mint(to, amount);
+        }
+
+        #endregion
+
+        #region Example.SmartContract.NEP17
+
+        public override string Symbol { [Safe] get => "SampleNep17Token"; }
+        public override byte Decimals { [Safe] get => 8; }
+
+        public new static void Burn(UInt160 account, BigInteger amount)
+        {
+            if (IsOwner() == false && IsMinter() == false)
+                throw new InvalidOperationException("No Authorization!");
+            Nep17Token.Burn(account, amount);
+        }
+
+        #endregion
+
+        #region Basic
+
+        [Safe]
+        public static bool Verify() => IsOwner();
+
+        public static bool Update(ByteString nefFile, string manifest)
+        {
+            if (IsOwner() == false)
+                throw new InvalidOperationException("No Authorization!");
+            ContractManagement.Update(nefFile, manifest);
             return true;
         }
+
+        #endregion
     }
 }
 ```
@@ -191,20 +281,15 @@ The name method is moved to the manifest file, and you need to add `[DisplayName
 
 ```cs
 [DisplayName("Token Name")]
-[ManifestExtra("Author", "Neo")]
-[ManifestExtra("Email", "dev@neo.org")]
-[ManifestExtra("Description", "This is a NEP17 example")]
+[ContractAuthor("core-dev", "dev@neo.org")]
+[ContractEmail("dev@neo.org")]
+[ContractDescription("This is a NEP17 example")]
 [SupportedStandards("NEP-17")]
-public partial class NEP17 : SmartContract
+public class NEP17 : Nep17Token
 {
-    [DisplayName("Transfer")]
-    public static event Action<UInt160, UInt160, BigInteger> OnTransfer;
+    public override string Symbol { [Safe] get => "EXAMPLE"; }
 
-    public static string Symbol() => "TokenSymbol";
-
-    public static ulong Decimals() => 8;
-    
-    //……
+    public override byte Decimals { [Safe] get => 8; }
 }
 ```
 
@@ -219,3 +304,8 @@ In Neo Legacy, you should check the IsPayable checkbox when deploying contracts 
 In Neo N3.x, the payable check has been removed and the corresponding logic has been placed in the `onNEP17Payment` method.
 
 The ability of the contract to receive assets has been changed from a fixed constant to the code logic within the contract.
+
+### Compatibility check
+
+Compatibility checks will be activated for any contract that includes the `[SupportedStandards("NEP-17")]` or `[SupportedStandards("NEP-11")]` attribute.
+The Compatibility Check reviews method names, parameters, return values, events, and similar elements to ensure they comply with the standard, and alerts about any failures in the check.

@@ -30,8 +30,4 @@ public static bool Main()
 }
 ```
 
-For details, refer to [Template](https://github.com/neo-project/examples/blob/master/csharp/ICO_Template/ICO_Template.cs).
-
-
-
 [Back](../Runtime.md)
