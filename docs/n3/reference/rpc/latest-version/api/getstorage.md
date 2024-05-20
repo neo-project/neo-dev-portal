@@ -3,7 +3,7 @@
 Returns the stored value according to the contract script hash and the stored key. Both key and value are Base64-encoded.
 
 :::note
- You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
 :::
 
 ## Parameter Description

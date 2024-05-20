@@ -32,7 +32,7 @@ We identify each consensus node with a number, starting from 0, the last node is
 
 A new block will be generated with each round of consensus, with at least N − F signatures from bookkeeping nodes. Upon the generation of a block, a new round of consensus making shall begin, resetting v=0.
 
-###  General Procedures 
+### General Procedures 
 
 ![](../images/consensus/1.png)
 

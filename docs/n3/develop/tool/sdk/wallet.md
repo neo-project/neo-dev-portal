@@ -122,6 +122,7 @@ using (wallet.Unlock(password))
 ## Using WalletAPI
 
 ### Initialization
+
 Initializing `WalletAPI`：
 
 ```cs
@@ -133,7 +134,7 @@ WalletAPI walletAPI = new WalletAPI(client);
 ### Inquiring balance
 
 :::note
- The type of account balance is usually BigInteger, which is a representation after rounding the decimal part. It needs to be divided by Factor to get the actual Token amount.
+The type of account balance is usually BigInteger, which is a representation after rounding the decimal part. It needs to be divided by Factor to get the actual Token amount.
 :::
 
 Inquiry NEP-17 asset balance using the string parameter:
@@ -176,6 +177,7 @@ In Neo N3 GAS is automatically claimed when NEO is transferred. You can construc
     string address = "NZs2zXSPuuv9ZF6TDGSWT1RBmE8rfGj7UW";
     decimal gasAmount = await walletAPI.GetUnclaimedGasAsync(address).ConfigureAwait(false);
     ```
+
     or use ScriptHash of the account to check:
 
     ```cs
@@ -191,6 +193,7 @@ In Neo N3 GAS is automatically claimed when NEO is transferred. You can construc
     string wif = "L1rFMTamZj85ENnqNLwmhXKAprHuqr1MxMHmCWCGiXGsAdQ2dnhb";
     Transaction transaction = await walletAPI.ClaimGasAsync(wif).ConfigureAwait(false);
     ```
+
     or use `KeyPair`:
     
     ```cs
@@ -217,6 +220,7 @@ WalletAPI neoAPI = new WalletAPI(client);
 await neoAPI.WaitTransactionAsync(transaction)
   .ContinueWith(async (p) => Console.WriteLine($"Transaction vm state is  {(await p).VMState}"));
 ```
+
 or use `KeyPair` and  `UInt160` (ScriptHash):
 
 ```cs

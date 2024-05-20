@@ -232,6 +232,7 @@ An NEP6 wallet file complies with the NEP6 standard, and the file name extension
     "extra": null
 }
 ```
+
 In this example the password is 1
 
 | Field                           | Description                                                  |

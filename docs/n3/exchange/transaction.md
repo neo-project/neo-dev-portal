@@ -376,10 +376,10 @@ The parameters related to a transaction in the file are the following:
   - from account: The first object in the array is the account address where the asset is transferred from. Its type "bytearray" and the value "uXtKzX+CD2HS1NT5rqXrUEmN31U=“ can be  decoded to "NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o" with base64. 
 
     :::note
-    
+   
     In Neo, hexadecimal strings are processed in big-endian order if they are preceded by 0x, or little-endian order if they are not.
     :::
-    
+   
     ```json
     {
     "type": "ByteString",

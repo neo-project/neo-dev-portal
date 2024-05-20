@@ -4,6 +4,7 @@ sidebar_position: 0
 ---
 
 # Neo Node Introduction
+
 Nodes that store all of the blockchain are called “full-nodes”. They are connected to the blockchain through a P2P network. All the nodes in the blockchain network are equal, they act both as a client interface and as a server.
 
 There are two full-node programs:

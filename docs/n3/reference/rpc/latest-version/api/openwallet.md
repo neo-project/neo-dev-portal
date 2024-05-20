@@ -3,7 +3,7 @@
 Opens the specified wallet file. To be on the safe side this method is disabled by default. If you do need to use this method you can manually enable this method in the RpcServer configuration file.
 
 :::note
- You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke this method.
+You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke this method.
 :::
 
 ## Parameter Description

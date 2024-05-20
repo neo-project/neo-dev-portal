@@ -7,7 +7,7 @@ Namespace: [Neo.SmartContract.Framework.Native](../../native.md)
 Assembly: Neo.SmartContract.Framework
 
 :::note
- Candidate registration requires the candidate's signature. It means candidate registering is only self-determined. 
+Candidate registration requires the candidate's signature. It means candidate registering is only self-determined. 
 :::
 
 ## Syntax

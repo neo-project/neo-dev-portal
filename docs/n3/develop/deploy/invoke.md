@@ -64,7 +64,7 @@ invoke <scriptHash> <operation> [contractParameters=null] [sender=null]  [signer
 When invoking a contract in Neo-GUI, you can click `Cosignature` at the bottom of the page, choose `Public key`, and then click `Sign` to add the signature.  
 
 :::note
- When you invoke the transfer method of the NEP-17 contract using the transfer command, the wallet will automatically appends the signature to the from field. You don't need to add it manually.
+When you invoke the transfer method of the NEP-17 contract using the transfer command, the wallet will automatically appends the signature to the from field. You don't need to add it manually.
 :::
 
 ## Invoking between contracts

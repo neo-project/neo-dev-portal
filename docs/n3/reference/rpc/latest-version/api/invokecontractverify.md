@@ -22,10 +22,10 @@ Invokes the contract method `Verify`. Unlike the method `invokefunction` which e
   - allowedcontracts: contracts of the signature can take effect, if scopes is CustomContracts
   - allowedgroups: pubkeys of the signature can take effect, if scopes is CustomGroups
   
-  :::note
-  You need to use the proper byte order of the address passed according to its data type. If the data type is Hash160, use the big endian script hash; if the data type is ByteArray, use the little endian scripthash.
-  :::
-  
+:::note
+You need to use the proper byte order of the address passed according to its data type. If the data type is Hash160, use the big endian script hash; if the data type is ByteArray, use the little endian scripthash.
+:::
+ 
   For example:
   
     ```json

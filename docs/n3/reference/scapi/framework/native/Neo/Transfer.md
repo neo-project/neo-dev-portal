@@ -7,7 +7,7 @@ Namespace: [Neo.SmartContract.Framework.Native](../../native.md)
 Assembly: Neo.SmartContract.Framework
 
 :::note
- The method will check sender's signature, whether caller is sender, whether receiver is payable, and whether sender's balance is enough.
+The method will check sender's signature, whether caller is sender, whether receiver is payable, and whether sender's balance is enough.
 :::
 
 ## Syntax

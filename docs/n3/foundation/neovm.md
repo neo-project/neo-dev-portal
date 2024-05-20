@@ -12,7 +12,7 @@ With the help of NeoCompiler, source code written in Java, C# or other high-leve
 
 In addition, NeoVM is highly decoupled from the upper-level code and customizable by using techniques such as interop services. NeoVM can be used by simply creating an instance, incredibly easy to use, and can be applied to various blockchain and non-blockchain scenarios.  
 
-##  Infrastructure and Execution Process  
+## Infrastructure and Execution Process  
 
 ### Infrastructure 
 
@@ -28,7 +28,7 @@ ExecutionEngine is the core of NeoVM, mainly responsible for loading scripts and
 
 NeoVM is a stack-based virtual machine. NeoVM has three types of stack: InvocationStack, EvaluationStack,  and ResultStack.  
 
--  InvocationStack is used to store all execution contexts of current NeoVM, which are isolated from each other in the stack. Context switching is performed based on the current context and entry context. The current context points to the top element of invocation stack, which is ExecutionContext0 in the architecture figure. And the entry context points to the tail element of invocation stack, which is ExecutionContextN in the architecture figure.
+- InvocationStack is used to store all execution contexts of current NeoVM, which are isolated from each other in the stack. Context switching is performed based on the current context and entry context. The current context points to the top element of invocation stack, which is ExecutionContext0 in the architecture figure. And the entry context points to the tail element of invocation stack, which is ExecutionContextN in the architecture figure.
 - EvaluationStack is for storing the data used by the instruction in execution process. Each execution context has its own evaluation stack.
 - ResultStack is used to store execution result after all scripts are executed. 
 

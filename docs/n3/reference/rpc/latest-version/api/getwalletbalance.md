@@ -24,7 +24,7 @@ You can query asset ID using the [CLI command](../../../../node/cli/cli.md) `lis
 ## Example
 
 :::note
- Make sure your client has been fully synchronized to the latest block height before using this API, otherwise the balance returned may not be up-to-date.
+Make sure your client has been fully synchronized to the latest block height before using this API, otherwise the balance returned may not be up-to-date.
 :::
 
 Example: querying the balance of NEP-17 assets.
@@ -57,6 +57,9 @@ Response Description:
 balance: the balance of the asset in the wallet. Since the NEP-17 assets adopt the balance system rather than the UTXO system, there is no `confirmed` in the returned result and the balance is the actual available balance.
 
 :::note
- * Only when your client synchronizes to the block that the contract was deployed, execution of this API will return the correct value, otherwise execution of the API will result in an error.
+
+- Only when your client synchronizes to the block that the contract was deployed, execution of this API will return the correct value, otherwise execution of the API will result in an error.
+
+- When the input parameter is a script hash of a non-NEP-17 smart contract, execution of the API will result in an error.
+
 :::
-> * When the input parameter is a script hash of a non-NEP-17 smart contract, execution of the API will result in an error.
