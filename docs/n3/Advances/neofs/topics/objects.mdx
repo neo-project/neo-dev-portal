@@ -37,7 +37,7 @@ fileNameAttr.SetValue(path.Base(filepath)) //path.Base(filepath) returns the las
 
 expirationEpochAttr := new(object.Attribute)
 expirationEpochAttr.SetKey("__NEOFS__EXPIRATION_EPOCH") // Reserved case for when the life of the object should expire 
-expirationEpochAttr.SetValue(strconv.Itoa(epoch))) //The epoch at which the object will expire
+expirationEpochAttr.SetValue(strconv.Itoa(epoch)) //The epoch at which the object will expire
 
 attributes = append(attributes, []*object.Attribute{timeStampAttr, fileNameAttr, expirationEpochAttr}...)
 
