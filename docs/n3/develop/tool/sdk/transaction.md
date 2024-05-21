@@ -3,10 +3,11 @@
 `RpcClient` encapsulates the transaction construction module, which allows you to construct transactions in Neo N3 with specific parameters and methods to personalize your functions. This document introduces the relevant methods.
 
 :::note
- If you use SDK to construct a transaction that requires a signature, you need to ensure that the RpcClient object and the network it is connected to are configured the same way, or the transaction constructed by the SDK will not be validated in the blockchain. To do so, load Neo-CLI config.json when constructing the RpcClient object, for example:
+If you use SDK to construct a transaction that requires a signature, you need to ensure that the RpcClient object and the network it is connected to are configured the same way, or the transaction constructed by the SDK will not be validated in the blockchain. To do so, load Neo-CLI config.json when constructing the RpcClient object, for example:
+
+RpcClient client = new RpcClient(new Uri("http://localhost:20332"), null, null, ProtocolSettings.Load("config.json"))
 :::
->
-> RpcClient client = new RpcClient(new Uri("http://localhost:20332"), null, null, ProtocolSettings.Load("config.json"))
+
 
 ## Transaction construction process
 
@@ -18,7 +19,7 @@
     byte[] script = scriptHash.MakeScript("transfer", sender, receiver, 1，"data");
     ```
 
-2. Construct `TransactionManagerFactory` with the parameter `RpcClient `; Construct `TransactionManager` with the parameters `Script` and`Signers`:
+2. Construct `TransactionManagerFactory` with the parameter `RpcClient`; Construct `TransactionManager` with the parameters `Script` and`Signers`:
 
     ```cs
     TransactionManager txManager = await new TransactionManagerFactory(client)
@@ -33,6 +34,7 @@
     // add signature for the transaction with sendKey
     txManager.AddSignature(sendKey);
     ```
+
     - multiple signatures
     
     ```cs
@@ -40,6 +42,7 @@
     txManager.AddMultiSig(key1, 2, receiverKey.PublicKey, key2.PublicKey, key3.PublicKey);
     txManager.AddMultiSig(key2, 2, receiverKey.PublicKey, key2.PublicKey, key3.PublicKey);
     ```
+    
     - multi-signature contract
     
       The nature of multi-signature comes from multi-signature contracts. You need to construct a multi-signature contract before you can obtain the multi-signature address and transfer assets. The following example uses 3 accounts to create a multi-signature contract which requires at least 2 account signatures for signing.
@@ -51,7 +54,7 @@
     UInt160 multiAccount = multiContract.Script.ToScriptHash();
     ```
     
-5. Verify signatures and add `Witness` to the transaction body.
+4. Verify signatures and add `Witness` to the transaction body.
 
     If there are not enough signatures or fees an exception will be thrown.
 

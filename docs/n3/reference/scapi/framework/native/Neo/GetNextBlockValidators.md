@@ -29,11 +29,11 @@ Response body:
 
 ```json
 [{
-	"type": "Array",
-	"value": [{
-		"type": "ByteString",
-		"value": "Auj/F8Vn1i8nT\u002BJHzIhKKmzTuP0Nd5qMWFYomlYKzKy0"
-	}]
+    "type": "Array",
+    "value": [{
+        "type": "ByteString",
+        "value": "Auj/F8Vn1i8nT\u002BJHzIhKKmzTuP0Nd5qMWFYomlYKzKy0"
+    }]
 }]
 ```
 

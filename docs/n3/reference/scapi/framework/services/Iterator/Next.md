@@ -22,12 +22,12 @@ public class Contract1 : SmartContract
     public static void Main()
     {
         var iterator = Storage.Find(new byte[] { 0x01 });
-		while (iterator.Next())
-		{
-    		var k = iterator.Key;
-    		var v = iterator.Value;
-    		……
-		}
+        while (iterator.Next())
+        {
+            var k = iterator.Key;
+            var v = iterator.Value;
+            ……
+        }
     }
 }
 ```

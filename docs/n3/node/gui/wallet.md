@@ -92,8 +92,8 @@ You can import the account address corresponding to the private key into the cur
 
 You can view all transaction records related to the wallet by clicking the transaction list. This includes the confirmed transactions and the transactions that have just been initiated but have not yet been confirmed.
 
-+ **Latest transaction**: Transactions already packaged on the blockchain by consensus nodes
-+ **Unconfirmed transaction**: Transactions waiting to be packaged on the blockchain
+- **Latest transaction**: Transactions already packaged on the blockchain by consensus nodes
+- **Unconfirmed transaction**: Transactions waiting to be packaged on the blockchain
 
 ## Transfer
 

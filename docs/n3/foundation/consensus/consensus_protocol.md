@@ -103,7 +103,7 @@ There are 3 kinds of  `InventoryType`:
 
 ## Consensus Message Process
 
-###  Verification
+### Verification
 
 1. Ignore the message if `ValidBlockStart` is lower than `ValidBlockEnd`.
 

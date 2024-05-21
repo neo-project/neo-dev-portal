@@ -112,7 +112,7 @@ The following table lists all the plugins:
 |RpcServer|Enables RPC for the node|[RPC API](../../reference/rpc/latest-version/api)|Mandatory|
 |SQLiteWallet|A SQLite-based wallet provider that supports wallet files with .db3 suffix||Optional|
 |StatesDumper|Exports Neo-CLI status data.||Optional|
-|StateService|StateRoot consensus service plugin|[getstateroot](../../reference/rpc/latest-version/api/getstateroot) [getproof](../../reference/rpc/latest-version/api/getproof.html) [verifyproof](../../reference/rpc/latest-version/api/verifyproof.html) [getstateheight](../../reference/rpc/latest-version/api/getstateheight.html)  |Mandatory when served as a StateRoot consensus node|
+|StateService|StateRoot consensus service plugin|[getstateroot](../../reference/rpc/latest-version/api/getstateroot) [getproof](../../reference/rpc/latest-version/api/getproof) [verifyproof](../../reference/rpc/latest-version/api/verifyproof.md) [getstateheight](../../reference/rpc/latest-version/api/getstateheight.md)  |Mandatory when served as a StateRoot consensus node|
 |TokensTracker|Enquiries NEP-11 and NEP-17 assets balance and transactions history of accounts through RPC|[getnep11balances](../../reference/rpc/latest-version/api/getnep11balances)  [getnep11properties](../../reference/rpc/latest-version/api/getnep11properties)  [getnep11transfers](../../reference/rpc/latest-version/api/getnep11transfers)  [getnep17balances](../../reference/rpc/latest-version/api/getnep17balances)  [getnep17transfers](../../reference/rpc/latest-version/api/getnep17transfers)  |Recommended|
 
 You can choose one of the following ways to install plugins:

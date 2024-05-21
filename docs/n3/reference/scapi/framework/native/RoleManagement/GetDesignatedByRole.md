@@ -29,5 +29,5 @@ public static void Test()
     var nodes = RoleManagement.GetDesignatedByRole(Role.Oracle, 0);
 }
 ```
-[Back](../RoleManagement.md)
 
+[Back](../RoleManagement.md)

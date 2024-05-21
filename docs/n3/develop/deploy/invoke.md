@@ -35,7 +35,7 @@ You can choose one of the following ways to invoke the contract using Neo-CLI:
 
 ### Invoking a contract using Neo-GUI
 
-1. In Neo-GUI click `Contract `->`Invoke Contract`。
+1. In Neo-GUI click `Contract`->`Invoke Contract`。
 
 2. Enter the contract script hash and click `Search`.
 
@@ -45,7 +45,7 @@ You can choose one of the following ways to invoke the contract using Neo-CLI:
 
    The trial run at this step does not affect the blockchain as it is just create a NeoVM on your local computer to simulate the invocation.
 
-4.  If the trial run goes smoothly and you want to invoke it on the blockchain, click `Invoke`.
+4. If the trial run goes smoothly and you want to invoke it on the blockchain, click `Invoke`.
 
 ## Cosignature
 
@@ -64,7 +64,7 @@ invoke <scriptHash> <operation> [contractParameters=null] [sender=null]  [signer
 When invoking a contract in Neo-GUI, you can click `Cosignature` at the bottom of the page, choose `Public key`, and then click `Sign` to add the signature.  
 
 :::note
- When you invoke the transfer method of the NEP-17 contract using the transfer command, the wallet will automatically appends the signature to the from field. You don't need to add it manually.
+When you invoke the transfer method of the NEP-17 contract using the transfer command, the wallet will automatically appends the signature to the from field. You don't need to add it manually.
 :::
 
 ## Invoking between contracts
@@ -113,7 +113,7 @@ Three fields related to the contract invocation permission are defined in the co
 | Fields        | Type                          | Description                                                  |
 | ------------- | ----------------------------- | ------------------------------------------------------------ |
 | `Groups`      | `ContractGroup[]`             | Defines a group of trusted contracts, consisting of a public key and a signature of contract hash. |
-| `Permissions` | `ContractPermission[]`        | This field is an array containing a permission object, which defines other contracts and methods that the contract wants to call. The contract can be ScriptHash, Group, or wildcard *. The method is the method name or wildcard *. Contracts or methods not declared in the manifest cannot be called by the contract. |
+| `Permissions` | `ContractPermission[]`        | This field is an array containing a permission object, which defines other contracts and methods that the contract wants to call. The contract can be ScriptHash, Group, or wildcard \*. The method is the method name or wildcard \*. Contracts or methods not declared in the manifest cannot be called by the contract. |
 | `Trusts`      | `WildcardContainer<UInt160>` | Defines other contracts trusted by the contract. The contract can be ScriptHash, Group, or wildcard *. If a contract is trusted, the user will not receive any warning message when the contract is called. |
 
 Assuming that the contract A calls the contract B, the following table details the invoking behavior and wallet behavior of the contract in various setting scenarios.

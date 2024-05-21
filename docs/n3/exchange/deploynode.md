@@ -38,6 +38,7 @@ install RpcNep17Tracker
 
 - The RpcServer plug-in must be installed before you can use the RpcNep17Tracker plug-in.
 - You must install the plugins ApplicationLogs and RpcNep17Tracker before synchronizing the Neo client, otherwise the log in the blocks synchronized before will be lost.
+
 :::
 
 ## Modifying configuration files

@@ -5,7 +5,7 @@ sidebar_position: 2
 
 # NEO Token Models
 
-### Native Token
+## Native Token
 
 There are 2 kinds of native tokens defined in the Neo system: NEO and NeoGas (GAS).
 
@@ -18,7 +18,7 @@ The Neo N3 Genesis block will mint the exact amount of GAS token needed to accou
 To read more about GAS generation rate and distribution refer to the [Governance and Incentives](./governance).
 
 
-### NEP17 Assets (Tokens)
+## NEP17 Assets (Tokens)
 
 NEP17 tokens need to be issued and managed through smart contract. Their information is stored in a smart contract's storage. Account model is used. For detailed information, refer to [NEP-17](/docs/n3/develop/write/nep17).
 

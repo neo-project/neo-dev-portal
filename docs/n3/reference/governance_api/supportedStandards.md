@@ -4,7 +4,7 @@ Returns supported NEP standards.
 
 ## Contract
 
-	NativeContract
+    NativeContract
 
 ## Example
 
@@ -18,14 +18,14 @@ Respond content:
 
 ```json
 {
-	"type": "Array",
-	"value": [{
-		"type": "ByteString",
-		"value": "NEP-5"
-	}, {
-		"type": "ByteString",
-		"value": "NEP-10"
-	}]
+    "type": "Array",
+    "value": [{
+        "type": "ByteString",
+        "value": "NEP-5"
+    }, {
+        "type": "ByteString",
+        "value": "NEP-10"
+    }]
 }
 ```
 

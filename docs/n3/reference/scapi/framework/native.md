@@ -23,4 +23,3 @@ A series of native contract methods that can be invoked in the smart contract.
 | [NamedCurve](native/NamedCurve.md) | Supported Elliptic Curves Extension        |
 | [OracleResponseCode](native/OracleResponseCode.md) | Defines the response code types of Oracle  |
 | [Role](native/Role.md)           | Defines permission types of RoleManagement |
-

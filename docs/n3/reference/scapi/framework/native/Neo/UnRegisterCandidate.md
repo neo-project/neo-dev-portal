@@ -7,7 +7,7 @@ Namespace: [Neo.SmartContract.Framework.Native](../../native.md)
 Assembly: Neo.SmartContract.Framework
 
 :::note
- Unregistering candidate requires the candidate's signature. It means candidate unregistering is only self-determined. 
+Unregistering candidate requires the candidate's signature. It means candidate unregistering is only self-determined. 
 :::
 
 ## Syntax
@@ -39,8 +39,8 @@ Response body:
 
 ```json
 {
-	"Type":"Boolean",
-	"value":"true"
+    "Type":"Boolean",
+    "value":"true"
 }
 ```
 

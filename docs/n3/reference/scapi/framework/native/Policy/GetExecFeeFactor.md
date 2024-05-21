@@ -24,5 +24,6 @@ public static void Test()
     var factor = Policy.GetExecFeeFactor();
 }
 ```
+
 [Back](../Policy.md)
 

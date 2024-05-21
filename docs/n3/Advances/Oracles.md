@@ -12,7 +12,7 @@ Neo Oracle Service is an out-of-chain data access service built into Neo N3. It 
 
 The commit-reveal mechanism is a sequential protocol that prevents data plagiarism for multiple Oracle nodes.
 
-**Process**
+#### Process
 
 1. Oracle node submits ciphertext information (hash, signature, etc.) about data to other Oracle nodes and collects ciphertext information submitted by other Oracle nodes.
 
@@ -32,7 +32,7 @@ Neo Oracle Service adopts the request-response processing mechanism, which is an
 
 ![](assets/oralce_response.png)
 
-**Process**
+#### Process
 
 1. The user writes the smart contract to call the `Request` method of the Oracle contract.
 
@@ -54,11 +54,11 @@ Oracle service currently supports two URL schemes, `https` and `neofs`. `https` 
 
 ## Fees and rewards
 
-- **Fees**
+- ### Fees
 
   Neo Oracle Service charges the user by the number of requests, 0.5 GAS by default for each. Besides, the user has to pay additional fees for the callback function. All the fees will be paid when the Request is created.
 
-- **Rewards**
+- ### Rewards
 
   The fee paid by the user for the Request is distributed to the Oracle node in turn when executing the `PostPersist` logic.
 
@@ -240,3 +240,4 @@ The Code field defines the status Code for Oracle responses, including the follo
 | `0x1a` | `ResponseTooLarge`     | result size is out of limit | `byte` |
 | `0x1c` | `InsufficientFunds`    | the fee is insufficient   | `byte` |
 | `0xff` | `Error`                | error occurs in the execution         | `byte` |
+

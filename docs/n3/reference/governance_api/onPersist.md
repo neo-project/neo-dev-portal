@@ -4,7 +4,7 @@ Manually performs actions the Nep17 contract will do upon block persisting.
 
 ## Contract
 
-	NativeContract
+    NativeContract
 
 ## Parameters
 
@@ -18,8 +18,8 @@ Respond content:
 
 ```json
 {
-	"Type":"Void",
-	"value":"NULL"
+    "Type":"Void",
+    "value":"NULL"
 }
 ```
 

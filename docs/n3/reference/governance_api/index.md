@@ -9,7 +9,7 @@ sidebar_position: 0
 
 There is no duty assigned to candidates. However, committee members and consensus nodes are elected from certain number of candidates with most votes. 
 
-#### How to Become a Candidate
+### How to Become a Candidate
 
 An address can be registered as candidate or unregistered afterwards. Corresponding contract methods are as follows:
 
@@ -22,7 +22,7 @@ An address can be registered as candidate or unregistered afterwards. Correspond
 Registering / unregistering candidate requires signature. It means candidate registering / unregistering is only self-determined. 
 :::
 
-#### Candidate Voting 
+### Candidate Voting 
 
 Every address has the right to vote to only one address (whether or not it's a candidate). Candidate's received votes are defined as the sum of NEO held by its voter. Every standby committee member will vote to itself in genesis block. 
 
@@ -40,7 +40,7 @@ As voters' votes & held NEO, as well as registered candidates keep changing, can
 
 ## Committee
 
-#### Function & Scope
+### Function & Scope
 
 Committee members have the privilege to modify the configuration of Neo network by voting, including:
 
@@ -89,13 +89,13 @@ Furthermore, corresponding reading methods are also supported:
 | GetRegisterPrice | null | 0.00032768 (CpuFee) | NeoToken |
 | GetMinimumDeploymentFee | null | 0.00032768 (CpuFee) | ContractManagement |
 
-#### How are committee members elected
+### How are committee members elected
 
 1. Sort the registered candidates by votes
 2. Take certain numbers of candidates (21 by default) with the most votes as committee members.
 Committee members are refreshed every 21 blocks.
 
-#### Corresponding contract method
+### Corresponding contract method
 
 | Method | Parameters | Fee in GAS | Return value |
 | ---- | ------------------------------------ | ---- | ---- |
@@ -103,17 +103,17 @@ Committee members are refreshed every 21 blocks.
 
 ## Consensus Nodes
 
-#### Function & Scope
+### Function & Scope
 
 Consensus nodes are nodes which are able to start or vote to new block proposals. 
 
-#### How are consensus nodes elected
+### How are consensus nodes elected
 
 1. Sort the registered candidates by votes
 2. Take certain numbers of candidates (7 by default) with the most votes as consensus nodes.
 Similar to committee members, consensus nodes are refreshed every 21 blocks.
 
-#### Corresponding contract method
+### Corresponding contract method
 
 | Method | Parameters | Fee in GAS | Return value |
 | ---- | ------------------------------------ | ---- | ---- |

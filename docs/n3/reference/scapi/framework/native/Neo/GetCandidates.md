@@ -29,17 +29,17 @@ Response description:
 
 ```json
 [{
-	"type": "Array",
-	"value": [{
-		"type": "Struct",
-		"value": [{
-			"type": "ByteString",
-			"value": "Apls6R4n/uoL7MTn/cB3Llj8G\u002BuLJ7LUyL/JWBQg4I0y"
-		}, {
-			"type": "Integer",
-			"value": "10000"
-		}]
-	}]
+    "type": "Array",
+    "value": [{
+        "type": "Struct",
+        "value": [{
+            "type": "ByteString",
+            "value": "Apls6R4n/uoL7MTn/cB3Llj8G\u002BuLJ7LUyL/JWBQg4I0y"
+        }, {
+            "type": "Integer",
+            "value": "10000"
+        }]
+    }]
 }]
 ```
 

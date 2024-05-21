@@ -3,7 +3,7 @@
 Returns all the NEP17 transaction information occurred in the specified address.
 
 :::note
- You must install the plugin [TokensTracker](https://github.com/neo-project/neo-modules/releases), [LevelDBStore](https://github.com/neo-project/neo-modules/releases), and [RpcSever](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+You must install the plugin [TokensTracker](https://github.com/neo-project/neo-modules/releases), [LevelDBStore](https://github.com/neo-project/neo-modules/releases), and [RpcSever](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
 :::
 
 ## Parameter Description
@@ -24,7 +24,7 @@ Before invoking the method, you need to modify the following fields in the Token
 
 ## Example
 
-##### Example 1 - Set the start time:
+### Example 1 - Set the start time
 
 Request body:
 
@@ -70,7 +70,7 @@ Response body:
 }
 ```
 
-##### Example 2 - Set both timestamps:
+### Example 2 - Set both timestamps
 
 Request body:
 

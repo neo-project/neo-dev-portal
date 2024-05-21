@@ -17,4 +17,3 @@ public enum Role : byte
 ```
 
 For more information see the method `GetDesignatedByRole` in [RoleManagement](RoleManagement.md).
-

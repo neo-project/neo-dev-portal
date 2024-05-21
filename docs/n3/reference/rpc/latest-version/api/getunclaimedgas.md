@@ -3,7 +3,7 @@
 Returns the unclaimed GAS with the specified address.
 
 :::note
- Before you can invoke this method you must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases).
+Before you can invoke this method you must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases).
 :::
 
 ## Parameter Description

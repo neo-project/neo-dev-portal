@@ -1,15 +1,17 @@
-﻿# importprivkey Method
+# importprivkey Method
 
 Imports the private key to the wallet.
 
 :::note
- Before you can invoke this method you must:
-:::
->
-> 1. Install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) 
-> 2. Call the RPC method `openwallet` to open the wallet first.
+Before you can invoke this method you must:
 
-### Parameter Description
+1. Install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) 
+
+2. Call the RPC method `openwallet` to open the wallet first.
+
+:::
+
+## Parameter Description
 
 key: The WIF-format private key.
 

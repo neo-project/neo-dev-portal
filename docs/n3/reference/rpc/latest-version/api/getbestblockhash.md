@@ -1,14 +1,14 @@
-﻿# getbestblockhash Method
+# getbestblockhash Method
 
 Returns the latest block hash of the block chain.
 
 :::note
- You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
 :::
 
 ## Example
 
-##### Request body
+### Request body
 
 ```json
 {
@@ -19,7 +19,7 @@ Returns the latest block hash of the block chain.
 }
 ```
 
-##### Response body
+### Response body
 
 ```json
 {
@@ -29,6 +29,6 @@ Returns the latest block hash of the block chain.
 }
 ```
 
-##### Response Description
+### Response Description
 
 Result: The latest block hash of the block chain.

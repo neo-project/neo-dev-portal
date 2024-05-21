@@ -33,5 +33,5 @@ public class Contract1 : SmartContract.Framework.SmartContract
     }
 }
 ```
-[Back](../Policy.md)
 
+[Back](../Policy.md)

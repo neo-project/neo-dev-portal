@@ -17,7 +17,7 @@ All the commands described in this document conform with these conventions:
 - `|` separates multiple parameters where any one of them can be used at your choice.
 - `=` indicates the default value of the optional parameter without an input.
 
-#### Console commands
+### Console commands
 
 | Command      | Description      |
 | ------- | --------- |
@@ -27,7 +27,7 @@ All the commands described in this document conform with these conventions:
 | clear   | Clear screen      |
 | exit    | Exit program      |
 
-#### Wallet commands
+### Wallet commands
 
 | Command                                           | Parameters                             | Description                                                  |
 | ------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------ |
@@ -55,7 +55,7 @@ The commands listed in the table below requires you to open the wallet before in
 | [sign](#sign)                                     | `<jsonObjectToSign>`                    | Signs the transaction. The parameter is the json string that records the transaction information. |
 | [cancel](#cancel)                                     | `<txid>` [sender=null] [signerAccounts=null]                    | Cancel unconfirmed transactions (in memory pool) |
 
-#### Contract commands
+### Contract commands
 
 | Command           | Parameters                                                   | Description        |
 | ----------------- | ------------------------------------------------------------ | ------------------ |
@@ -64,14 +64,14 @@ The commands listed in the table below requires you to open the wallet before in
 | [update](#update) | `<scriptHash>` `<filePath>` `<manifestPath>` `<sender>` \[signerAccounts=null] | Upgrade a contract |
 
 
-#### Node commands
+### Node commands
 
 | Command    | Parameters      | Description                                                  |
 | ---------- | --------------- | ------------------------------------------------------------ |
 | show state |                 | Displays the current status of blockchain synchronization.   |
 | show pool  | [verbose=False] | Displays the transactions in the memory pool (These transactions are in the state of zero confirmation). |
 
-#### Nep17 commands
+### Nep17 commands
 
 | Command                 | Parameters                                                   | Description                                                  |
 | ----------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -81,13 +81,13 @@ The commands listed in the table below requires you to open the wallet before in
 | [totalsupply](#totalsupply)           | `<tokenHash>`                                                 | Queries the  total supply of specified token                             |
 | [transfer](#transfer)   | `<tokenHash>` `<to>` `<amount>`  \[from=null] \[data=null] \[signersAccounts=null] | Invokes the transfer method to transfer the specified token  |
 
-#### Native contract commands
+### Native contract commands
 
 | Command                                     | Parameters | Description                                        |
 | ------------------------------------------- | ---------- | -------------------------------------------------- |
 | [list nativecontract](#list-nativecontract) |            | Lists all the native contract names and scripthash |
 
-#### Network commands
+### Network commands
 
 | Command         | Parameters          | Description                                                  |
 | --------------- | ------------------- | ------------------------------------------------------------ |
@@ -100,7 +100,7 @@ The commands listed in the table below requires you to open the wallet before in
 | [broadcast inv](#broadcast-inv) |  `<inventory type>` `<payload>`  | Broadcasts the inventory data |
 | [broadcast transaction](#broadcast-transaction) |  `<transaction hash>`  | Broadcasts a transaction |
 
-#### Plugin commands
+### Plugin commands
 
 | Command                       | Parameters    | Description                              |
 | ----------------------------- | ------------- | ---------------------------------------- |
@@ -116,7 +116,7 @@ The commands listed in the table below requires you to open the wallet before in
 | [get proof](#get-proof) | `<rootHash>` `<scriptHash>` `<key>` | Gets proof with root hash, contract hash, and storage key. |
 | [verify proof](#verify-proof) | `<rootHash>` `<proof>` | Verifies with root hash and proof. |
 
-#### Voting commands
+### Voting commands
 
 | Command                                       | Parameters                    | Description                                                 |
 | --------------------------------------------- | ----------------------------- | ----------------------------------------------------------- |
@@ -129,7 +129,7 @@ The commands listed in the table below requires you to open the wallet before in
 | [vote](#vote)                                 | `<senderAccount>` `<publicKey>` | Votes for candidates                                        |
 | [unvote](#unvote)                             | `<senderAccount>`              | Cancel the voting                                           |
 
-#### Block Commands
+### Block Commands
 
 | Command                         | Parameters                             | Description                                                  |
 | ------------------------------- | -------------------------------------- | ------------------------------------------------------------ |
@@ -138,7 +138,7 @@ The commands listed in the table below requires you to open the wallet before in
 | [show contract](#show-contract) | `<nameOrHash>` | Output contract details by contract name or contract hash. |
 | [show tx](#show-tx) | `<hash>` | Output transaction details via transaction hash. |
 
-#### Log Commands
+### Log Commands
 
 | Command             | Description                            |
 | ------------------- | -------------------------------------- |
@@ -151,11 +151,11 @@ The commands listed in the table below requires you to open the wallet before in
 
 Converts the input string into various supported data formats.
 
-##### Syntax
+#### Syntax
 
 > parse `<value>`
 
-##### Example
+#### Example
 
 ```
 neo> parse NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o
@@ -180,11 +180,11 @@ If you see messy codes that is because some data types cannot be converted. You 
 
 Creates a wallet file in the .db3 or .json format. A wallet password is required to be specified during the process. 
 
-##### Syntax
+#### Syntax
 
  `create wallet <path>` 
 
-##### Example
+#### Example
 
 ```
 neo> create wallet test.json
@@ -201,11 +201,11 @@ The wallet file is generated under the neo-cli root directory. If you want to se
 
 Delete an address from wallet. 
 
-##### Syntax
+#### Syntax
 
  `delete address <address>` 
 
-##### Example
+#### Example
 
 ```
 neo> delete address NL4zw2c1MdaXYmGt4NWTPXFcyuNjCQrpNL
@@ -218,11 +218,11 @@ Address 0xde6b70cbd0989167094b60b474e8f6658233b501 deleted.
 
 Opens the wallet file at the specified path. The wallet password is required to be entered when opening the wallet.
 
-##### Syntax
+#### Syntax
 
  `open wallet <path>` 
 
-##### Example
+#### Example
 
 ```
 neo> open wallet test.json
@@ -233,11 +233,11 @@ password: *
 
 Changes the wallet password.
 
-##### Syntax
+#### Syntax
 
  `change password` 
 
-##### Example
+#### Example
 
 ```
 neo> change password
@@ -251,11 +251,11 @@ Password changed successfully
 
 Upgrades the old .db3 wallet file into the .json format.
 
-##### Syntax
+#### Syntax
 
  `upgrade wallet <path>` 
 
-##### Example
+#### Example
 
 ```
 neo> upgrade wallet test.db3
@@ -266,11 +266,11 @@ Wallet file upgrade complete. New wallet file has been auto-saved at: test.json
 
 lists all the unclaimed GAS in the current wallet.
 
-##### Syntax
+#### Syntax
 
 `show gas` 
 
-##### Example
+#### Example
 
 ```
 neo> show gas
@@ -278,7 +278,7 @@ unclaimed gas: 16.7367406
 ```
 
 :::note
- This command does not show the GAS that has been claimed. Use `list asset` instead.
+This command does not show the GAS that has been claimed. Use `list asset` instead.
 :::
 
 On Neo N3, The GAS in an account is claimed automatically every time when the number of Neo in the account changes.  
@@ -287,7 +287,7 @@ On Neo N3, The GAS in an account is claimed automatically every time when the nu
 
 Creates a new address. One can also enter `create address 100` to create 100 new addresses in batches; Addresses are automatically exported to the address.txt file.
 
-##### Syntax
+#### Syntax
 
 `create address [n]` 
 
@@ -295,7 +295,7 @@ Creates a new address. One can also enter `create address 100` to create 100 new
 
 `n`: Number of addresses to create. n is an integer and defaults to 1.
 
-##### Example
+#### Example
 
 ```
 neo> create address 3
@@ -308,7 +308,7 @@ Export addresses to address.txt
 
 Queries the balance of specified token at the specified address
 
-##### Syntax
+#### Syntax
 
  `balanceof <tokenHash> <address>`
 
@@ -318,7 +318,7 @@ Queries the balance of specified token at the specified address
 
 - `address`: The address to query
 
-##### Example
+#### Example
 
 ```
 neo> balanceof 0xd2c270ebfc2a1cdd3e470014a4dff7c091f699ec NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o
@@ -334,7 +334,7 @@ Result Stack: [{"type":"Integer","value":"1998380000000000"}]
 
 Queries the precision of specified token
 
-##### Syntax
+#### Syntax
 
  `decimals <tokenHash>`
 
@@ -342,7 +342,7 @@ Queries the precision of specified token
 
 `tokenHash`: The token hash
 
-##### Example
+#### Example
 
 ```
 neo> decimals 0xd2c270ebfc2a1cdd3e470014a4dff7c091f699ec
@@ -357,7 +357,7 @@ Result : 8
 
 Queries the name of specified token
 
-##### Syntax
+#### Syntax
 
  `name <tokenHash>`
 
@@ -365,7 +365,7 @@ Queries the name of specified token
 
 `tokenHash`: The token hash
 
-##### Example
+#### Example
 
 ```
 neo> name 0xd2a4cff31913016155e38e474a2c06d08be276cf
@@ -379,7 +379,7 @@ Result: GasToken
 
 Queries the total supply of specified token
 
-##### Syntax
+#### Syntax
 
  `totalsupply <tokenHash>`
 
@@ -387,7 +387,7 @@ Queries the total supply of specified token
 
 `tokenHash`: The token hash
 
-##### Example
+#### Example
 
 ```
 neo> totalsupply 0xd2a4cff31913016155e38e474a2c06d08be276cf
@@ -409,7 +409,7 @@ Result: 100000000
 
 Invokes the transfer method to transfer the specified token.
 
-##### Syntax
+#### Syntax
 
  `transfer <tokenHash> <to> <amount> [from=null] [data=null] [signersAccounts=null]`
 
@@ -422,7 +422,7 @@ Invokes the transfer method to transfer the specified token.
 - `data`：The additional parameter. The default value is null.
 - `signersAccounts`: The signer's address
 
-##### Example
+#### Example
 
 ```
 neo> transfer 0xd2c270ebfc2a1cdd3e470014a4dff7c091f699ec Nhe4mzfQRoKojkXhqxJHjANvBMT7BYAXDv 6000 NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y transferdata NNU67Fvdy3LEQTM374EJ9iMbCRxVExgM8Y
@@ -435,12 +435,12 @@ Signed and relayed transaction with hash=0x0d82a59ca2106c93e6383893d86a098d1a9fb
 Lists all the native contract names and scripthash.
 
 
-##### Syntax
+#### Syntax
 
  `list nativecontract`
 
 
-##### Example
+#### Example
 
 ```
 neo> list nativecontract
@@ -460,7 +460,7 @@ neo> list nativecontract
 
 Gets the latest voting information of the specific account, including the address it voted, the amount of votes cast and the block height at the time of voting.
 
-##### Syntax
+#### Syntax
 
  `get accountstate <address>` 
 
@@ -468,7 +468,7 @@ Gets the latest voting information of the specific account, including the addres
 
 `address`：The address you want to query the voting information.
 
-##### Example
+#### Example
 
 ```
 neo> get accountstate NNz4ppADL3mke7HT8RvRr5nX8zTAbNdWjv
@@ -486,11 +486,11 @@ Block: 9774
 
 Gets candidates' public keys and votes
 
-##### Syntax
+#### Syntax
 
  `get candidates`
 
-##### Example
+#### Example
 
 ```
 neo> get candidates
@@ -506,11 +506,11 @@ Candidates:
 
 Gets the committee member's public key
 
-##### Syntax
+#### Syntax
 
  `get committee`
 
-##### Example
+#### Example
 
 ```
 neo> get committee
@@ -526,11 +526,11 @@ Committee:
 
 Gets the next validator's public key
 
-##### Syntax
+#### Syntax
 
  `get next validators`
 
-##### Example
+#### Example
 
 ```
 neo> get next validators
@@ -546,7 +546,7 @@ Next validators:
 
 Registers the candidate
 
-##### Syntax
+#### Syntax
 
  `register candidate <account> [maxGas=1010]`
 
@@ -556,7 +556,7 @@ Registers the candidate
 
 `maxGas`: The maximum GAS can be consumed. Default is 1010, where the registration fee is 1000 GAS.
 
-##### Example
+#### Example
 
 ```
 neo> register candidate NUNtEBBbJkmPrmhiVSPN6JuM7AcE8FJ5sE
@@ -572,7 +572,7 @@ Signed and relayed transaction with hash=0xc30ecd2e30d2d3347e389dbdb205c6a38a663
 
 Unregisters the candidate
 
-##### Syntax
+#### Syntax
 
  `unregister candidate <account>`
 
@@ -580,7 +580,7 @@ Unregisters the candidate
 
 `account`: The account to unregister candidate
 
-##### Example
+#### Example
 
 ```
 neo> unregister candidate NUNtEBBbJkmPrmhiVSPN6JuM7AcE8FJ5sE
@@ -596,7 +596,7 @@ Signed and relayed transaction with hash=0xa799e315956e120a51bf5b5804d9518754a84
 
 Votes for candidates
 
-##### Syntax
+#### Syntax
 
  `vote <senderAccount> <publicKey>`
 
@@ -605,7 +605,7 @@ Votes for candidates
 - `senderAccount`: The account used to vote
 - `publickey`: The public key of the account you vote for
 
-##### Example
+#### Example
 
 ```
 neo> vote Nhiuh11SHF4n9FE6G5LuFHHYc7Lgws9U1z 02344389a36dfc3e95e05ea2adc28cf212c0651418cfcf39e69d19d18b567b221d
@@ -622,7 +622,7 @@ Signed and relayed transaction with hash=0x8083633ecc4827b7967ba8b0a30f02992dc52
 
 Cancel the voting
 
-##### Syntax
+#### Syntax
 
  `unvote <senderAccount>`
 
@@ -630,7 +630,7 @@ Cancel the voting
 
 `senderAccount`: The account to unvote
 
-##### Example
+#### Example
 
 ```
 neo> unvote 0x39edfd1534af1ab7e91bab25fcee9a3b93bfae21
@@ -646,7 +646,7 @@ Signed and relayed transaction with hash=0x78f83fd1e0607f078fa0964a97b9972d3f484
 
 Exports private key of the address to the specified file. The command also requires the verification of the wallet password.
 
-##### Syntax
+#### Syntax
 
  `export key [address] [path]`
 
@@ -655,7 +655,7 @@ Exports private key of the address to the specified file. The command also requi
 - `address`: Address to export private key.
 - `path`: Path to the file used to store the private key.
 
-##### Example
+#### Example
 
 Exports the key to the console:
 
@@ -684,7 +684,7 @@ password: ********
 
 Imports a private key, or  a file with a number of private keys.
 
-##### Syntax
+#### Syntax
 
  `import key <wif | path>`
 
@@ -692,7 +692,7 @@ Imports a private key, or  a file with a number of private keys.
 
 `wif | path`: The key to import or the file path.
 
-##### Example
+#### Example
 
 ```
 neo> import key L4q37aCJzjEXhAUJ6npdxbjGGbyTXuWhpgYxkb2NWPmzXv4DdxiD
@@ -710,7 +710,7 @@ If there is a specified file, the file is in the private key format. Refer to ex
 
 Creates a multi-party signed address. 
 
-##### Syntax
+#### Syntax
 
 `import multisigaddress m pubkeys...`
 
@@ -719,7 +719,7 @@ Creates a multi-party signed address.
 - `m`: m is the minimal number of signatures. For example, creating a multi-party signed address with two public keys, m can be 1 or 2.
 - `pubkeys`: Public keys of multiple parties involved.
 
-##### Example
+#### Example
 
 ```
 neo> import multisigaddress 2 03fadbc9b25d1b6827124665c50801e602240c9d8ebdda2bae49de6683f8f86af9 02ff249d06faaf0b5ba865e1531bfabe07f89aef39ab59082e3bc140be0318055d
@@ -730,7 +730,7 @@ Multisig. Addr.: NN58k4Ei4nUzWxrgksHZPantyuDxWgouod
 
 Imports the watch-only address, e.g contract account.
 
-##### Syntax
+#### Syntax
 
 `import watchonly scriptHash`
 
@@ -738,7 +738,7 @@ Imports the watch-only address, e.g contract account.
 
 `addressOrFile`：account address, hash, contract hash, or files storing these data
 
-##### Example
+#### Example
 
 ```
 neo> import watchonly 0xbfe215933f29b29dacf0e8383722a62974ac8aa6
@@ -749,7 +749,7 @@ Address: Nb6ZUp9h5aCKkNADpdUD5TbuJGP6wyRvE8
 
 Transfers the asset to the specified address. The command requires the verification of the wallet password.
 
-##### Syntax
+#### Syntax
 
 `send <id | alias> <address> <amount> [from=null] [data=null] [signerAccounts=null]`
 
@@ -762,7 +762,7 @@ Transfers the asset to the specified address. The command requires the verificat
 - `data`: the additional transaction information, which defaults to null.
 - `signerAccounts`: signer's address
 
-##### Example
+#### Example
 
 Transfer 100 Neo to the address Ni5iS2XHazKZtXfzLJbdyDk8UUcGBZGePR: 
 
@@ -803,7 +803,7 @@ TXID: 0x174bab85eb004a07ae5b411f23cb6d3128346f9249305a768c286707938b4727
 
 This command is used to sign ContractParametersContext. The translation can be broadcasted only after signing is completed.
 
-##### Syntax
+#### Syntax
 
 `sign <jsonObjectToSign>` 
 
@@ -811,7 +811,7 @@ This command is used to sign ContractParametersContext. The translation can be b
 
 `jsonObjectToSign`: The json string that records the transaction information. 
 
-##### Example
+#### Example
 
 ```
 neo> sign {"type":"Neo.Network.P2P.Payloads.Transaction","hex":"AFhJmTC0i5cAAAAAAHwNhQAAAAAA12oAAAK\u002BqHRB6GdCJbuT4Xv76Od/eEbFVAD4JGXeIikja1DoxoxIKrkYu6bW7AEAVwsaDBS\u002BqHRB6GdCJbuT4Xv76Od/eEbFVAwU\u002BCRl3iIpI2tQ6MaMSCq5GLum1uwUwB8MCHRyYW5zZmVyDBT1Y\u002BpAvCg9TQ4FxI6jBbPyoHNA70FifVtSOQ==","items":{"0x54c546787fe7e8fb7be193bb254267e84174a8be":{"script":"DCECF5VDAAGEeB5UR7Pw\u002B6zmZOqSt\u002BMSJ8jnG8Tnza/M245BdHR2qg==","parameters":[{"type":"Signature","value":"gyzhpmI0KRkAJmd8cWtv7PdFLRlS\u002BHqykL0oH/S84Te4DGwRd9ja/TfKW2\u002BHTSrdfUdnN/K8CF0kf0UywcTKCw=="}],"signatures":{"02179543000184781e5447b3f0fbace664ea92b7e31227c8e71bc4e7cdafccdb8e":"gyzhpmI0KRkAJmd8cWtv7PdFLRlS\u002BHqykL0oH/S84Te4DGwRd9ja/TfKW2\u002BHTSrdfUdnN/K8CF0kf0UywcTKCw=="}},"0xecd6a6bb18b92a488cc6e8506b232922de6524f8":{"script":"FQwhAwIkKx3O1j4b9\u002BsUh29\u002B8Ca3lWf5xb6D3hlD3Rhewo5oDCECDfiFi2b/TXsKamjRHd7cx9kNKmT/os0IfExdq/QVC0AMIQIXlUMAAYR4HlRHs/D7rOZk6pK34xInyOcbxOfNr8zbjgwhAl6ElJA7k9w2nwiivX4iH1dMddlnVZHwSQfLqdruuD0QDCEDhBXQvo3BK2HT47drmPRk36t/3e50Jxw14t5iS7UQI6YMIQPJscicbi1KvWKaLbi30DrO1RilZ5O8kPSYXvftPxtIGgwhA\u002BirUYbh3qvNEOwOUJ3tT/\u002Bt5v3fU0rD4FBiaLrj/USmF0F7zmyl","parameters":[{"type":"Signature"},{"type":"Signature"},{"type":"Signature"},{"type":"Signature"},{"type":"Signature"}],"signatures":{"02179543000184781e5447b3f0fbace664ea92b7e31227c8e71bc4e7cdafccdb8e":"/3oqPLUuFig8B66JNnlyVsA9klLm10LLA5sV/oDr9uzCAPh\u002BDL0yJWx2PfEd\u002BIWijBk/re90CHyJ3w1WkB71eQ=="}}}}
@@ -826,11 +826,11 @@ The signed json string is returned. If the signature is complete, you can broadc
 Cancel unconfirmed transactions (in memory pool).
 Only transactions in the memory pool can be canceled, e.g. if you send two identical transactions, you can cancel one of them in a short time (before the consensus node confirms it).
 
-##### Syntax
+#### Syntax
 
 `cancel <txid> [sender=null] [signerAccounts=null]` 
 
-##### Example
+#### Example
 
 ```
 neo> cancel 0x38d11429a6d34d2ed86213a2a020eece795f48e569b5d05a0ef3616778b03a78
@@ -844,7 +844,7 @@ Signed and relayed transaction with hash:
 
 Deploys a contract on the blockchain.
 
-##### Syntax
+#### Syntax
 
 `deploy <nefFilePath> [manifestFile]` 
 
@@ -853,7 +853,7 @@ Deploys a contract on the blockchain.
 - `nefFilePath`: Path to the executable file (.nef) of NeoVM.
 - `manifestFile`: Path to the file manifest.json, which records each interface information and configuration content of the contract.
 
-##### Example
+#### Example
 
 ```
 neo> deploy Template.nef Template.manifest.json  
@@ -867,7 +867,7 @@ Signed and relayed transaction with hash=0xab6dd63ea36a7c95580b241f34ba756e62c76
 
 Invokes a contract. 
 
-##### Syntax
+#### Syntax
 
 `invoke <scriptHash> <operation> [contractParameters=null] [sender=null] [signerAccounts=null][maxGas]` 
 
@@ -892,13 +892,14 @@ Invokes a contract.
 
 - `maxGas`: The maximum GAS can be consumed.
 
-##### Example 1
+#### Example 1
 
 Input:
 
 ```
 invoke 0xb7f4d011241ec13db16c0e3484bdd5dd9a536f26 symbol
 ```
+
 Output:
 
 ```
@@ -911,8 +912,8 @@ relay tx(no|yes):
 ```
 
 - `VM State`: there are two states:
-  -  `HALT` : the virtual machine executes successfully.
-  -  `FAULT` : the virtual machine exits during execution due to an exception. 
+  - `HALT` : the virtual machine executes successfully.
+  - `FAULT` : the virtual machine exits during execution due to an exception. 
 - `Gas Consumed`: the system fees consumed for smart contract invocation.
 - `Evaluation Stack`: shows the result of contract execution, where the value is encoded with Base64.
 
@@ -955,7 +956,8 @@ Evaluation Stack: [{"type":"Integer","value":"9999999900000000"}]
 
 relay tx(no|yes): no
 ```
-##### Example 3
+
+#### Example 3
 
 Input:
 
@@ -971,14 +973,14 @@ Output:
 
 
 :::note
- After entering the invoke command, the node invokes the `operation` method, and passes `operation` and `contractParameters` as arguments. If `operation` and `contractParameters` are not processed in the contract, the expected result will not be returned.
+After entering the invoke command, the node invokes the `operation` method, and passes `operation` and `contractParameters` as arguments. If `operation` and `contractParameters` are not processed in the contract, the expected result will not be returned.
 :::
 
-###  update
+### update
 
 Upgrades a contract.
 
-##### Syntax
+#### Syntax
 
 `update <scriptHash> <filePath> <manifestPath> <sender> [signerAccounts=null]` 
 
@@ -991,7 +993,7 @@ Upgrades a contract.
 - `sender`: The transaction sender that pays for GAS
 - `signerAccounts`: An array of co-signed addresses and only supports standard accounts (single address). After filling in Neo-CLI will append signatures of all addresses in the array to the invocation transaction.
 
-##### Example
+#### Example
 
 ```
 update 0x3096fb5cd0a2a95b29e8e92692f0be77c4cce06f NEP17.nef NEP17.manifest.json 0xf6a3f0fda46abdeacac9eda4600a354d0687c420
@@ -1008,7 +1010,7 @@ Signed and relayed transaction with hash=0x4587846a2cbc8574e16ce04e95e8c73d76b88
 
 After signing completed, this command can be used to broadcast the transaction information.  
 
-##### Syntax
+#### Syntax
 
 `relay <jsonObjectToSign>` 
 
@@ -1016,7 +1018,7 @@ After signing completed, this command can be used to broadcast the transaction i
 
 `jsonObjectToSign`: The json string that records the transaction information.
 
-##### Example
+#### Example
 
 ```
 neo> relay {"type":"Neo.Network.P2P.Payloads.Transaction","hex":"AFhJmTC0i5cAAAAAAHwNhQAAAAAA12oAAAK\u002BqHRB6GdCJbuT4Xv76Od/eEbFVAD4JGXeIikja1DoxoxIKrkYu6bW7AEAVwsaDBS\u002BqHRB6GdCJbuT4Xv76Od/eEbFVAwU\u002BCRl3iIpI2tQ6MaMSCq5GLum1uwUwB8MCHRyYW5zZmVyDBT1Y\u002BpAvCg9TQ4FxI6jBbPyoHNA70FifVtSOQ==","items":{"0x54c546787fe7e8fb7be193bb254267e84174a8be":{"script":"DCECF5VDAAGEeB5UR7Pw\u002B6zmZOqSt\u002BMSJ8jnG8Tnza/M245BdHR2qg==","parameters":[{"type":"Signature","value":"gyzhpmI0KRkAJmd8cWtv7PdFLRlS\u002BHqykL0oH/S84Te4DGwRd9ja/TfKW2\u002BHTSrdfUdnN/K8CF0kf0UywcTKCw=="}],"signatures":{"02179543000184781e5447b3f0fbace664ea92b7e31227c8e71bc4e7cdafccdb8e":"gyzhpmI0KRkAJmd8cWtv7PdFLRlS\u002BHqykL0oH/S84Te4DGwRd9ja/TfKW2\u002BHTSrdfUdnN/K8CF0kf0UywcTKCw=="}},"0xecd6a6bb18b92a488cc6e8506b232922de6524f8":{"script":"FQwhAwIkKx3O1j4b9\u002BsUh29\u002B8Ca3lWf5xb6D3hlD3Rhewo5oDCECDfiFi2b/TXsKamjRHd7cx9kNKmT/os0IfExdq/QVC0AMIQIXlUMAAYR4HlRHs/D7rOZk6pK34xInyOcbxOfNr8zbjgwhAl6ElJA7k9w2nwiivX4iH1dMddlnVZHwSQfLqdruuD0QDCEDhBXQvo3BK2HT47drmPRk36t/3e50Jxw14t5iS7UQI6YMIQPJscicbi1KvWKaLbi30DrO1RilZ5O8kPSYXvftPxtIGgwhA\u002BirUYbh3qvNEOwOUJ3tT/\u002Bt5v3fU0rD4FBiaLrj/USmF0F7zmyl","parameters":[{"type":"Signature","value":"QYZ4LuSpqSWZ8RzowvPZ8U0o3HjwhPlDf2jmOV3Rglq4Rm4KvMpIqfmuLdrEkecHe1MSP1AcEvE/c2FhdZ98UQ=="},{"type":"Signature","value":"DhhX8mwnLRVVU9hRjdGJ/Pdq10ytpn8xJUOXWqy3I8cE/Midc6s3dvzMt1QH\u002BPn2xDGjkzNNcczI34reE\u002BaCpA=="},{"type":"Signature","value":"/3oqPLUuFig8B66JNnlyVsA9klLm10LLA5sV/oDr9uzCAPh\u002BDL0yJWx2PfEd\u002BIWijBk/re90CHyJ3w1WkB71eQ=="},{"type":"Signature","value":"cUmlfjxdWmPTSpHsJHqr8lLllclJNGroOmStMLXzOI4fcO3D5/JKru/rU/OC029il\u002B8sVteUmL0rEaLnldKMrQ=="},{"type":"Signature","value":"T0PQ9vQNDtDnpa3f9UtN3\u002B22SOFbVG8NBwvu3tq6YchsMbF4OmlBFtNa\u002BZuqT3fxP0r/naAYgnwHMDG8DXAeSQ=="}],"signatures":{"02179543000184781e5447b3f0fbace664ea92b7e31227c8e71bc4e7cdafccdb8e":"/3oqPLUuFig8B66JNnlyVsA9klLm10LLA5sV/oDr9uzCAPh\u002BDL0yJWx2PfEd\u002BIWijBk/re90CHyJ3w1WkB71eQ==","0302242b1dced63e1bf7eb14876f7ef026b79567f9c5be83de1943dd185ec28e68":"T0PQ9vQNDtDnpa3f9UtN3\u002B22SOFbVG8NBwvu3tq6YchsMbF4OmlBFtNa\u002BZuqT3fxP0r/naAYgnwHMDG8DXAeSQ==","020df8858b66ff4d7b0a6a68d11ddedcc7d90d2a64ffa2cd087c4c5dabf4150b40":"cUmlfjxdWmPTSpHsJHqr8lLllclJNGroOmStMLXzOI4fcO3D5/JKru/rU/OC029il\u002B8sVteUmL0rEaLnldKMrQ==","025e8494903b93dc369f08a2bd7e221f574c75d9675591f04907cba9daeeb83d10":"DhhX8mwnLRVVU9hRjdGJ/Pdq10ytpn8xJUOXWqy3I8cE/Midc6s3dvzMt1QH\u002BPn2xDGjkzNNcczI34reE\u002BaCpA==","038415d0be8dc12b61d3e3b76b98f464dfab7fddee74271c35e2de624bb51023a6":"QYZ4LuSpqSWZ8RzowvPZ8U0o3HjwhPlDf2jmOV3Rglq4Rm4KvMpIqfmuLdrEkecHe1MSP1AcEvE/c2FhdZ98UQ=="}}}}
@@ -1028,11 +1030,11 @@ Data relay success, the hash is shown as follows:
 
 Broadcasts the IP address of a block.
 
-##### Syntax
+#### Syntax
 
 `broadcast addr <IPAddress> <port>`
 
-##### Example
+#### Example
 
 ```
 neo> broadcast addr 127.0.0.1 10332
@@ -1043,13 +1045,13 @@ neo>
 
 Broadcasts a block.
 
-##### Syntax
+#### Syntax
 
-`broadcast block <block-hash> `
+`broadcast block <block-hash>`
 
-`broadcast block <block-height> `
+`broadcast block <block-height>`
 
-##### Example
+#### Example
 
 ```
 neo> broadcast block 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
@@ -1062,11 +1064,11 @@ neo>
 
 Broadcasts the getblocks request.
 
-##### Syntax
+#### Syntax
 
-`broadcast getblocks <block-hash> `
+`broadcast getblocks <block-hash>`
 
-##### Example
+#### Example
 
 ```
 neo> broadcast getblocks 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
@@ -1077,11 +1079,11 @@ neo>
 
 Broadcasts the getheaders request.
 
-##### Syntax
+#### Syntax
 
-`broadcast getheaders <block-hash> `
+`broadcast getheaders <block-hash>`
 
-##### Example
+#### Example
 
 ```
 neo> broadcast getheaders 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
@@ -1092,11 +1094,11 @@ neo>
 
 Broadcasts the getdata request.
 
-##### Syntax
+#### Syntax
 
-`broadcast getdata <inventory type> <payload> `
+`broadcast getdata <inventory type> <payload>`
 
-##### Example
+#### Example
 
 ```
 neo> broadcast getdata Block 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
@@ -1111,11 +1113,11 @@ neo>
 
 Broadcasts inventory data.
 
-##### Syntax
+#### Syntax
 
-`broadcast inv <inventory type> <payload> `
+`broadcast inv <inventory type> <payload>`
 
-##### Example
+#### Example
 
 ```
 neo> broadcast inv Block 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
@@ -1130,11 +1132,11 @@ neo>
 
 Broadcasts a transaction.
 
-##### Syntax
+#### Syntax
 
-`broadcast transaction <transaction hash> `
+`broadcast transaction <transaction hash>`
 
-##### Example
+#### Example
 
 ```
 neo> broadcast transaction 0xd57bbbadee0b8ff283961f886cdc6d455ab8b5301ccdf5359d7316f209064052
@@ -1145,11 +1147,11 @@ neo>
 
 Shows all the loaded plugins.
 
-##### Syntax
+#### Syntax
 
 `plugins`
 
-##### Example
+#### Example
 
 ```
 neo> plugins
@@ -1184,7 +1186,7 @@ For information about all plugins refer to [Install Plug-ins](config.md).
 
 Exports all or the specified state data.
 
-##### Syntax
+#### Syntax
 
 `dump storage <key>`
 
@@ -1192,27 +1194,27 @@ Exports all or the specified state data.
 
 Exports the block data from the specified block height. The output can be used for offline synchronization. 
 
-##### Syntax
+#### Syntax
 
 `export blocks <index>`
 
 ##### Parameters
 
-`<index> `: The height of the starting block from which the data is exported.
+`<index>`: The height of the starting block from which the data is exported.
 
 ### show blocks
 
 Output block details via block height or block hash. 
 
-##### Syntax
+#### Syntax
 
 `show block <indexOrHash>`
 
 ##### Parameters
 
-`<indexOrHash> `: The index or height of the block.
+`<indexOrHash>`: The index or height of the block.
 
-##### Example
+#### Example
 
 ```
 neo> show block 332
@@ -1248,15 +1250,15 @@ neo> show block 332
 
 Output contract details by contract name or contract hash. 
 
-##### Syntax
+#### Syntax
 
 `show contract <nameOrHash>`
 
 ##### Parameters
 
-`<nameOrHash> `: The name or hash of the contract.
+`<nameOrHash>`: The name or hash of the contract.
 
-##### Example
+#### Example
 
 ```
 neo> show contract 0xd2a4cff31913016155e38e474a2c06d08be276cf
@@ -1324,15 +1326,15 @@ neo> show contract 0xd2a4cff31913016155e38e474a2c06d08be276cf
 
 Output transaction details via transaction hash.
 
-##### Syntax
+#### Syntax
 
 `show tx <hash>`
 
 ##### Parameters
 
-`<hash> `: The transaction hash of transaction.
+`<hash>`: The transaction hash of transaction.
 
-##### Example
+#### Example
 
 ```
 neo> show tx 0xf5a0bc050795ae0cf2bea36655d65585dc72246464ec27f79e919ed6f301a843
@@ -1391,13 +1393,13 @@ Stops Oracle. This command requires installation of the OracleService plugin.
 
 Queries the state root with index. This command requires installation of the StateService plugin.
 
-##### Syntax
+#### Syntax
 
 `state root <index>`
 
 ##### Parameters
 
-`<index> `: The block index
+`<index>`: The block index
 
 ```
 neo> state root 20000
@@ -1408,15 +1410,15 @@ neo> state root 20000
 
 Gets proof with root hash, contract hash, and storage key.
 
-##### Syntax
+#### Syntax
 
 `get proof <root hash> <script hash> <key>`
 
 ##### Parameters
 
-* `<root hash>`: hash of the state root.
-* `<script hash>`: Contract hash
-* `<key>`: key of the storage; Base64-encoded.
+- `<root hash>`: hash of the state root.
+- `<script hash>`: Contract hash
+- `<key>`: key of the storage; Base64-encoded.
 
 ```
 neo> get proof 0x7bf925dbd33af0e00d392b92313da59369ed86c82494d0e02040b24faac0a3ca 0x79bcd398505eb779df6e67e4be6c14cded08e2f2 Fw==
@@ -1427,14 +1429,14 @@ Bfv///8XBiQBAQ8DRzb6Vkdw0r5nxMBp6Z5nvbyXiupMvffwm0v5GdB6jHvyAAQEBAQEBAQEA7l84HFt
 
 Verifies with root hash and proof.
 
-##### Syntax
+#### Syntax
 
 `verify proof <root hash> <proof>`
 
 ##### Parameters
 
-* `<root hash>`: hash of the state root.
-* `<proof>`: proof of the state root; Base64-encoded.
+- `<root hash>`: hash of the state root.
+- `<proof>`: proof of the state root; Base64-encoded.
 
 ```
 neo> verify proof 0x7bf925dbd33af0e00d392b92313da59369ed86c82494d0e02040b24faac0a3ca Bfv///8XBiQBAQ8DRzb6Vkdw0r5nxMBp6Z5nvbyXiupMvffwm0v5GdB6jHvyAAQEBAQEBAQEA7l84HFtRI5V11s58vA+8CZ5GArFLkGUYLO98RLaMaYmA5MEnx0upnVI45XTpoUDRvwrlPD59uWy9aIrdS4T0D2cA6Rwv/l3GmrctRzL1me+iTUFdDgooaz+esFHFXJdDANfA2bdshZMp5ox2goVAOMjvoxNIWWOqjJoRPu6ZOw2kdj6A8xovEK1Mp6cAG9z/jfFDrSEM60kuo97MNaVOP/cDZ1wA1nf4WdI+jksYz0EJgzBukK8rEzz8jE2cb2Zx2fytVyQBANC7v2RaLMCRF1XgLpSri12L2IwL9Zcjz5LZiaB5nHKNgQpAQYPDw8PDw8DggFffnsVMyqAfZjg+4gu97N/gKpOsAK8Q27s56tijRlSAAMm26DYxOdf/IjEgkE/u/CoRL6dDnzvs1dxCg/00esMvgPGioeOqQCkDOTfliOnCxYjbY/0XvVUOXkceuDm1W0FzQQEBAQEBAQEBAQEBAQEBJIABAPH1PnX/P8NOgV4KHnogwD7xIsD8KvNhkTcDxgCo7Ec6gPQs1zD4igSJB4M9jTREq+7lQ5PbTH/6d138yUVvtM8bQP9Df1kh7asXrYjZolKhLcQ1NoClQgEzbcJfYkCHXv6DQQEBAOUw9zNl/7FJrWD7rCv0mbOoy6nLlHWiWuyGsA12ohRuAQEBAQEBAQEBAYCBAIAAgA=

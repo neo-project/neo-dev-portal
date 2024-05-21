@@ -6,7 +6,7 @@ NEP17 assets are recorded in the contract storage area, through updating account
 
 In the method definitions below, we provide both the definitions of the functions as they are defined in the contract as well as the invoke parameters.
 
-**totalSupply**
+## totalSupply
 
     {
       "name": "totalSupply",
@@ -16,7 +16,7 @@ In the method definitions below, we provide both the definitions of the function
 
 Returns the total token supply deployed in the system.
 
-**symbol**
+## symbol
 
     {
       "name": "symbol",
@@ -30,7 +30,7 @@ This string MUST be valid ASCII, MUST NOT contain whitespace or control characte
 
 This method MUST always return the same value every time it is invoked.
 
-**decimals**
+## decimals
 
     {
       "name": "decimals",
@@ -42,7 +42,7 @@ Returns the number of decimals used by the token - e.g. `8`, means to divide the
 
 This method MUST always return the same value every time it is invoked.
 
-**balanceOf**
+## balanceOf
 
     {
       "name": "balanceOf",
@@ -61,7 +61,7 @@ The parameter `account` MUST be a 20-byte address. If not, this method SHOULD `t
 
 If the `account` is an unused address, this method MUST return `0`.
 
-**transfer**
+## transfer
 
     {
       "name": "transfer",
@@ -102,7 +102,7 @@ If the transfer is not processed, the function MUST return `false`.
 
 If the receiver is a deployed contract, the function MUST call `onNEP17Payment` method on receiver contract with the `data` parameter from `transfer` AFTER firing the `Transfer` event. If the receiver doesn't want to receive this transfer it MUST call `ABORT`. 
 
-**Transfer Event**
+## Transfer Event
 
     {
       "name": "Transfer",
@@ -274,7 +274,6 @@ This section summaries NEP-17 changes compared to the previous NEP-5 protocol.
 
 - The TokenSale contract should implement the `onNEP17Payment` method to receive assets and modify the Manifest file to trust the received asset contract.
 
-
 ### name method
 
 The name method is moved to the manifest file, and you need to add `[DisplayName("Token Name")]` when writing the contract.
@@ -309,3 +308,4 @@ The ability of the contract to receive assets has been changed from a fixed cons
 
 Compatibility checks will be activated for any contract that includes the `[SupportedStandards("NEP-17")]` or `[SupportedStandards("NEP-11")]` attribute.
 The Compatibility Check reviews method names, parameters, return values, events, and similar elements to ensure they comply with the standard, and alerts about any failures in the check.
+

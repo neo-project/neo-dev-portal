@@ -29,8 +29,8 @@ Response body:
 
 ```json
 {
-	"Type":"Integer",
-	"value":"100000000"
+    "Type":"Integer",
+    "value":"100000000"
 }
 ```
 

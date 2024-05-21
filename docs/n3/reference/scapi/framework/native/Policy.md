@@ -26,4 +26,3 @@ public class Policy
 | [GetExecFeeFactor()](Policy/GetExecFeeFactor.md)  | Gets the execution fee factor. This is a multiplier that can be adjusted by the committee to adjust the system fees for transactions |
 | [GetStoragePrice()](Policy/GetStoragePrice.md)    | Gets the storage price                                       |
 | [IsBlocked(UInt160 account)](Policy/IsBlocked.md) | Determines whether the specified account is blocked          |
-

@@ -22,4 +22,3 @@
 | [CallFlags](services/CallFlags.md)     | Defines the pattern when invoking contracts                  |
 | [FindOptions](services/FindOptions.md) | Defines search options for searching a storage. Used in the  Storage.Find method. |
 | [TriggerType](services/TriggerType.md) | Defines the trigger types                                    |
-

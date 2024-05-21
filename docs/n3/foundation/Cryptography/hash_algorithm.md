@@ -6,7 +6,7 @@ Two different hash functions are used widely in the Neo system: SHA256 and RIPEM
 
 In addition, the block will also use a hash structure called a Merkle Tree. It computes the hash of each transaction and combines one with the next and then hashes again, repeating this process until there is only one root hash (Merkle Root). 
 
-### RIPEMD160 
+## RIPEMD160 
 
 RIPEMD is a cryptographic hash function published by Hans Dobbertin, Antoon Bosselaers Bart Prenee from COSIC research team, University of Leuven in 1996.
 
@@ -24,7 +24,7 @@ Scenarios：
 
 To generate contract hash.
 
-### SHA256 
+## SHA256 
 
 SHA256 is a kind of SHA-2 algorithm. SHA-2 is a cryptographic hash function algorithm standard produced by NSA. It belongs to SHA family. It is a successor of SHA-1. SHA-2 has 6 different algorithm standards, including SHA-224, SHA-256, SHA-384, SHA-512, SHA-512/224 and SHA-512/256.
 
@@ -46,7 +46,7 @@ Scenarios:
 
 - db3、NEP6 wallet secret key storage, export & validation.
 
-### Murmur32 
+## Murmur32 
 
 Murmur is kind of non-cryptographic hash algorithm and suits for general hash indexing. It is proposed by Austin Appleby in 2008. Later several derived versions are released. Compared with other popular hash functions, Murmur's random distribution performance is better for keys with high regularity.
 
@@ -70,7 +70,7 @@ Scenarios：
 
 - leveldb storage
 
-### Scrypt
+## Scrypt
 
 Scrypt is a kind of secure-cryptographic algorithm based on PBKDF2-HMAC-SHA-256 algorithm. It's developed by Colin Percival, a famous FreeBSD hacker, for his backup service Tarsnap. The original design was to reduce CPU load, minimize CPU reliance, and use CPU idle time for calculations. Therefore, scrypt not only takes a long time to calculate, but also consumes a lot of memory, making it difficult to calculate multiple digests in parallel. So it is more difficult to use the rainbow table for brute-force-attacks.
 

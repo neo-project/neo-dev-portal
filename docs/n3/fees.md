@@ -23,7 +23,6 @@ System fees include:
 - CPU processing fee for native contracts
 - Storage fee
 
-
 ### Instruction fee
 
 | Fee（GAS） | OpCode                                                       |

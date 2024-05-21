@@ -10,7 +10,9 @@ If the desired version of file is not found during installation, it is because t
 
 1. Create the folder Plugins under the directory where neo-cli.dll locates.
 2. Put the RpcServer file you has complied in the Plugins folder and then restart Neo-CLI.
+
 :::
+
 ## Listening ports
 
 After the JSON-RPC server is started, it will listen to the TCP port. By default it is the port 10332 of the local address (127.0.0.1), which is
@@ -176,6 +178,7 @@ After sending the request, you will get the following response：
 :::note
 To make sure you get the latest result synchronize your client to the latest block height before you use the API.
 :::
+
 ## Test tools
 
 You can use the Chrome extension in Postman to facilitate the test (Installation of the Chrome extension requires Internet connection). A test screenshot is shown below:

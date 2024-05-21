@@ -53,5 +53,7 @@ Run the client again and check the blocks downloading status：
 :::note
 
 - The client cannot be reached during the process when it is synchronizing with the offline package, thus the connected nodes is 0 and you cannot invoke APIs from the client until it has completed synchronization.
+
 - You can also use the Neo-CLI command `export blocks`, to export the entire blockchain data to a package or export the specified number of block data from the specified block height . For more information, see [CLI Command Line](cli/cli.md).
+
 :::
