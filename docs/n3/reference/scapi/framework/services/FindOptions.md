@@ -22,7 +22,7 @@ public enum FindOptions : byte
 }
 ```
 
-##### Description
+## Description
 
 - None: Search all
 

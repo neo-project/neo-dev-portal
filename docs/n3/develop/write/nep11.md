@@ -130,7 +130,7 @@ By now we have completed a simple NFT contract.
 
 The base class `Nep11Token` also provides the following methods and events:
 
-#### NEP-11 methods
+### NEP-11 methods
 
 | Name        | Parameters                                     | Returns          | Description                                                  |
 | ----------- | ---------------------------------------------- | ---------------- | ------------------------------------------------------------ |
@@ -144,13 +144,13 @@ The base class `Nep11Token` also provides the following methods and events:
 | tokensOf    | Hash160（owner）                               | InteropInterface | Returns all of the token ids owned by the specified address  |
 | transfer    | Hash160（to） ByteArray（tokenId） Any（data） | Boolean          | It transfers an amount of NFT with  TokenId. This method requires the signature of NFT owner. |
 
-#### Events
+### Events
 
 | Name     | Parameters                                                   | Returns         | Description                                                  |
 | -------- | ------------------------------------------------------------ | --------------- | ------------------------------------------------------------ |
 | transfer | Hash160（from） Hash160（to） Integer（amount） ByteArray（tokenId） | Transfer  event | When the `from` address is set to `null` tokens are created; When the `to` address set to `null`tokens are burned. |
 
-#### Compatibility check
+### Compatibility check
 
 Compatibility checks will be activated for any contract that includes the `[SupportedStandards("NEP-17")]` or `[SupportedStandards("NEP-11")]` attribute.
 The Compatibility Check reviews method names, parameters, return values, events, and similar elements to ensure they comply with the standard, and alerts about any failures in the check.

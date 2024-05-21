@@ -4,7 +4,7 @@ Returns current validators.
 
 ## Contract
 
-	NeoToken
+    NeoToken
 
 ## Example
 
@@ -18,17 +18,17 @@ Respond content:
 
 ```json
 {
-	"type": "Array",
-	"value": [{
-		"type": "Struct",
-		"value": [{
-			"type": "ByteString",
-			"value": "AkuBfvN/L8PUoz/jZoflktnzD\u002BJLPigYfcjxKzs7K4Oe"
-		}, {
-			"type": "Integer",
-			"value": "0"
-		}]
-	}]
+    "type": "Array",
+    "value": [{
+        "type": "Struct",
+        "value": [{
+            "type": "ByteString",
+            "value": "AkuBfvN/L8PUoz/jZoflktnzD\u002BJLPigYfcjxKzs7K4Oe"
+        }, {
+            "type": "Integer",
+            "value": "0"
+        }]
+    }]
 }
 ```
 

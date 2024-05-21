@@ -51,7 +51,7 @@ A normal algorithm flow is shown below.
 
 ![](../images/consensus/3.png)
 
-##### 1)  Initialize local consensus information
+#### 1)  Initialize local consensus information
 
 1. Initialize consensus context
 
@@ -61,9 +61,9 @@ A normal algorithm flow is shown below.
 
 4. Broadcast the Recovery Request message to acquire the current consensus context if consensus is newly started.
 
-##### 2)  Validators listen to the network and collect transactions until timeout
+#### 2)  Validators listen to the network and collect transactions until timeout
 
-##### 3)  Start consensus
+#### 3)  Start consensus
 
 - For speaker:
 
@@ -75,7 +75,7 @@ A normal algorithm flow is shown below.
 
 - For delegates:
 
-   - In case of receiving Prepare Request from the speaker before timeout:
+  - In case of receiving Prepare Request from the speaker before timeout:
    
      1. Verify the validity of the message and whether it conforms to the local consensus context
 
@@ -87,7 +87,7 @@ A normal algorithm flow is shown below.
 
      5. Ask for transactions not found in step 4 from other nodes
 
-    - Otherwise, attempt to change view
+  - Otherwise, attempt to change view
 
 ##### 4)  Broadcast Prepare Response
 
@@ -101,35 +101,35 @@ A normal algorithm flow is shown below.
 
 - Otherwise, attempt to change view
 
-##### 5)  Collect Prepare Response and broadcast Commit
+#### 5)  Collect Prepare Response and broadcast Commit
 
 - For the speaker and delegates who have received Prepare Request, if Prepare Response messages from M different delegates are received before timeout:
 
-   - For each Prepare Response message received:
+  - For each Prepare Response message received:
 
      1. Verify the validity of the message and whether it conforms to the local consensus context
 
      2. Prolong local timeout by ![](../images/consensus/5.png)
 
-   - Broadcast Commit message
+  - Broadcast Commit message
 
 - Otherwise, attempt to change view
 
-##### 6) Collect Commit message and create new block
+#### 6) Collect Commit message and create new block
 
 - For each validator already having all transactions required in Prepare Request message, in case of Commit messages from M different validators received:
 
-   - For each Commit message received:
+  - For each Commit message received:
 
      1. Verify the validity of the message and whether it conforms to the local consensus context
 
      2. Prolong local timeout by ![](../images/consensus/6.png)
 
-   - Create and broadcast the new block
+  - Create and broadcast the new block
 
 - Otherwise, broadcast the Recovery Message, and set the timeout to 2*T<sub>block</sub>
 
-##### 7)  Go back to step 1 to start a new round of consensus.
+#### 7)  Go back to step 1 to start a new round of consensus
 
 ### Change View Request
 

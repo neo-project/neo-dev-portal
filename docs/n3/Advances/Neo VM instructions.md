@@ -365,11 +365,13 @@ It's used to control the running process of NeoVM, including jump, call and othe
 | Bytecode | 0x41                                                   |
 | Fee | 0 GAS                                                        |
 | Function   | Calls to an interop service. |
+
 ### Stack Operation
 
 Copy, remove and swap the elements of the stack.
 
 #### DEPTH
+
 | Instruction   | DEPTH                          |
 |----------|------------------------------------------|
 | Bytecode | 0x43                                     |
@@ -849,7 +851,6 @@ Copy, remove and swap the elements of the stack.
 | Fee | 0.00000004 GAS                                          |
 | Function   | Returns 0 if the input is 0. 1 otherwise. |
 
-
 #### NUMEQUAL
 
 | Instruction   | NUMEQUAL                               |
@@ -905,7 +906,6 @@ Copy, remove and swap the elements of the stack.
 | Bytecode | 0xB9                                   |
 | Fee | 0.00000008 GAS                                          |
 | Function   | Returns the smaller of a and b. |
-
 
 #### MAX
 
@@ -1125,3 +1125,4 @@ It has implemented common operations for array, map, struct, etc.
 
 The operation code with \* indicates that the result of the operation is not pushed back to the `EvaluationStack` using `PUSH()`.
 :::
+

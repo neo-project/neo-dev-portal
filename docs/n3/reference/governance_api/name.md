@@ -4,7 +4,7 @@ Returns contract name.
 
 ## Contract
 
-	NativeContract
+    NativeContract
 
 ## Example
 
@@ -18,8 +18,8 @@ Respond content:
 
 ```json
 {
-	"Type":"ByteString",
-	"value":"NEO"
+    "Type":"ByteString",
+    "value":"NEO"
 }
 ```
 

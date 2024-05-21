@@ -1,11 +1,11 @@
-﻿# getblockheader Method
+# getblockheader Method
 
 Returns the corresponding block header information according to the specified script hash or index.
 
 The usage of this method is as same as `getblock`. The only difference is that `getblockeader` gets the block header and `getblock` gets the complete block.
 
 :::note
- You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
 :::
 
 ## Parameter Description

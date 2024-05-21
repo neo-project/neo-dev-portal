@@ -3,7 +3,7 @@
 Gets the native contracts list, which includes the basic information of native contracts and the contract descriptive file manifest.json.
 
 :::note
- You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
 :::
 
 ## Example

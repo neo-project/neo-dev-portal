@@ -66,7 +66,7 @@ You can download and compile the Neo-CLI source directly from GitHub.
 1. Git clone Neo-CLI source code from [GitHub](https://github.com/neo-project/neo-node) or using the following command:
 
     ```
-    $ git clone https://github.com/neo-project/neo-node.git
+    git clone https://github.com/neo-project/neo-node.git
     ```
 
 2. Download [LevelDB](https://github.com/neo-ngd/leveldb/releases) and unzip the package for later use.
@@ -92,6 +92,7 @@ You can also use .NET Core CLI to pubish the project. For more information refer
    dotnet restore
    dotnet publish -c release -r <RUNTIME_IDENTIFIER>
    ```
+   
    Where `<RUNTIME_IDENTIFIER>` should be replaced by the related [system platform RID](https://docs.microsoft.com/zh-cn/dotnet/core/rid-catalog), e.g.  `win-x64`, `linux-x64`, or `osx-x64`.
 
 2. Go to the directory where the compiled files are outputted and copy the libleveldb.dll downloaded before to here.

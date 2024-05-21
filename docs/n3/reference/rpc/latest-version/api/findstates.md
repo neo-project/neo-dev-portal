@@ -3,7 +3,7 @@
 Queries the desired state by the root hash, contract hash and storage key prefix.
 
 :::note
- You must install the plugin  [StateService](https://github.com/neo-project/neo-modules/releases) and [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+You must install the plugin  [StateService](https://github.com/neo-project/neo-modules/releases) and [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
 :::
 
 ## Parameters
@@ -60,6 +60,7 @@ Response body:
 ```
 
 Request body:
+
 ```json
 {
   "jsonrpc": "2.0",

@@ -18,8 +18,10 @@ In Neo N3 every time a NEO transfer transaction occurs in the address, GASs gene
 Claimed *GAS = f(neo_amount, Δt_const)*
 
 Δt_const = t_end - t_start
--  t_end = the current time that Neo is transferred into or out of the address. 
--  t_start = the last time that Neo was transferred into or out of the address. 
+
+- t_end = the current time that Neo is transferred into or out of the address. 
+
+- t_start = the last time that Neo was transferred into or out of the address. 
 
 Δt_const is fixed, thus the claimed Gas is of a fixed amount too. And this amount depends on the amount of Neo held by the user and the duration between the moments that the user transferred this amount of Neo into and out of his or her address. 
 

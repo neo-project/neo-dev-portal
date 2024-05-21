@@ -117,7 +117,6 @@ Example：
 　　　+"da04fe4405fc021e4ca5ca956b263828e99d4ce2a342b2cbdc919baddbe178ae"
 
 　　---->"a8158a64c1e9d776e12582d8c63553ee0c7687bd8e374f79c766e7459577f547"
-
   2. passphrase-protected msg,key----->msg
 
 　　Ciphertext + (password: 256-bit hash of "l love coding")

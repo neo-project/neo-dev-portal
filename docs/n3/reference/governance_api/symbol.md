@@ -4,7 +4,7 @@ Returns token symbol.
 
 ## Contract
 
-	Nep17Token
+    Nep17Token
 
 ## Example
 
@@ -18,8 +18,8 @@ Respond content:
 
 ```json
 {
-	"Type":"ByteString",
-	"value":"neo"
+    "Type":"ByteString",
+    "value":"neo"
 }
 ```
 

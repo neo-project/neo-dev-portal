@@ -3,11 +3,11 @@ sidebar_label: 'Using Neo-CLI'
 sidebar_position: 2
 ---
 
-## Using Neo-CLI
+# Using Neo-CLI
 
 The Neo-CLI client works as a node in the P2P network and meanwhile a cross-platform wallet handling various assets transactions. 
 
-### Neo-CLI Security Policies
+## Neo-CLI Security Policies
 
 :::caution
 
@@ -23,7 +23,7 @@ Neo-CLI does not provide the function to remotely switching on/off the wallet, a
 | P2P                | 10333   | 20333   |
 | websocket          | 10334   | 20334   |
 
-### About Neo-CLI
+## About Neo-CLI
 
 Neo-CLI is a command-line client (wallet) for developers. Developers have two ways to interact with it： 
 
@@ -59,7 +59,7 @@ Neo-CLI provides the following features：
 - Provides transaction information of NEP-17 assets.
 
 
-### Creating a Wallet
+## Creating a Wallet
 
 The exchange needs to create an online wallet to manage the deposit addresses of users. A wallet is used to store the information of the accounts (both public keys and private keys) and the contracts. It is the most important proof that the user holds. Users must keep the wallet files and the wallet passwords secure. They must not lose or disclose these data. Exchanges do not have to create a wallet for every address. An online wallet usually keeps all deposit addresses of users. A cold wallet (offline wallet) is another storage option which provides better security.
 
@@ -76,7 +76,7 @@ To create a wallet, do the following：
 
 2. Set a password for the wallet. 
 
-### Generating Deposit Addresses
+## Generating Deposit Addresses
 
 A wallet can store multiple addresses. The exchange needs to generate a deposit address for each user. 
 

@@ -28,4 +28,3 @@ public class Ledger
 | [GetTransaction(UInt256 hash)](Ledger/GetTransaction.md)     | Gets transaction by transaction ID                           |
 | [GetTransactionFromBlock()](Ledger/GetTransactionFromBlock.md) | Gets the specified transaction by the block and transaction indexes |
 | [GetTransactionHeight(UInt256 hash)](Ledger/GetTransactionHeight.md) | Gets the block height where the transaction occurs by the transaction hash |
-

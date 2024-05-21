@@ -1,6 +1,6 @@
 # Encoding Algorithm
 
-##  Base58
+## Base58
 
 Base58 is a group of encoding/decoding schemes used to switch data between binary format (hexdecimal) and alphanumeric text format (ASCII). Base58 enables data compressing, is easy to identify, and is suitable for constructing encoding mechanism of transmission system that is anti-auto-monitoring. However, lack of verification makes it not able to detect error during transmission. Thus for Base58Check, an improved scheme is required.  
 
@@ -24,23 +24,23 @@ Interface definition：
 
 **Encoding Steps**：
 
-1.  Add 0x00 before byte[] data to generate a new byte array, and then reverse its order (little endian)
+1. Add 0x00 before byte[] data to generate a new byte array, and then reverse its order (little endian)
 
-2.  Convert array data to a BigInteger object
+2. Convert array data to a BigInteger object
 
-3.  Convert the BigInteger format number to 58-based number according to Base58 alphabet
+3. Convert the BigInteger format number to 58-based number according to Base58 alphabet
 
-4.  Count the number of 0x00 in original byte array format data. At the head of the Base58 format data generated in step 3, for each 0x00, add a letter '1', which is the first character in Base58 alphabet
+4. Count the number of 0x00 in original byte array format data. At the head of the Base58 format data generated in step 3, for each 0x00, add a letter '1', which is the first character in Base58 alphabet
 
 **Decoding Steps**：
 
-1.  Convert the input string into BigInteger format according to Base58 alphabet.
+1. Convert the input string into BigInteger format according to Base58 alphabet.
 
-2.  Convert from BigInteger format to byte[] format and then reverse the order to big endian.
+2. Convert from BigInteger format to byte[] format and then reverse the order to big endian.
 
-3.  If byte[] format data's length is more than 1 & byte[0] = 0 & byte[1] >= 0x80, start from byte[1], otherwise start from byte[0] to get the decoded result.
+3. If byte[] format data's length is more than 1 & byte[0] = 0 & byte[1] >= 0x80, start from byte[1], otherwise start from byte[0] to get the decoded result.
 
-4.  Count the number of the first letter of Base58 alphabet in original input data as count and remove leading zeros from the decoded data.
+4. Count the number of the first letter of Base58 alphabet in original input data as count and remove leading zeros from the decoded data.
 
 Example:
 
@@ -73,9 +73,9 @@ Interface definition:
 
 **Encoding Steps**:
 
-1.  Encode input byte array twice with Sha256 to get a hashed byte array. Take the first 4 bytes of the hash as checksum and append it to the end of original byte array.
+1. Encode input byte array twice with Sha256 to get a hashed byte array. Take the first 4 bytes of the hash as checksum and append it to the end of original byte array.
 
-2.  Use Base58 to encode the byte array including checksum to get corresponding encoded result.
+2. Use Base58 to encode the byte array including checksum to get corresponding encoded result.
 
 **Decoding Steps**:
 

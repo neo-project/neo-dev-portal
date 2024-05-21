@@ -7,6 +7,7 @@ Smart contracts support to be updated or destroyed after release. Before you can
 In some cases you want to upgrade the smart contracts deployed on the blockchain or migrate the storage of a contract into another new contract, you need to update smart contracts. Neither the contract hash nor the storage is changed when the contract is upgraded.
 
 ### Implementing the Update interface
+
 To enable the update function, you need to implement the `Update` method in the contract. In the contract template this method has been implemented by default, as follows:
 
 ```cs
@@ -22,6 +23,7 @@ public static void Update(ByteString nefFile, string manifest)
 If you want to update the contract later, you must implement the `update` method in the contract prior to deployment. For more information, refer to [Deploying and Invoking Smart Contracts](../deploy/deploy.md).
 
 ### Updating the contract
+
 1. Get the compiled NEF file and Manifest file of the new contract ready
 
 2. Base64-encode the NEF file with the tool like [File to Base64 online](https://base64.guru/converter/encode/file)

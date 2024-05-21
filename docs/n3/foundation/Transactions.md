@@ -103,10 +103,10 @@ In Neo all variable-length integer types except IP addresses and port numbers ar
 | `systemFee`       | -                                                            |
 | `networkFee`      | -                                                            |
 | `validUntilBlock` | -                                                            |
-| `signers`         | Need to serializes `WriteVarInt(length) `first and then other elements of the array |
+| `signers`         | Need to serializes `WriteVarInt(length)` first and then other elements of the array |
 | `attributes`      | Need to serializes `WriteVarInt(length)` first and then other elements of the array |
-| `script`          | Need to serializes `WriteVarInt(length) `first and then the byte array |
-| `witnesses`       | Need to serializes `WriteVarInt(length) `first and then other elements of the array |
+| `script`          | Need to serializes `WriteVarInt(length)` first and then the byte array |
+| `witnesses`       | Need to serializes `WriteVarInt(length)` first and then other elements of the array |
 
 
 :::note

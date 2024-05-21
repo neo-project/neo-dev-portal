@@ -38,6 +38,7 @@ using Neo.SmartContract.Framework;
 using Neo.SmartContract.Framework.Services.Neo;
 using System;
 ```
+
 Neo N3：
 
 ```cs
@@ -77,7 +78,7 @@ static readonly UInt160 Owner = default;
 |                     | Neo Legacy                                                   | Neo N3                                                       |
 | ------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | main                |                                                              | Removed. Developers no longer need to write the redundant main method for contract method jumping |
-| Verify              | Determined in the Main method, for example：<br/>public static object Main(string method, object[] args)<br/>{<br/>    if (Runtime.Trigger == TriggerType.Verification)<br/>    {<br/>    	return IsOwner();<br/>    )<br/>} | Independent method：<br/> `public static bool Verify() => IsOwner();` |
+| Verify              | Determined in the Main method, for example：<br/>public static object Main(string method, object[] args)<br/>{<br/>    if (Runtime.Trigger == TriggerType.Verification)<br/>    {<br/>        return IsOwner();<br/>    )<br/>} | Independent method：<br/> `public static bool Verify() => IsOwner();` |
 | Method Name         | To make the method name conform to the smart contract naming rules, the method is declared like this: <br/>[DisplayName("balanceOf")]<br/>public static BigInteger BalanceOf(byte[] account) | The first letter of the method name is automatically compiled to lowercase, so developers no longer have to use DisplayName, but DisplayName is still acceptable. |
 | Deployment          | Initialization variables are placed into a separate method that is called manually after deployment. | The method `_deploy` is added, which is executed automatically after deployment. |
 | Update and destroy  | You need to write the Update and Destroy methods by yourself. | Update and Destroy methods are built in the contract template |
@@ -114,6 +115,7 @@ Neo N3 adds a new security method. You can execute the contract in a read-only m
 Neo N3 introduces a large number of native contracts, moving massive interoperable services from Neo Legacy to native contracts. The major changes are as follows.
 
 - Upgraded the Blockchain class to a Ledger native contract, e.g. `Blockchain.GetBlock()` changed to `Ledger.GetBlock()`.
+
 - Added the ContractManagement native contract to query contracts and manage their updating and destruction.
 
 - Moved the contract part of the Blockchain class to the ContractManagement native contract, e.g. `Blockchain.GetContract()` changed to `ContractManagement .GetContract()`.
@@ -133,8 +135,8 @@ Neo N3 introduces a large number of native contracts, moving massive interoperab
 - The Transaction class has been extensively updated to fit the data structure of Neo N3 transactions.
 - Added a new Crypto class and moved some of the methods provided by the SmartContract class to this class.
 - Moved a number of classes:
-  -  Account
-  -  Asset
+  - Account
+  - Asset
   - Header
   - InvocationTransaction
   - TransactionAttribute

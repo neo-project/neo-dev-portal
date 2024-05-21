@@ -4,6 +4,7 @@ The `RpcClient` encapsulates all the interfaces provided by RpcServer. You can s
 
 
 ## Initializing RpcClient
+
 Before you can send RPC requests you need to initialize  `RpcClient` first. Choose the RPC server port of a Neo node according to your own needs. Here is an example:
 
 Test net node：
@@ -21,12 +22,13 @@ RpcClient client = new RpcClient(new Uri("http://localhost:20332"), null, null, 
 ```
 
 :::note
- Typically, only one RpcClient instance needs to be initialized in an application, not needing in each method.
+Typically, only one RpcClient instance needs to be initialized in an application, not needing in each method.
 :::
 
 ## Blockchain data
 
 ### GetBestBlockHashAsync
+
 Gets the hash of the highest block in the blockchain:
 
 ```cs
@@ -36,6 +38,7 @@ UInt256 hash256 = UInt256.Parse(hexString);
 ```
 
 ### GetBlockAsync
+
 Gets the detailed block information by the block hash or block index.
 
 ```cs
@@ -77,6 +80,7 @@ UInt256 hash256 = UInt256.Parse(hexString);
 ```
 
 ### Get the block header information
+
 Get the specific block header information by the block hash or block index:
 
 ```cs
@@ -104,6 +108,7 @@ string serializedBlockHeader = await client.GetBlockHeaderHexAsync("10000").Conf
 ```
 
 ### GetContractStateAsync
+
 Gets the contract information from the contract hash or contract ID
 
 ```cs
@@ -115,6 +120,7 @@ ContractState contractState = client.GetContractState(-1);
 ```
 
 ### GetRawMempoolAsync
+
 Gets hash list of the confirmed transactions in the memory.
 
 ```cs
@@ -165,6 +171,7 @@ string value = await client.GetStorageAsync("03febccf81ac85e3d795bc5cbd4e84e9078
 ```
 
 ### GetTransactionHeightAsync
+
 Gets the block height of the specified transaction by transaction ID:
 
 ```cs
@@ -172,6 +179,7 @@ uint height = await client.GetTransactionHeightAsync("f4250dab094c38d8265acc15c3
 ```
 
 ### GetNextBlockValidatorsAsync
+
 Gets the consensus nodes information and voting status in the current network.
 
 ```cs
@@ -195,6 +203,7 @@ string[] committees = await client.GetCommitteeAsync().ConfigureAwait(false);
 ## Node
 
 ### GetConnectionCount
+
 Gets the number of nodes connected to this node.
 
 ```cs
@@ -202,6 +211,7 @@ int connectionCount = await client.GetConnectionCountAsync().ConfigureAwait(fals
 ```
 
 ### GetPeersAsync
+
 Gets a list of currently connected / unconnected nodes for this node, including IP address and port.
 
 ```cs
@@ -217,6 +227,7 @@ if (connected.Length > 0)
 ```
 
 ### GetVersionAsync
+
 Gets the version of the node receiving the RPC request:
 
 ```cs
@@ -225,6 +236,7 @@ string version = rpcVersion.UserAgent;
 ```
 
 ### SendRawTransactionAsync
+
 Sends and broadcasts the serialized transaction.
 
 ```cs
@@ -238,6 +250,7 @@ UInt256 txHash = await client.SendRawTransactionAsync(transaction).ConfigureAwai
 ```
 
 ### SubmitBlockAsync
+
 Sends and broadcasts the serialized block：
 
 ```cs
@@ -247,6 +260,7 @@ UInt256 blockHash = await client.SubmitBlockAsync("00000000000000000000000000000
 ## Smart contract
 
 ### InvokeFunctionAsync
+
 Invokes the specific method of the smart contract through the specified smart contract script hash, method name, and parameters, and returns the result after running in the virtual machine.
 
 ```cs
@@ -286,6 +300,7 @@ long gasConsumed = rpcInvokeResult.GasConsumed;
 ```
 
 ### InvokeScriptAsync
+
 Returns the result after running the specified script in the virtual machine.
 
 ```cs
@@ -306,6 +321,7 @@ string address = unclaimedGas.Address;
 ## Tools
 
 ### ListPluginsAsync
+
 Lists all the plugins loaded in the node.
 
 ```cs
@@ -318,6 +334,7 @@ foreach (var item in rpcPlugins)
 ```
 
 ### ValidateAddressAsync
+
 Validates if the specified address is a valid Neo address.
 
 ```cs
@@ -327,6 +344,7 @@ bool isValid = result.IsValid;
 ```
 
 ## Wallets
+
 The node local wallet interface contains the function of accessing the local wallet file. Before using the methods described in this section, you need to open the wallet using the openwallet method.
 
 This method is disabled by default in the node configuration file for preventing high security risks.
@@ -342,6 +360,7 @@ bool result = await client.OpenWalletAsync(path, password).ConfigureAwait(false)
 ```
 
 ### CloseWalletAsync
+
 Closes the wallet and clears the wallet information in memory.
 
 ```cs
@@ -349,6 +368,7 @@ bool result = await client.CloseWalletAsync().ConfigureAwait(false);
 ```
 
 ### DumpPrivKeyAsync
+
 Exports the private key of the specified address.
 
 ```cs
@@ -356,6 +376,7 @@ string wif = await client.DumpPrivKeyAsync("NVVwFw6XyhtRCFQ8SpUTMdPyYt4Vd9A1XQ")
 ```
 
 ### GetBalanceAsync
+
 Returns balance of the specified asset in the wallet by the asset id. This method is applicable to the native contract assets and NEP-17 compliant assets.
 
 ```cs
@@ -363,6 +384,7 @@ BigDecimal balance = await client.GetWalletBalanceAsync(NativeContract.NEO.Hash.
 ```
 
 ### GetNewAddressAsync
+
 Creates a new account in the wallet and returns the corresponding address.
 
 ```cs
@@ -370,6 +392,7 @@ string address = await client.GetNewAddressAsync().ConfigureAwait(false);
 ```
 
 ### GetUnclaimedGasAsync
+
 Displays amount of the unclaimed GAS in the wallet.
 
 ```cs
@@ -377,6 +400,7 @@ BigInteger amount = await client.GetWalletUnclaimedGasAsync().ConfigureAwait(fal
 ```
 
 ### ImportPrivKeyAsync
+
 Imports the private key into the wallet.
 
 ```cs
@@ -385,6 +409,7 @@ RpcAccount account = await client.ImportPrivKeyAsync(wif).ConfigureAwait(false);
 ```
 
 ### ListAddressAsync
+
 Lists all the addresses in the wallet.
 
 ```cs
@@ -392,6 +417,7 @@ List<RpcAccount> acoounts = await client.ListAddressAsync().ConfigureAwait(false
 ```
 
 ### SendFromAsync
+
 Transfers asset from a specified address to another address.
 
 ```cs
@@ -401,6 +427,7 @@ string toAddress= "NZs2zXSPuuv9ZF6TDGSWT1RBmE8rfGj7UW";
 string amount = "100";
 JObject result = await client.SendFromAsync(assetId, fromAddress, toAddress, amount).ConfigureAwait(false);
 ```
+
 If the JSON transaction information is returned the transaction was sent successfully, or the transaction failed to be sent.
 
 If the signature is incomplete transaction to be signed is returned.
@@ -408,6 +435,7 @@ If the signature is incomplete transaction to be signed is returned.
 If the balance is insufficient an error is returned.
 
 ### SendManyAsync
+
 Transfers assets to multiple addresses. You can specify the sending address.
 
 ```cs
@@ -426,6 +454,7 @@ outs.Add(new RpcTransferOut
 });
 JObject result = await client.SendManyAsync("", outs).ConfigureAwait(false);
 ```
+
 If the JSON transaction information is returned the transaction was sent successfully, or the transaction failed to be sent.
 
 If the signature is incomplete transaction to be signed is returned.
@@ -433,6 +462,7 @@ If the signature is incomplete transaction to be signed is returned.
 If the balance is insufficient an error is returned.
 
 ### SendToAddressAsync
+
 Transfers asset to the specified address.
 
 ```cs
@@ -441,6 +471,7 @@ string toAddress = "NZs2zXSPuuv9ZF6TDGSWT1RBmE8rfGj7UW";
 string amount = "100";
 JObject result = await client.SendToAddressAsync(assetId, toAddress, amount).ConfigureAwait(false);
 ```
+
 If the JSON transaction information is returned the transaction was sent successfully, or the transaction failed to be sent.
 
 If the signature is incomplete transaction to be signed is returned.
@@ -450,6 +481,7 @@ If the balance is insufficient an error is returned.
 ## Plugins
 
 ### GetApplicationLogAsync
+
 Gets the contract log by the specific transaction ID. The plugin ApplicationLogs is required for invoking this method. 
 
 ```cs
@@ -474,6 +506,7 @@ RpcNep17Balances balances = await client.GetNep17BalancesAsync(address).Configur
 ```
 
 ### GetNep17TransfersAsync
+
 Returns all NEP-17 transaction records at the specific address. The plugin TokensTracker is required for invoking this method.
 
 If start and end timestamps are specified, transactions occurred in the time range is returned.

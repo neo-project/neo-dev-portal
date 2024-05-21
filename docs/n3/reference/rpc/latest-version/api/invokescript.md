@@ -1,20 +1,23 @@
-﻿﻿# invokescript Method
+# invokescript Method
 
 Returns the result after passing a script through the VM.
 
 :::note
- - This method is to test your VM script as if they ran on the blockchain at that point in time. This RPC call does not affect the blockchain in any way.
-:::
-> - You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
 
-### Parameter Description
+- This method is to test your VM script as if they ran on the blockchain at that point in time. This RPC call does not affect the blockchain in any way.
+
+- You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+
+:::
+
+## Parameter Description
 
 - script: A script runnable in the VM. This is the same script that is returned in invokefunction
 - signers: Optional. The list of contract signature accounts
-  * account: signature account
-  * scopes: signature's valid scopes, allowed values: FeeOnly, CalledByEntry, CustomContracts, CustomGroups, Global
-  * allowedcontracts: contracts of the signature can take effect, if scopes is CustomContracts
-  * allowedgroups: pubkeys of the signature can take effect, if scopes is CustomGroups
+  - account: signature account
+  - scopes: signature's valid scopes, allowed values: FeeOnly, CalledByEntry, CustomContracts, CustomGroups, Global
+  - allowedcontracts: contracts of the signature can take effect, if scopes is CustomContracts
+  - allowedgroups: pubkeys of the signature can take effect, if scopes is CustomGroups
 
 ## Example
 

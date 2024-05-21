@@ -30,25 +30,25 @@ Response body
 
 ```json5
 {
-	"jsonrpc": "2.0",
-	"id": 1,
-	"result": {
-		"script": "wh8MBXJvb3RzDBQaidSNifjBpm09PQ70gyzrzqkvFUFifVtS",
-		"state": "HALT",
-		"gasconsumed": "228888",
-		"exception": null,
-		"stack": [
-			{
-				"type": "InteropInterface",
-				"iterator": [
-					{
-						"type": "ByteString",
-						"value": "bmVv"
-					}
-				],
-				"truncated": false
-			}
-		]
-	}
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+        "script": "wh8MBXJvb3RzDBQaidSNifjBpm09PQ70gyzrzqkvFUFifVtS",
+        "state": "HALT",
+        "gasconsumed": "228888",
+        "exception": null,
+        "stack": [
+            {
+                "type": "InteropInterface",
+                "iterator": [
+                    {
+                        "type": "ByteString",
+                        "value": "bmVv"
+                    }
+                ],
+                "truncated": false
+            }
+        ]
+    }
 }
 ```

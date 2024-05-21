@@ -38,4 +38,3 @@ public class NEO
 | [GetCommittee()](Neo/GetCommittee.md)                        | Gets committee members list                     |
 | [GetNextBlockValidators()](Neo/GetNextBlockValidators.md)    | Gets validators list for the next block         |
 | [GetAccountState(DataCache snapshot, UInt160 account)](Neo/GetAccountState.md) | Gets the latest votes of the specified  account |
-

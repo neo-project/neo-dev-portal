@@ -1,9 +1,9 @@
-﻿# getcontractstate Method
+# getcontractstate Method
 
 Queries the contract information with the contract script hash or native contract name. 
 
 :::note
- You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
 :::
 
 ## Parameter Description

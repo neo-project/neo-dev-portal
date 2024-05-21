@@ -29,4 +29,3 @@ public class ContractManagement
 | [Deploy(byte[] nefFile, string manifest)](ContractManagement/Deploy.md) | Deploys the contract                                 |
 | [Update(byte[] nefFile, string manifest)](ContractManagement/Update.md) | Updates the contract                                 |
 | [Destroy()](ContractManagement/Destroy.md)                   | Destroys the contract                                |
-

@@ -1,9 +1,9 @@
-﻿# gettransactionheight method
+# gettransactionheight method
 
 Returns the transaction height with the specified transaction hash.
 
 :::note
- You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
 :::
 
 ## Parameter Description

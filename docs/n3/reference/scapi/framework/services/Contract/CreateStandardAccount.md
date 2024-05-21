@@ -23,6 +23,7 @@ public class Contract1 : SmartContract.Framework.SmartContract
         }
 }
 ```
+
 The input parameter can be either a compressed or uncompressed public key.
 
 Example with compressed public key：

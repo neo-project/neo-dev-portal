@@ -23,4 +23,3 @@ public class RoleManagement
 | Name                                                         | Description                                   |
 | ------------------------------------------------------------ | --------------------------------------------- |
 | [GetDesignatedByRole(Role role, uint index)](RoleManagement/GetDesignatedByRole.md) | Gets the list of nodes for the specified role |
-

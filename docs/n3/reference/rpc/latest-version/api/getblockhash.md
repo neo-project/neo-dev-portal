@@ -1,12 +1,12 @@
-﻿# getblockhash Method
+# getblockhash Method
 
 Returns the hash value of the corresponding block based on the specified index.
 
 :::note
- You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
+You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
 :::
 
-##  Parameter Description
+## Parameter Description
 
 index: Block index (block height)
 

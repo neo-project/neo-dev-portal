@@ -1,15 +1,17 @@
-﻿# dumpprivkey Method
+# dumpprivkey Method
 
 Exports the private key of the specified address.
 
 :::note
- Before you can invoke this method you must:
-:::
->
-> 1. Install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) 
-> 2. Call the RPC method `openwallet` to open the wallet first.
+Before you can invoke this method you must:
 
-### Parameter Description
+1. Install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) 
+
+2. Call the RPC method `openwallet` to open the wallet first.
+
+:::
+
+## Parameter Description
 
 address: To export the addresses of the private key. The address is required as a standard address.
 

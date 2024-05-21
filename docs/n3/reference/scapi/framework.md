@@ -14,7 +14,6 @@
 | UInt160         | UInt160                                                      |
 | UInt256         | UInt256                                                      |
 
-
 ## Extension method
 
 | Name         | Description                                                  |
