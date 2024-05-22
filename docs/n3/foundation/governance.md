@@ -48,7 +48,9 @@ NEO has a max supply of 100 million tokens and the smallest unit of 1, or in oth
 
 ### GAS
 
-GAS is the fuel token for the realization of Neo network resource control, with a smallest unit of 0.00000001. Users can obtain GAS either through a claim or purchase. When using the Neo network, they need to pay a certain amount of GAS as network fees, such as transfer, registering assets, publishing assets, running DApps, etc.
+GAS is the fuel token for the realization of Neo network resource control, with a smallest unit of 0.00000001, also known as a Datoshi. Users can obtain GAS either through a claim or purchase. When using the Neo network, they need to pay a certain amount of GAS as network fees, such as transfer, registering assets, publishing assets, running DApps, etc.
+
+To further elaborate, the smallest unit of GAS is Datoshi, where 1 Datoshi = 1e-8 GAS. Larger units of GAS can also be expressed in Datoshi. For instance, 1 Kdatoshi (thousand Datoshi) = 1e-5 GAS and 1 Mdatoshi (million Datoshi) = 1e-2 GAS. In other words, 100,000,000 Datoshi = 100,000 Kdatoshi = 100 Mdatoshi = 1 GAS. This system of measurement allows for precise calculations and transactions on the Neo network.
 
 Unlike the Neo Legacy, there is no supply limit for Neo N3 GAS, and the system fee for transactions will be burned off.
 
