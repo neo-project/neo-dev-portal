@@ -55,6 +55,9 @@
   ul, ol {
     margin-left: 20px; 
   }
+  ul li p, ol li p {
+   display: inline;
+  } 
 
 }
 
