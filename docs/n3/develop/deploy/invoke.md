@@ -113,8 +113,8 @@ Three fields related to the contract invocation permission are defined in the co
 | Fields        | Type                          | Description                                                  |
 | ------------- | ----------------------------- | ------------------------------------------------------------ |
 | `Groups`      | `ContractGroup[]`             | Defines a group of trusted contracts, consisting of a public key and a signature of contract hash. |
-| `Permissions` | `ContractPermission[]`        | This field is an array containing a permission object, which defines other contracts and methods that the contract wants to call. The contract can be ScriptHash, Group, or wildcard \*. The method is the method name or wildcard \*. Contracts or methods not declared in the manifest cannot be called by the contract. |
-| `Trusts`      | `WildcardContainer<UInt160>` | Defines other contracts trusted by the contract. The contract can be ScriptHash, Group, or wildcard *. If a contract is trusted, the user will not receive any warning message when the contract is called. |
+| `Permissions` | `ContractPermission[]`        | This field is an array containing a permission object, which defines other contracts and methods that the contract wants to call. The contract can be ScriptHash, Group, or `Permission.Any`. The method is the method name or `Method.Any`. Contracts or methods not declared in the manifest cannot be called by the contract. |
+| `Trusts`      | `WildcardContainer<ContractPermissionDescriptor>` | Defines other contracts trusted by the contract. The contract can be ScriptHash, Group, or `Permission.Any`. If a contract is trusted, the user will not receive any warning message when the contract is called. |
 
 Assuming that the contract A calls the contract B, the following table details the invoking behavior and wallet behavior of the contract in various setting scenarios.
 
@@ -125,8 +125,8 @@ Assuming that the contract A calls the contract B, the following table details t
 | Permissions of contract A  include contract B<br/>Trusts of contract B include contract A | None                                                         | Default and adds CustomContract                              | Yes                         |
 | Permissions of contract A  include contract B<br/>Trusts of contract B do not include contract A | Prompts that contract A will call contract B, and asks whether to authorize the signature to contract B. | Default and adds CustomContract        according to the user's decision | Determined by the user      |
 | Permissions of contract A include a Groups B                 | Prompts that contract A will call any contract in group B and asks whether to authorize the signature to group B. | Default and adds CustomGroups according to the user's decision | Determined by the user      |
-| The contract defined in the Permissions of contract A is wildcard * and the method is m<br/>{"contract":"\*", "method": "m"} | Prompts that contract A will call the method m of any contract and asks whether to authorize the signature to contract B. | Default or Global according to the user's decision           | Determined by the user      |
-| The contract defined in the Permissions of contract A is wildcard * and the method is wildcard \*<br/>{"contract":"\*", "method": "\*"} | Prompts that contract A will call any method of any contract and asks whether to set the signature to Global. | Default or Global according to the user's decision           | Determined by the user      |
+| The contract defined in the Permissions of contract A is Permission.Any * and the method is m<br/>{"contract":"\*", "method": "m"} | Prompts that contract A will call the method m of any contract and asks whether to authorize the signature to contract B. | Default or Global according to the user's decision           | Determined by the user      |
+| The contract defined in the Permissions of contract A is Permission.Any * and the method is Method.Any \*<br/>{"contract":"\*", "method": "\*"} | Prompts that contract A will call any method of any contract and asks whether to set the signature to Global. | Default or Global according to the user's decision           | Determined by the user      |
 
 ## Invoking a contract with wallets/dAPIs
 

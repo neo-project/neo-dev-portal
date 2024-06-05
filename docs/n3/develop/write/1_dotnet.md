@@ -22,7 +22,7 @@ This document covers the usage of project templates and the compiler. For furthe
 
 ## Neo.SmartContract.Template
 
-Neo.SmartContract.Template is a project template used when developing Neo smart contracts. After installing the template, you can create a Neo smart contract project using either the Terminal or Visual Studio.
+[Neo.SmartContract.Template](https://www.nuget.org/packages/Neo.SmartContract.Template) is a project template used when developing Neo smart contracts. After installing the template, you can create a Neo smart contract project using either the Terminal or Visual Studio.
 
 ### Install the template
 
@@ -36,7 +36,7 @@ dotnet new install Neo.SmartContract.Template
 dotnet new list
 ```
 
- There are three default templates available after installing Neo.SmartContract: 
+ There are three default templates available after installing [Neo.SmartContract.Template](https://www.nuget.org/packages/Neo.SmartContract.Template): 
 
 - neocontractowner - Standard contract template with Owner, including GetOwner and SetOwner methods)
 
