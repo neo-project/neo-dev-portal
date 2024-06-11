@@ -20,41 +20,41 @@ The following steps are applicable to multiple system platforms, such as Windows
 
 ## Installing contract template
 
-2. [Neo.SmartContract.Template](https://www.nuget.org/packages/Neo.SmartContract.Template) is a project template used when developing Neo smart contracts. After installing the template, you can create a Neo smart contract project using either the Terminal or Visual Studio.
+[Neo.SmartContract.Template](https://www.nuget.org/packages/Neo.SmartContract.Template) is a project template used when developing Neo smart contracts. After installing the template, you can create a Neo smart contract project using either the Terminal or Visual Studio.
 
-   ### Install the template
-   
-   ```
-   dotnet new install Neo.SmartContract.Template
-   ```
-   
-   ### List all dotnet templates
-   
-   ```
-   dotnet new list
-   ```
-   
-    There are three default templates available after installing [Neo.SmartContract.Template](https://www.nuget.org/packages/Neo.SmartContract.Template): 
-   
-   - neocontractowner - Standard contract template with Owner, including GetOwner and SetOwner methods)
-   
-   - neocontractoracle - A contract template using OracleRequest)
-   
-   - neocontractnep17 - NEP-17 Contract Template, including Mint and Burn methods)
-   
-   :::note
-   
-   The `neocontract` template used before has been renamed to `neocontractowner`.
-   
-   :::
-   
-   ### Create a project using templates with Terminal
-   
-   ```
-   dotnet new neocontractnep17 
-   ```
-   
-   The project name defaults to the name of the current directory, you can also specify the project name with `-n, --name <name>`, e.g. `dotnet new neocontractnep17 -n MyFirstContract`.
+### Install the template
+
+```
+dotnet new install Neo.SmartContract.Template
+```
+
+### List all dotnet templates
+
+```
+dotnet new list
+```
+
+ These default templates are available after installing [Neo.SmartContract.Template](https://www.nuget.org/packages/Neo.SmartContract.Template): 
+
+- neocontractowner - Standard contract template with the Owner, including the GetOwner and SetOwner methods.
+
+- neocontractoracle - A contract template using OracleRequest.
+
+- neocontractnep17 - NEP-17 contract template, including the Mint and Burn methods.
+
+:::note
+
+The `neocontract` template previously used has been renamed to `neocontractowner`.
+
+:::
+
+### Create a project using templates with Terminal
+
+```
+dotnet new neocontractnep17 
+```
+
+The project name defaults to the name of the current directory. You can also specify the project name with `-n, --name <name>`, e.g. `dotnet new neocontractnep17 -n MyFirstContract`.
 
 ## Compiling contract file
 

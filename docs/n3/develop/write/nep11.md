@@ -157,11 +157,11 @@ The Compatibility Check reviews method names, parameters, return values, events,
 
 ### NFT Royalty Standard
 
-In order for developers to get better royalty benefits from NFT, it is recommended to implement the Royalty standard in the contract.
+To allow developers to receive better royalty benefits from NFTs, it is recommended to implement the Royalty standard in the contract.
 
-The NFT store can query the royalty price by calling the contract's `RoyaltyInfo` method, at which point the NFT transaction price will be the NFT selling price plus the royalty price.
+The NFT store can query the royalty amount by calling the contract's `RoyaltyInfo` method. At this point, the total NFT transaction price will be the NFT selling price plus the royalty amount.
 
-In this example code, the royalty price is 1/1000th of the NFT's selling price, rounded down, independent of the currency of the transaction. If NFT sells for 0.1 GAS, the royalty price is calculated to be 0.0001 GAS (10,000 Datoshi), if NFT sells for 10 NEO, the royalty price is calculated to be 0 NEO.
+In this example code, the royalty fee is 1/1000th of the NFT's selling price, rounded down, regardless of the transaction currency. For instance, if the NFT sells for 0.1 GAS, the royalty fee is 0.0001 GAS (10,000 Datoshi). If the NFT sells for 10 NEO, the royalty fee is 0 NEO.
 
 ```csharp
 [Safe]
