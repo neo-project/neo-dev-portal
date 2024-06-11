@@ -155,6 +155,26 @@ The base class `Nep11Token` also provides the following methods and events:
 Compatibility checks will be activated for any contract that includes the `[SupportedStandards("NEP-17")]` or `[SupportedStandards("NEP-11")]` attribute.
 The Compatibility Check reviews method names, parameters, return values, events, and similar elements to ensure they comply with the standard, and alerts about any failures in the check.
 
+### NFT Royalty Standard
+
+To allow developers to receive better royalty benefits from NFTs, it is recommended to implement the Royalty standard in the contract.
+
+The NFT store can query the royalty amount by calling the contract's `RoyaltyInfo` method. At this point, the total NFT transaction price will be the NFT selling price plus the royalty amount.
+
+In this example code, the royalty fee is 1/1000th of the NFT's selling price, rounded down, regardless of the transaction currency. For instance, if the NFT sells for 0.1 GAS, the royalty fee is 0.0001 GAS (10,000 Datoshi). If the NFT sells for 10 NEO, the royalty fee is 0 NEO.
+
+```csharp
+[Safe]
+public static Map<string, object>[] RoyaltyInfo(ByteString tokenId, UInt160 royaltyToken, BigInteger salePrice)
+{
+    ExecutionEngine.Assert(OwnerOf(tokenId) != null, "This TokenId doesn't exist!");
+    var royaltyInfo = new Map<string, object>();
+    royaltyInfo["royaltyRecipient"] = InitialRecipient;
+    royaltyInfo["royaltyAmount"] = salePrice / 1000;
+    return new[] { royaltyInfo };
+}
+```
+
 ## See also
 
 [NEP-11 Proposal](https://github.com/neo-project/proposals/blob/master/nep-11.mediawiki)
@@ -164,4 +184,8 @@ The Compatibility Check reviews method names, parameters, return values, events,
 [Nep11Token Source Code](https://github.com/neo-project/neo-devpack-dotnet/blob/master/src/Neo.SmartContract.Framework/Nep11Token.cs)
 
 [NeoVerse Document](https://github.com/chenzhitong/neoverse-readme)
+
+[NFT Royalty Standard](https://github.com/neo-project/proposals/blob/master/nep-24.mediawiki)
+
+[NFT Royalty Example](https://github.com/neo-project/neo-devpack-dotnet/blob/master/examples/Example.SmartContract.SampleRoyaltyNEP11Token/SampleRoyaltyNEP11Token.cs)
 
