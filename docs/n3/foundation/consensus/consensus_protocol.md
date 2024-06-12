@@ -1,3 +1,7 @@
+---
+sidebar_label: 'Consensus Protocol'
+sidebar_position: 2
+---
 # Consensus Protocol
 
 ## Consensus Message Format

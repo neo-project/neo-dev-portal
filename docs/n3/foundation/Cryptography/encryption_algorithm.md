@@ -1,3 +1,7 @@
+---
+sidebar_label: 'Encryption Algorithm'
+sidebar_position: 2
+---
 # Encryption Algorithm
 
 ## ECC Algorithm

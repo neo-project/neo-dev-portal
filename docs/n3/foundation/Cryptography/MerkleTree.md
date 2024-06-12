@@ -1,3 +1,7 @@
+---
+sidebar_label: 'Merkle Tree'
+sidebar_position: 3
+---
 # Merkle Tree
 
 A Merkle tree is a kind of binary tree: It's able to quickly check and induce massive data and verify the completeness of block transaction records. Neo uses Merkle tree to construct block model. Neo's block head stores the Merkle root of all transactions within the block. The block data area stores transaction array.  

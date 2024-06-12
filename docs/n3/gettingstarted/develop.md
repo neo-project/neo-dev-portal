@@ -1,3 +1,7 @@
+---
+sidebar_label: 'Developing a contract'
+sidebar_position: 3
+---
 # Developing a contract
 
 We have completed setting up the private chain and configuring the node. In this section we will walk you through configuring the environment, writing, and compiling an NEP17 contract using C#.

@@ -1,3 +1,6 @@
+---
+sidebar_position: 2
+---
 # Neo.SmartContract.Framework.Services
 
 ## Class

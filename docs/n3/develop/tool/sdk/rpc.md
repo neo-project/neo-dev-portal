@@ -1,3 +1,6 @@
+---
+sidebar_position: 1
+---
 # RPC Invocation Methods
 
 The `RpcClient` encapsulates all the interfaces provided by RpcServer. You can send RPC requests in your code through the standard methods provided in this module. You only need to pass in the corresponding parameters, the SDK will construct the corresponding JSON-RPC requests and then get the data returned by the node.

@@ -1,3 +1,7 @@
+---
+sidebar_label: 'Setting up local network'
+sidebar_position: 2
+---
 # Setting up local network
 
 ## Setting up a private chain

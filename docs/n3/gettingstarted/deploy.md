@@ -1,3 +1,7 @@
+---
+sidebar_label: 'Deploying and invoking contract'
+sidebar_position: 4
+---
 # Deploying and invoking contract
 
 In the previous section we have compiled an NEP17 contract file (NEP17.nef) and contract descriptive file (NEP17.manifest.json), next we will move on to deployment and invocation of the contract with Neo-CLI.

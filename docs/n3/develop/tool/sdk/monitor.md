@@ -1,3 +1,6 @@
+---
+sidebar_position: 2
+---
 # Getting Blockchain Information
 
 The `RPC` module provides methods to get basic information of blockchain data and status, such as block height, block content, transaction details, and contracts. 

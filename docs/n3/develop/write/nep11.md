@@ -1,3 +1,6 @@
+---
+sidebar_position: 2
+---
 # NEP-11 
 
 The NEP-11 proposal outlines the standard for writing NFT (Non-fungible token) contracts. This document will explain how to write a simple NFT contract using C#.
