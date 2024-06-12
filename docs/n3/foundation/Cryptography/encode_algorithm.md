@@ -1,3 +1,7 @@
+---
+sidebar_label: 'Encoding Algorithm'
+sidebar_position: 0
+---
 # Encoding Algorithm
 
 ## Base58

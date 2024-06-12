@@ -1,3 +1,7 @@
+---
+sidebar_label: 'Election'
+sidebar_position: 3
+---
 # Consensus Nodes Election
 
 Neo is an open and transparent blockchain network where anyone can either initiate a transaction to apply for being a validator candidate or vote to decide which validator candidate can become a consensus node. The committee members and validators are elected based on the voting result.

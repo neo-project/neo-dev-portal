@@ -1,3 +1,7 @@
+---
+sidebar_label: 'Consensus Algorithm'
+sidebar_position: 1
+---
 # dBFT 2.0 Algorithm
 
 ## Terms
@@ -76,7 +80,7 @@ A normal algorithm flow is shown below.
 - For delegates:
 
   - In case of receiving Prepare Request from the speaker before timeout:
-   
+  
      1. Verify the validity of the message and whether it conforms to the local consensus context
 
      2. Prolong local timeout by ![](../images/consensus/5.png)

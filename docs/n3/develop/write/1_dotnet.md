@@ -1,3 +1,6 @@
+---
+sidebar_position: 0
+---
 # Using Neo Devpack Dotnet
 
 Designed for developers, Neo Devpack Dotnet is a comprehensive toolkit for creating Neo contracts using .net. It offers convenient contract project templates and a compiler. 

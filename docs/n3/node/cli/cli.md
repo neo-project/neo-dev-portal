@@ -1,3 +1,6 @@
+---
+sidebar_position: 2
+---
 # CLI Command Reference
 
 Open the command line, navigate to the directory where Neo-CLI is located, and enter the following code to start the command line Neo node.

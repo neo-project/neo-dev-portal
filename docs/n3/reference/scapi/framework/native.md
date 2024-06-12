@@ -1,3 +1,6 @@
+---
+sidebar_position: 0
+---
 # Neo.SmartContract.Framework.Native
 
 A series of native contract methods that can be invoked in the smart contract.

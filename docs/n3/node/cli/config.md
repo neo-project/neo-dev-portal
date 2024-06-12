@@ -1,3 +1,6 @@
+---
+sidebar_position: 1
+---
 # Configuring and Starting Neo-CLI 
 
 After installation of Neo-CLI, this section we will walk you through the necessary configurations before running Neo-CLI and the steps to start Neo-CLI using commands. 

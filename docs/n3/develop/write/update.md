@@ -1,3 +1,6 @@
+---
+sidebar_position: 5
+---
 # Contract Update and Destroy
 
 Smart contracts support to be updated or destroyed after release. Before you can do that you need to implement the Update and Destroy interfaces in the old contracts.

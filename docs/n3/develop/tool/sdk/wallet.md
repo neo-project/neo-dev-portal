@@ -1,3 +1,6 @@
+---
+sidebar_position: 3
+---
 # Wallet Interfaces
 
 Most operations in Neo blockchain are related to accounts. A wallet is the collection of accounts that includes one or multiple accounts. This document contains the following topics：

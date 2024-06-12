@@ -1,3 +1,6 @@
+---
+sidebar_position: 1
+---
 # Smart Contract Writing Basics
 
 In this tutorial, you will learn the basics of developing a smart contract. 
