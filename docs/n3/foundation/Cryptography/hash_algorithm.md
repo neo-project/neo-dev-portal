@@ -1,3 +1,7 @@
+---
+sidebar_label: 'Hash Algorithm'
+sidebar_position: 1
+---
 # Hash Algorithm
 
 Hash function, or hash algorithm, is a method creating digital finger print from any kind of data. Hash function compresses message or data into a digested version to shrink the data into a fixed data size. This function disorganizes and remixes data, rebuilding a data fingerprint as a hash value. Hash value is always represented by a short string consisting of random letters and digits.

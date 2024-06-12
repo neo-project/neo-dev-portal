@@ -1,3 +1,6 @@
+---
+sidebar_position: 4
+---
 # NEF and Manifest Files
 
 Neo N3 uses the NEF (NEO Executable Format) and Manifest files as a replacement of the AVM and ABI files in Neo Legacy.

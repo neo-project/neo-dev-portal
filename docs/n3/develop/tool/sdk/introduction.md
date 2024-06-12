@@ -1,3 +1,6 @@
+---
+sidebar_position: 0
+---
 # About RpcClient
 
 `RpcClient` is a C# dependency library that can be used to develop various applications on Neo, such as wallet clients, games, etc. This project can help you easily invoke Neo RPC interfaces, construct transactions, and invoke contracts.

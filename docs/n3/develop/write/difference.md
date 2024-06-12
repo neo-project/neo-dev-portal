@@ -1,3 +1,6 @@
+---
+sidebar_position: 7
+---
 # Differences between Neo N3 and Neo Legacy
 
 This document describes the main differences in writing smart contracts between Neo N3 and Neo Legacy. Developers who want to migrate Neo Legacy contracts to Neo N3 need to be aware of these changes. Since Neo N3 is still being updated, here we only list significant changes and the document will be updated continuously.

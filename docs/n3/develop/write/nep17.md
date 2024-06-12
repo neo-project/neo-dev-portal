@@ -1,3 +1,6 @@
+---
+sidebar_position: 3
+---
 # NEP-17
 
 The NEP-17 proposal is a replacement of the original NEP5 proposal, which outlines a token standard for the Neo blockchain that will provide systems with a generalized interaction mechanism for tokenized Smart Contracts. 

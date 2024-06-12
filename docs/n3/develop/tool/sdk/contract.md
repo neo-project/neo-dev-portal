@@ -1,3 +1,6 @@
+---
+sidebar_position: 5
+---
 # Deploying and Invoking Contracts
 
 In Neo N3 most of the functions are provided by contracts. ScriptHash is the unique identifier of the contract, and it is usually a necessary parameter for invoking contracts.

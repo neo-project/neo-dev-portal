@@ -1,3 +1,6 @@
+---
+sidebar_position: 0
+---
 # Installing Neo-CLI
 
 You can choose one of the following ways to install Neo-CLI:

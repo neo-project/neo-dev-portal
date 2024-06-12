@@ -1,3 +1,7 @@
+---
+sidebar_label: 'Before You Begin'
+sidebar_position: 1
+---
 # Before You Begin
 
 In this tutorial, we will work you through an example of how to release an NEP17 asset on Neo blockchain, which includes the tasks of setting up and configuring the development environment, compiling, deploying and invoking the smart contract on a private Neo chain.
