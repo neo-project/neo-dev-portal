@@ -57,9 +57,9 @@ using System;
 
 |                         | Neo Legacy                                                   | Neo N3                                                       |
 | ----------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Contract info           | You need to fill in contract information such as the name, author, email, etc. when deploying the contract. | Add the contract features to the contract file, written as [C# Features](https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/concepts/attributes/), for example：<br/>[ManifestExtra("Author", "Neo")]<br/>[ManifestExtra("Email", "dev@neo.org")]<br/>[ContractTrust("\*")]<br/>[ContractPermission("\*", "\*")]<br/>[SupportedStandards(NepStandard.Nep17)]<br/>[ManifestExtra("Description", "This is a contract example")]<br/>public class Contract1 : SmartContract |
+| Contract info           | You need to fill in contract information such as the name, author, email, etc. when deploying the contract. | Add the contract features to the contract file, written as [C# Features](https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/concepts/attributes/), for example：<br/>[ContractAuthor("core-dev", "dev@neo.org")]<br/>[ContractEmail("dev@neo.org")]<br/>[ContractDescription("A sample NEP-17 token")]<br/>[ContractPermission(Permission.Any, Method.Any)]<br/>[ContractTrust(Permission.Any)]<br/>[SupportedStandards(NepStandard.Nep17)]<br/>public class Contract1 : SmartContract |
 | Contract function       | When deploying a contract, you need to declare contract features such as whether to use storage, whether it can be called dynamically, and whether to accept NEP-5 assets. | All contracts can use the storage and dynamic calls by default. You can implement the OnNEP17Payment method to accept NEP-17 assets and implement the OnNEP11Payment method to accept NEP-11 (NFT standard) assets. |
-| Declare support for NEP | Code example:<br/>public static string[] SupportedStandards()<br/>{<br/>    string[] result = { "NEP-5", "NEP-7", "NEP-10" };<br/>    return result;<br/>} | Directly add the feature to the contract class name `[SupportedStandards(NepStandard.Nep17)]` |
+| Declare support for NEP | Code example:<br/>public static string[] SupportedStandards()<br/>{<br/>    string[] result = { "NEP-11", "NEP-17", "NEP-24" };<br/>    return result;<br/>} | Directly add the feature to the contract class name `[SupportedStandards(NepStandard.Nep17)]` |
 
 ### Declaration of static variables
 
@@ -72,8 +72,7 @@ private static readonly byte[] InitialOwnerScriptHash = "AJhZmdHxW44FWMiMxD5bTiF
 Neo N3
 
 ```cs
-[InitialValue("NiNmXL8FjEUEs1nfX9uHFBNaenxDHJtmuB", ContractParameterType.Hash160)]
-static readonly UInt160 Owner = default;
+static readonly UInt160 Owner = "NiNmXL8FjEUEs1nfX9uHFBNaenxDHJtmuB";
 ```
 
 ### Methods and Events

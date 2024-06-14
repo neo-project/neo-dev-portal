@@ -78,8 +78,7 @@ namespace Contract1
     public class Contract1 : Nep11Token<MyTokenState>
     {
         //TODO: Replace it with your own address.
-        [InitialValue("NiNmXL8FjEUEs1nfX9uHFBNaenxDHJtmuB", ContractParameterType.Hash160)]
-        static readonly UInt160 Owner = default;
+        static readonly UInt160 Owner = "NiNmXL8FjEUEs1nfX9uHFBNaenxDHJtmuB";
 
         private static bool IsOwner() => Runtime.CheckWitness(Owner);
 
