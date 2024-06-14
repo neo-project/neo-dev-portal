@@ -196,7 +196,7 @@ You can declare more features:
 [ContractSourceCode("https://github.com/neo-project/neo-devpack-dotnet/tree/master/examples/")]
 [ContractVersion("0.0.1")]
 [DisplayName("SampleNep17Token")]
-[SupportedStandards("NEP-17")]
+[SupportedStandards(NepStandard.Nep17)]
 [ContractPermission("*", "onNEP17Payment")]
 [ContractTrust("0x0a0b00ff00ff00ff00ff00ff00ff00ff00ff00a4")]
 [ManifestExtra("WebSite", "https://neo.org")]
