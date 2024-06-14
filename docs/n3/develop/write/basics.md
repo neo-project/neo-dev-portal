@@ -222,7 +222,9 @@ The generated manifest is as follows:
 ```json
 {
     "name": "SampleNep17Token",
-    "supportedstandards": [],
+    "supportedstandards": [ 
+        "NEP-17"
+    ],
     "abi": {
     },
     "permissions": [
