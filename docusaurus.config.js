@@ -174,7 +174,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             ],
           },
         ],
-        copyright: `Copyright © Neo Team 2014-2023`,
+        copyright: `Copyright © Neo Team 2014-2024`,
       },
     }),
 });
