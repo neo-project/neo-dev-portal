@@ -74,12 +74,11 @@ using System;
 
 namespace Contract1
 {
-    [SupportedStandards("NEP-11")]
+    [SupportedStandards(NepStandard.Nep11)]
     public class Contract1 : Nep11Token<MyTokenState>
     {
         //TODO: Replace it with your own address.
-        [InitialValue("NiNmXL8FjEUEs1nfX9uHFBNaenxDHJtmuB", ContractParameterType.Hash160)]
-        static readonly UInt160 Owner = default;
+        static readonly UInt160 Owner = "NiNmXL8FjEUEs1nfX9uHFBNaenxDHJtmuB";
 
         private static bool IsOwner() => Runtime.CheckWitness(Owner);
 
@@ -155,7 +154,7 @@ The base class `Nep11Token` also provides the following methods and events:
 
 ### Compatibility check
 
-Compatibility checks will be activated for any contract that includes the `[SupportedStandards("NEP-17")]` or `[SupportedStandards("NEP-11")]` attribute.
+Compatibility checks will be activated for any contract that includes the `[SupportedStandards(NepStandard.Nep17)]` or `[SupportedStandards(NepStandard.Nep11)]` attribute.
 The Compatibility Check reviews method names, parameters, return values, events, and similar elements to ensure they comply with the standard, and alerts about any failures in the check.
 
 ### NFT Royalty Standard
