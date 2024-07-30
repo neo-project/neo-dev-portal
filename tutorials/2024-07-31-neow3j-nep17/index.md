@@ -6,7 +6,7 @@ author: AxLabs
 tags: ["NEP-17", "JAVA", "NEOW3J"]
 skill: beginner
 image: "./assets/neow3j-padded.png"
-source: "https://github.com/neow3j/neow3j-examples-java/blob/13b72b6ac85a2be305827b78bd973092e21c8c9f/src/main/java/io/neow3j/examples/contractdevelopment/contracts/FungibleToken.java"
+source: "https://github.com/neow3j/neow3j-examples-java/blob/a7ea819d00e57f4577f9bd3d423d24d4b87fbb06/src/main/java/io/neow3j/examples/contractdevelopment/contracts/FungibleToken.java"
 sidebar: true
 ---
 
@@ -51,6 +51,9 @@ import io.neow3j.devpack.constants.NeoStandard;
 import io.neow3j.devpack.contracts.ContractManagement;
 import io.neow3j.devpack.events.Event3Args;
 
+/**
+ * Be aware that this contract is an example. It has not been audited and should not be used in production.
+ */
 @DisplayName("AxLabsToken")
 @ManifestExtra(key = "name", value = "AxLabsToken")
 @ManifestExtra(key = "author", value = "AxLabs")
@@ -80,6 +83,9 @@ public class FungibleToken {
             // Allocate all tokens to the contract owner.
             new StorageMap(ctx, assetMapPrefix).put(initialOwner, initialSupply);
             onTransfer.fire(null, initialOwner, initialSupply);
+            if (new ContractManagement().getContract(initialOwner) != null) {
+                Contract.call(initialOwner, "onNEP17Payment", CallFlags.All, new Object[]{null, initialSupply, null});
+            }
         }
     }
 
@@ -134,7 +140,7 @@ public class FungibleToken {
 
         onTransfer.fire(from, to, amount);
         if (new ContractManagement().getContract(to) != null) {
-            Contract.call(to, "onNEP17Payment", CallFlags.All, data);
+            Contract.call(to, "onNEP17Payment", CallFlags.All, new Object[]{from, amount, data});
         }
         return true;
     }
@@ -287,6 +293,9 @@ public static void deploy(Object data, boolean update) {
         // Allocate all tokens to the contract owner.
         new StorageMap(ctx, assetMapPrefix).put(initialOwner, initialSupply);
         onTransfer.fire(null, initialOwner, initialSupply);
+        if (new ContractManagement().getContract(initialOwner) != null) {
+            Contract.call(initialOwner, "onNEP17Payment", CallFlags.All, new Object[]{null, initialSupply, null});
+        }
     }
 }
 ```
@@ -366,7 +375,7 @@ public static boolean transfer(Hash160 from, Hash160 to, int amount, Object[] da
 
     onTransfer.fire(from, to, amount);
     if (new ContractManagement().getContract(to) != null) {
-        Contract.call(to, "onNEP17Payment", CallFlags.All, data);
+        Contract.call(to, "onNEP17Payment", CallFlags.All, new Object[]{from, amount, data});
     }
     return true;
 }

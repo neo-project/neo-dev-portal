@@ -6,7 +6,7 @@ author: AxLabs
 tags: ["NEP-11", "JAVA", "NEOW3J"]
 skill: beginner
 image: "./assets/neow3j-padded.png"
-source: "https://github.com/neow3j/neow3j-examples-java/blob/13b72b6ac85a2be305827b78bd973092e21c8c9f/src/main/java/io/neow3j/examples/contractdevelopment/contracts/NonFungibleToken.java"
+source: "https://github.com/neow3j/neow3j-examples-java/blob/a7ea819d00e57f4577f9bd3d423d24d4b87fbb06/src/main/java/io/neow3j/examples/contractdevelopment/contracts/NonFungibleToken.java"
 sidebar: true
 ---
 
@@ -63,9 +63,11 @@ import io.neow3j.devpack.constants.CallFlags;
 import io.neow3j.devpack.constants.FindOptions;
 import io.neow3j.devpack.constants.NeoStandard;
 import io.neow3j.devpack.contracts.ContractManagement;
-import io.neow3j.devpack.events.Event3Args;
 import io.neow3j.devpack.events.Event4Args;
 
+/**
+ * Be aware that this contract is an example. It has not been audited and should not be used in production.
+ */
 @DisplayName("FurryFriends")
 @ManifestExtra(key = "author", value = "AxLabs")
 @SupportedStandard(neoStandard = NeoStandard.NEP_11)
@@ -164,7 +166,6 @@ public class NonFungibleToken {
         if (!Runtime.checkWitness(owner)) {
             return false;
         }
-        onTransfer.fire(owner, to, 1, tokenId);
         if (owner != to) {
             StorageContext ctx = Storage.getStorageContext();
             new StorageMap(ctx, ownerOfMapPrefix).put(tokenId, to.toByteArray());
@@ -175,6 +176,7 @@ public class NonFungibleToken {
             decreaseBalanceByOne(ctx, owner);
             increaseBalanceByOne(ctx, to);
         }
+        onTransfer.fire(owner, to, 1, tokenId);
         if (new ContractManagement().getContract(to) != null) {
             Contract.call(to, "onNEP11Payment", CallFlags.All, new Object[]{owner, 1, tokenId, data});
         }
@@ -281,6 +283,9 @@ public class NonFungibleToken {
         increaseBalanceByOne(ctx, to);
         incrementTotalSupplyByOne(ctx);
         onTransfer.fire(null, to, 1, tokenId);
+        if (new ContractManagement().getContract(to) != null) {
+            Contract.call(to, "onNEP11Payment", CallFlags.All, new Object[]{null, 1, tokenId, null});
+        }
     }
 
     public static void burn(ByteString tokenId) throws Exception {
@@ -375,7 +380,6 @@ import io.neow3j.devpack.constants.CallFlags;
 import io.neow3j.devpack.constants.FindOptions;
 import io.neow3j.devpack.constants.NeoStandard;
 import io.neow3j.devpack.contracts.ContractManagement;
-import io.neow3j.devpack.events.Event3Args;
 import io.neow3j.devpack.events.Event4Args;
 ```
 
@@ -542,7 +546,6 @@ public static boolean transfer(Hash160 to, ByteString tokenId, Object data) thro
     if (!Runtime.checkWitness(owner)) {
         return false;
     }
-    onTransfer.fire(owner, to, 1, tokenId);
     if (owner != to) {
         StorageContext ctx = Storage.getStorageContext();
         new StorageMap(ctx, ownerOfMapPrefix).put(tokenId, to.toByteArray());
@@ -553,6 +556,7 @@ public static boolean transfer(Hash160 to, ByteString tokenId, Object data) thro
         decreaseBalanceByOne(ctx, owner);
         increaseBalanceByOne(ctx, to);
     }
+    onTransfer.fire(owner, to, 1, tokenId);
     if (new ContractManagement().getContract(to) != null) {
         Contract.call(to, "onNEP11Payment", CallFlags.All, new Object[]{owner, 1, tokenId, data});
     }
@@ -639,7 +643,7 @@ The example contract contains some custom methods, that are not specified in the
 
 The method `contractOwner()` simply returns the script hash of the contract owner.
 
-The method `mint()` can be invoked by the contract owner in order to mint new NFT tokens. It stores the tokenId in the `registryMap`, its properties in the `propertiesMap`, and its owner in the `ownerMap`. Further, it increases the owner's balance, and the total supply by 1, before it fires the `Transfer` event.
+The method `mint()` can be invoked by the contract owner in order to mint new NFT tokens. It stores the tokenId in the `registryMap`, its properties in the `propertiesMap`, and its owner in the `ownerMap`. Further, it increases the owner's balance, and the total supply by 1, before it fires the `Transfer` event. Finally, if the recipient is a contract, its `onNEP11Payment` method is called.
 
 The method `burn()` can be invoked by the owner of a token. It deletes all information about the token and updates the balance and total supply accordingly. If the intent of burning a token need not require the storage to be freed, the token could also just be sent to a *burner address*.
 
@@ -683,6 +687,9 @@ public static void mint(Hash160 to, ByteString tokenId, Map<String, String> prop
     increaseBalanceByOne(ctx, to);
     incrementTotalSupplyByOne(ctx);
     onTransfer.fire(null, to, 1, tokenId);
+    if (new ContractManagement().getContract(to) != null) {
+        Contract.call(to, "onNEP11Payment", CallFlags.All, new Object[]{null, 1, tokenId, null});
+    }
 }
 
 public static void burn(ByteString tokenId) throws Exception {
