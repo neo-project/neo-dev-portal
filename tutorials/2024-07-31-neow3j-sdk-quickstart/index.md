@@ -17,9 +17,7 @@ sidebar: true
 
 ## 1. Introduction
 
-Neow3j is a development toolkit that provides easy and reliable tools to build Neo dApps and Smart
-Contracts using the Java platform (Java, Kotlin, Android). Check out [neow3j.io](https://neow3j.io) for more detailed
-information on neow3j and the technical documentation.
+Neow3j is a development toolkit that provides easy and reliable tools to build Neo dApps and Smart Contracts using the Java platform (Java, Kotlin, Android). Check out [neow3j.io](https://neow3j.io) for more detailed information on neow3j and the technical documentation.
 
 ## 2. Setup
 
@@ -31,32 +29,19 @@ DApp development in Java requires a Java SDK of at least version 8. Checkout [Ad
 
 __Neo-Express__
 
-Neo-Express is a tool for setting up local private blockchains for development purposes. You will use it to learn how to
-interact with a Neo blockchain using the neow3j SDK. It requires .NET Core installed on your machine. Step through the
-Neo-Express installation section [here](https://github.com/neo-project/neo-express#installation) to set it up.
+Neo-Express is a tool for setting up local private blockchains for development purposes. You will use it to learn how to interact with a Neo blockchain using the neow3j SDK. It requires .NET Core installed on your machine. Step through the Neo-Express installation section [here](https://github.com/neo-project/neo-express#installation) to set it up.
 
 ### Development Environment
 
-You can develop a dApp with neow3j in any editor, but we recommend using 
-[IntelliJ IDEA](https://www.jetbrains.com/idea/download/) and [Visual Studio Code](https://code.visualstudio.com/).
-IntelliJ offers one of the best Java/Kotlin developer experiences while VS Code offers a powerful extension for
-development on Neo.
+You can develop a dApp with neow3j in any editor, but we recommend using [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) and [Visual Studio Code](https://code.visualstudio.com/). IntelliJ offers one of the best Java/Kotlin developer experiences while VS Code offers a powerful extension for development on Neo.
 
-If you use VS Code make sure to install the 
-[Neo Blockchain Toolkit](https://marketplace.visualstudio.com/items?itemName=ngd-seattle.neo-blockchain-toolkit)
-extension. It supports an easy setup of private blockchains, provides functionality to quickly fund an address, an
-in-editor block explorer and much more. For optimal Java support in VS Code we recommend using the
-[Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack).
+If you use VS Code make sure to install the [Neo Blockchain Toolkit](https://marketplace.visualstudio.com/items?itemName=ngd-seattle.neo-blockchain-toolkit) extension. It supports an easy setup of private blockchains, provides functionality to quickly fund an address, an in-editor block explorer and much more. For optimal Java support in VS Code we recommend using the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack).
 
 ### Code 
 
-For a quick setup of your dApp project, you can use the
-[SDK boilerplate template](https://github.com/neow3j/neow3j-boilerplate-sdk) repository. This project contains two
-simple examples. First, you'll build, sign and send a transaction. Then, we'll show you how to subscribe to new blocks
-on a Neo N3 blockchain.
+For a quick setup of your dApp project, you can use the [SDK boilerplate template](https://github.com/neow3j/neow3j-boilerplate-sdk) repository. This project contains two simple examples. First, you'll build, sign and send a transaction. Then, we'll show you how to subscribe to new blocks on a Neo N3 blockchain.
 
-You can either click on `Use this template` within GitHub to create your own repository from it, or clone it with the
-following commands:
+You can either click on `Use this template` within GitHub to create your own repository from it, or clone it with the following commands:
 
 ```
 git clone https://github.com/neow3j/neow3j-boilerplate-sdk.git
@@ -65,15 +50,13 @@ cd neow3j-boilerplate-sdk && git checkout -b devportal-quickstart-tutorial
 
 :::note
 
-This tutorial is based on the branch `devportal-quickstart-tutorial`, it might not be on the same commit as the `main`
-branch.
+This tutorial is based on the branch `devportal-quickstart-tutorial`, it might not be on the same commit as the `main` branch.
 
 :::
 
 ## 3. Building, Signing and Sending a Transaction
 
-In the following example code, a transaction that transfer 10 NEO is built, signed and sent. Then, its status is printed
-when it has been executed successfully and is persisted on the blockchain.
+In the following example code, a transaction that transfer 10 NEO is built, signed and sent. Then, its status is printed when it has been executed successfully and is persisted on the blockchain.
 
 ```java
 package com.axlabs.boilerplate;
@@ -170,9 +153,7 @@ import java.math.BigInteger;
 
 ### Connect to Neo N3 Network
 
-The `Neow3j` class sets up a connection to a Neo N3 blockchain. The endpoint in the example code points to a testnet
-node. If you run a local Neo N3 network and want to interact with it through neow3j, you have to change this endpoint
-accordingly.
+The `Neow3j` class sets up a connection to a Neo N3 blockchain. The endpoint in the example code points to a testnet node. If you run a local Neo N3 network and want to interact with it through neow3j, you have to change this endpoint accordingly.
 
 ```java
 Neow3j neow3j = Neow3j.build(new HttpService("http://seed2t5.neo.org:20332"));
@@ -180,16 +161,13 @@ Neow3j neow3j = Neow3j.build(new HttpService("http://seed2t5.neo.org:20332"));
 
 ### Initialize GasToken
 
-In the example code, 1 GAS is transferred. The GAS token is managed in the native smart contract `GasToken`. Neow3j's
-class `GasToken` provides all necessary methods that can be invoked on the `GasToken` smart contract. This allows you to
-build a transfer transaction that then can be sent to the blockchain.
+In the example code, 1 GAS is transferred. The GAS token is managed in the native smart contract `GasToken`. Neow3j's class `GasToken` provides all necessary methods that can be invoked on the `GasToken` smart contract. This allows you to build a transfer transaction that then can be sent to the blockchain.
 
 ```java
 GasToken gasToken = new GasToken(neow3j);
 ```
 
-Now we prepare all necessary parameters that are required to build a transaction that transfers 1 GAS from `alice` to
-the script hash `b897160506030c5d06dc087a21544b4853768012`.
+Now we prepare all necessary parameters that are required to build a transaction that transfers 1 GAS from `alice` to the script hash `b897160506030c5d06dc087a21544b4853768012`.
 
 ```java
 Hash160 recipient = new Hash160("b897160506030c5d06dc087a21544b4853768012");
@@ -202,18 +180,13 @@ Account alice = Account.fromWIF(aliceWif);
 
 ### Create Transfer Script
 
-Before building the transfer script, we have to consider the decimal points of the GasToken. It has 8 decimals, and we
-need to pass the transfer amount in fractions in the script. That means, for transferring 1 GAS, we need to pass
-1_00000000 as the transfer amount. To make this more simple, you can use the method `toFractions(BigDecimal)` that
-calculates the fractions.
+Before building the transfer script, we have to consider the decimal points of the GasToken. It has 8 decimals, and we need to pass the transfer amount in fractions in the script. That means, for transferring 1 GAS, we need to pass 1_00000000 as the transfer amount. To make this more simple, you can use the method `toFractions(BigDecimal)` that calculates the fractions.
 
 ```java
 BigInteger amount = gasToken.toFractions(new BigDecimal("1"));
 ```
 
-The `transfer()` method of the `GasToken` with the following parameters builds the transfer script and initializes a
-`TransactionBuilder`. Before building the transaction, additional variables can be set in this `TransactionBuilder`,
-e.g., an additional network fee, signers, etc.
+The `transfer()` method of the `GasToken` with the following parameters builds the transfer script and initializes a `TransactionBuilder`. Before building the transaction, additional variables can be set in this `TransactionBuilder`, e.g., an additional network fee, signers, etc.
 
 ```java
 TransactionBuilder b = gasToken.transfer(alice, recipient, amount);
@@ -221,10 +194,7 @@ TransactionBuilder b = gasToken.transfer(alice, recipient, amount);
 
 ### Build and Sign the Transaction
 
-To transfer GAS from `alice`, `alice` must be a witness to this transaction. The `alice` account can be set in the
-`TransactionBuilder` as a signer with witness scope `calledByEntry`. Then, the `TransactionBuilder` is ready to be
-signed. When the `sign()` method is called, the transaction is built, and the witness is appended to it with the provided
-account passed to the `TransactionBuilder`'s signers.
+To transfer GAS from `alice`, `alice` must be a witness to this transaction. The `alice` account can be set in the `TransactionBuilder` as a signer with witness scope `calledByEntry`. Then, the `TransactionBuilder` is ready to be signed. When the `sign()` method is called, the transaction is built, and the witness is appended to it with the provided account passed to the `TransactionBuilder`'s signers.
 
 ```java
 Transaction tx = b.signers(AccountSigner.calledByEntry(alice))
@@ -241,10 +211,7 @@ NeoSendRawTransaction response = tx.send();
 
 ### Wait for Response
 
-You can now check the node's response for an error as the transaction has been sent. If there is no error, the
-transaction hash is retrieved, and the method `Await.waitUntilTransactionIsExecuted()` waits until the transaction is
-persisted on the blockchain. Then, the transaction's application log is fetched. It contains all relevant information
-about the transaction, e.g., its notifications, the invocation results, state, etc.
+You can now check the node's response for an error as the transaction has been sent. If there is no error, the transaction hash is retrieved, and the method `Await.waitUntilTransactionIsExecuted()` waits until the transaction is persisted on the blockchain. Then, the transaction's application log is fetched. It contains all relevant information about the transaction, e.g., its notifications, the invocation results, state, etc.
 
 ```java
 if (response.hasError()) {
@@ -301,11 +268,9 @@ As in the previous example, first, we have to establish a connection to a blockc
 Neow3j neow3j = Neow3j.build(new HttpService("http://seed2t5.neo.org:20332"));
 ```
 
-The method `subscribeToNewBlocksObservable()` creates an observable that emits every new block and the method
-`subscribe()` provides a callback function.
+The method `subscribeToNewBlocksObservable()` creates an observable that emits every new block and the method `subscribe()` provides a callback function.
 
-In this example, as soon as a new block exists, we print the information of the new block, i.e., its index, hash,
-previous block hash, the next consensus node and a list of all transactions included in that block.
+In this example, as soon as a new block exists, we print the information of the new block, i.e., its index, hash, previous block hash, the next consensus node and a list of all transactions included in that block.
 
 ```java
 neow3j.subscribeToNewBlocksObservable(true)
@@ -321,5 +286,4 @@ neow3j.subscribeToNewBlocksObservable(true)
 
 ## About
 
-Feel free to report any issues that might arise. Open an issue
-[here](https://github.com/neow3j/neow3j/issues/new/choose) to help us directly including it in our backlog.
+Feel free to report any issues that might arise. Open an issue [here](https://github.com/neow3j/neow3j/issues/new/choose) to help us directly including it in our backlog.
