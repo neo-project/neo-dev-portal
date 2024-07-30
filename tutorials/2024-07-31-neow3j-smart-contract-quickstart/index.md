@@ -12,7 +12,7 @@ sidebar: true
 
 <div align="center" style={{ padding: '0% 25% 0% 25%' }}>
   <img src="/tooling/neow3j.png" alt="neow3j" width="75%" style={{ padding: '0% 0% 5% 0%' }}/> 
-  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.22.1</small></sub></h1> 
+  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.23.0</small></sub></h1> 
 </div>
 
 ## 1. Introduction
@@ -45,9 +45,6 @@ development on Neo.
 If you use VS Code make sure to install the 
 [Neo Blockchain Toolkit](https://marketplace.visualstudio.com/items?itemName=ngd-seattle.neo-blockchain-toolkit)
 extension. It supports contract debugging, easy setup of private blockchains, and an in-editor block explorer. 
-To get familiar with the Blockchain Toolkit checkout the quickstart tutorials
-[here](https://ngdenterprise.com/neo-tutorials/quickstart1.html) (the tutorials use C# as the smart contract
-language). 
 For optimal Java support in VS Code we recommend using the 
 [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack).
 

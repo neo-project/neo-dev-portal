@@ -6,13 +6,13 @@ author: AxLabs
 tags: ["NEP-17", "JAVA", "NEOW3J"]
 skill: beginner
 image: "./assets/neow3j-padded.png"
-source: "https://github.com/neow3j/neow3j-examples-java/blob/7d462fab0dc27f7472b0cacf4beba6c08a7682e8/src/main/java/io/neow3j/examples/contractdevelopment/contracts/FungibleToken.java"
+source: "https://github.com/neow3j/neow3j-examples-java/blob/13b72b6ac85a2be305827b78bd973092e21c8c9f/src/main/java/io/neow3j/examples/contractdevelopment/contracts/FungibleToken.java"
 sidebar: true
 ---
 
 <div align="center" style={{ padding: '0% 25% 0% 25%' }}>
   <img src="/tooling/neow3j.png" alt="neow3j" width="75%" style={{ padding: '0% 0% 5% 0%' }}/> 
-  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.22.1</small></sub></h1> 
+  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.23.0</small></sub></h1> 
 </div>
 
 Neow3j is a development toolkit that provides easy and reliable tools to build Neo dApps and Smart Contracts using the
@@ -51,7 +51,6 @@ import io.neow3j.devpack.annotations.Permission;
 import io.neow3j.devpack.annotations.Safe;
 import io.neow3j.devpack.annotations.SupportedStandard;
 import io.neow3j.devpack.constants.CallFlags;
-import io.neow3j.devpack.constants.NativeContract;
 import io.neow3j.devpack.constants.NeoStandard;
 import io.neow3j.devpack.contracts.ContractManagement;
 import io.neow3j.devpack.events.Event3Args;
@@ -60,7 +59,7 @@ import io.neow3j.devpack.events.Event3Args;
 @ManifestExtra(key = "name", value = "AxLabsToken")
 @ManifestExtra(key = "author", value = "AxLabs")
 @SupportedStandard(neoStandard = NeoStandard.NEP_17)
-@Permission(nativeContract = NativeContract.ContractManagement)
+@Permission(contract = "*")
 public class FungibleToken {
 
     static final int contractMapPrefix = 0;
@@ -220,7 +219,6 @@ import io.neow3j.devpack.annotations.Permission;
 import io.neow3j.devpack.annotations.Safe;
 import io.neow3j.devpack.annotations.SupportedStandard;
 import io.neow3j.devpack.constants.CallFlags;
-import io.neow3j.devpack.constants.NativeContract;
 import io.neow3j.devpack.constants.NeoStandard;
 import io.neow3j.devpack.contracts.ContractManagement;
 import io.neow3j.devpack.events.Event3Args;
@@ -250,17 +248,15 @@ _`@Permission`_
 
 Specifies, which third-party contracts and methods the smart contract is allowed to call. By default (i.e., if no
 permission annotation is set), the contract is not allowed to call any contract. Use `contract = ` and `methods = ` to
-specify, respectively, which contracts and methods are allowed.
-
-_For example, if you want to allow transferring NEO tokens from the contract, you can add the annotation
-`@Permission(nativeContract = NativeContract.NeoToken, methods = "transfer")`._
+specify, respectively, which contracts and methods are allowed. The permission in this example means that any contract
+and all its methods are allowed.
 
 ```java
 @DisplayName("AxLabsToken")
 @ManifestExtra(key = "name", value = "AxLabsToken")
 @ManifestExtra(key = "author", value = "AxLabs")
 @SupportedStandard(neoStandard = NeoStandard.NEP_17)
-@Permission(nativeContract = NativeContract.ContractManagement)
+@Permission(contract = "*")
 public class FungibleToken {
 ```
 

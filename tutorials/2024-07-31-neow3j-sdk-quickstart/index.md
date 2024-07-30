@@ -12,7 +12,7 @@ sidebar: true
 
 <div align="center" style={{ padding: '0% 25% 0% 25%' }}>
   <img src="/tooling/neow3j.png" alt="neow3j" width="75%" style={{ padding: '0% 0% 5% 0%' }}/> 
-  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.22.1</small></sub></h1> 
+  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.23.0</small></sub></h1> 
 </div>
 
 ## 1. Introduction
@@ -27,8 +27,7 @@ information on neow3j and the technical documentation.
 
 __Java__
 
-DApp development in Java requires a Java SDK of at least version 8. Checkout [Adoptium](https://adoptium.net/)
-for Java OpenJDK downloads.
+DApp development in Java requires a Java SDK of at least version 8. Checkout [Adoptium](https://adoptium.net/) for Java OpenJDK downloads.
 
 __Neo-Express__
 
@@ -46,9 +45,8 @@ development on Neo.
 If you use VS Code make sure to install the 
 [Neo Blockchain Toolkit](https://marketplace.visualstudio.com/items?itemName=ngd-seattle.neo-blockchain-toolkit)
 extension. It supports an easy setup of private blockchains, provides functionality to quickly fund an address, an
-in-editor block explorer and much more. To get familiar with the Blockchain Toolkit checkout the quickstart tutorials
-[here](https://ngdenterprise.com/neo-tutorials/quickstart1.html). For optimal Java support in VS Code we recommend
-using the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack).
+in-editor block explorer and much more. For optimal Java support in VS Code we recommend using the
+[Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack).
 
 ### Code 
 
