@@ -60,7 +60,17 @@ dotnet new neocontractnep17
 
 The project name defaults to the name of the current directory. You can also specify the project name with `-n, --name <name>`, e.g. `dotnet new neocontractnep17 -n MyFirstContract`.
 
-## Compiling contract file
+## Neo.Compiler.CSharp
+
+Neo.Compiler.CSharp (nccs) is the Neo smart contract compiler that compiles the C# language into NeoVM executable OpCodes.
+
+### Install the compiler
+
+```
+dotnet tool install --global Neo.Compiler.CSharp
+```
+
+### Compiling contract file
 
 In the Terminal interface, go to the project path and run the following command to build your contract：
 
@@ -73,7 +83,6 @@ or
 ```
 nccs
 ```
-
 Related contract files are outputted under `bin\sc` path in the contract project directory.
 
 ## See also
