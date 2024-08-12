@@ -15,16 +15,16 @@ You must install the plugin [RpcServer](https://github.com/neo-project/neo-modul
   If you want to look up the name or ID of a native contract, you can use the [getnativecontracts](getnativecontracts.md) method.
 
   | Native Contract Name | ID   | ScriptHash                                 |
-| -------------------- | ---- | ------------------------------------------ |
-| ContractManagement   | -1   | 0xfffdc93764dbaddd97c48f252a53ea4643faa3fd |
-| StdLib               | -2   | 0xacce6fd80d44e1796aa0c2c625e9e4e0ce39efc0 |
-| CryptoLib            | -3   | 0x726cb6e0cd8628a1350a611384688911ab75f51b |
-| LedgerContract       | -4   | 0xda65b600f7124ce6c79950c1772a36403104f2be |
-| NeoToken             | -5   | 0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5 |
-| GasToken             | -6   | 0xd2a4cff31913016155e38e474a2c06d08be276cf |
-| PolicyContract       | -7   | 0xcc5e4edd9f5f8dba8bb65734541df7a1c081c67b |
-| RoleManagement       | -8   | 0x49cf4e5378ffcd4dec034fd98a174c5491e395e2 |
-| OracleContract       | -9   | 0xfe924b7cfe89ddd271abaf7210a80a7e11178758 |
+  | -------------------- | ---- | ------------------------------------------ |
+  | ContractManagement   | -1   | 0xfffdc93764dbaddd97c48f252a53ea4643faa3fd |
+  | StdLib               | -2   | 0xacce6fd80d44e1796aa0c2c625e9e4e0ce39efc0 |
+  | CryptoLib            | -3   | 0x726cb6e0cd8628a1350a611384688911ab75f51b |
+  | LedgerContract       | -4   | 0xda65b600f7124ce6c79950c1772a36403104f2be |
+  | NeoToken             | -5   | 0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5 |
+  | GasToken             | -6   | 0xd2a4cff31913016155e38e474a2c06d08be276cf |
+  | PolicyContract       | -7   | 0xcc5e4edd9f5f8dba8bb65734541df7a1c081c67b |
+  | RoleManagement       | -8   | 0x49cf4e5378ffcd4dec034fd98a174c5491e395e2 |
+  | OracleContract       | -9   | 0xfe924b7cfe89ddd271abaf7210a80a7e11178758 |
 
 - The Base64-encoded storage key prefix as the second element
 - Optional, start index as the third element
