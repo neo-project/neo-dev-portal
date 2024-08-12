@@ -10,8 +10,8 @@ You must install the plugin [RpcServer](https://github.com/neo-project/neo-modul
 
 shouldGetUnverified: Optional. The default value is `false`. 
 
-- `true`: include unverified transactions.
-- `false`: excluding unverified transactions
+- `true` or `1`: include unverified transactions.
+- `false` or `0`: excluding unverified transactions
 
 ## Examples
 

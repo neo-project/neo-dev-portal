@@ -8,13 +8,13 @@ You must install the plugin [RpcServer](https://github.com/neo-project/neo-modul
 
 ## Parameter Description
 
-script_hash / contract_id / native_contract_name: Contract script hash or Contract ID or the native contract name.
+- script_hash / contract_id / native_contract_name: Contract script hash or Contract ID or the native contract name.
 
-Such as: `-5`, `0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5`, `neotoken`.
+  Such as: `-5`, `0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5`, `neotoken`.
 
-If you want to look up the name or ID of a native contract, you can use the [getnativecontracts](getnativecontracts.md) method.
+  If you want to look up the name or ID of a native contract, you can use the [getnativecontracts](getnativecontracts.md) method.
 
-| Native Contract Name | ID   | ScriptHash                                 |
+  | Native Contract Name | ID   | ScriptHash                                 |
 | -------------------- | ---- | ------------------------------------------ |
 | ContractManagement   | -1   | 0xfffdc93764dbaddd97c48f252a53ea4643faa3fd |
 | StdLib               | -2   | 0xacce6fd80d44e1796aa0c2c625e9e4e0ce39efc0 |
