@@ -8,7 +8,7 @@ You can query a contract details using Neo-CLI or Neo-GUI, such as the contract 
 
 ### Querying using Neo-CLI
 
-Use the RPC API [getcontractstate method](../../reference/rpc/latest-version/api/getcontractstate.md) to query the contract information.
+Use the RPC API [getcontractstate method](../../reference/rpc/getcontractstate.md) to query the contract information.
 
 ### Querying using Neo-GUI
 
@@ -31,7 +31,7 @@ You can choose one of the following ways to invoke the contract using Neo-CLI:
 
    For more information refer to [invoke](../../node/cli/cli.md#invoke).
 
-- Use the RPC API [invokefunction](../../reference/rpc/latest-version/api/invokefunction.md) or [invokescript](../../reference/rpc/latest-version/api/invokescript.md). The former is recommended. 
+- Use the RPC API [invokefunction](../../reference/rpc/invokefunction.md) or [invokescript](../../reference/rpc/invokescript.md). The former is recommended. 
 
 ### Invoking a contract using Neo-GUI
 
@@ -108,7 +108,7 @@ The key statement is `Contract.Call(scriptHash, method, flags, params)`, where:
 
 ### Invocation permission
 
-Three fields related to the contract invocation permission are defined in the contract manifest file, as shown in the following table. The wallet decides whether to give a security warning to the user based on the setting in the Groups and Trusts fields. Permissions and signature scopes determine whether contracts can be called by each other. For more information about signature scopes, refer to parameters description in [invokefunction method](../../reference/rpc/latest-version/api/invokefunction.md).
+Three fields related to the contract invocation permission are defined in the contract manifest file, as shown in the following table. The wallet decides whether to give a security warning to the user based on the setting in the Groups and Trusts fields. Permissions and signature scopes determine whether contracts can be called by each other. For more information about signature scopes, refer to parameters description in [invokefunction method](../../reference/rpc/invokefunction.md).
 
 | Fields        | Type                          | Description                                                  |
 | ------------- | ----------------------------- | ------------------------------------------------------------ |
