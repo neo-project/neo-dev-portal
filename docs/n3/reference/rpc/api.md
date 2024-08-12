@@ -42,6 +42,7 @@ You can modify the port in config.json in the RpcServer folder.
 | [getrawtransaction](api/getrawtransaction.md) | <txid\> [verbose=0]                      | Returns the transaction information with the specified hash value. |
 | [getstorage](api/getstorage.md)          | <script_hash\>  <key\>                   | Returns the value with the contract script hash and the key. |
 | [gettransactionheight](api/gettransactionheight.md) | <txid\> | Returns the transaction height with the specified transaction hash. |
+| [findStorage](api/findStorage.md) | <script_hash / contract_id\> \<storage key prefix> | Finds storage items by contract ID or script hash and prefix. |
 
 
 ### Node
