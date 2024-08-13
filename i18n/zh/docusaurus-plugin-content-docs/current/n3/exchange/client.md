@@ -52,7 +52,7 @@ Neo-CLI 提供以下功能：
 
   如果想启动节点的同时开启 RPC API，务必在部署节点时正确安装 RpcServer 插件。
 
-  要查看更多 API 信息，请参阅 [API 参考](../reference/rpc/latest-version/api.md)。
+  要查看更多 API 信息，请参阅 [API 参考](../reference/rpc/api.md)。
 
 - 提供 NEP17 资产的交易信息。
 
@@ -79,7 +79,7 @@ Neo-CLI 钱包支持两种格式的钱包， sqlite 钱包（格式为.db3）和
 
 - 用户第一次充值（NEO/GAS）时，程序动态创建 NEO 地址，优点：无需人工定期创建地址；缺点：不方便备份钱包。
 
-  要动态创建地址，可以使用 RpcServer API 的 [getnewaddress 方法](../reference/rpc/latest-version/api/getnewaddress.md) 实现。程序会返回创建的地址。
+  要动态创建地址，可以使用 RpcServer API 的 [getnewaddress 方法](../reference/rpc/getnewaddress.md) 实现。程序会返回创建的地址。
 
 - 交易所提前创建一批 NEO 地址，并在用户第一次充值（NEO/GAS）时，给用户分配一个 NEO 地址。优点：方便备份钱包；缺点：当地址不足时需要人工创建 NEO 地址。
 

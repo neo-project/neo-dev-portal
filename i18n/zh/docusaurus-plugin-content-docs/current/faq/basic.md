@@ -30,7 +30,7 @@ Neo 使用 一种改进的拜占庭容错机制 （dBFT），可以对由 𝑛 �
 
 ## 如何成为 Neo 的共识节点？ 成为共识节点有什么激励吗？
 
-Neo 的共识节点由 Neo 持有者投票选出。详细信息可参考 [这里](https://docs.neo.org/docs/zh-cn/basic/consensus/vote_validator.html)；所有交易的网络费会作为奖励发给当前打包交易出块的共识节点。
+Neo 的共识节点由 Neo 持有者投票选出。详细信息可参考 [这里](../n3/foundation/consensus/vote_validator.md)；所有交易的网络费会作为奖励发给当前打包交易出块的共识节点。
 
 ## 有哪些 Neo 的区块链浏览器可以使用？
 
@@ -46,7 +46,7 @@ NEP-17 标准是 Neo N3 的通证标准，它取代了以前的 NEP-5，表示�
 
 ## 如何在 Neo-CLI 中查看 NEP-17 资产？
 
-想要看到 NEP-17 资产，需要使用 RPC 的 [getnep17balances](../../docs/zh-cn/reference/rpc/latest-version/api/getnep17balances.md) 方法或 Neo-CLI 的 [balanceof](../../docs/zh-cn/node/cli/cli.html#balanceof) 方法。
+想要看到 NEP-17 资产，需要使用 RPC 的 [getnep17balances](../n3/reference/rpc/getnep17balances.md) 方法或 Neo-CLI 的 [balanceof](../../docs/zh-cn/node/cli/cli.html#balanceof) 方法。
 
 ## NEP-6 是什么？
 

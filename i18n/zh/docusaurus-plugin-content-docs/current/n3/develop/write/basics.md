@@ -198,7 +198,7 @@ public class Contract1 : SmartContract
 
 `SupportedStandards` 表示合约符合的 NEP 标准，比如 `NEP-17` 是 Neo 上的代币标准。
 
-`ContractPermission` 表示合约申请的权限，`ContractTrust` 表示合约信任哪些合约调用自己。参考 [权限相关字段](../deploy/invoke.html#权限相关字段)。
+`ContractPermission` 表示合约申请的权限，`ContractTrust` 表示合约信任哪些合约调用自己。参考 [权限相关字段](../deploy/invoke.md#权限相关字段)。
 
 也可以添加其它字段，如：
 

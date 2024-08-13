@@ -369,7 +369,7 @@ Example:
 
 The full-node wallet is a complete backup of blockchain data, which saves all the onchain data and participates in p2p network, therefore it needs a large storage space.
 
-Neo-CLI and Neo-GUI are all full-node wallet. For more information refer to [Neo node](../../node/introduction.md).
+Neo-CLI and Neo-GUI are all full-node wallet. For more information refer to [Neo node](../node/introduction.md).
 
 ### SPV wallet
 

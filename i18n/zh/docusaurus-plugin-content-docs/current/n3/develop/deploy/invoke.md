@@ -8,7 +8,7 @@
 
 ### 使用 Neo-CLI 查询
 
-使用RPC API [getcontractstate 方法](../../reference/rpc/latest-version/api/getcontractstate.md) 查询合约详情。
+使用RPC API [getcontractstate 方法](../../reference/rpc/getcontractstate.md) 查询合约详情。
 
 ### 使用 Neo-GUI 查询
 
@@ -31,7 +31,7 @@ Neo-GUI 中会更直观地显示合约信息，也能查看 manifest 和 nef 文
 
    详情请参考 [invoke](../../node/cli/cli.md#invoke) 命令。
 
-- 使用 RPC API [invokefunction](../../reference/rpc/latest-version/api/invokefunction.md) 或 [invokescript](../../reference/rpc/latest-version/api/invokescript.md) 来调用合约。推荐使用 invokefunction 方法。
+- 使用 RPC API [invokefunction](../../reference/rpc/invokefunction.md) 或 [invokescript](../../reference/rpc/invokescript.md) 来调用合约。推荐使用 invokefunction 方法。
 
 ### 使用 Neo-GUI 调用
 
@@ -105,13 +105,13 @@ public class Contract1 : SmartContract
 
 - method：被调用合约的方法，如 name 、 balanceOf 、 transfer 等，字符串类型。
 
-- flags：调用合约方法时允许的权限，参考 ([CallFlags 枚举](https://docs.neo.org/docs/zh-cn/reference/scapi/framework/services/CallFlags.html#%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E))。
+- flags：调用合约方法时允许的权限，参考 ([CallFlags 枚举](../../reference/scapi/framework/services/callflags.md))。
 
 - params：被调用合约的方法的参数列表，数组类型。
 
 ### 权限相关字段
 
-在合约的 Manifest 文件中定义了三个与权限相关的字段，参见下表。通过 Groups 和 Trusts 字段，钱包会根据合约之间是否可信，或者合约是否在同一组中来决定是否给用户安全警告。而 Permissions 和签名作用域决定了合约之间能否互相调用。关于签名作用域，请参考 [invokefunction 方法](../../reference/rpc/latest-version/api/invokefunction.md) 的参数说明。
+在合约的 Manifest 文件中定义了三个与权限相关的字段，参见下表。通过 Groups 和 Trusts 字段，钱包会根据合约之间是否可信，或者合约是否在同一组中来决定是否给用户安全警告。而 Permissions 和签名作用域决定了合约之间能否互相调用。关于签名作用域，请参考 [invokefunction 方法](../../reference/rpc/invokefunction.md) 的参数说明。
 
 | 字段          | 类型                          | 说明                                                         |
 | ------------- | ----------------------------- | ------------------------------------------------------------ |

@@ -10,8 +10,8 @@
 
 | 方法 | 参数 | 费用（GAS） |
 | ---- | ------------------------------------ | ---- |
-| [`RegisterCandidate`](scapi/framework/native/Neo/RegisterCandidate.md) | ECPoint publicKey | 可调，初始0.00001 |
-| [`UnregisterCandidate`](scapi/framework/native/Neo/UnregisterCandidate.md) | ECPoint publicKey | 0.00065536 (CpuFee) |
+| [`RegisterCandidate`](../scapi/framework/native/Neo/RegisterCandidate.md) | ECPoint publicKey | 可调，初始0.00001 |
+| [`UnregisterCandidate`](../scapi/framework/native/Neo/UnregisterCandidate.md) | ECPoint publicKey | 0.00065536 (CpuFee) |
 
 :::note
  注册/注销候选人均需要验证候选人地址的签名，即只有候选人自己才能执行注册/注销操作。
@@ -25,13 +25,13 @@
 
 | 方法 | 参数 | 费用（GAS） |
 | ---- | ------------------------------------ | ---- |
-| [`Vote`](scapi/framework/native/Neo/Vote.md) | UInt160 account, byte[] voteTo | 0.00065536 (CpuFee) |
+| [`Vote`](../scapi/framework/native/Neo/Vote.md) | UInt160 account, byte[] voteTo | 0.00065536 (CpuFee) |
 
 由于账户NEO余额会随交易而不断变化，而且投票和注册的候选人也在不断变化，因此在每个区块都会根据以上变化更新候选人及相应投票结果。
 
 | 方法 | 参数 | 费用（GAS） |
 | ---- | ------------------------------------ | ---- |
-| [`GetCandidates`](scapi/framework/native/Neo/GetCandidates.md) | null | 0 |
+| [`GetCandidates`](../scapi/framework/native/Neo/GetCandidates.md) | null | 0 |
 
 ## 委员会
 
@@ -72,13 +72,13 @@
 
 | 方法 | 参数 | 费用（GAS） | 合约 |
 | ---- | ------------------------------------ | ---- | ---- |
-| [`GetDesignatedByRole`](scapi/framework/native/RoleManagement/GetDesignatedByRole.md) | Role role, uint index | 0.00032768 (CpuFee) | RoleManagement |
-| [`GetFeePerByte`](scapi/framework/native/Policy/GetFeePerByte.md) | null | 0.00032768 (CpuFee) | PolicyContract |
+| [`GetDesignatedByRole`](../scapi/framework/native/RoleManagement/GetDesignatedByRole.md) | Role role, uint index | 0.00032768 (CpuFee) | RoleManagement |
+| [`GetFeePerByte`](../scapi/framework/native/Policy/GetFeePerByte.md) | null | 0.00032768 (CpuFee) | PolicyContract |
 | GetExecFeeFactor | null | 0.00032768 (CpuFee) | PolicyContract |
 | GetStoragePrice | null | 0.00032768 (CpuFee) | PolicyContract |
-| [`IsBlocked`](scapi/framework/native/Policy/IsBlocked.md) | UInt160 account | 0.00032768 (CpuFee) | PolicyContract |
+| [`IsBlocked`](../scapi/framework/native/Policy/IsBlocked.md) | UInt160 account | 0.00032768 (CpuFee) | PolicyContract |
 | GetPrice | null | 0.00032768 (CpuFee) | OracleContract |
-| [`GetGasPerBlock`](scapi/framework/native/Neo/GetGasPerBlock.md) | null | 0.00032768 (CpuFee) | NeoToken |
+| [`GetGasPerBlock`](../scapi/framework/native/Neo/GetGasPerBlock.md) | null | 0.00032768 (CpuFee) | NeoToken |
 | GetRegisterPrice | null | 0.00032768 (CpuFee) | NeoToken |
 | GetMinimumDeploymentFee | null | 0.00032768 (CpuFee) | ContractManagement |
 
@@ -90,7 +90,7 @@
 
 | 方法 | 参数 | 费用（GAS） | 返回结果 |
 | ---- | ------------------------------------ | ---- | ---- |
-| [`GetCommittee`](scapi/framework/native/Neo/GetCommittee.md) | null | 0.04194304 (CpuFee) | 返回当前委员会（`Array<ECPoint>`） |
+| [`GetCommittee`](../scapi/framework/native/Neo/GetCommittee.md) | null | 0.04194304 (CpuFee) | 返回当前委员会（`Array<ECPoint>`） |
 
 ## 共识节点
 
@@ -104,7 +104,7 @@
 
 | 方法 | 参数 | 费用（GAS） | 返回结果 |
 | ---- | ------------------------------------ | ---- | ---- |
-| [`GetNextBlockValidators`](scapi/framework/native/Neo/GetNextBlockValidators.md) | null | 0.04194304 (CpuFee) | 返回下个块（正在持久化的块）的共识节点（`Array<ECPoint>`） |
+| [`GetNextBlockValidators`](../scapi/framework/native/Neo/GetNextBlockValidators.md) | null | 0.04194304 (CpuFee) | 返回下个块（正在持久化的块）的共识节点（`Array<ECPoint>`） |
 
 ## Token分配
 
@@ -118,14 +118,14 @@ NEO及GAS均为[Nep17](https://github.com/neo-project/proposals/blob/master/nep-
 
 | 方法 | 参数 | 费用（GAS） | 作用 |
 | ---- | ------------------------------------ | ---- | ---- |
-| [`symbol`](govapi/symbol.md) | null | 0 | 返回Token标志（String） |
-| [`decimals`](govapi/decimals.md) | null | 0 | 返回Token精度（UInt） |
-| [`TotalSupply`](scapi/framework/native/Neo/TotalSupply.md) | null | 0.00032768 (CpuFee) | 返回Token当前流通量（BigInteger） |
-| [`BalanceOf`](scapi/framework/native/Neo/BalanceOf.md) | UInt160 account | 0.00032768 (CpuFee) | 返回该账户的余额（BigInteger） |
-| [`Transfer`](scapi/framework/native/Neo/Transfer.md) | UInt160 from, UInt160 to, BigInteger amount | 0.00131072 (CpuFee) + 0.0000005 (StorageFee)  | 将指定数额的Token从from转往to，注意这里需要校验from的签名，方法调用者是否为from，to是否能够收款，以及from余额是否充足 |
+| symbol | null | 0 | 返回Token标志（String） |
+| decimals | null | 0 | 返回Token精度（UInt） |
+| [`TotalSupply`](../scapi/framework/native/Neo/TotalSupply.md) | null | 0.00032768 (CpuFee) | 返回Token当前流通量（BigInteger） |
+| [`BalanceOf`](../scapi/framework/native/Neo/BalanceOf.md) | UInt160 account | 0.00032768 (CpuFee) | 返回该账户的余额（BigInteger） |
+| [`Transfer`](../scapi/framework/native/Neo/Transfer.md) | UInt160 from, UInt160 to, BigInteger amount | 0.00131072 (CpuFee) + 0.0000005 (StorageFee)  | 将指定数额的Token从from转往to，注意这里需要校验from的签名，方法调用者是否为from，to是否能够收款，以及from余额是否充足 |
 
 NEO扩展的合约方法如下：
 
 | 方法 | 参数 | 费用（GAS） | 返回结果 |
 | ---- | ------------------------------------ | ---- | ---- |
-| [`UnclaimedGas`](scapi/framework/native/Neo/UnclaimedGas.md) | UInt160 account, uint end | 0.00131072 (CpuFee) | 返回该账户到指定高度未提取的GAS（uint） |
+| [`UnclaimedGas`](../scapi/framework/native/Neo/UnclaimedGas.md) | UInt160 account, uint end | 0.00131072 (CpuFee) | 返回该账户到指定高度未提取的GAS（uint） |

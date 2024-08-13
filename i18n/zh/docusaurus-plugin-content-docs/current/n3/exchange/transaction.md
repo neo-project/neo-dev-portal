@@ -24,7 +24,7 @@ NetworkFee = VerificationCost + tx.size * FeePerByte
 
 ## 系统费
 
-系统费是根据 NeoVM 要执行的指令计算得出的费用，有关每个操作指令的费用，请参考[系统费用](../reference/fees.md)。Neo N3 中取消了每笔交易 10 GAS 的免费额度，系统费用总额受合约脚本的指令数量和指令类型影响，计算公式如下：
+系统费是根据 NeoVM 要执行的指令计算得出的费用，有关每个操作指令的费用，请参考[系统费用](../fees.md)。Neo N3 中取消了每笔交易 10 GAS 的免费额度，系统费用总额受合约脚本的指令数量和指令类型影响，计算公式如下：
 
 ```
 SystemFee = InvocationCost = The sum of all executed opcode fee   
@@ -313,7 +313,7 @@ symbol
 
 ### 调用 getapplicationlog
 
-使用 [getapplicationlog](../reference/rpc/latest-version/api/getapplicationlog.md) 这个 API 来获取交易信息。
+使用 [getapplicationlog](../reference/rpc/getapplicationlog.md) 这个 API 来获取交易信息。
 
 正确安装 ApplicationLogs 插件并启动 Neo-CLI 节点后，可以看到在neo-cli 根目录下生成了一个 ApplicationLogs 文件夹，完整的合约日志会记录到该目录下，每笔 NEP-17 交易会记录在 leveldb 文件中，通过 API 来读取。
 

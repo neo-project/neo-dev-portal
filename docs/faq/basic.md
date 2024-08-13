@@ -52,7 +52,7 @@ Since each new block is require to pass majority consensus, forks may not occur.
 
 Neo consensus nodes are elected by NEO holders. The network itself is permissionless; anyone may register as a candidate or cast a vote for a candidate. Candidates with a sufficient share of the total number of votes are elected as Neo Council members. The top 7 of these 21 Council members are the network's consensus (validator) nodes.
 
-For more information, visit the following [link](https://docs.neo.org/docs/en-us/basic/consensus/vote_validator.html).
+For more information, visit the following [link](../n3/foundation/consensus/vote_validator.md).
 
 ## How do I check the status of my transaction?
 
