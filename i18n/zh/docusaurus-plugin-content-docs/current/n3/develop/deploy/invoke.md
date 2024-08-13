@@ -105,7 +105,7 @@ public class Contract1 : SmartContract
 
 - method：被调用合约的方法，如 name 、 balanceOf 、 transfer 等，字符串类型。
 
-- flags：调用合约方法时允许的权限，参考 ([CallFlags 枚举](https://docs.neo.org/docs/zh-cn/reference/scapi/framework/services/CallFlags.md#%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E))。
+- flags：调用合约方法时允许的权限，参考 ([CallFlags 枚举](../../reference/scapi/framework/services/callflags.md))。
 
 - params：被调用合约的方法的参数列表，数组类型。
 
