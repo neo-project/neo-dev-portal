@@ -67,7 +67,7 @@ Response body:
 }
 ```
 
-Invoke again from RPC to get the specific value of the iterator. For more information, refer to the command [traverseiterator](../../../rpc/traverseiterator.md).
+Invoke again from RPC to get the specific value of the iterator. For more information, refer to the command [traverseiterator](../../../../rpc/traverseiterator.md).
 
 ```json
 {
