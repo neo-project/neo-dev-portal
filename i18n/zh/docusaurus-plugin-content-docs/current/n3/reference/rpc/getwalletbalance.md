@@ -14,7 +14,7 @@ asset_id：资产 ID（资产标识符），即合约的 Script Hash。
 
 GasToken 为：0xd2a4cff31913016155e38e474a2c06d08be276cf
 
-资产 ID 可以通过 [CLI 命令](../../../../node/cli/cli.md) 中的 `list asset` 命令查询，也可以在区块链浏览器中查询。
+资产 ID 可以通过 [CLI 命令](../../node/cli/cli.md) 中的 `list asset` 命令查询，也可以在区块链浏览器中查询。
 
 ## 调用示例
 

@@ -286,7 +286,7 @@ The name method is moved to the manifest file, and you need to add `[DisplayName
 [ContractAuthor("core-dev", "dev@neo.org")]
 [ContractEmail("dev@neo.org")]
 [ContractDescription("This is a NEP17 example")]
-[SupportedStandards("NEP-17")]
+[SupportedStandards(NepStandard.Nep17)]
 public class NEP17 : Nep17Token
 {
     public override string Symbol { [Safe] get => "EXAMPLE"; }
@@ -309,6 +309,6 @@ The ability of the contract to receive assets has been changed from a fixed cons
 
 ### Compatibility check
 
-Compatibility checks will be activated for any contract that includes the `[SupportedStandards("NEP-17")]` or `[SupportedStandards("NEP-11")]` attribute.
+Compatibility checks will be activated for any contract that includes the `[SupportedStandards(NepStandard.Nep17)]`, `[SupportedStandards(NepStandard.Nep11)]` or `[SupportedStandards(NepStandard.Nep24)]` attribute.
 The Compatibility Check reviews method names, parameters, return values, events, and similar elements to ensure they comply with the standard, and alerts about any failures in the check.
 

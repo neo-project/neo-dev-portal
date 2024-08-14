@@ -6,6 +6,13 @@ Obtains a list of confirmed / unconfirmed transactions in memory.
 You must install the plugin [RpcServer](https://github.com/neo-project/neo-modules/releases) before you can invoke the method.
 :::
 
+## Parameter Description
+
+shouldGetUnverified: Optional. The default value is `false`. 
+
+- `true` or `1`: include unverified transactions.
+- `false` or `0`: excluding unverified transactions
+
 ## Examples
 
 ### Example 1 - Get verified transactions

@@ -84,7 +84,7 @@ There are two methods to generate deposit addresses:
 
 - When the user deposit (NEO/GAS) for the first time, the program dynamically generates a NEO address. The advantage is that there is no need to generate addresses at fixed time intervals, while the disadvantage is that it's not convenient for backup.
 
-  To develop the program to dynamically generate addresses, use the RpcServer API  [getnewaddress Method](../reference/rpc/latest-version/api/getnewaddress). The created address is returned.
+  To develop the program to dynamically generate addresses, use the RpcServer API  [getnewaddress Method](../reference/rpc/getnewaddress). The created address is returned.
 
 - The exchange creates a batch of NEO addresses in advance. When the user charges (NEO/GAS) for the first time, the exchange assigns a NEO address to him or her. The advantage is the convenience to backup the wallet, while the disadvantage is the need to generate NEO addresses manually.
   To generate addresses in batch, run the NEO- CLI command `create address [n]`. The  addresses are exported automatically to the address.txt file.

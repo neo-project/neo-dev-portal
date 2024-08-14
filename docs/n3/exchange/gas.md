@@ -45,7 +45,7 @@ The following RPC method can be used to help exchanges query users' GAS informat
 
 | Method                                                       | Description                                             |
 | ------------------------------------------------------------ | ------------------------------------------------------- |
-| [getunclaimedgas](../reference/rpc/latest-version/api/getunclaimedgas.md) | Returns the unclaimed GAS amount in the current wallet. |
+| [getunclaimedgas](../reference/rpc/getunclaimedgas.md) | Returns the unclaimed GAS amount in the current wallet. |
 
 ## Claiming GAS
 

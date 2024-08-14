@@ -36,7 +36,7 @@ GAS（缩写符号 GAS）代表了 Neo 区块链的使用权。只要获得 NEO�
 快照间隔越短，计算越精确。如果快照时间间隔不均匀，可以采用加权平均算法。
 
 :::note
- 在 NEO N3 中，由于交易所用户无法参与投票，所以固定收益为计算提取的 GAS 总量的10%。具体可见[GAS 分配规则](https://docs.neo.org/docs/zh-cn/basic/governance.html#gas-%E5%88%86%E9%85%8D%E8%A7%84%E5%88%99)。
+ 在 NEO N3 中，由于交易所用户无法参与投票，所以固定收益为计算提取的 GAS 总量的10%。具体可见[GAS 分配规则](../foundation/governance.md)。
 :::
 
 ## RPC 方法
@@ -45,7 +45,7 @@ GAS（缩写符号 GAS）代表了 Neo 区块链的使用权。只要获得 NEO�
 
 | 方法                                                         | 描述                                    |
 | ------------------------------------------------------------ | --------------------------------------- |
-| [getunclaimedgas](../reference/rpc/latest-version/api/getunclaimedgas.md) | 显示当前钱包内所有地址生成的 GAS 数量。 |
+| [getunclaimedgas](../reference/rpc/getunclaimedgas.md) | 显示当前钱包内所有地址生成的 GAS 数量。 |
 
 ## 交易所提取 GAS
 

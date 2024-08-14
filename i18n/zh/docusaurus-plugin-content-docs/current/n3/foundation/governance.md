@@ -75,7 +75,7 @@ Neo N3 的委员会成员的数量为 21 个。每 21 个区块高度为一个 E
 
 ## 相关参考
 
-[治理 API](../reference/govapi/index.md)
+[治理 API](../reference/governance_api/index.md)
 
 [Neo 治理页面](https://neo.org/gov)
 
