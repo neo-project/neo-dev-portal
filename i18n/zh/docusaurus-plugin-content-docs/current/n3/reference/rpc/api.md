@@ -178,5 +178,5 @@ http://127.0.0.1:10332
 
 你可以用 [Postman](https://www.postman.com/) 来方便地进行测试，下面是测试截图：
 
-![](../../../assets/api_3.jpg)
+![](../../assets/api_3.jpg)
 
