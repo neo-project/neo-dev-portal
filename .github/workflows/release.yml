@@ -1,6 +1,7 @@
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - master
 
 name: Build and deploy neo-dev-portal when release is published
 
