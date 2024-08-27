@@ -180,12 +180,16 @@ After sending the request, you will get the following response：
 To make sure you get the latest result synchronize your client to the latest block height before you use the API.
 :::
 
-## Test tools
+## Use Postman and Import data
 
-You can use the Chrome extension in Postman to facilitate the test (Installation of the Chrome extension requires Internet connection). A test screenshot is shown below:
+We recommend that you use [Postman](https://www.postman.com) to use the API
 
-![image](../../assets/api_3.jpg)
+![image](../../assets/api_3.jpg)After sign in or sign up a Posmtan account, you can directly import the Postman file we created https://docs.neo.org/RpcServer.postman_collection.json
 
-## See also
+![](../../assets/api_4.jpg)
 
-[C# JSON-RPC Command List](https://github.com/chenzhitong/CSharp-JSON-RPC/blob/master/json_rpc/Program.cs)
+![](../../assets/api_5.jpg)
+
+![](../../assets/api_6.jpg)
+
+Reference: [Import data into Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-data/). 
