@@ -10,14 +10,14 @@ You must install the plugin [RpcServer](https://github.com/neo-project/neo-modul
 {
   "jsonrpc": "2.0",
   "method": "submitblock",
-  "params": [hex],
+  "params": [base64],
   "id": 1
 }
 ```
 
 ## Parameter Description
 
-hex: A Base64-encoded string of a serialized block.
+base64: A Base64-encoded string of a serialized block.
 
 ## Example
 
