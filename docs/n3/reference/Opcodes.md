@@ -1464,7 +1464,1803 @@ Advanced operations with special effects.
             </td>
         </tr>
         <tr>
-            <td colspan="6">Unfinished to be continued...</td>
+            <td><a class="anchor" name="43"></a><a href="#43">43</a></td>
+            <td>DEPTH</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                Puts the number of stack items onto the stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="45"></a><a href="#45">45</a></td>
+            <td>DROP</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td>b</td>
+                            <td>c</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td>b</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                Removes the top stack item.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="46"></a><a href="#46">46</a></td>
+            <td>NIP</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td>b</td>
+                            <td>c</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td>c</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                Removes the second-to-top stack item.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="48"></a><a href="#48">48</a></td>
+            <td>XDROP</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>-</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                The item n back in the main stack is removed.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="49"></a><a href="#49">49</a></td>
+            <td>CLEAR</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>-</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                Clear the stack
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="4A"></a><a href="#4A">4A</a></td>
+            <td>DUP</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td>b</td>
+                            <td>c</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td>b</td>
+                            <td>c</td>
+                            <td>c</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                Duplicates the top stack item.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="4B"></a><a href="#4B">4B</a></td>
+            <td>OVER</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td>b</td>
+                            <td>c</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td>b</td>
+                            <td>c</td>
+                            <td>b</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                Copies the second-to-top stack item to the top.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="4D"></a><a href="#4D">4D</a></td>
+            <td>PICK</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td>n</td>
+                            <td>b</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td>n</td>
+                            <td>b</td>
+                            <td>n</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                The item n back in the stack is copied to the top.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="4E"></a><a href="#4E">4E</a></td>
+            <td>TUCK</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td>b</td>
+                            <td>c</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td>b</td>
+                            <td>c</td>
+                            <td>c</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                The item at the top of the stack is copied and inserted before the second-to-top item.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="50"></a><a href="#50">50</a></td>
+            <td>SWAP</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td>b</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                The top two items on the stack are swapped.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="51"></a><a href="#51">51</a></td>
+            <td>ROT</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td>b</td>
+                            <td>c</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>c</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                 The top three items on the stack are rotated to the left.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="52"></a><a href="#52">52</a></td>
+            <td>ROLL</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td>n</td>
+                            <td>c</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td>c</td>
+                            <td>n</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                 The item n back in the stack is moved to the top.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="53"></a><a href="#53">53</a></td>
+            <td>REVERSE3</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td>b</td>
+                            <td>c</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>c</td>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                 Reverse the order of the top 3 items on the stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="54"></a><a href="#54">54</a></td>
+            <td>REVERSE4</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td>b</td>
+                            <td>c</td>
+                            <td>d</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>d</td>
+                            <td>c</td>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                 Reverse the order of the top 4 items on the stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="54"></a><a href="#54">54</a></td>
+            <td>REVERSE4</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>n</td>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td>b</td>
+                            <td>n</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                 Pop the number N on the stack, and reverse the order of the top N items on the stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="56"></a><a href="#56">56</a></td>
+            <td>INITSSLOT</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                 Initialize the static field list for the current execution context.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="57"></a><a href="#57">57</a></td>
+            <td>INITSLOT</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                 Initialize the argument slot and the local variable list for the current execution context.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="58"></a><a href="#58">58</a></td>
+            <td>LDSFLD0</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                 Loads the static field at index 0 onto the evaluation stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="59"></a><a href="#59">59</a></td>
+            <td>LDSFLD1</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                 Loads the static field at index 1 onto the evaluation stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="5A"></a><a href="#5A">5A</a></td>
+            <td>LDSFLD2</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                 Loads the static field at index 2 onto the evaluation stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="5B"></a><a href="#5B">5B</a></td>
+            <td>LDSFLD3</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                 Loads the static field at index 3 onto the evaluation stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="5C"></a><a href="#5C">5C</a></td>
+            <td>LDSFLD4</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                 Loads the static field at index 4 onto the evaluation stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="5D"></a><a href="#5D">5D</a></td>
+            <td>LDSFLD5</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                 Loads the static field at index 5 onto the evaluation stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="5E"></a><a href="#5E">5E</a></td>
+            <td>LDSFLD6</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                 Loads the static field at index 6 onto the evaluation stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="5F"></a><a href="#5F">5F</a></td>
+            <td>LDSFLD</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                 Loads the static field at a specified index onto the evaluation stack. The index is represented as a 1-byte unsigned integer.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="60"></a><a href="#60">60</a></td>
+            <td>STSFLD0</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>-</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>-</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                 Stores the value on top of the evaluation stack in the static field list at index 0.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="61"></a><a href="#61">61</a></td>
+            <td>STSFLD1</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>-</td>
+                            <td>a</td>
+                            <td>-</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                 Stores the value on top of the evaluation stack in the static field list at index 1.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="62"></a><a href="#62">62</a></td>
+            <td>STSFLD2</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>-</td>
+                            <td>a</td>
+                            <td>-</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                 Stores the value on top of the evaluation stack in the static field list at index 2.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="63"></a><a href="#63">63</a></td>
+            <td>STSFLD3</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>-</td>
+                            <td>a</td>
+                            <td>-</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                 Stores the value on top of the evaluation stack in the static field list at index 0.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="64"></a><a href="#64">64</a></td>
+            <td>STSFLD4</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>-</td>
+                            <td>a</td>
+                            <td>-</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                 Stores the value on top of the evaluation stack in the static field list at index 4.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="65"></a><a href="#65">65</a></td>
+            <td>STSFLD5</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>-</td>
+                            <td>a</td>
+                            <td>-</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                 Stores the value on top of the evaluation stack in the static field list at index 5.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="66"></a><a href="#66">66</a></td>
+            <td>STSFLD6</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>-</td>
+                            <td>a</td>
+                            <td>-</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                 Stores the value on top of the evaluation stack in the static field list at index 6.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="67"></a><a href="#67">67</a></td>
+            <td>STSFLD</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>-</td>
+                            <td>a</td>
+                            <td>-</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                 Stores the value on top of the evaluation stack in the static field list at a specified index. The index is represented as a 1-byte unsigned integer.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="68"></a><a href="#68">68</a></td>
+            <td>LDLOC0</td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                 Loads the local variable at index 0 onto the evaluation stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="69"></a><a href="#69">69</a></td>
+            <td>LDLOC1</td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                 Loads the local variable at index 1 onto the evaluation stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="6A"></a><a href="#6A">6A</a></td>
+            <td>LDLOC2</td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                 Loads the local variable at index 2 onto the evaluation stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="6B"></a><a href="#6B">6B</a></td>
+            <td>LDLOC3</td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                 Loads the local variable at index 3 onto the evaluation stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="6C"></a><a href="#6C">6C</a></td>
+            <td>LDLOC4</td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                 Loads the local variable at index 4 onto the evaluation stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="6D"></a><a href="#6D">6D</a></td>
+            <td>LDLOC5</td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                 Loads the local variable at index 5 onto the evaluation stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="6E"></a><a href="#6E">6E</a></td>
+            <td>LDLOC6</td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                 Loads the local variable at index 7 onto the evaluation stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="6F"></a><a href="#6F">6F</a></td>
+            <td>LDLOC</td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                 Loads the local variable at a specified index onto the evaluation stack. The index is represented as a 1-byte unsigned integer.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="70"></a><a href="#70">70</a></td>
+            <td>STLOC0</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                 Stores the value on top of the evaluation stack in the local variable list at index 0.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="71"></a><a href="#71">71</a></td>
+            <td>STLOC1</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>-</td>
+                            <td>a</td>
+                            <td>-</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                 Stores the value on top of the evaluation stack in the local variable list at index 1.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="72"></a><a href="#72">72</a></td>
+            <td>STLOC2</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>-</td>
+                            <td>a</td>
+                            <td>-</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                 Stores the value on top of the evaluation stack in the local variable list at index 2.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="73"></a><a href="#73">73</a></td>
+            <td>STLOC3</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>-</td>
+                            <td>a</td>
+                            <td>-</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                 Stores the value on top of the evaluation stack in the local variable list at index 3.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="74"></a><a href="#74">74</a></td>
+            <td>STLOC4</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>-</td>
+                            <td>a</td>
+                            <td>-</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                 Stores the value on top of the evaluation stack in the local variable list at index 4.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="75"></a><a href="#75">75</a></td>
+            <td>STLOC5</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>-</td>
+                            <td>a</td>
+                            <td>-</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                 Stores the value on top of the evaluation stack in the local variable list at index 5.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="76"></a><a href="#76">76</a></td>
+            <td>STLOC6</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>-</td>
+                            <td>a</td>
+                            <td>-</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                 Stores the value on top of the evaluation stack in the local variable list at index 6.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="77"></a><a href="#77">77</a></td>
+            <td>STLOC</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>-</td>
+                            <td>a</td>
+                            <td>-</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                 Stores the value on top of the evaluation stack in the local variable list at a specified index. The index is represented as a 1-byte unsigned integer.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="78"></a><a href="#78">78</a></td>
+            <td>LDARG0</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                 Loads the argument at index 0 onto the evaluation stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="79"></a><a href="#79">79</a></td>
+            <td>LDARG1</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                 Loads the argument at index 1 onto the evaluation stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="7A"></a><a href="#7A">7A</a></td>
+            <td>LDARG2</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                 Loads the argument at index 2 onto the evaluation stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="7B"></a><a href="#7B">7B</a></td>
+            <td>LDARG3</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                 Loads the argument at index 3 onto the evaluation stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="7C"></a><a href="#7C">7C</a></td>
+            <td>LDARG4</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                 Loads the argument at index 4 onto the evaluation stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="7D"></a><a href="#7D">7D</a></td>
+            <td>LDARG5</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                 Loads the argument at index 5 onto the evaluation stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="7E"></a><a href="#7E">7E</a></td>
+            <td>LDARG6</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                 Loads the argument at index 6 onto the evaluation stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="7F"></a><a href="#7F">7F</a></td>
+            <td>LDARG</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                 Loads the argument at a specified index onto the evaluation stack. The index is represented as a 1-byte unsigned integer.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="80"></a><a href="#80">80</a></td>
+            <td>STARG0</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                 Stores the value on top of the evaluation stack in the argument slot at index 0.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="81"></a><a href="#81">81</a></td>
+            <td>STARG1</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>-</td>
+                            <td>a</td>
+                            <td>-</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                 Stores the value on top of the evaluation stack in the argument slot at index 1.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="82"></a><a href="#82">82</a></td>
+            <td>STARG2</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>-</td>
+                            <td>a</td>
+                            <td>-</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                 Stores the value on top of the evaluation stack in the argument slot at index 2.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="83"></a><a href="#81">83</a></td>
+            <td>STARG3</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>-</td>
+                            <td>a</td>
+                            <td>-</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                 Stores the value on top of the evaluation stack in the argument slot at index 3.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="84"></a><a href="#84">84</a></td>
+            <td>STARG4</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>-</td>
+                            <td>a</td>
+                            <td>-</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                 Stores the value on top of the evaluation stack in the argument slot at index 4.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="85"></a><a href="#85">85</a></td>
+            <td>STARG5</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>-</td>
+                            <td>a</td>
+                            <td>-</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                 Stores the value on top of the evaluation stack in the argument slot at index 5.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="86"></a><a href="#86">86</a></td>
+            <td>STARG6</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>-</td>
+                            <td>a</td>
+                            <td>-</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                 Stores the value on top of the evaluation stack in the argument slot at index 6.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="87"></a><a href="#87">87</a></td>
+            <td>STARG</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>-</td>
+                            <td>a</td>
+                            <td>-</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                 Stores the value on top of the evaluation stack in the argument slot at a specified index. The index is represented as a 1-byte unsigned integer.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="88"></a><a href="#88">88</a></td>
+            <td>NEWBUFFER</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>new Buffer(a)</td>
+            <td>
+                 Creates a new Buffer and pushes it onto the stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="89"></a><a href="#89">89</a></td>
+            <td>MEMCPY</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>e</td>
+                            <td>d</td>
+                            <td>c</td>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table></td>
+            <td>-</td>
+            <td>c.Slice(d, e).CopyTo(a.InnerBuffer.Span[b..])</td>
+            <td>
+                 Copies a range of bytes from one Buffer to another. Using this opcode will require to dup the destination buffer.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="8B"></a><a href="#8B">8B</a></td>
+            <td>CAT</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a.Concat(b)</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>a.Concat(b)</td>
+            <td>
+                 Concatenates two strings.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="8C"></a><a href="#8C">8C</a></td>
+            <td>SUBSTR</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>c</td>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a.Slice(b, c)</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>a.Slice(b, c)</td>
+            <td>
+                 Concatenates two strings.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="8D"></a><a href="#8D">8D</a></td>
+            <td>LEFT</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a[..b]</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>a[..b]</td>
+            <td>
+                 Keeps only characters left of the specified point in a string.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="90"></a><a href="#90">90</a></td>
+            <td>INVERT</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>~a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>~a</td>
+            <td>
+                 Flips all the bits in the input.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="91"></a><a href="#91">91</a></td>
+            <td>AND</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a&b</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>a&b</td>
+            <td>
+                 Boolean and between each bit in the inputs.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="92"></a><a href="#92">92</a></td>
+            <td>OR</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a|b</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>a|b</td>
+            <td>
+                 Boolean or between each bit in the inputs.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="93"></a><a href="#93">93</a></td>
+            <td>XOR</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a^b</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>a^b</td>
+            <td>
+                 Boolean exclusive or between each bit in the inputs.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="97"></a><a href="#97">97</a></td>
+            <td>EQUAL</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a.Equals(b)</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>a.Equals(b)</td>
+            <td>
+                 Returns 1 if the inputs are exactly equal, 0 otherwise.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="98"></a><a href="#98">98</a></td>
+            <td>NOTEQUAL</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>!a.Equals(b)</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>!a.Equals(b)</td>
+            <td>
+                 Returns 1 if the inputs are not equal, 0 otherwise.
+            </td>
         </tr>
         <tr>
             <td><a class="anchor" name="99"></a><a href="#99">99</a></td>
@@ -1679,7 +3475,650 @@ Advanced operations with special effects.
             </td>
         </tr>
         <tr>
-            <td colspan="6">Unfinished to be continued...</td>
+            <td><a class="anchor" name="A0"></a><a href="#A0">A0</a></td>
+            <td>MUL</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a&#42;b</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                a&#42;b
+            </td>
+            <td>
+                a is multiplied by b.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="A1"></a><a href="#A1">A1</a></td>
+            <td>DIV</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a/b</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                a/b
+            </td>
+            <td>
+                a is divided by b.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="A2"></a><a href="#A2">A2</a></td>
+            <td>MOD</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a%b</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                a%b
+            </td>
+            <td>
+                Returns the remainder after dividing a by b.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="A3"></a><a href="#A3">A3</a></td>
+            <td>POW</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a^b</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                a^b
+            </td>
+            <td>
+                The result of raising value to the exponent power.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="A4"></a><a href="#A4">A4</a></td>
+            <td>SQRT</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>sqrt(a)</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                sqrt(a)
+            </td>
+            <td>
+                Returns the square root of a specified number.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="A5"></a><a href="#A5">A5</a></td>
+            <td>MODMUL</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>c</td>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a&#42;b%c</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                a&#42;b%c
+            </td>
+            <td>
+                Performs modulus division on a number multiplied by another number.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="A6"></a><a href="#A6">A6</a></td>
+            <td>MODPOW</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>c</td>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>modpow(a, b, c)</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                modpow(a, b, c)
+            </td>
+            <td>
+                Performs modulus division on a number raised to the power of another number. If the exponent is -1, it will have the calculation of the modular inverse.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="A8"></a><a href="#A8">A8</a></td>
+            <td>SHL</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a &lt;&lt; b</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                a &lt;&lt; b
+            </td>
+            <td>
+                Shifts a left b bits, preserving sign.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="A9"></a><a href="#A9">A9</a></td>
+            <td>SHR</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a &gt;&gt; b</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                a &lt;&lt; b
+            </td>
+            <td>
+                Shifts a right b bits, preserving sign.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="AA"></a><a href="#AA">AA</a></td>
+            <td>NOT</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>!a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                !a
+            </td>
+            <td>
+                If the input is 0 or 1, it is flipped. Otherwise, the output will be 0.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="AB"></a><a href="#AB">AB</a></td>
+            <td>BOOLAND</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a && b</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                a && b
+            </td>
+            <td>
+                If both a and b are not 0, the output is 1. Otherwise, 0.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="AC"></a><a href="#AC">AC</a></td>
+            <td>BOOLOR</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a || b</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                a || b
+            </td>
+            <td>
+                If a or b is not 0, the output is 1. Otherwise, 0.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="B1"></a><a href="#B1">B1</a></td>
+            <td>NZ</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a != 0</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                a != 0
+            </td>
+            <td>
+                If a or b is not 0, the output is 1. Otherwise, 0.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="B3"></a><a href="#B3">B3</a></td>
+            <td>NUMEQUAL</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b == a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                b == a
+            </td>
+            <td>
+                Returns 1 if the numbers are equal, 0 otherwise.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="B4"></a><a href="#B4">B4</a></td>
+            <td>NUMNOTEQUAL</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b != a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                b != a
+            </td>
+            <td>
+                Returns 1 if the numbers are not equal, 0 otherwise.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="B5"></a><a href="#B5">B5</a></td>
+            <td>LT</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a &lt; b</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                a &lt; b
+            </td>
+            <td>
+                Returns 1 if a is less than b, 0 otherwise.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="B6"></a><a href="#B6">B6</a></td>
+            <td>LE</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a &lt;= b</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                a &lt;= b
+            </td>
+            <td>
+                Returns 1 if a is less than or equal to b, 0 otherwise.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="B7"></a><a href="#B7">B7</a></td>
+            <td>GT</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a &gt; b</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                a &gt; b
+            </td>
+            <td>
+                Returns 1 if a is greater than b, 0 otherwise.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="B8"></a><a href="#B8">B8</a></td>
+            <td>GE</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a &gt;= b</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                a &gt;= b
+            </td>
+            <td>
+                Returns 1 if a is greater than or equal to b, 0 otherwise.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="B9"></a><a href="#B9">B9</a></td>
+            <td>MIN</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>min(a, b)</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                Returns the smallest of a and b.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="BA"></a><a href="#BA">BA</a></td>
+            <td>MAX</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>max(a, b)</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                Returns the largest of a and b.
+            </td>
         </tr>
     </tbody>
 </table>
