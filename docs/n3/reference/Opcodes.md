@@ -561,6 +561,909 @@ Advanced operations with special effects.
             </td>
         </tr>
         <tr>
+            <td><a class="anchor" name="0C"></a><a href="#0C">0C</a></td>
+            <td>PUSHDATA1</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                The next byte contains the number of bytes to be pushed onto the stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="0D"></a><a href="#0D">0D</a></td>
+            <td>PUSHDATA2</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                The next two bytes contain the number of bytes to be pushed onto the stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="0E"></a><a href="#0E">0E</a></td>
+            <td>PUSHDATA4</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                The next four bytes contain the number of bytes to be pushed onto the stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="0F"></a><a href="#0F">0F</a></td>
+            <td>PUSHM1</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>-1</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                The number -1 is pushed onto the stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="10"></a><a href="#10">10</a></td>
+            <td>PUSH0</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>0</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                The number 0 is pushed onto the stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="11"></a><a href="#11">11</a></td>
+            <td>PUSH1</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                The number 1 is pushed onto the stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="12"></a><a href="#12">12</a></td>
+            <td>PUSH2</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                The number 2 is pushed onto the stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="13"></a><a href="#13">13</a></td>
+            <td>PUSH3</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>3</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                The number 3 is pushed onto the stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="14"></a><a href="#14">14</a></td>
+            <td>PUSH4</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>4</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                The number 4 is pushed onto the stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="15"></a><a href="#15">15</a></td>
+            <td>PUSH5</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>5</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                The number 5 is pushed onto the stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="16"></a><a href="#16">16</a></td>
+            <td>PUSH6</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>6</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                The number 6 is pushed onto the stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="17"></a><a href="#17">17</a></td>
+            <td>PUSH7</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>7</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                The number 7 is pushed onto the stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="18"></a><a href="#18">18</a></td>
+            <td>PUSH8</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>8</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                The number 8 is pushed onto the stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="19"></a><a href="#19">19</a></td>
+            <td>PUSH9</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>9</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                The number 9 is pushed onto the stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="1A"></a><a href="#1A">1A</a></td>
+            <td>PUSH10</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>10</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                The number 10 is pushed onto the stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="1B"></a><a href="#1B">1B</a></td>
+            <td>PUSH11</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>11</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                The number 11 is pushed onto the stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="1C"></a><a href="#1C">1C</a></td>
+            <td>PUSH12</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>12</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                The number 12 is pushed onto the stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="1D"></a><a href="#1D">1D</a></td>
+            <td>PUSH13</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>13</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                The number 13 is pushed onto the stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="1E"></a><a href="#1E">1E</a></td>
+            <td>PUSH14</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>14</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                The number 14 is pushed onto the stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="1F"></a><a href="#1F">1F</a></td>
+            <td>PUSH15</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>15</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                The number 15 is pushed onto the stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="20"></a><a href="#20">20</a></td>
+            <td>PUSH16</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>16</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                The number 16 is pushed onto the stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="21"></a><a href="#21">21</a></td>
+            <td>NOP</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                The NOP operation does nothing. It is intended to fill in space if opcodes are patched.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="22"></a><a href="#22">22</a></td>
+            <td>JMP</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                Unconditionally transfers control to a target instruction. The target instruction is represented as a 1-byte signed offset from the beginning of the current instruction.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="23"></a><a href="#23">23</a></td>
+            <td>JMP</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                Unconditionally transfers control to a target instruction. The target instruction is represented as a 4-bytes signed offset from the beginning of the current instruction.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="24"></a><a href="#24">24</a></td>
+            <td>JMPIF</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                Transfers control to a target instruction if the value is true, not null, or non-zero. The target instruction is represented as a 1-byte signed offset from the beginning of the current instruction.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="25"></a><a href="#25">25</a></td>
+            <td>JMPIF_L</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                Transfers control to a target instruction if the value is true, not null, or non-zero. The target instruction is represented as a 4-bytes signed offset from the beginning of the current instruction.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="26"></a><a href="#26">26</a></td>
+            <td>JMPIFNOT</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                Transfers control to a target instruction if the value is false, a null reference, or zero. The target instruction is represented as a 1-byte signed offset from the beginning of the current instruction.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="27"></a><a href="#27">27</a></td>
+            <td>JMPIFNOT_L</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                Transfers control to a target instruction if the value is false, a null reference, or zero. The target instruction is represented as a 4-bytes signed offset from the beginning of the current instruction.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="28"></a><a href="#28">28</a></td>
+            <td>JMPEQ</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                Transfers control to a target instruction if two values are equal. The target instruction is represented as a 1-byte signed offset from the beginning of the current instruction.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="29"></a><a href="#29">29</a></td>
+            <td>JMPEQ_L</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                Transfers control to a target instruction if two values are equal. The target instruction is represented as a 4-bytes signed offset from the beginning of the current instruction.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="2A"></a><a href="#2A">2A</a></td>
+            <td>JMPNE</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                Transfers control to a target instruction when two values are not equal. The target instruction is represented as a 1-byte signed offset from the beginning of the current instruction.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="2B"></a><a href="#2B">2B</a></td>
+            <td>JMPNE_L</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                Transfers control to a target instruction when two values are not equal. The target instruction is represented as a 4-bytes signed offset from the beginning of the current instruction.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="2C"></a><a href="#2C">2C</a></td>
+            <td>JMPGT</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                Transfers control to a target instruction if the first value is greater than the second value. The target instruction is represented as a 1-byte signed offset from the beginning of the current instruction.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="2D"></a><a href="#2D">2D</a></td>
+            <td>JMPGT_L</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                Transfers control to a target instruction if the first value is greater than the second value. The target instruction is represented as a 4-bytes signed offset from the beginning of the current instruction.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="2E"></a><a href="#2E">2E</a></td>
+            <td>JMPGE</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                Transfers control to a target instruction if the first value is greater than or equal to the second value. The target instruction is represented as a 1-byte signed offset from the beginning of the current instruction.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="2F"></a><a href="#2F">2F</a></td>
+            <td>JMPGE_L</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                Transfers control to a target instruction if the first value is greater than or equal to the second value. The target instruction is represented as a 4-bytes signed offset from the beginning of the current instruction.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="30"></a><a href="#30">30</a></td>
+            <td>JMPLT</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                Transfers control to a target instruction if the first value is less than the second value. The target instruction is represented as a 1-byte signed offset from the beginning of the current instruction.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="31"></a><a href="#31">31</a></td>
+            <td>JMPLT_L</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                Transfers control to a target instruction if the first value is less than the second value. The target instruction is represented as a 4-bytes signed offset from the beginning of the current instruction.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="32"></a><a href="#32">32</a></td>
+            <td>JMPLE</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                Transfers control to a target instruction if the first value is less than or equal to the second value. The target instruction is represented as a 1-byte signed offset from the beginning of the current instruction.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="33"></a><a href="#33">33</a></td>
+            <td>JMPLE_L</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                Transfers control to a target instruction if the first value is less than or equal to the second value. The target instruction is represented as a 4-bytes signed offset from the beginning of the current instruction.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="34"></a><a href="#34">34</a></td>
+            <td>CALL</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                Calls the function at the target address which is represented as a 1-byte signed offset from the beginning of the current instruction.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="35"></a><a href="#35">35</a></td>
+            <td>CALL_L</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                Calls the function at the target address which is represented as a 4-bytes signed offset from the beginning of the current instruction.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="36"></a><a href="#36">36</a></td>
+            <td>CALLA</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                Pop the address of a function from the stack, and call the function.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="37"></a><a href="#37">37</a></td>
+            <td>CALLT</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                Calls the function which is described by the token.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="38"></a><a href="#38">38</a></td>
+            <td>ABORT</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                It turns the vm state to FAULT immediately, and cannot be caught.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="39"></a><a href="#39">39</a></td>
+            <td>ASSERT</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                Pop the top value of the stack. If it's false, exit vm execution and set vm state to FAULT.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="3A"></a><a href="#3A">3A</a></td>
+            <td>THROW</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                Pop the top value of the stack, and throw it.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="3B"></a><a href="#3B">3B</a></td>
+            <td>TRY</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                TRY CatchOffset(sbyte) FinallyOffset(sbyte). If there's no catch body, set CatchOffset 0. If there's no finally body, set FinallyOffset 0.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="3C"></a><a href="#3C">3C</a></td>
+            <td>TRY_L</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                TRY_L CatchOffset(int) FinallyOffset(int). If there's no catch body, set CatchOffset 0. If there's no finally body, set FinallyOffset 0.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="3D"></a><a href="#3D">3D</a></td>
+            <td>ENDTRY</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                Ensures that the appropriate surrounding finally blocks are executed. And then unconditionally transfers control to the specific target instruction, represented as a 1-byte signed offset from the beginning of the current instruction.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="3E"></a><a href="#3E">3E</a></td>
+            <td>ENDTRY_L</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                Ensures that the appropriate surrounding finally blocks are executed. And then unconditionally transfers control to the specific target instruction, represented as a 4-byte signed offset from the beginning of the current instruction.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="3F"></a><a href="#3F">3F</a></td>
+            <td>ENDFINALLY</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                End finally, If no exception happen or be catched, vm will jump to the target instruction of ENDTRY/ENDTRY_L. Otherwise, vm will rethrow the exception to upper layer.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="40"></a><a href="#40">40</a></td>
+            <td>RET</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                Returns from the current method.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="41"></a><a href="#41">41</a></td>
+            <td>SYSCALL</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                Calls to an interop service.
+            </td>
+        </tr>
+        <tr>
             <td colspan="6">Unfinished to be continued...</td>
         </tr>
         <tr>
