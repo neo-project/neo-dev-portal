@@ -2856,7 +2856,7 @@ Advanced operations with special effects.
             </td>
         </tr>
         <tr>
-            <td><a class="anchor" name="83"></a><a href="#81">83</a></td>
+            <td><a class="anchor" name="83"></a><a href="#83">83</a></td>
             <td>STARG3</td>
             <td>
                 <table class="stack table-bordered">
