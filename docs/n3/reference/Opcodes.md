@@ -2081,7 +2081,6 @@ Advanced operations with special effects.
         <tr>
             <td><a class="anchor" name="60"></a><a href="#60">60</a></td>
             <td>STSFLD0</td>
-            <td>-</td>
             <td>
                 <table class="stack table-bordered">
                     <tbody>
@@ -2103,6 +2102,7 @@ Advanced operations with special effects.
                     </tbody>
                 </table>
             </td>
+            <td>-</td>
             <td>
                  Stores the value on top of the evaluation stack in the static field list at index 0.
             </td>
@@ -2110,7 +2110,6 @@ Advanced operations with special effects.
         <tr>
             <td><a class="anchor" name="61"></a><a href="#61">61</a></td>
             <td>STSFLD1</td>
-            <td>-</td>
             <td>
                 <table class="stack table-bordered">
                     <tbody>
@@ -2134,6 +2133,7 @@ Advanced operations with special effects.
                     </tbody>
                 </table>
             </td>
+            <td>-</td>
             <td>
                  Stores the value on top of the evaluation stack in the static field list at index 1.
             </td>
@@ -2141,7 +2141,6 @@ Advanced operations with special effects.
         <tr>
             <td><a class="anchor" name="62"></a><a href="#62">62</a></td>
             <td>STSFLD2</td>
-            <td>-</td>
             <td>
                 <table class="stack table-bordered">
                     <tbody>
@@ -2165,6 +2164,7 @@ Advanced operations with special effects.
                     </tbody>
                 </table>
             </td>
+            <td>-</td>
             <td>
                  Stores the value on top of the evaluation stack in the static field list at index 2.
             </td>
@@ -2172,7 +2172,6 @@ Advanced operations with special effects.
         <tr>
             <td><a class="anchor" name="63"></a><a href="#63">63</a></td>
             <td>STSFLD3</td>
-            <td>-</td>
             <td>
                 <table class="stack table-bordered">
                     <tbody>
@@ -2196,6 +2195,7 @@ Advanced operations with special effects.
                     </tbody>
                 </table>
             </td>
+            <td>-</td>
             <td>
                  Stores the value on top of the evaluation stack in the static field list at index 0.
             </td>
@@ -2203,7 +2203,6 @@ Advanced operations with special effects.
         <tr>
             <td><a class="anchor" name="64"></a><a href="#64">64</a></td>
             <td>STSFLD4</td>
-            <td>-</td>
             <td>
                 <table class="stack table-bordered">
                     <tbody>
@@ -2227,6 +2226,7 @@ Advanced operations with special effects.
                     </tbody>
                 </table>
             </td>
+            <td>-</td>
             <td>
                  Stores the value on top of the evaluation stack in the static field list at index 4.
             </td>
@@ -2234,7 +2234,6 @@ Advanced operations with special effects.
         <tr>
             <td><a class="anchor" name="65"></a><a href="#65">65</a></td>
             <td>STSFLD5</td>
-            <td>-</td>
             <td>
                 <table class="stack table-bordered">
                     <tbody>
@@ -2258,6 +2257,7 @@ Advanced operations with special effects.
                     </tbody>
                 </table>
             </td>
+            <td>-</td>
             <td>
                  Stores the value on top of the evaluation stack in the static field list at index 5.
             </td>
@@ -2265,7 +2265,6 @@ Advanced operations with special effects.
         <tr>
             <td><a class="anchor" name="66"></a><a href="#66">66</a></td>
             <td>STSFLD6</td>
-            <td>-</td>
             <td>
                 <table class="stack table-bordered">
                     <tbody>
@@ -2289,6 +2288,7 @@ Advanced operations with special effects.
                     </tbody>
                 </table>
             </td>
+            <td>-</td>
             <td>
                  Stores the value on top of the evaluation stack in the static field list at index 6.
             </td>
@@ -2296,7 +2296,6 @@ Advanced operations with special effects.
         <tr>
             <td><a class="anchor" name="67"></a><a href="#67">67</a></td>
             <td>STSFLD</td>
-            <td>-</td>
             <td>
                 <table class="stack table-bordered">
                     <tbody>
@@ -2320,6 +2319,7 @@ Advanced operations with special effects.
                     </tbody>
                 </table>
             </td>
+            <td>-</td>
             <td>
                  Stores the value on top of the evaluation stack in the static field list at a specified index. The index is represented as a 1-byte unsigned integer.
             </td>
@@ -2328,7 +2328,6 @@ Advanced operations with special effects.
             <td><a class="anchor" name="68"></a><a href="#68">68</a></td>
             <td>LDLOC0</td>
             <td>-</td>
-            <td>-</td>
             <td>
                 <table class="stack table-bordered">
                     <tbody>
@@ -2339,6 +2338,7 @@ Advanced operations with special effects.
                     </tbody>
                 </table>
             </td>
+            <td>-</td>
             <td>
                  Loads the local variable at index 0 onto the evaluation stack.
             </td>
@@ -2347,7 +2347,6 @@ Advanced operations with special effects.
             <td><a class="anchor" name="69"></a><a href="#69">69</a></td>
             <td>LDLOC1</td>
             <td>-</td>
-            <td>-</td>
             <td>
                 <table class="stack table-bordered">
                     <tbody>
@@ -2358,6 +2357,7 @@ Advanced operations with special effects.
                     </tbody>
                 </table>
             </td>
+            <td>-</td>
             <td>
                  Loads the local variable at index 1 onto the evaluation stack.
             </td>
@@ -2366,7 +2366,6 @@ Advanced operations with special effects.
             <td><a class="anchor" name="6A"></a><a href="#6A">6A</a></td>
             <td>LDLOC2</td>
             <td>-</td>
-            <td>-</td>
             <td>
                 <table class="stack table-bordered">
                     <tbody>
@@ -2377,6 +2376,7 @@ Advanced operations with special effects.
                     </tbody>
                 </table>
             </td>
+            <td>-</td>
             <td>
                  Loads the local variable at index 2 onto the evaluation stack.
             </td>
@@ -2385,7 +2385,6 @@ Advanced operations with special effects.
             <td><a class="anchor" name="6B"></a><a href="#6B">6B</a></td>
             <td>LDLOC3</td>
             <td>-</td>
-            <td>-</td>
             <td>
                 <table class="stack table-bordered">
                     <tbody>
@@ -2396,6 +2395,7 @@ Advanced operations with special effects.
                     </tbody>
                 </table>
             </td>
+            <td>-</td>
             <td>
                  Loads the local variable at index 3 onto the evaluation stack.
             </td>
@@ -2404,7 +2404,6 @@ Advanced operations with special effects.
             <td><a class="anchor" name="6C"></a><a href="#6C">6C</a></td>
             <td>LDLOC4</td>
             <td>-</td>
-            <td>-</td>
             <td>
                 <table class="stack table-bordered">
                     <tbody>
@@ -2415,6 +2414,7 @@ Advanced operations with special effects.
                     </tbody>
                 </table>
             </td>
+            <td>-</td>
             <td>
                  Loads the local variable at index 4 onto the evaluation stack.
             </td>
@@ -2423,7 +2423,6 @@ Advanced operations with special effects.
             <td><a class="anchor" name="6D"></a><a href="#6D">6D</a></td>
             <td>LDLOC5</td>
             <td>-</td>
-            <td>-</td>
             <td>
                 <table class="stack table-bordered">
                     <tbody>
@@ -2434,6 +2433,7 @@ Advanced operations with special effects.
                     </tbody>
                 </table>
             </td>
+            <td>-</td>
             <td>
                  Loads the local variable at index 5 onto the evaluation stack.
             </td>
@@ -2442,7 +2442,6 @@ Advanced operations with special effects.
             <td><a class="anchor" name="6E"></a><a href="#6E">6E</a></td>
             <td>LDLOC6</td>
             <td>-</td>
-            <td>-</td>
             <td>
                 <table class="stack table-bordered">
                     <tbody>
@@ -2453,6 +2452,7 @@ Advanced operations with special effects.
                     </tbody>
                 </table>
             </td>
+            <td>-</td>
             <td>
                  Loads the local variable at index 7 onto the evaluation stack.
             </td>
@@ -2461,7 +2461,6 @@ Advanced operations with special effects.
             <td><a class="anchor" name="6F"></a><a href="#6F">6F</a></td>
             <td>LDLOC</td>
             <td>-</td>
-            <td>-</td>
             <td>
                 <table class="stack table-bordered">
                     <tbody>
@@ -2472,6 +2471,7 @@ Advanced operations with special effects.
                     </tbody>
                 </table>
             </td>
+            <td>-</td>
             <td>
                  Loads the local variable at a specified index onto the evaluation stack. The index is represented as a 1-byte unsigned integer.
             </td>
