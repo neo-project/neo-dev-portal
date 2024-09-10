@@ -14,7 +14,7 @@ Assembly: Neo.SmartContract.Framework
 public class NEO
 ```
 
-## Attributes
+## Properties
 
 | Name          | Description                                              |
 | ----------------- | ------------------------------------------------------------ |

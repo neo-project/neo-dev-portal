@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public static class StdLib
 ```
 
-## Attributes
+## Properties
 
 | Name | Description            |
 | ---- | ---------------------- |

@@ -14,7 +14,7 @@ Assembly: Neo.SmartContract.Framework
 public class GAS
 ```
 
-## Attributes
+## Properties
 
 | Name          | Description                                              |
 | ----------------- | ------------------------------------------------------------ |

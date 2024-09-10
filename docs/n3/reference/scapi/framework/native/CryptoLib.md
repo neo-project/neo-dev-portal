@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public static class CryptoLib
 ```
 
-## Attributes
+## Properties
 
 | Name | Description            |
 | ---- | ---------------------- |

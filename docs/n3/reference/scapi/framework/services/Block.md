@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public class Block
 ```
 
-## Attributes
+## Properties
 
 | Name              | Description                                                  |
 | ----------------- | ------------------------------------------------------------ |

@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public class Transaction
 ```
 
-## Attributes
+## Properties
 
 | Name            | Description                                                  |
 | --------------- | ------------------------------------------------------------ |
