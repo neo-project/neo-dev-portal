@@ -3987,7 +3987,7 @@ Advanced operations with special effects.
                 <table class="stack table-bordered">
                     <tbody>
                         <tr>
-                            <td>a &lt;= b</td>
+                            <td>a ≤ b</td>
                             <td></td>
                         </tr>
                     </tbody>
@@ -4049,7 +4049,7 @@ Advanced operations with special effects.
                 <table class="stack table-bordered">
                     <tbody>
                         <tr>
-                            <td>a &gt;= b</td>
+                            <td>a ≥ b</td>
                             <td></td>
                         </tr>
                     </tbody>
@@ -4120,6 +4120,708 @@ Advanced operations with special effects.
                 Returns the largest of a and b.
             </td>
         </tr>
+        <tr>
+            <td><a class="anchor" name="BB"></a><a href="#BB">BB</a></td>
+            <td>WITHIN</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td>x</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a ≤ x &lt; b</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                Returns 1 if x is within the specified range (left-inclusive), 0 otherwise.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="BE"></a><a href="#BE">BE</a></td>
+            <td>PACKMAP</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>item</td>
+                            <td>...</td>
+                            <td>item</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td><td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>map</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                A value n is taken from top of main stack. The next n*2 items on main stack are removed, put inside n-sized map and this map is put on top of the main stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="BF"></a><a href="#BF">BF</a></td>
+            <td>PACKSTRUCT</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>item</td>
+                            <td>...</td>
+                            <td>item</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td><td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>struct</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                A value n is taken from top of main stack. The next n items on main stack are removed, put inside n-sized struct and this struct is put on top of the main stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="C0"></a><a href="#C0">C0</a></td>
+            <td>PACK</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>item</td>
+                            <td>...</td>
+                            <td>item</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td><td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>array</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                A value n is taken from top of main stack. The next n items on main stack are removed, put inside n-sized array and this array is put on top of the main stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="C1"></a><a href="#C1">C1</a></td>
+            <td>UNPACK</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>collection</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>item</td>
+                            <td>...</td>
+                            <td>item</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                A collection is removed from top of the main stack. Its elements are put on top of the main stack (in reverse order) and the collection size is also put on main stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="C2"></a><a href="#C2">C2</a></td>
+            <td>NEWARRAY0</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>new Array[0]</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                An empty array (with size 0) is put on top of the main stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="C3"></a><a href="#C3">C3</a></td>
+            <td>NEWARRAY</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>n</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>new Array[n]</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                A value n is taken from top of main stack. A null-filled array with size n is put on top of the main stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="C4"></a><a href="#C4">C4</a></td>
+            <td>NEWARRAY_T</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>T</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>new T[n]</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                A value n is taken from top of main stack. An array of type T with size n is put on top of the main stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="C5"></a><a href="#C5">C5</a></td>
+            <td>NEWSTRUCT0</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>empty struct</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                An empty struct (with size 0) is put on top of the main stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="C6"></a><a href="#C6">C6</a></td>
+            <td>NEWSTRUCT</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>n</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>zero-filled struct with size n</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                A value n is taken from top of main stack. A zero-filled struct with size n is put on top of the main stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="C8"></a><a href="#C8">C8</a></td>
+            <td>NEWMAP</td>
+            <td>-</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>new Map()</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                A Map is created and put on top of the main stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="CA"></a><a href="#CA">CA</a></td>
+            <td>SIZE</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>sizeof(a)</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                An array is removed from top of the main stack. Its size is put on top of the main stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="CB"></a><a href="#CB">CB</a></td>
+            <td>HASKEY</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>array</td>
+                            <td>n</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>True/False</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                An input index n (or key) and an array (or map) are removed from the top of the main stack. Puts True on top of main stack if array[n] (or map[n]) exist, and False otherwise.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="CC"></a><a href="#CC">CC</a></td>
+            <td>KEYS</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>map</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>keys</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                A map is taken from top of the main stack. The keys of this map are put on top of the main stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="CD"></a><a href="#CD">CD</a></td>
+            <td>VALUES</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>map</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>values</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                A map is taken from top of the main stack. The values of this map are put on top of the main stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="CE"></a><a href="#CE">CE</a></td>
+            <td>PICKITEM</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>array</td>
+                            <td>n</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>array[n]</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                An input index n (or key) and an array (or map) are taken from main stack. Element array[n] (or map[n]) is put on top of the main stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="CF"></a><a href="#CF">CF</a></td>
+            <td>APPEND</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a.concat(b)</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                The item on top of main stack is removed and appended to the second item on top of the main stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="D0"></a><a href="#D0">D0</a></td>
+            <td>SETITEM</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>array</td>
+                            <td>n</td>
+                            <td>v</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>array (array[n]=v)</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                A value v, index n (or key) and an array (or map) are taken from main stack. Attribution array[n]=v (or map[n]=v) is performed.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="D1"></a><a href="#D1">D1</a></td>
+            <td>REVERSEITEMS</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>array</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                An array is removed from the top of the main stack and its elements are reversed.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="D2"></a><a href="#D2">D2</a></td>
+            <td>REMOVE</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>array</td>
+                            <td>n</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                An input index n (or key) and an array (or map) are removed from the top of the main stack. Element array[n] (or map[n]) is removed.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="D3"></a><a href="#D3">D3</a></td>
+            <td>CLEARITEMS</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>items</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                Remove all the items from the compound-type.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="D4"></a><a href="#D4">D4</a></td>
+            <td>POPITEM</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>array</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>array[i]</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                Remove the last element from an array, and push it onto the stack.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="D8"></a><a href="#D8">D8</a></td>
+            <td>ISNULL</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a == null</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                Returns true if the input is null;
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="D9"></a><a href="#D9">D9</a></td>
+            <td>ISTYPE</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a is T</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                Returns true if the top item of the stack is of the specified type;
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="DB"></a><a href="#DB">DB</a></td>
+            <td>CONVERT</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>(T)a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>
+                Converts the top item of the stack to the specified type.
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="E0"></a><a href="#E0">E0</a></td>
+            <td>ABORTMSG</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                Pops the top stack item. Then, turns the vm state to FAULT immediately, and cannot be caught. The top stack
+            </td>
+        </tr>
+        <tr>
+            <td><a class="anchor" name="E1"></a><a href="#E1">E1</a></td>
+            <td>ASSERTMSG</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>-</td>
+            <td>-</td>
+            <td>
+                Pops the top two stack items. If the second-to-top stack value is false, exits the vm execution and sets the vm state to FAULT. In this case, the top stack value is used as reason for the exit. Otherwise, it is ignored.
+            </td>
+        </tr>
+
+
+
+
     </tbody>
 </table>
 
