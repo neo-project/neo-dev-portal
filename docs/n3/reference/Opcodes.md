@@ -4303,7 +4303,7 @@ Advanced operations with special effects.
                 <table class="stack table-bordered">
                     <tbody>
                         <tr>
-                            <td>new Array[n]</td>
+                            <td>new Array\[n\]</td>
                             <td></td>
                         </tr>
                     </tbody>
@@ -4331,7 +4331,7 @@ Advanced operations with special effects.
                 <table class="stack table-bordered">
                     <tbody>
                         <tr>
-                            <td>new T[n]</td>
+                            <td>new T\[n\]</td>
                             <td></td>
                         </tr>
                     </tbody>
@@ -4462,7 +4462,7 @@ Advanced operations with special effects.
             </td>
             <td>-</td>
             <td>
-                An input index n (or key) and an array (or map) are removed from the top of the main stack. Puts True on top of main stack if array[n] (or map[n]) exist, and False otherwise.
+                An input index n (or key) and an array (or map) are removed from the top of the main stack. Puts True on top of main stack if array\[n\] (or map\[n\]) exist, and False otherwise.
             </td>
         </tr>
         <tr>
@@ -4539,7 +4539,7 @@ Advanced operations with special effects.
                 <table class="stack table-bordered">
                     <tbody>
                         <tr>
-                            <td>array[n]</td>
+                            <td>array\[n\]</td>
                             <td></td>
                         </tr>
                     </tbody>
@@ -4547,7 +4547,7 @@ Advanced operations with special effects.
             </td>
             <td>-</td>
             <td>
-                An input index n (or key) and an array (or map) are taken from main stack. Element array[n] (or map[n]) is put on top of the main stack.
+                An input index n (or key) and an array (or map) are taken from main stack. Element array\[n\] (or map\[n\]) is put on top of the main stack.
             </td>
         </tr>
         <tr>
@@ -4598,7 +4598,7 @@ Advanced operations with special effects.
                 <table class="stack table-bordered">
                     <tbody>
                         <tr>
-                            <td>array (array[n]=v)</td>
+                            <td>array (array\[n\]=v)</td>
                             <td></td>
                         </tr>
                     </tbody>
@@ -4606,7 +4606,7 @@ Advanced operations with special effects.
             </td>
             <td>-</td>
             <td>
-                A value v, index n (or key) and an array (or map) are taken from main stack. Attribution array[n]=v (or map[n]=v) is performed.
+                A value v, index n (or key) and an array (or map) are taken from main stack. Attribution array\[n\]=v (or map\[n\]=v) is performed.
             </td>
         </tr>
         <tr>
@@ -4645,7 +4645,7 @@ Advanced operations with special effects.
             <td>-</td>
             <td>-</td>
             <td>
-                An input index n (or key) and an array (or map) are removed from the top of the main stack. Element array[n] (or map[n]) is removed.
+                An input index n (or key) and an array (or map) are removed from the top of the main stack. Element array\[n\] (or map\[n\]) is removed.
             </td>
         </tr>
         <tr>
@@ -4818,10 +4818,6 @@ Advanced operations with special effects.
                 Pops the top two stack items. If the second-to-top stack value is false, exits the vm execution and sets the vm state to FAULT. In this case, the top stack value is used as reason for the exit. Otherwise, it is ignored.
             </td>
         </tr>
-
-
-
-
     </tbody>
 </table>
 
