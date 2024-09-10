@@ -1875,8 +1875,8 @@ Advanced operations with special effects.
             </td>
         </tr>
         <tr>
-            <td><a class="anchor" name="54"></a><a href="#54">54</a></td>
-            <td>REVERSE4</td>
+            <td><a class="anchor" name="55"></a><a href="#55">55</a></td>
+            <td>REVERSEN</td>
             <td>
                 <table class="stack table-bordered">
                     <tbody>
