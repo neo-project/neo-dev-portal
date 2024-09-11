@@ -4820,4 +4820,9 @@ Advanced operations with special effects.
         </tr>
     </tbody>
 </table>
+## Reference
+
+Definition of OpCodes in Neo https://github.com/neo-project/neo/blob/master/src/Neo.VM/OpCode.cs
+
+OpCodes implementation in NeoVM: https://github.com/neo-project/neo/tree/master/src/Neo.VM/JumpTable
 
