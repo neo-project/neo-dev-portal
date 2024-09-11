@@ -271,3 +271,6 @@ Provides utility methods for intrinsic bit-twiddling operations. The methods use
 | RotateRight(uint value, int offset)  | Rotates a value right by a given amount.             |
 | RotateRight(ulong value, int offset) | Rotates a value right by a given amount.             |
 
+## Reference
+
+https://github.com/neo-project/neo-devpack-dotnet/blob/master/src/Neo.Compiler.CSharp/MethodConvert/System/SystemCall.Register.cs
