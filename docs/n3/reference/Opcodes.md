@@ -2,7 +2,7 @@
 sidebar_label: 'NeoVM OpCodes'
 ---
 
-# Neo Virtual Machine OpCodes
+# Neo Virtual Machine Opcodes
 
 Use this handy table to skip ahead to the [opcode reference](#opcodes).
 
@@ -299,53 +299,39 @@ Use this handy table to skip ahead to the [opcode reference](#opcodes).
     </tbody>
 </table>
 
-## OverView
+## Overview
 
-This OpCode collection defines a set of instructions for handling stack operations, compound-type operations, bitwise
-logic, arithmetic calculations, and more.
+This opcode set defines instructions for stack operations, compound-type handling, bitwise logic, arithmetic calculations, and more.
 
 - **Constants**
 
-These opcodes are used to push constant values onto the stack. Included are instructions for pushing integers of
-different sizes (e.g., signed integers from 1 byte to 32 bytes) onto the stack (PUSHINT8 through PUSHINT256), as well as
-instructions for pushing Boolean values true (PUSHT) and false (PUSHF). Also included are opcodes for pushing pointers
-(PUSHA), nulls (PUSHNULL), data blocks (PUSHDATA1 through PUSHDATA4), and fixed values (PUSHM1 through PUSH16) onto the
-stack.
-
-Translated with DeepL.com (free version)
+  Constants opcodes push constant values onto the stack. These include instructions for pushing integers of various sizes (e.g., signed integers from 1 byte to 32 bytes), with opcodes ranging from PUSHINT8 to PUSHINT256. Additionally, there are instructions for pushing Boolean values (PUSHT for true and PUSHF for false), pointers (PUSHA), null values (PUSHNULL), data blocks (PUSHDATA1 through PUSHDATA4), and fixed values (PUSHM1 through PUSH16) onto the stack.
 
 - **Flow Control**
-Flow control opcodes are used to control the flow of program execution. These instructions are typically used for
-operations such as conditional jumps, loops, and method calls to implement complex logic control.
+Flow control opcodes manage the program execution flow. They are typically used for conditional jumps, loops, and method calls, enabling the implementation of complex logic control.
 
 - **Stack**
-Stack opcodes are used to manipulate data on the stack and support push, pop, duplicate and swap operations. They play
-an important role in data manipulation and management to ensure that data can be efficiently manipulated and transferred
-as expected.
+Stack opcodes handle data manipulation on the stack, supporting push, pop, duplicate, and swap operations. These are crucial for efficient data handling and transfer.
 
 - **Slot**
-The Slot opcode is used to manage the operation of local variable slots. These instructions allow data to be stored into
-or loaded from specific slots to support the management of local variables and parameters.
+The slot opcode manages local variable slots so that data can be stored or retrieved from specific slots, facilitating the management of local variables and parameters.
 
 - **Splice**
-The splice opcode is used to handle splice, split, and extract operations on byte arrays and strings. These instructions
-can be used to merge multiple chunks of data or to extract portions of existing data.
+The splice opcode handles splice, split, and extract operations on byte arrays and strings. These instructions can be used to merge multiple data chunks or extract portions of existing data.
 
 - **Bitwise Logic**
-Bitwise logical opcodes are used to perform bitwise operations (e.g., AND, OR, XOR, NOT, etc.) that are typically used
-in low-level data processing, such as encryption and compression algorithms.
+Bitwise logical opcodes perform bitwise operations (e.g., AND, OR, XOR, NOT, etc.) commonly used
+in low-level data processing tasks, such as encryption and compression algorithms.
 
 - **Arithmetic**
-Arithmetic opcodes are used to perform basic arithmetic operations (such as addition, subtraction, multiplication,
-division, etc.). These operations are very useful in implementing data calculations and numerical processing.
+Arithmetic opcodes perform basic mathematical operations (e.g., addition, subtraction, multiplication,
+division), essential for data calculations and numerical processing.
 
 - **Compound-Type**
-Complex type opcodes are used to manipulate complex data types such as arrays, structures, and other custom types. These
-instructions are used to create, modify and destroy complex data types.
+Compound-type opcodes manipulate complex data types like arrays, structures, and custom types. These instructions are used to create, modify and destroy complex data types.
 
 - **Types**
-Type opcodes are used to handle and manipulate the conversion and checking of data types. These instructions are used to
-determine the type of data or to convert one type to another.
+Type opcodes manage data type conversion and checking. They are used to determine the data type or convert one type to another.
 
 - **Extensions**
 Advanced operations with special effects.
@@ -362,7 +348,7 @@ Advanced operations with special effects.
             <th style="width: auto">Stack Input</th>
             <th style="width: auto">Stack Output</th>
             <th style="width: auto">Expression</th>
-            <th style="width: 200px">Notes</th>
+            <th style="width: 200px">Descriptions</th>
         </tr>
     </thead>
     <tbody>
