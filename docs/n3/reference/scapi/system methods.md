@@ -185,7 +185,7 @@ Represents text as a sequence of UTF-16 code units.
 | Name                                | Description                                                  |
 | ----------------------------------- | ------------------------------------------------------------ |
 | string.IsNullOrEmpty(string? s)     | Indicates whether the specified string is null or an empty string (""). |
-| string.Concat(string s1, string s2) |                                                              |
+| string.Concat(string s1, string s2) | Concatenates two specified instances of String.              |
 
 ## Array Class
 
