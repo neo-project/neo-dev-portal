@@ -308,33 +308,42 @@ This opcode set defines instructions for stack operations, compound-type handlin
   Constants opcodes push constant values onto the stack. These include instructions for pushing integers of various sizes (e.g., signed integers from 1 byte to 32 bytes), with opcodes ranging from PUSHINT8 to PUSHINT256. Additionally, there are instructions for pushing Boolean values (PUSHT for true and PUSHF for false), pointers (PUSHA), null values (PUSHNULL), data blocks (PUSHDATA1 through PUSHDATA4), and fixed values (PUSHM1 through PUSH16) onto the stack.
 
 - **Flow Control**
-Flow control opcodes manage the program execution flow. They are typically used for conditional jumps, loops, and method calls, enabling the implementation of complex logic control.
+
+  Flow control opcodes manage the program execution flow. They are typically used for conditional jumps, loops, and method calls, enabling the implementation of complex logic control.
 
 - **Stack**
-Stack opcodes handle data manipulation on the stack, supporting push, pop, duplicate, and swap operations. These are crucial for efficient data handling and transfer.
+
+  Stack opcodes handle data manipulation on the stack, supporting push, pop, duplicate, and swap operations. These are crucial for efficient data handling and transfer.
 
 - **Slot**
-The slot opcode manages local variable slots so that data can be stored or retrieved from specific slots, facilitating the management of local variables and parameters.
+
+  The slot opcode manages local variable slots so that data can be stored or retrieved from specific slots, facilitating the management of local variables and parameters.
 
 - **Splice**
-The splice opcode handles splice, split, and extract operations on byte arrays and strings. These instructions can be used to merge multiple data chunks or extract portions of existing data.
+
+  The splice opcode handles splice, split, and extract operations on byte arrays and strings. These instructions can be used to merge multiple data chunks or extract portions of existing data.
 
 - **Bitwise Logic**
-Bitwise logical opcodes perform bitwise operations (e.g., AND, OR, XOR, NOT, etc.) commonly used
-in low-level data processing tasks, such as encryption and compression algorithms.
+
+  Bitwise logical opcodes perform bitwise operations (e.g., AND, OR, XOR, NOT, etc.) commonly used
+  in low-level data processing tasks, such as encryption and compression algorithms.
 
 - **Arithmetic**
-Arithmetic opcodes perform basic mathematical operations (e.g., addition, subtraction, multiplication,
-division), essential for data calculations and numerical processing.
+
+  Arithmetic opcodes perform basic mathematical operations (e.g., addition, subtraction, multiplication,
+  division), essential for data calculations and numerical processing.
 
 - **Compound-Type**
-Compound-type opcodes manipulate complex data types like arrays, structures, and custom types. These instructions are used to create, modify and destroy complex data types.
+
+  Compound-type opcodes manipulate complex data types like arrays, structures, and custom types. These instructions are used to create, modify and destroy complex data types.
 
 - **Types**
-Type opcodes manage data type conversion and checking. They are used to determine the data type or convert one type to another.
+
+  Type opcodes manage data type conversion and checking. They are used to determine the data type or convert one type to another.
 
 - **Extensions**
-Advanced operations with special effects.
+
+  Advanced operations with special effects.
 
 ## OpCodes
 
