@@ -14,11 +14,11 @@ Invokes a smart contract with its scripthash based on the specified operation an
 
 - scripthash: Smart contract scripthash. You need to use the proper byte order of the address passed according to its data type. If the data type is Hash160, use the big endian scripthash; if the data type is ByteArray, use the little endian scripthash.
 
-- operation: The operation name (string)
+- operation: The operation name (string).
 
-- params: Optional. The parameters to be passed into the smart contract operation
+- params: Optional. The parameters to be passed into the smart contract operation.
 
-- signers or witnesses: Optional. This parameter can optionally be filled with a **list of signature accounts** for the transaction or a **list of witness** for the transaction.
+- signers or witnesses: Optional. You can set a list of signature accounts or witnesses for the transaction.
 
   The structure of **signers** is as follows:
 
@@ -31,16 +31,16 @@ Invokes a smart contract with its scripthash based on the specified operation an
       It can be used in conjunction with CalledByEntry.
     - CustomGroups: Custom contract groups that can be used in a specified contract group.
       It can be used in conjunction with CalledByEntry.
-    - Global: Global. Global. The risk is extremely high because the contract may transfer all assets in the address. Only choose it when the contract is extremely trusted.
+    - Global: Global. The risk is extremely high because the contract may transfer all assets in the address. Only choose it when the contract is extremely trusted.
 
   - allowedcontracts: contracts of the signature can take effect, if scopes is CustomContracts
 
   - allowedgroups: pubkeys of the signature can take effect, if scopes is CustomGroups
 
-  The structure of **witness** is as follows:
+  The structure of **witnesses** is as follows:
 
-  - invocation: InvocationScript in base64 format.
-  - verification: VerificationScript in base64 format.
+  - invocation: InvocationScript in Base64 encoded format.
+  - verification: VerificationScript in Base64 encoded format.
 
 
 

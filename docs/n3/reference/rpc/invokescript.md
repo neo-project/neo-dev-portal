@@ -26,16 +26,16 @@ Returns the result after passing a script through the VM.
       It can be used in conjunction with CalledByEntry.
     - CustomGroups: Custom contract groups that can be used in a specified contract group.
       It can be used in conjunction with CalledByEntry.
-    - Global: Global. Global. The risk is extremely high because the contract may transfer all assets in the address. Only choose it when the contract is extremely trusted.
+    - Global: Global. The risk is extremely high because the contract may transfer all assets in the address. Only choose it when the contract is extremely trusted.
   
   - allowedcontracts: contracts of the signature can take effect, if scopes is CustomContracts
   
   - allowedgroups: pubkeys of the signature can take effect, if scopes is CustomGroups
   
-  The structure of **witness** is as follows:
+  The structure of **witnesses** is as follows:
   
-  - invocation: InvocationScript in base64 format.
-  - verification: VerificationScript in base64 format.
+  - invocation: InvocationScript in Base64 encoded format.
+  - verification: VerificationScript in Base64 encoded format.
 
 ## Example
 
