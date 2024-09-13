@@ -1,0 +1,31 @@
+.stack>tbody>tr>td:last-child {
+    border-right: 0;
+}
+
+.stack.table-bordered {
+    border-right: 0;
+}
+
+.table.opcode{
+    font-size: 70%;
+    width: auto;
+}
+.table.opcode td{
+    padding: .2rem;
+    border-right-width: 1px;
+    height: 20px;
+    width: 30px;
+}
+.table .stack td{
+    padding: .4rem;
+    border: 1px solid rgba(128, 128, 128, .5);
+}
+a.anchor {
+    display: block;
+    height: 5rem;
+    margin-top: -5rem;
+    visibility: hidden;
+}
+.table{
+    table-layout: fixed;
+}
