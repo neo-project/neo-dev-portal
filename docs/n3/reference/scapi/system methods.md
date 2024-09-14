@@ -1,10 +1,10 @@
-# System methods
+# System Methods
 
-The following system methods can be used in smart contracts.
+This document covers system methods that are available for use in smart contracts.
 
-For convenience, **T (T₁, T₂)** is used here instead of integers, e.g. **byte / sbyte / short / ushort / int / uint / long / ulong**.
+For simplicity, `T (T1, T2)` is used as a placeholder for integer types, such as `byte`, `sbyte`, `short`, `ushort`, `int`, `uint`, `long`, and `ulong`.
 
-**ST** is used here instead of signed integers, e.g. **sbyte / short / int / long**.
+**ST** is used to represent signed integer types, including `sbyte`, `short`, `int`, and `long`.
 
 ## BigInteger Class
 
