@@ -1,11 +1,4 @@
----
-title: "Tokens"
-date: 2022-01-18T21:13:48Z
----
-
-import CodeBlock from '@theme/CodeBlock';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+# Tokens
 
 Tokens are required to act on any [objects](/docs/n3/neofs/topics/objects) within a [container](/docs/n3/neofs/topics/containers). Sessions last for limited time and are restricted by permissions. [Session tokens](/docs/n3/neofs/topics/tokens) use the private key to sign them while [bearer tokens](/examples/tokens) are issued to wallets by a container owner.
 

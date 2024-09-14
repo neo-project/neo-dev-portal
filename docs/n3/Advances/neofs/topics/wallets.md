@@ -1,11 +1,4 @@
----
-title: "Wallets"
-date: 2022-01-18T21:13:48Z
----
-
-import CodeBlock from '@theme/CodeBlock';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+# Wallets
 
 Almost everything you may want to do with NeoFS will require access to a wallet. Here are a few handy ways to get a wallet
 

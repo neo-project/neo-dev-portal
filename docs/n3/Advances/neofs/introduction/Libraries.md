@@ -1,7 +1,4 @@
----
-title: "Libraries"
-date: 2022-01-18T21:13:48Z
----
+# Libraries
 
 The Go SDK is the basis of all the functionality that is available to you as a developer with regards to NeoFS.
 
