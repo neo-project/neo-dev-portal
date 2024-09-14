@@ -1,11 +1,4 @@
----
-title: "Policies"
-date: 2022-01-18T21:13:48Z
----
-
-import CodeBlock from '@theme/CodeBlock';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+# Policies
 
 Before we can create a container, we need to define the policy. A policy defines which storage nodes on NeoFS you are happy to store your data on.
 

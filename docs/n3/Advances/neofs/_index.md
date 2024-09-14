@@ -1,11 +1,5 @@
----
-title: 'Neo FS Go SDK Documentation'
-description: "This section covers the elements of NeoFS and the NeoFS SDK written in Go"
-author: ngdenterprise
-tags: [ "NEOFS"]
-skill: intermediate
-sidebar: true
----
+# Neo FS Go SDK Documentation
+
 ## Neo Community Documentation
 
 Please join us on the Neo discord server if you would like any support and please contribute back if you have something to add!
