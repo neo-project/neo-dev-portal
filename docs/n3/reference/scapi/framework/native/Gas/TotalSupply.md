@@ -2,7 +2,7 @@
 
 Gets the total supply of GAS.
 
-Namespace: [Neo.SmartContract.Framework.Native](../../native.md)
+Namespace: [Neo.SmartContract.Framework.Native](../index.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -25,4 +25,4 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
-[Back](../Gas.md)
+[Back](index.md)

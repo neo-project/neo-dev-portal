@@ -2,7 +2,7 @@
 
 Gets the contract information.
 
-Namespace: [Neo.SmartContract.Framework.Native](../../native.md)
+Namespace: [Neo.SmartContract.Framework.Native](../index.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -46,4 +46,4 @@ Response description:
 
 - Other: failed.
 
-[Back](../ContractManagement.md)
+[Back](index.md)

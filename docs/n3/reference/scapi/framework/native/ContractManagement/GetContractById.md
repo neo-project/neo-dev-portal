@@ -2,7 +2,7 @@
 
 Maps the specified ID to the deployed contract.
 
-Namespace: [Neo.SmartContract.Framework.Native](../../native.md)
+Namespace: [Neo.SmartContract.Framework.Native](../index.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -74,5 +74,5 @@ According to the contract code, the contract name associated with the requested 
 
 The string `Q29udHJhY3RNYW5hZ2VtZW50`, when decoded with base64, yields `ContractManagement`.
 
-[Back](../ContractManagement.md)
+[Back](index.md)
 

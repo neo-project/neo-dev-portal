@@ -2,7 +2,7 @@
 
 Defines permission types of the native contract `RoleManagement`.
 
-Namespace：[Neo.SmartContract.Framework.Native](../native.md)
+Namespace：[Neo.SmartContract.Framework.Native](index.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -16,4 +16,4 @@ public enum Role : byte
 }
 ```
 
-For more information see the method `GetDesignatedByRole` in [RoleManagement](RoleManagement.md).
+For more information see the method `GetDesignatedByRole` in [RoleManagement](RoleManagement/index.md).

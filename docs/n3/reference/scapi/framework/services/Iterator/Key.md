@@ -2,7 +2,7 @@
 
 Gets the Key of the current cursor.
 
-Namespace: [Neo.SmartContract.Framework.Services](../../services.md)
+Namespace: [Neo.SmartContract.Framework.Services](../index.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -16,4 +16,4 @@ Attribute value: genericity.
 
 
 
-[Back](../Iterator.md)
+[Back](index.md)
