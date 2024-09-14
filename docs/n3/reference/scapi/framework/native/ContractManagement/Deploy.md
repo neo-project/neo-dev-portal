@@ -2,7 +2,7 @@
 
 Deploys the contract.
 
-Namespace: [Neo.SmartContract.Framework.Native](../../native.md)
+Namespace: [Neo.SmartContract.Framework.Native](../index.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -59,4 +59,4 @@ public static void _deploy(object data, bool update)
 }
 ```
 
-[Back](../ContractManagement.md)
+[Back](index.md)

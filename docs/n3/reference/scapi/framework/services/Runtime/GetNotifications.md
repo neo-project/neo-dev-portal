@@ -2,7 +2,7 @@
 
 Gets all notifications of the given contract execution.
 
-Namespace: [Neo.SmartContract.Framework.Services](../../services.md)
+Namespace: [Neo.SmartContract.Framework.Services](../index.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -32,4 +32,4 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
-[Back](../Runtime.md)
+[Back](index.md)

@@ -2,7 +2,7 @@
 
 The class representing a contract.
 
-Namespace：[Neo.SmartContract.Framework.Services](../services.md)
+Namespace：[Neo.SmartContract.Framework.Services](index.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -26,14 +26,14 @@ public class Contract
 
 | Name | Description |
 | -------------------------------- | ------ |
-| [Call(UInt160 scriptHash, string method, object[] arguments)](Contract/Call.md) | Invokes the contract |
-| [GetCallFlags()](Contract/GetCallFlags.md)         | Gets the CallFlag of the contract |
-| [CreateStandardAccount()](Contract/CreateStandardAccount.md)         | Generate a script hash of standard account with public key |
+| [Call(UInt160 scriptHash, string method, object[] arguments)](Call.md) | Invokes the contract |
+| [GetCallFlags()](GetCallFlags.md)         | Gets the CallFlag of the contract |
+| [CreateStandardAccount()](CreateStandardAccount.md)         | Generate a script hash of standard account with public key |
 | CreateMultisigAccount(int, params Cryptography.ECC.ECPoint[]) | Generate a script hash of multi-signature accounts based on the public key list and minimum number of signatures |
 
 ## Constructor
 
-The Contract object can be constructed through [ContractManagement.GetContract(UInt60 hash)](../native/ContractManagement/GetContract.md).
+The Contract object can be constructed through [ContractManagement.GetContract(UInt60 hash)](../../native/ContractManagement/GetContract.md).
 
- [ContractManagement.Deploy(byte[] nefFile, string manifest)](../native/ContractManagement/Deploy.md) publishes the contract onto the blockchain and returns a contract object.
+ [ContractManagement.Deploy(byte[] nefFile, string manifest)](../../native/ContractManagement/Deploy.md) publishes the contract onto the blockchain and returns a contract object.
 

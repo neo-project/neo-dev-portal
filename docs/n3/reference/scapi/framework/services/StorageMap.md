@@ -2,7 +2,7 @@
 
 This class represents the key-value storage for the specific prefix in the given storage context.
 
-Namespace:[Neo.SmartContract.Framework.Services](../services.md)
+Namespace:[Neo.SmartContract.Framework.Services](index.md)
 
 Assembly: Neo.SmartContract.Framework
 

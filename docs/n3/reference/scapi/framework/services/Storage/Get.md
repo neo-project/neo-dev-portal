@@ -2,7 +2,7 @@
 
 Returns a value from the persistent store based on the given key.
 
-Namespace: [Neo.SmartContract.Framework.Services](../../services.md)
+Namespace: [Neo.SmartContract.Framework.Services](../index.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -36,4 +36,4 @@ public class Contract1 : SmartContract.Framework.SmartContract
 
 
 
-[Back](../Storage.md)
+[Back](index.md)

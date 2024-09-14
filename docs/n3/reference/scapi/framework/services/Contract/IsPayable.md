@@ -2,7 +2,7 @@
 
 Whether the contract is able to accept NEP-17 assets
 
-Namespace: [Neo.SmartContract.Framework.Services](../../services.md)
+Namespace: [Neo.SmartContract.Framework.Services](../index.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -12,4 +12,4 @@ Assembly: Neo.SmartContract.Framework
 public extern bool IsPayable
 ```
 
-[Back](../Contract.md)
+[Back](index.md)
