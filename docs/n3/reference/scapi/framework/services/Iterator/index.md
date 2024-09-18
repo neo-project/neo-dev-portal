@@ -13,7 +13,7 @@ public class Iterator
 public class Iterator<T> : Iterator, IApiInterface
 ```
 
-## Attributes
+## Properties
 
 | Name | Description          |
 | ----- | ------------------------ |

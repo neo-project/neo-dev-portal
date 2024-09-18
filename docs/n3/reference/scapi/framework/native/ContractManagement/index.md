@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public class ContractManagement
 ```
 
-## Attributes
+## Properties
 
 | Name | Description   |
 | ---- | ------------- |

@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public class Notification : IApiInterface
 ```
 
-## Attributes
+## Properties
 
 | Name                                   | Description              |
 | ---------------------------------------- | -------------------------- |

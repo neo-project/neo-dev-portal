@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public class Ledger
 ```
 
-## Attributes
+## Properties
 
 | Name         | Description                                                  |
 | ------------ | ------------------------------------------------------------ |

@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public class Contract
 ```
 
-## Attributes
+## Properties
 
 | Name | Description |
 | -------------------------------- | ------ |
