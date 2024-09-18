@@ -1,11 +1,8 @@
----
-title: "Overview"
-date: 2022-01-18T21:13:48Z
----
+# Overview
 
 This chapter outlines the [concepts](/docs/n3/neofs/introduction/concepts) and top level points required to understand and enjoy building on neo & NeoFS
 
-### Starting out
+## Starting out
 
 The topics here are primarily in Go, however where we have code snippets for other languages we will endeavour to add them.
 
@@ -31,14 +28,14 @@ This documentation is not a tutorial, it is a reference to using the SDK, howeve
 5. To do so however, you will need a session token (or a bearer token but start with a session token). The session token contains a signature that validates your wallet against NeoFS.
 6. You might create a container, put an object in a container, or delete an object.
 
-### Libraries
+## Libraries
 
 [Libraries](/docs/n3/neofs/introduction/libraries) covers the packages and libraries that are required to interact with Neo and NeoFS in Go
 
-### References
+## References
 
 * [neofs-spec](https://nspcc.ru/upload/neofs-spec-latest.pdf#13)
 
-### With Thanks To
+## With Thanks To
 
 * [NSPCC team](https://github.com/nspcc-dev/) - team behind NeoFS, the [neo-go-sdk](https://github.com/nspcc-dev/neofs-sdk-go) and the [neo-go](github.com/nspcc-dev/neo-go) packages

@@ -2,7 +2,7 @@
 
 The iterator for smart contracts.
 
-Namespace：[Neo.SmartContract.Framework.Services](../services.md)
+Namespace：[Neo.SmartContract.Framework.Services](index.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -25,4 +25,4 @@ public class Iterator<T> : Iterator, IApiInterface
 | ----------------------------------- | ------------------------------------------------------------ |
 | Next()            | Advances the iterator to the next element of the collection |
 
-You can also use [Storage.Find()](Storage/Find.md)  to construct the Iterator object.
+You can also use [Storage.Find()](../Storage/Find.md)  to construct the Iterator object.

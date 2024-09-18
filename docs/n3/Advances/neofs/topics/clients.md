@@ -1,11 +1,4 @@
----
-title: "Clients"
-date: 2022-01-18T21:13:48Z
----
-
-import CodeBlock from '@theme/CodeBlock';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+# Clients
 
 There are two types of client to be aware of and as they are both clients it can get confusing. You have a wallet client and an NeoFS client.
 Interactions with NeoFS will require a NeoFS client, whereas wallet actions will require a wallet client. Note they do not reside in the same package

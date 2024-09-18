@@ -2,7 +2,7 @@
 
 Provides a series attributes and methods of the native contract GasToken, which hash is`0xda65b600f7124ce6c79950c1772a36403104f2be`.
 
-Namespace：[Neo.SmartContract.Framework.Native](../native.md)
+Namespace：[Neo.SmartContract.Framework.Native](index.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -24,7 +24,7 @@ public class Ledger
 
 | Name                                                         | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [GetBlock()](Ledger/GetBlock.md)                             | Gets block by the block hash or index                        |
-| [GetTransaction(UInt256 hash)](Ledger/GetTransaction.md)     | Gets transaction by transaction ID                           |
-| [GetTransactionFromBlock()](Ledger/GetTransactionFromBlock.md) | Gets the specified transaction by the block and transaction indexes |
-| [GetTransactionHeight(UInt256 hash)](Ledger/GetTransactionHeight.md) | Gets the block height where the transaction occurs by the transaction hash |
+| [GetBlock()](GetBlock.md)                             | Gets block by the block hash or index                        |
+| [GetTransaction(UInt256 hash)](GetTransaction.md)     | Gets transaction by transaction ID                           |
+| [GetTransactionFromBlock()](GetTransactionFromBlock.md) | Gets the specified transaction by the block and transaction indexes |
+| [GetTransactionHeight(UInt256 hash)](GetTransactionHeight.md) | Gets the block height where the transaction occurs by the transaction hash |

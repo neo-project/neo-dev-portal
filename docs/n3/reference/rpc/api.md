@@ -184,7 +184,9 @@ To make sure you get the latest result synchronize your client to the latest blo
 
 We recommend that you use [Postman](https://www.postman.com) to use the API
 
-![image](../../assets/api_3.jpg)After sign in or sign up a Posmtan account, you can directly import the Postman file we created https://docs.neo.org/RpcServer.postman_collection.json
+![image](../../assets/api_3.jpg)
+
+After sign in or sign up a Posmtan account, you can directly import the Postman file we created https://docs.neo.org/RpcServer.postman_collection.json
 
 ![](../../assets/api_4.jpg)
 

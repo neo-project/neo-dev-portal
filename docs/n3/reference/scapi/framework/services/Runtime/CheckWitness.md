@@ -2,7 +2,7 @@
 
 Verifies that the transactions / block of the calling contract has validated the required script hashes.
 
-Namespace: [Neo.SmartContract.Framework.Services](../../services.md)
+Namespace: [Neo.SmartContract.Framework.Services](../index.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -38,4 +38,4 @@ public class Contract1 : SmartContract
 
 
 
-[Back](../Runtime.md)
+[Back](index.md)

@@ -2,7 +2,7 @@
 
 Initiates an Oracle request.
 
-Namespace: [Neo.SmartContract.Framework.Native](../../native.md)
+Namespace: [Neo.SmartContract.Framework.Native](../index.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -63,4 +63,4 @@ namespace demo
 }
 ```
 
-[Back](../Oracle.md)
+[Back](index.md)

@@ -1,11 +1,4 @@
----
-title: "Containers"
-date: 2022-01-18T21:13:48Z
----
-
-import CodeBlock from '@theme/CodeBlock';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+# Containers
 
 Containers manage the permissions/access of a group of objects that are being stored. Before being able to store an object, you need to create a container.
 

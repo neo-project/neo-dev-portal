@@ -2,7 +2,7 @@
 
 Gets the block where the transaction occurs with transaction hash.
 
-Namespace：[Neo.SmartContract.Framework.Native](../../native.md)
+Namespace：[Neo.SmartContract.Framework.Native](../index.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -30,4 +30,4 @@ public static void Test()
 }
 ```
 
-[Back](../RoleManagement.md)
+[Back](index.md)

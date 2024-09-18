@@ -2,7 +2,7 @@
 
 Transfers GAS
 
-Namespace: [Neo.SmartContract.Framework.Native](../../native.md)
+Namespace: [Neo.SmartContract.Framework.Native](../index.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -50,4 +50,4 @@ Respond description:
 
 - Others: failed.
 
-[Back](../Gas.md)
+[Back](index.md)

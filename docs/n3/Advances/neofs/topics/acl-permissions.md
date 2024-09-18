@@ -1,12 +1,4 @@
----
-title: "ACL Permissions"
-date: 2022-01-18T21:13:48Z
----
-
-import CodeBlock from '@theme/CodeBlock';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
+# ACL Permissions
 
 NeoFS has an awesome set of permissions you can give to containers. 
 

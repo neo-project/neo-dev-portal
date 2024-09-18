@@ -2,7 +2,7 @@
 
 Gets block by the block hash or index.
 
-Namespace：[Neo.SmartContract.Framework.Native](../../native.md)
+Namespace：[Neo.SmartContract.Framework.Native](../index.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -34,4 +34,4 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
-[Back](../Ledger.md)
+[Back](index.md)

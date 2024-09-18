@@ -2,7 +2,7 @@
 
 Invokes the contract.
 
-Namespace: [Neo.SmartContract.Framework.Services](../../services.md)
+Namespace: [Neo.SmartContract.Framework.Services](../index.md)
 
 Assembly:  Neo.SmartContract.Framework
 
@@ -48,4 +48,4 @@ public class Contract1 : SmartContract
 
 
 
-[Back](../Contract.md)
+[Back](index.md)

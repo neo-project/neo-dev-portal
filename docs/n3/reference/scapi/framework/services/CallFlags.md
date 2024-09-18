@@ -2,7 +2,7 @@
 
 Defines special behaviors allowed when invoking smart contracts, such as chain calls, sending notifications, modifying states, etc.
 
-Namespace：[Neo.SmartContract.Framework.Services](../services.md)
+Namespace：[Neo.SmartContract.Framework.Services](index.md)
 
 Assembly: Neo.SmartContract.Framework
 

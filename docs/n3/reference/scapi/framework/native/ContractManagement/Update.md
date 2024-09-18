@@ -2,7 +2,7 @@
 
 Update the contract.
 
-Namespace: [Neo.SmartContract.Framework.Native](../../native.md)
+Namespace: [Neo.SmartContract.Framework.Native](../index.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -50,4 +50,4 @@ Response description:
 The contract hash remains unchanged after the update.
 :::
 
-[Back](../ContractManagement.md)
+[Back](index.md)

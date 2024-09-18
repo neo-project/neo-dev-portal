@@ -2,7 +2,7 @@
 
 Defines response types of Oracle.
 
-Namespace：[Neo.SmartContract.Framework.Native](../native.md)
+Namespace：[Neo.SmartContract.Framework.Native](index.md)
 
 Assembly: Neo.SmartContract.Framework
 

@@ -1,11 +1,4 @@
----
-title: "Helper functions"
-date: 2022-01-18T21:13:48Z
----
-
-import CodeBlock from '@theme/CodeBlock';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+# Helper functions
 
 There are some functions that don't quite fit into another topic. They will be referenced as `helper.X` in other topics
 

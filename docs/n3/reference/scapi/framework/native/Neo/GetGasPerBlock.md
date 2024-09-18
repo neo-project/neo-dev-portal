@@ -2,7 +2,7 @@
 
 Gets the number of GAS generated in each block.
 
-Namespace: [Neo.SmartContract.Framework.Native](../../native.md)
+Namespace: [Neo.SmartContract.Framework.Native](../index.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -40,4 +40,4 @@ Response description:
 
 - Others: failed
 
-[Back](../Neo.md)
+[Back](index.md)

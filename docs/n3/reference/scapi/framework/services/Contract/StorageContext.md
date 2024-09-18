@@ -2,7 +2,7 @@
 
 Returns the storage context of the contract.
 
-Namespace: [Neo.SmartContract.Framework.Services](../../services.md)
+Namespace: [Neo.SmartContract.Framework.Services](../index.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -14,4 +14,4 @@ public extern StorageContext StorageContext
 
 Attribute value: [StorageContext](../StorageContext.md)
 
-[Back](../Contract.md)
+[Back](index.md)

@@ -1,11 +1,4 @@
----
-title: "Objects"
-date: 2022-01-18T21:13:48Z
----
-
-import CodeBlock from '@theme/CodeBlock';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+# Objects
 
 Objects represent items stored within a [container](/docs/n3/neofs/topics/containers). These are subject to the permissions of the container being the most relaxed possible permissions that can be applied to an object. It is possible using [Session/Bearer Tokens](/docs/n3/neofs/topics/tokens) to restrict permissions further on objects within a container however
 
