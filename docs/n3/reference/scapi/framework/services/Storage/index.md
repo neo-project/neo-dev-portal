@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public static class Storage
 ```
 
-## Attributes
+## Properties
 
 | Name                                   | Description |
 | ---------------------------------------- | ---------- |
