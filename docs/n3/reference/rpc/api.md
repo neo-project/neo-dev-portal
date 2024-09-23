@@ -195,3 +195,60 @@ After sign in or sign up a Posmtan account, you can directly import the Postman 
 ![](../../assets/api_6.jpg)
 
 Reference: [Import data into Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-data/). 
+
+## Exception
+
+This document lists the exception codes and corresponding messages that may be thrown by the RpcServer during execution. These exceptions represent errors that can occur during request handling, contract execution, transaction validation, and more. By using these exception codes, developers can quickly pinpoint issues and take appropriate actions.
+
+- Error codes prefixed with `-32xxx` are typically related to the RPC protocol itself, such as parse errors, invalid requests, or methods not found. [Refer](https://www.jsonrpc.org/specification).
+- Error codes prefixed with `-1xx` are often related to unknown entities, such as unknown blocks, contracts, transactions, or state roots.
+- Error codes prefixed with `-3xx` pertain to wallet operations, mainly indicating issues like insufficient funds or incorrect wallet states.
+- Error codes prefixed with `-5xx` are related to transactions and memory pool operations, indicating issues like transaction validation failures, duplicate transactions, or insufficient network fees.
+- Error codes prefixed with `-6xx` are mostly associated with access control, state management, and Oracle services, indicating denied operations or specific services being disabled.
+
+This table provides developers with a quick reference, making it easier to identify the root cause of specific errors during development or debugging and take corrective actions accordingly.
+
+| code   | message                                |
+| :----- | :------------------------------------- |
+| -32700 | Parse error                            |
+| -32600 | Invalid Request                        |
+| -32601 | Method not found                       |
+| -32602 | Invalid params                         |
+| -32603 | Internal error                         |
+| -101   | Unknown block                          |
+| -102   | Unknown contract                       |
+| -103   | Unknown transaction                    |
+| -104   | Unknown storage item                   |
+| -105   | Unknown script container               |
+| -106   | Unknown state root                     |
+| -107   | Unknown session                        |
+| -108   | Unknown iterator                       |
+| -109   | Unknown height                         |
+| -300   | Insufficient funds in wallet           |
+| -301   | Wallet fee limit exceeded              |
+| -302   | No opened wallet                       |
+| -303   | Wallet not found                       |
+| -304   | Wallet not supported                   |
+| -500   | Inventory verification failed          |
+| -501   | Inventory already exists               |
+| -502   | Memory pool capacity reached           |
+| -503   | Already in pool                        |
+| -504   | Insufficient network fee               |
+| -505   | Policy check failed                    |
+| -509   | Invalid transaction script             |
+| -507   | Invalid transaction attribute          |
+| -508   | Invalid signature                      |
+| -509   | Invalid inventory size                 |
+| -510   | Expired transaction                    |
+| -511   | Insufficient funds for fee             |
+| -512   | Invalid contract verification function |
+| -600   | Access denied                          |
+| -601   | State iterator sessions disabled       |
+| -602   | Oracle service disabled                |
+| -603   | Oracle request already finished        |
+| -604   | Oracle request not found               |
+| -605   | Not a designated oracle node           |
+| -606   | Old state not supported                |
+| -607   | Invalid state proof                    |
+| -608   | Contract execution failed              |
+
