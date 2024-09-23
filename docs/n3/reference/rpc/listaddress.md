@@ -11,6 +11,10 @@ Before you can invoke this method you must:
 
 :::
 
+## Exception
+
+- -302, No opened wallet.
+
 ## Example
 
 Request body：

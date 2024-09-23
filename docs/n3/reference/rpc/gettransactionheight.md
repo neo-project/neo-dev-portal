@@ -10,6 +10,10 @@ You must install the plugin [RpcServer](https://github.com/neo-project/neo-modul
 
 txid: Transaction id.
 
+## Exception
+
+- -103, Unknown transaction.
+
 ## Example
 
 Request body:

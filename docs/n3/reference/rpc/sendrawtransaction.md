@@ -10,7 +10,19 @@ You must install the plugin [RpcServer](https://github.com/neo-project/neo-modul
 
 transaction: A Base64-encoded string that has been serialized after the transaction signed in the program.
 
-## Example
+## Exception
+
+- -500, Inventory verification failed.
+- -501, Inventory already exists.
+- -502, Memory pool capacity reached.
+- -503, Already in pool.
+- -505, Policy check failed.
+- -506, Invalid transaction script.
+- -507, Invalid transaction attribute.
+- -508, Invalid signature.
+- -509, Invalid inventory size.
+- -510, Expired transaction.
+- -511, Insufficient funds for fee.
 
 Request body:
 

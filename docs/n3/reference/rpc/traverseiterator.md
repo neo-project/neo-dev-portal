@@ -18,6 +18,12 @@ Gets the Iterator value from `session` and `Iterator id` returned by [invokefunc
 >
 > The validity of the `session` and `iterator id` is set by `SessionExpirationTime` in the `config.json` file of the `RpcServer` plug-in, in seconds.
 
+## Exception
+
+- -107, Unknown session.
+- -108, Unknown iterator.
+- -601, State iterator sessions disabled.
+
 ## Example
 
 Request body:

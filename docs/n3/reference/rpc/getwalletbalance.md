@@ -21,6 +21,10 @@ Gas is 0xd2a4cff31913016155e38e474a2c06d08be276cf
 
 You can query asset ID using the [CLI command](../../node/cli/cli.md) `list asset` or using the blockchain browser.
 
+## Exception
+
+- -302, No opened wallet.
+
 ## Example
 
 :::note

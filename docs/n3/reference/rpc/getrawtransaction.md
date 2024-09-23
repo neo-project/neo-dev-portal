@@ -14,6 +14,10 @@ You must install the plugin [RpcServer](https://github.com/neo-project/neo-modul
   * When verbose is false, serialized information of the block is returned in a Base64-encoded string. If you need the detailed information, use the SDK for deserialization. 
   * When verbose is true or 1, detailed information of the block is returned in Json format string.
 
+## Exception
+
+- -103, Unknown transaction.
+
 ## Example
 
 Request body:
