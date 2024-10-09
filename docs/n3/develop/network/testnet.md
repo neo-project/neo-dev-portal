@@ -28,7 +28,7 @@ If you are a developer, you can ask for Neo and GAS on the TestNet. You will nee
 
 ### Obtaining test coin automatically
 
-You can request up to 500 GAS per day via [NGD faucet](https://neowish.ngd.network/neo3/). 
+You can request up to 50 GAS per day via [NGD faucet](https://neowish.ngd.network/neo3/). 
 
 ### Applying for test coin from Neo website
 
