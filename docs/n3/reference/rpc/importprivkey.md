@@ -15,6 +15,10 @@ Before you can invoke this method you must:
 
 key: The WIF-format private key.
 
+## Exception
+
+- -302, No opened wallet.
+
 ## Example
 
 Request body:

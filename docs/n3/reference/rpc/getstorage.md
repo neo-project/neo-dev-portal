@@ -12,6 +12,11 @@ You must install the plugin [RpcServer](https://github.com/neo-project/neo-modul
 
 * key: The key to look up in storage (Base64-encoded)
 
+## Exception
+
+- -102, Unknown contract.
+- -104, Unknown storage item.
+
 ## Example
 
 Request body:

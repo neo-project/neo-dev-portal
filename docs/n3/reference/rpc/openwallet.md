@@ -11,6 +11,12 @@ You must install the plugin [RpcServer](https://github.com/neo-project/neo-modul
 - path: The wallet file path
 - password: In plain text.
 
+## Exception
+
+- -303, Wallet not found.
+- -304, Wallet not supported.
+- -600, Access denied.
+
 ## Example
 
 Request body：

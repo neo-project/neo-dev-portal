@@ -22,28 +22,34 @@ Invokes the contract method `Verify`. Unlike the method `invokefunction` which e
   - allowedcontracts: contracts of the signature can take effect, if scopes is CustomContracts
   - allowedgroups: pubkeys of the signature can take effect, if scopes is CustomGroups
   
+
 :::note
 You need to use the proper byte order of the address passed according to its data type. If the data type is Hash160, use the big endian script hash; if the data type is ByteArray, use the little endian scripthash.
 :::
- 
+
   For example:
-  
+
     ```json
     {
       "type": "String",
       "value": "Hello"
     }
-  
+      
     {
       "type": "Hash160",
       "value": "0xf621168b1fce3a89c33a5f6bcf7e774b4657031c"
     }
-  
+      
     {
       "type": "ByteArray",
       "value": "7472616e73666572"
     }
     ```
+
+## Exception
+
+- -102, Unknown contract.
+- -512, Invalid contract verification function.
 
 ## Example
 

@@ -26,6 +26,10 @@ You must install the plugin [RpcServer](https://github.com/neo-project/neo-modul
   | RoleManagement       | -8   | 0x49cf4e5378ffcd4dec034fd98a174c5491e395e2 |
   | OracleContract       | -9   | 0xfe924b7cfe89ddd271abaf7210a80a7e11178758 |
 
+## Exception
+
+- -102, Unknown contract.
+
 ## Example
 
 Request body:
