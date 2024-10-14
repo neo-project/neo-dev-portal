@@ -7,7 +7,7 @@ You can click `Block` on the Neo-GUI main page to enter the blockchain page to v
 
 ## Block
 
-The block is a logical structure and the most basic unit of the blockchain. Data is permanently recorded on the blockchain via blocks. For information about the basic concept of the block refer to [Block](../../foundation/Blocks).
+The block is a logical structure and the most basic unit of the blockchain. Data is permanently recorded on the blockchain via blocks. For information about the basic concept of the block refer to [Block](../../foundation/Blocks.md).
 
 ### Viewing block list
 

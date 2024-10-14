@@ -1,6 +1,6 @@
 # Objects
 
-Objects represent items stored within a [container](/docs/n3/neofs/topics/containers). These are subject to the permissions of the container being the most relaxed possible permissions that can be applied to an object. It is possible using [Session/Bearer Tokens](/docs/n3/neofs/topics/tokens) to restrict permissions further on objects within a container however
+Objects represent items stored within a [container](containers.md). These are subject to the permissions of the container being the most relaxed possible permissions that can be applied to an object. It is possible using [Session/Bearer Tokens](tokens.md) to restrict permissions further on objects within a container however
 
 Please note actions on objects are restricted by the permissions on the container AND the permissions of the token used to access the functions. 
 
@@ -8,10 +8,10 @@ Please note actions on objects are restricted by the permissions on the containe
 
 ### you will need
 
-- A [session token](/docs/n3/neofs/topics/tokens)
-- A [container](/docs/n3/neofs/topics/containers) ID to upload the object to, with the correct permissions
-- An [object](/docs/n3/neofs/topics/objects) to upload (`filepath`)
-- Have created a [NeoFS client](/docs/n3/neofs/topics/clients) (`cli`)
+- A [session token](tokens.md)
+- A [container](containers.md) ID to upload the object to, with the correct permissions
+- An [object](objects.md) to upload (`filepath`)
+- Have created a [NeoFS client](clients.md) (`cli`)
 
 ### Attributes
 
@@ -38,11 +38,11 @@ attributes = append(attributes, []*object.Attribute{timeStampAttr, fileNameAttr,
 
 :::note
 If you have set the FileName attribute, you can also refer to the object by its filename, i.e
-https://http.testnet.fs.neo.org/CONTAINER_ID/upload.png when its uploaded, (see [acl permissions](/docs/n3/neofs/topics/acl-permissions))
+https://http.testnet.fs.neo.org/CONTAINER_ID/upload.png when its uploaded, (see [acl permissions](acl-permissions.md))
 :::
 
 ### Session Token
-See [tokens](/docs/n3/neofs/topics/tokens) for how to create a session token
+See [tokens](tokens.md) for how to create a session token
 
 ## Upload 
 

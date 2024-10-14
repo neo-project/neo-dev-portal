@@ -8,11 +8,11 @@ As NeoFS is built on top of the Neo blockchain, these permissions are based on w
 
 ## Objects
 
-[Objects](/docs/n3/neofs/topics/objects) represent all files/data that is stored on NeoFS. Objects are accessed via SessionTokens or Bearer Tokens
+[Objects](../topics/objects.md) represent all files/data that is stored on NeoFS. Objects are accessed via SessionTokens or Bearer Tokens
 
 ## Containers
 
-A [container](/docs/n3/neofs/topics/containers) controls the basic permissions that are applied to all content within it. Think of a container like a drive on a computer or network (and not a folder per se).
+A [container](../topics/containers.md) controls the basic permissions that are applied to all content within it. Think of a container like a drive on a computer or network (and not a folder per se).
 
 All objects must live within a container, their permissions will default to the permissions of the container
 

@@ -72,7 +72,7 @@ The vast majority of GAS generated will be used to incentivize NEO holders to vo
 
 ## See Also
 
-[Governance API](../reference/governance_api/index)
+[Governance API](../reference/governance_api/index.md)
 
 [Neo Governance Page](https://neo.org/gov)
 

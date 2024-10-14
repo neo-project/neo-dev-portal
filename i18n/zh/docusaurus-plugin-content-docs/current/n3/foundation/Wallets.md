@@ -28,8 +28,8 @@ Neo 中，账户即合约，地址代表的为一段合约代码，从私钥到�
 - WIF 格式
 
    wif 格式是在原有32字节数据前后添加前缀0x80和后缀0x01,并做Base58Check编码的字符串
-
-[![](images/wallets/wif_format.png)](../images/wallets/privateKey-wif.png)
+   
+   ![](images/wallets/wif_format.png)
 
  Example: 
 

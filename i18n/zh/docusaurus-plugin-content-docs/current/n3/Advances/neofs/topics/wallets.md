@@ -3,9 +3,7 @@ title: "Wallets"
 date: 2022-01-18T21:13:48Z
 ---
 
-import CodeBlock from '@theme/CodeBlock';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+# Wallets
 
 Almost everything you may want to do with NeoFS will require access to a wallet. Here are a few handy ways to get a wallet
 
@@ -166,7 +164,7 @@ Once you have this, you can now retrieve your NeoFS balance
 You will need
 
 1. Private key
-2. [NeoFS client](/docs/n3/neofs/topics/clients) (`cli`)
+2. [NeoFS client](clients.md) (`cli`)
 
 ```go
 w, err := owner.NEO3WalletFromPublicKey(&key.PublicKey)

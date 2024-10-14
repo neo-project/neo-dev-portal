@@ -15,8 +15,8 @@ An address can be registered as candidate or unregistered afterwards. Correspond
 
 | Method | Parameters | Fee in GAS |
 | ---- | ------------------------------------ | ---- |
-| [`RegisterCandidate`](../scapi/framework/native/Neo/RegisterCandidate) | ECPoint publicKey | Adjustable, initially 0.00001 |
-| [`UnregisterCandidate`](../scapi/framework/native/Neo/UnregisterCandidate) | ECPoint publicKey | 0.00065536 (CpuFee) |
+| [`RegisterCandidate`](../scapi/framework/native/Neo/RegisterCandidate.md) | ECPoint publicKey | Adjustable, initially 0.00001 |
+| [`UnregisterCandidate`](../scapi/framework/native/Neo/UnregisterCandidate.md) | ECPoint publicKey | 0.00065536 (CpuFee) |
 
 :::note
 Registering / unregistering candidate requires signature. It means candidate registering / unregistering is only self-determined. 
@@ -30,13 +30,13 @@ Voting contract method is as follows. Please not that voter's signature will be 
 
 | Method | Parameters | Fee in GAS |
 | ---- | ------------------------------------ | ---- |
-| [`Vote`](../scapi/framework/native/Neo/Vote) | UInt160 account, byte[] voteTo | 0.00065536 (CpuFee) |
+| [`Vote`](../scapi/framework/native/Neo/Vote.md) | UInt160 account, byte[] voteTo | 0.00065536 (CpuFee) |
 
 As voters' votes & held NEO, as well as registered candidates keep changing, candidate set and their votes are re-calculated in every block.
 
 | Method | Parameters | Fee in GAS |
 | ---- | ------------------------------------ | ---- |
-| [`GetCandidates`](../scapi/framework/native/Neo/GetCandidates) | null | 0 |
+| [`GetCandidates`](../scapi/framework/native/Neo/GetCandidates.md) | null | 0 |
 
 ## Committee
 
@@ -79,13 +79,13 @@ Furthermore, corresponding reading methods are also supported:
 
 | Method | Parameters | Fee in GAS | Contract |
 | ---- | ------------------------------------ | ---- | ---- |
-| [`GetDesignatedByRole`](../scapi/framework/native/RoleManagement/GetDesignatedByRole) | Role role, uint index | 0.00032768 (CpuFee) | RoleManagement |
-| [`GetFeePerByte`](../scapi/framework/native/Policy/GetFeePerByte) | null | 0.00032768 (CpuFee) | PolicyContract |
-| [GetExecFeeFactor](../scapi/framework/native/Policy/GetExecFeeFactor) | null | 0.00032768 (CpuFee) | PolicyContract |
-| [GetStoragePrice](../scapi/framework/native/Policy/GetStoragePrice) | null | 0.00032768 (CpuFee) | PolicyContract |
-| [`IsBlocked`](../scapi/framework/native/Policy/IsBlocked) | UInt160 account | 0.00032768 (CpuFee) | PolicyContract |
+| [`GetDesignatedByRole`](../scapi/framework/native/RoleManagement/GetDesignatedByRole.md) | Role role, uint index | 0.00032768 (CpuFee) | RoleManagement |
+| [`GetFeePerByte`](../scapi/framework/native/Policy/GetFeePerByte.md) | null | 0.00032768 (CpuFee) | PolicyContract |
+| [GetExecFeeFactor](../scapi/framework/native/Policy/GetExecFeeFactor.md) | null | 0.00032768 (CpuFee) | PolicyContract |
+| [GetStoragePrice](../scapi/framework/native/Policy/GetStoragePrice.md) | null | 0.00032768 (CpuFee) | PolicyContract |
+| [`IsBlocked`](../scapi/framework/native/Policy/IsBlocked.md) | UInt160 account | 0.00032768 (CpuFee) | PolicyContract |
 | GetPrice | null | 0.00032768 (CpuFee) | OracleContract |
-| [`GetGasPerBlock`](../scapi/framework/native/Neo/GetGasPerBlock) | null | 0.00032768 (CpuFee) | NeoToken |
+| [`GetGasPerBlock`](../scapi/framework/native/Neo/GetGasPerBlock.md) | null | 0.00032768 (CpuFee) | NeoToken |
 | GetRegisterPrice | null | 0.00032768 (CpuFee) | NeoToken |
 | GetMinimumDeploymentFee | null | 0.00032768 (CpuFee) | ContractManagement |
 
@@ -99,7 +99,7 @@ Committee members are refreshed every 21 blocks.
 
 | Method | Parameters | Fee in GAS | Return value |
 | ---- | ------------------------------------ | ---- | ---- |
-| [`GetCommittee`](../scapi/framework/native/Neo/GetCommittee) | null | 0.04194304 (CpuFee) | Current committee members in format of ECPoint[] |
+| [`GetCommittee`](../scapi/framework/native/Neo/GetCommittee.md) | null | 0.04194304 (CpuFee) | Current committee members in format of ECPoint[] |
 
 ## Consensus Nodes
 
@@ -117,7 +117,7 @@ Similar to committee members, consensus nodes are refreshed every 21 blocks.
 
 | Method | Parameters | Fee in GAS | Return value |
 | ---- | ------------------------------------ | ---- | ---- |
-|  [`GetNextBlockValidators`](../scapi/framework/native/Neo/GetNextBlockValidators)  | null | 0.04194304 (CpuFee) | Consensus nodes by persisting block in format of ECPoint[] |
+|  [`GetNextBlockValidators`](../scapi/framework/native/Neo/GetNextBlockValidators.md)  | null | 0.04194304 (CpuFee) | Consensus nodes by persisting block in format of ECPoint[] |
 
 ## Token Distribution
 
@@ -131,14 +131,14 @@ NEO and GAS are [Nep17](https://github.com/neo-project/proposals/blob/master/nep
 
 | Method | Parameters | Fee in GAS | Result |
 | ---- | ---- | ---- | ---- |
-| [`symbol`](symbol)  | null | 0 | Token symbol in String |
-|  [`decimals`](decimals)  | null | 0 | Token decimals in UInt |
-| [`TotalSupply`](../scapi/framework/native/Neo/TotalSupply) | null | 0.00032768 (CpuFee) | Token total supply in BigInteger |
-| [`BalanceOf`](../scapi/framework/native/Neo/BalanceOf) | UInt160 account | 0.00032768 (CpuFee) | account balance in BigInteger |
-| [`Transfer`](../scapi/framework/native/Neo/Transfer) | UInt160 from, UInt160 to, BigInteger amount | 0.00131072 (CpuFee) + 0.0000005 (StorageFee) | Send specified amount of token from Address *from* to Address *to*. Please note that it will check *from*'s signature, whether caller is *from*, whether *to* is payable, whether *from*'s balance is enough |
+| [`symbol.md`](symbol.md)  | null | 0 | Token symbol.md in String |
+|  [`decimals.md`](decimals.md)  | null | 0 | Token decimals.md in UInt |
+| [`TotalSupply`](../scapi/framework/native/Neo/TotalSupply.md) | null | 0.00032768 (CpuFee) | Token total supply in BigInteger |
+| [`BalanceOf`](../scapi/framework/native/Neo/BalanceOf.md) | UInt160 account | 0.00032768 (CpuFee) | account balance in BigInteger |
+| [`Transfer`](../scapi/framework/native/Neo/Transfer.md) | UInt160 from, UInt160 to, BigInteger amount | 0.00131072 (CpuFee) + 0.0000005 (StorageFee) | Send specified amount of token from Address *from* to Address *to*. Please note that it will check *from*'s signature, whether caller is *from*, whether *to* is payable, whether *from*'s balance is enough |
 
 Contract methods by NEO:
 
 | Method | Parameters | Fee in GAS | Return value |
 | ---- | ------------------------------------ | ---- | ---- |
-| [`UnclaimedGas`](../scapi/framework/native/Neo/UnclaimedGas) | UInt160 account | 0.00131072 (CpuFee) | unclaimed GAS amount of this address in uint |
+| [`UnclaimedGas`](../scapi/framework/native/Neo/UnclaimedGas.md) | UInt160 account | 0.00131072 (CpuFee) | unclaimed GAS amount of this address in uint |

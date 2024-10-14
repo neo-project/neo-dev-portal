@@ -46,7 +46,7 @@ func StringToUint160(s string) (u util.Uint160, err error) {
 
 ## Get credentials from path
 
-This returns the private key, which anything can be derived from, with regards to a [wallet](/docs/n3/neofs/topics/wallets)
+This returns the private key, which anything can be derived from, with regards to a [wallet](wallets.md)
 
 ```go
 // GetCredentialsFromPath retrieves the private key from a wallet file 

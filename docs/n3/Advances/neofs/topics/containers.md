@@ -12,10 +12,10 @@ Containers manage the permissions/access of a group of objects that are being st
 
 Before being able to create a container, you will need to 
 
-- create a [policy](/docs/n3/neofs/topics/policies) (`placementPolicy`)
-- have access to a private key. This is retrieved from a json file using the [helper function](/docs/n3/neofs/topics/helpers/#get-credentials-from-path) `helper.GetCredentialsFromPath` (`key`)
+- create a [policy](policies.md) (`placementPolicy`)
+- have access to a private key. This is retrieved from a json file using the [helper function](helpers.md#get-credentials-from-path) `helper.GetCredentialsFromPath` (`key`)
 - Decide on a set of permissions, (`permissions`)
--  Have created a [NeoFS client](/docs/n3/neofs/topics/clients) (`cli`)
+-  Have created a [NeoFS client](clients.md) (`cli`)
 
 ### Owner ID
 
