@@ -39,7 +39,7 @@ signers中余下的字段定义了签名的作用范围。当 checkwitness 用�
 | `Rules` | 当 `scopes` 设置为`WitnessRules` 时，填写签名规则数组 | `WitnessRules[]` |
 
 ### sysfee
-系统费用取决于交易脚本的大小，数量和NeoVM指令类型。每一个指令所对应的费用，请参考[opcode 费用](../虚拟机#费用)。Neo N3取消了每笔交易10 GAS的免费额度，系统费用总额受合约脚本的指令数量和指令类型影响。计算公式如下所示：
+系统费用取决于交易脚本的大小，数量和NeoVM指令类型。每一个指令所对应的费用，请参考[opcode 费用](../fees.md)。Neo N3取消了每笔交易10 GAS的免费额度，系统费用总额受合约脚本的指令数量和指令类型影响。计算公式如下所示：
 
 ![](images/transaction/system_fee.png)
 

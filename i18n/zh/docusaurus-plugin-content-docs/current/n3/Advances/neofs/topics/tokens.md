@@ -3,11 +3,9 @@ title: "Tokens"
 date: 2022-01-18T21:13:48Z
 ---
 
-import CodeBlock from '@theme/CodeBlock';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+# Tokens
 
-Tokens are required to act on any [objects](/docs/n3/neofs/topics/objects) within a [container](/docs/n3/neofs/topics/containers). Sessions last for limited time and are restricted by permissions. [Session tokens](/docs/n3/neofs/topics/tokens) use the private key to sign them while [bearer tokens](/examples/tokens) are issued to wallets by a container owner.
+Tokens are required to act on any [objects](objects.md) within a [container](containers.md). Sessions last for limited time and are restricted by permissions. [Session tokens](tokens.md) use the private key to sign them while `bearer tokens` are issued to wallets by a container owner.
 
 ## Session Tokens
 
@@ -19,8 +17,8 @@ You will need
 
 1. to decide how long the token should last (e.g `const DEFAULT_EXPIRATION = 140000`)
 2. a context (generally you can use `context.Background()`) but this depends on your usecase
-3. A [NeoFS client](/docs/n3/neofs/topics/clients)
-4. have access to a private key. This is retrieved from a json file using the [helper function](/docs/n3/neofs/topics/helpers/#get-credentials-from-path) `helper.GetCredentialsFromPath` (`key`)
+3. A [NeoFS client](clients.md)
+4. have access to a private key. This is retrieved from a json file using the [helper function](helpers.md#get-credentials-from-path) `helper.GetCredentialsFromPath` (`key`)
 
 ### Libraries
 
@@ -64,17 +62,17 @@ Session tokens are all that is required for the owner, or the account with the p
 
 ## Bearer Tokens
 
-Bearer tokens allow the account that owns the container, to issue limited time access tokens to other accounts. Bearer tokens require rules to be applied to grant access and to deny access to anyone else. Read more about [EACL Tables](/docs/n3/neofs/topics/acl-permissions) to get a better understanding of what they are
+Bearer tokens allow the account that owns the container, to issue limited time access tokens to other accounts. Bearer tokens require rules to be applied to grant access and to deny access to anyone else. Read more about [EACL Tables](acl-permissions.md) to get a better understanding of what they are
 
 Once an account has a bearer token it can pass the token along with any request to the container as it does a Session Token.
 
 You will need
 
-1. A [NeoFS client](/docs/n3/neofs/topics/clients)
+1. A [NeoFS client](clients.md)
 2. A context (`context.Background` is fine in most cicumstances)
 3. When you want the bearer token to expire, in epochs. See helpers for a basic estimation
 4. The ownerID of the intended account (see helpers) (`tokenReceiverOwnerID`)
-5. An [EACL table](/docs/n3/neofs/topics/ecl-permissions)
+5. An [EACL table](acl-permissions.md)
 6. The container owner's private key (`containerOwnerPrivateKey`)
 
 ```go

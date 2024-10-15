@@ -54,7 +54,7 @@ if err != nil {
 }
 ```
 
-* Private key can be retrieved from a [wallet](/docs/n3/neofs/topics/wallets) - its type is `*ecdsa.PrivateKey`
+* Private key can be retrieved from a [wallet](wallets.md) - its type is `*ecdsa.PrivateKey`
 * The network is a string, for now you can use 
 
 ```go

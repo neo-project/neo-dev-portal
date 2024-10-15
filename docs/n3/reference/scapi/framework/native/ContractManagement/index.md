@@ -22,7 +22,7 @@ public class ContractManagement
 
 | Name                                                         | Description                                          |
 | ------------------------------------------------------------ | ---------------------------------------------------- |
-| [GetMinimumDeploymentFee()](GetMinimumDeploymentFee) | Gets the minimum fee of contract deployment          |
+| [GetMinimumDeploymentFee.md()](GetMinimumDeploymentFee.md) | Gets the minimum fee of contract deployment          |
 | [GetContract(UInt160 hash)](GetContract.md) | Gets the contract based on the given contract hash   |
 | [GetContractById(int id)](GetContractById.md) | Maps the specified ID to the deployed contract       |
 | [GetContractHashes()](GetContractHashes.md) | Gets the hashes of all non-native deployed contracts |

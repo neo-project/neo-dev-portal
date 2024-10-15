@@ -159,7 +159,7 @@ Once you have this, you can now retrieve your NeoFS balance
 You will need
 
 1. Private key
-2. [NeoFS client](/docs/n3/neofs/topics/clients) (`cli`)
+2. [NeoFS client](clients.md) (`cli`)
 
 ```go
 w, err := owner.NEO3WalletFromPublicKey(&key.PublicKey)

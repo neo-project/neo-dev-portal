@@ -59,7 +59,7 @@ The system call is a special operation code, through which you can call the inte
 
 ## Dynamic Call
 
-A special system call that invokes another contract within a contract. It can be wrote as `Contract.Call(scriptHash, method, params)`. For more information refer to [Invoking Smart Contracts](develop/deploy/invoke).
+A special system call that invokes another contract within a contract. It can be wrote as `Contract.Call(scriptHash, method, params)`. For more information refer to [Invoking Smart Contracts](develop/deploy/invoke.md).
 
 ## Storage
 

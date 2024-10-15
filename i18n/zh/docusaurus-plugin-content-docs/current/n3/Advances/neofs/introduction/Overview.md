@@ -3,7 +3,9 @@ title: "Overview"
 date: 2022-01-18T21:13:48Z
 ---
 
-This chapter outlines the [concepts](/docs/n3/neofs/introduction/concepts) and top level points required to understand and enjoy building on neo & NeoFS
+# Overview
+
+This chapter outlines the [concepts](concepts.md) and top level points required to understand and enjoy building on neo & NeoFS
 
 ### Starting out
 
@@ -14,7 +16,7 @@ You will need:
 1. Go language installed and running
 2. [NeoFS SDK - Go](https://github.com/nspcc-dev/neofs-sdk-go)
 3. [Neo Go library](https://github.com/nspcc-dev/neo-go)
-4. Read the [wallets](/docs/n3/neofs/topics/wallets/) page as it will outline the basis of working with Neo and NeoFS - a wallet. 
+4. Read the [wallets](../topics/wallets.md) page as it will outline the basis of working with Neo and NeoFS - a wallet. 
 5. Neo/Gas in your wallet. You can get these from the [testnet faucet here](https://neowish.ngd.network/#/)
 6. These libraries will assume you are using the testnet throughout. All urls referenced can be retrieved from NeoFS or from Dora the explorer.
 
@@ -33,7 +35,7 @@ This documentation is not a tutorial, it is a reference to using the SDK, howeve
 
 ### Libraries
 
-[Libraries](/docs/n3/neofs/introduction/libraries) covers the packages and libraries that are required to interact with Neo and NeoFS in Go
+[Libraries](libraries.md) covers the packages and libraries that are required to interact with Neo and NeoFS in Go
 
 ### References
 
@@ -41,4 +43,4 @@ This documentation is not a tutorial, it is a reference to using the SDK, howeve
 
 ### With Thanks To
 
-* [NSPCC team](https://github.com/nspcc-dev/) - team behind NeoFS, the [neo-go-sdk](https://github.com/nspcc-dev/neofs-sdk-go) and the [neo-go](github.com/nspcc-dev/neo-go) packages
+* [NSPCC team](https://github.com/nspcc-dev/) - team behind NeoFS, the [neo-go-sdk](https://github.com/nspcc-dev/neofs-sdk-go) and the [neo-go](https://github.com/nspcc-dev/neo-go) packages
