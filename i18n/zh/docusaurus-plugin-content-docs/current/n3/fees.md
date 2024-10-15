@@ -25,53 +25,53 @@ sidebar_label: '合约费用'
 
 ### 操作码执行（OpCode）费用
 
-| 执行费用（GAS） | 操作码（OpCode）指令名称                                     |
+| 执行费用（Datoshi） | 操作码（OpCode）指令名称                                     |
 | --------------- | ------------------------------------------------------------ |
-| 0.00032768      | CALLT                                                        |
-| 0.00008192      | VALUES, APPEND, SETITEM, REVERSEITEMS, CONVERT               |
-| 0.00004096      | PUSHDATA4                                                    |
-| 0.00002048      | MEMCPY, CAT, SUBSTR, LEFT, RIGHT, MODPOW, PACKMAP, PACKSTRUCT, PACK, UNPACK |
-| 0.00000512      | PUSHDATA2, CALL, CALL_L, CALLA, THROW, NEWARRAY, NEWARRAY_T, NEWSTRUCT |
-| 0.00000256      | NEWBUFFER                                                    |
-| 0.00000064      | INITSLOT, POW, SQRT, HASKEY, PICKITEM                        |
-| 0.00000032      | EQUAL, NOTEQUAL, MODMUL                                      |
-| 0.00000016      | XDROP, CLEAR, ROLL, REVERSEN, INITSSLOT, NEWARRAY0, NEWSTRUCT0, KEYS, REMOVE, CLEARITEMS, POPITEM |
-| 0.00000008      | PUSHDATA1, AND, OR, XOR, ADD, SUB, MUL, DIV, MOD, SHL, SHR, BOOLAND, BOOLOR, NUMEQUAL, NUMNOTEQUAL, LT, LE, GT, GE, MIN, MAX, WITHIN, NEWMAP |
-| 0.00000004      | PUSHINT128, PUSHINT256, PUSHA, TRY, TRY_L, ENDTRY, ENDTRY_L, ENDFINALLY, INVERT, SIGN, ABS, NEGATE, INC, DEC, NOT, NZ, SIZE |
-| 0.00000002      | JMP, JMP_L, JMPIF, JMPIF_L, JMPIFNOT, JMPIFNOT_L, JMPEQ, JMPEQ_L, JMPNE, JMPNE_L, JMPGT, JMPGT_L, JMPGE, JMPGE_L, JMPLT, JMPLT_L, JMPLE, JMPLE_L, DEPTH, DROP, NIP, DUP, OVER, PICK, TUCK, SWAP, ROT, REVERSE3, REVERSE4, LDSFLD0, LDSFLD1, LDSFLD2, LDSFLD3, LDSFLD4, LDSFLD5, LDSFLD6, LDSFLD, STSFLD0, STSFLD1, STSFLD2, STSFLD3, STSFLD4, STSFLD5, STSFLD6, STSFLD, LDLOC0, LDLOC1, LDLOC2, LDLOC3, LDLOC4, LDLOC5, LDLOC6, LDLOC, STLOC0, STLOC1, STLOC2, STLOC3, STLOC4, STLOC5, STLOC6, STLOC, LDARG0, LDARG1, LDARG2, LDARG3, LDARG4, LDARG5, LDARG6, LDARG, STARG0, STARG1, STARG2, STARG3, STARG4, STARG5, STARG6, STARG, ISNULL, ISTYPE |
-| 0.00000001      | PUSHINT8, PUSHINT16, PUSHINT32, PUSHINT64, PUSHT, PUSHF, PUSHNULL, PUSHM1, PUSH0, PUSH1, PUSH2, PUSH3, PUSH4, PUSH5, PUSH6, PUSH7, PUSH8, PUSH9, PUSH10, PUSH11, PUSH12, PUSH13, PUSH14, PUSH15, PUSH16, NOP, ASSERT, ASSERTMSG |
+| 32768      | CALLT                                                        |
+| 8192      | VALUES, APPEND, SETITEM, REVERSEITEMS, CONVERT               |
+| 4096      | PUSHDATA4                                                    |
+| 2048      | MEMCPY, CAT, SUBSTR, LEFT, RIGHT, MODPOW, PACKMAP, PACKSTRUCT, PACK, UNPACK |
+| 512      | PUSHDATA2, CALL, CALL_L, CALLA, THROW, NEWARRAY, NEWARRAY_T, NEWSTRUCT |
+| 256      | NEWBUFFER                                                    |
+| 64      | INITSLOT, POW, SQRT, HASKEY, PICKITEM                        |
+| 32      | EQUAL, NOTEQUAL, MODMUL                                      |
+| 16      | XDROP, CLEAR, ROLL, REVERSEN, INITSSLOT, NEWARRAY0, NEWSTRUCT0, KEYS, REMOVE, CLEARITEMS, POPITEM |
+| 8      | PUSHDATA1, AND, OR, XOR, ADD, SUB, MUL, DIV, MOD, SHL, SHR, BOOLAND, BOOLOR, NUMEQUAL, NUMNOTEQUAL, LT, LE, GT, GE, MIN, MAX, WITHIN, NEWMAP |
+| 4      | PUSHINT128, PUSHINT256, PUSHA, TRY, TRY_L, ENDTRY, ENDTRY_L, ENDFINALLY, INVERT, SIGN, ABS, NEGATE, INC, DEC, NOT, NZ, SIZE |
+| 2      | JMP, JMP_L, JMPIF, JMPIF_L, JMPIFNOT, JMPIFNOT_L, JMPEQ, JMPEQ_L, JMPNE, JMPNE_L, JMPGT, JMPGT_L, JMPGE, JMPGE_L, JMPLT, JMPLT_L, JMPLE, JMPLE_L, DEPTH, DROP, NIP, DUP, OVER, PICK, TUCK, SWAP, ROT, REVERSE3, REVERSE4, LDSFLD0, LDSFLD1, LDSFLD2, LDSFLD3, LDSFLD4, LDSFLD5, LDSFLD6, LDSFLD, STSFLD0, STSFLD1, STSFLD2, STSFLD3, STSFLD4, STSFLD5, STSFLD6, STSFLD, LDLOC0, LDLOC1, LDLOC2, LDLOC3, LDLOC4, LDLOC5, LDLOC6, LDLOC, STLOC0, STLOC1, STLOC2, STLOC3, STLOC4, STLOC5, STLOC6, STLOC, LDARG0, LDARG1, LDARG2, LDARG3, LDARG4, LDARG5, LDARG6, LDARG, STARG0, STARG1, STARG2, STARG3, STARG4, STARG5, STARG6, STARG, ISNULL, ISTYPE |
+| 1      | PUSHINT8, PUSHINT16, PUSHINT32, PUSHINT64, PUSHT, PUSHF, PUSHNULL, PUSHM1, PUSH0, PUSH1, PUSH2, PUSH3, PUSH4, PUSH5, PUSH6, PUSH7, PUSH8, PUSH9, PUSH10, PUSH11, PUSH12, PUSH13, PUSH14, PUSH15, PUSH16, NOP, ASSERT, ASSERTMSG |
 | 0               | ABORT, ABORTMSG, RET, SYSCALL                                          |
 
 参考：[ApplicationEngine.OpCodePrices.cs](https://github.com/neo-project/neo/blob/master/src/Neo/SmartContract/ApplicationEngine.OpCodePrices.cs)
 
 ### 系统调用费用
 
-| 系统调用名称                          | 执行费用（GAS）      |
+| 系统调用名称                          | 执行费用（Datoshi）      |
 | ------------------------------------- | -------------------- |
-| System.Contract.Call                  | 0.00032768           |
+| System.Contract.Call                  | 32768           |
 | System.Contract.CallNative            | 参考原生合约费用     |
-| System.Contract.IsStandard            | 0.00001024           |
-| System.Contract.GetCallFlags          | 0.00001024           |
-| System.Contract.CreateStandardAccount | 0.00000256           |
-| System.Contract.CreateMultisigAccount | 0.00000256           |
-| Neo.Crypto.CheckSig                   | 0.00032768           |
+| System.Contract.IsStandard            | 1024           |
+| System.Contract.GetCallFlags          | 1024           |
+| System.Contract.CreateStandardAccount | 256           |
+| System.Contract.CreateMultisigAccount | 256           |
+| Neo.Crypto.CheckSig                   | 32768           |
 | Neo.Crypto.CheckMultisig              | 根据签名数量动态计算 |
-| System.Iterator.Create                | 0.00000016           |
-| System.Iterator.Next                  | 0.00032768           |
-| System.Iterator.Value                 | 0.00000016           |
-| System.Runtime.Platform               | 0.00000008           |
-| System.Runtime.GetTrigger             | 0.00000008           |
-| System.Runtime.GetTime                | 0.00000008           |
-| System.Runtime.GetScriptContainer     | 0.00000008           |
-| System.Runtime.GetExecutingScriptHash | 0.00000016           |
-| System.Runtime.GetCallingScriptHash   | 0.00000016           |
-| System.Runtime.GetEntryScriptHash     | 0.00000016           |
-| System.Runtime.CheckWitness           | 0.00001024           |
-| System.Runtime.GetInvocationCounter   | 0.00000016           |
-| System.Runtime.Log                    | 0.00032768           |
-| System.Runtime.Notify                 | 0.00032768           |
-| System.Runtime.GetNotifications       | 0.00000256           |
-| System.Runtime.GasLeft                | 0.00000016           |
+| System.Iterator.Create                | 16           |
+| System.Iterator.Next                  | 32768           |
+| System.Iterator.Value                 | 16           |
+| System.Runtime.Platform               | 8           |
+| System.Runtime.GetTrigger             | 8           |
+| System.Runtime.GetTime                | 8           |
+| System.Runtime.GetScriptContainer     | 8           |
+| System.Runtime.GetExecutingScriptHash | 16           |
+| System.Runtime.GetCallingScriptHash   | 16           |
+| System.Runtime.GetEntryScriptHash     | 16           |
+| System.Runtime.CheckWitness           | 1024           |
+| System.Runtime.GetInvocationCounter   | 16           |
+| System.Runtime.Log                    | 32768           |
+| System.Runtime.Notify                 | 32768           |
+| System.Runtime.GetNotifications       | 256           |
+| System.Runtime.GasLeft                | 16           |
 
 参考：
 
@@ -89,25 +89,25 @@ sidebar_label: '合约费用'
 
 ### 原生合约执行费用
 
-| 原生合约名称       | 原生合约方法            | 执行费用（GAS）                 |
+| 原生合约名称       | 原生合约方法            | 执行费用（Datoshi）                 |
 | ------------------ | ----------------------- | ------------------------------- |
 | ContractManagement | Deploy                  | 参考存储区使用费用，最低 10 GAS |
 | ContractManagement | Update                  | 参考存储区使用费用              |
-| LedgerContract     | GetTransactionFromBlock | 0.00065536                      |
-| NeoToken           | UnclaimedGas            | 0.00131072                      |
+| LedgerContract     | GetTransactionFromBlock | 65536                      |
+| NeoToken           | UnclaimedGas            | 131072                      |
 | NeoToken           | RegisterCandidate       | 动态计算，默认 1000 GAS         |
-| NeoToken           | UnregisterCandidate     | 0.00065536                      |
-| NeoToken           | Vote                    | 0.00065536                      |
-| NeoToken           | GetCandidates           | 0.04194304                      |
-| NeoToken           | GetCommittee            | 0.04194304                      |
-| NeoToken           | GetNextBlockValidators  | 0.04194304                      |
-| NeoToken、GasToken | Transfer                | 0.00131072                      |
+| NeoToken           | UnregisterCandidate     | 65536                      |
+| NeoToken           | Vote                    | 65536                      |
+| NeoToken           | GetCandidates           | 4194304                      |
+| NeoToken           | GetCommittee            | 4194304                      |
+| NeoToken           | GetNextBlockValidators  | 4194304                      |
+| NeoToken、GasToken | Transfer                | 131072                      |
 | OracleContract     | Request                 | 动态计算，用户调用时指定手续费  |
-| StdLib             | Deserialize             | 0.00008192                      |
-| StdLib             | JsonDeserialize         | 0.00008192                      |
-| StdLib             | 其他                    | 0.00002048                      |
+| StdLib             | Deserialize             | 8192                      |
+| StdLib             | JsonDeserialize         | 8192                      |
+| StdLib             | 其他                    | 2048                      |
 
-其他未列出的原生合约方法的手续费均为 0.00032768 GAS。
+其他未列出的原生合约方法的手续费均为 32768 Datoshi。
 
 参考： [neo/SmartContract/Native](https://github.com/neo-project/neo/tree/master/src/Neo/SmartContract/Native)
 
