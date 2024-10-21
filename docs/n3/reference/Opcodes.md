@@ -976,7 +976,7 @@ This opcode set defines instructions for stack operations, compound-type handlin
         </tr>
         <tr>
             <td><a class="anchor" name="23"></a><a href="#23">23</a></td>
-            <td>JMP</td>
+            <td>JMP_L</td>
             <td>-</td>
             <td>-</td>
             <td>-</td>
@@ -1005,7 +1005,7 @@ This opcode set defines instructions for stack operations, compound-type handlin
         </tr>
         <tr>
             <td><a class="anchor" name="25"></a><a href="#25">25</a></td>
-            <td>JMPIF\_L</td>
+            <td>JMPIF_L</td>
             <td>
                 <table class="stack table-bordered">
                     <tbody>
@@ -1043,7 +1043,7 @@ This opcode set defines instructions for stack operations, compound-type handlin
         </tr>
         <tr>
             <td><a class="anchor" name="27"></a><a href="#27">27</a></td>
-            <td>JMPIFNOT\_L</td>
+            <td>JMPIFNOT_L</td>
             <td>
                 <table class="stack table-bordered">
                     <tbody>
@@ -1082,7 +1082,7 @@ This opcode set defines instructions for stack operations, compound-type handlin
         </tr>
         <tr>
             <td><a class="anchor" name="29"></a><a href="#29">29</a></td>
-            <td>JMPEQ\_L</td>
+            <td>JMPEQ_L</td>
             <td>
                 <table class="stack table-bordered">
                     <tbody>
@@ -1122,7 +1122,7 @@ This opcode set defines instructions for stack operations, compound-type handlin
         </tr>
         <tr>
             <td><a class="anchor" name="2B"></a><a href="#2B">2B</a></td>
-            <td>JMPNE\_L</td>
+            <td>JMPNE_L</td>
             <td>
                 <table class="stack table-bordered">
                     <tbody>
@@ -1162,7 +1162,7 @@ This opcode set defines instructions for stack operations, compound-type handlin
         </tr>
         <tr>
             <td><a class="anchor" name="2D"></a><a href="#2D">2D</a></td>
-            <td>JMPGT\_L</td>
+            <td>JMPGT_L</td>
             <td>
                 <table class="stack table-bordered">
                     <tbody>
@@ -1202,7 +1202,7 @@ This opcode set defines instructions for stack operations, compound-type handlin
         </tr>
         <tr>
             <td><a class="anchor" name="2F"></a><a href="#2F">2F</a></td>
-            <td>JMPGE\_L</td>
+            <td>JMPGE_L</td>
             <td>
                 <table class="stack table-bordered">
                     <tbody>
@@ -1242,7 +1242,7 @@ This opcode set defines instructions for stack operations, compound-type handlin
         </tr>
         <tr>
             <td><a class="anchor" name="31"></a><a href="#31">31</a></td>
-            <td>JMPLT\_L</td>
+            <td>JMPLT_L</td>
             <td>
                 <table class="stack table-bordered">
                     <tbody>
@@ -1282,7 +1282,7 @@ This opcode set defines instructions for stack operations, compound-type handlin
         </tr>
         <tr>
             <td><a class="anchor" name="33"></a><a href="#33">33</a></td>
-            <td>JMPLE\_L</td>
+            <td>JMPLE_L</td>
             <td>
                 <table class="stack table-bordered">
                     <tbody>
@@ -1312,7 +1312,7 @@ This opcode set defines instructions for stack operations, compound-type handlin
         </tr>
         <tr>
             <td><a class="anchor" name="35"></a><a href="#35">35</a></td>
-            <td>CALL\_L</td>
+            <td>CALL_L</td>
             <td>-</td>
             <td>-</td>
             <td>-</td>
@@ -1400,12 +1400,12 @@ This opcode set defines instructions for stack operations, compound-type handlin
         </tr>
         <tr>
             <td><a class="anchor" name="3C"></a><a href="#3C">3C</a></td>
-            <td>TRY\_L</td>
+            <td>TRY_L</td>
             <td>-</td>
             <td>-</td>
             <td>-</td>
             <td>
-                TRY\_L CatchOffset(int) FinallyOffset(int). If there's no catch body, set CatchOffset 0. If there's no finally body, set FinallyOffset 0.
+                TRY_L CatchOffset(int) FinallyOffset(int). If there's no catch body, set CatchOffset 0. If there's no finally body, set FinallyOffset 0.
             </td>
         </tr>
         <tr>
@@ -1420,7 +1420,7 @@ This opcode set defines instructions for stack operations, compound-type handlin
         </tr>
         <tr>
             <td><a class="anchor" name="3E"></a><a href="#3E">3E</a></td>
-            <td>ENDTRY\_L</td>
+            <td>ENDTRY_L</td>
             <td>-</td>
             <td>-</td>
             <td>-</td>
@@ -1435,7 +1435,7 @@ This opcode set defines instructions for stack operations, compound-type handlin
             <td>-</td>
             <td>-</td>
             <td>
-                End finally, If no exception happen or be catched, vm will jump to the target instruction of ENDTRY/ENDTRY\_L. Otherwise, vm will rethrow the exception to upper layer.
+                End finally, If no exception happen or be catched, vm will jump to the target instruction of ENDTRY/ENDTRY_L. Otherwise, vm will rethrow the exception to upper layer.
             </td>
         </tr>
         <tr>
