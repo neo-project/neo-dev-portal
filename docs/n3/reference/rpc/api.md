@@ -198,15 +198,15 @@ Reference: [Import data into Postman](https://learning.postman.com/docs/getting-
 
 ## Exception
 
-This document lists the exception codes and corresponding messages that may be thrown by the RpcServer during execution. These exceptions represent errors that can occur during request handling, contract execution, transaction validation, and more. By using these exception codes, developers can quickly pinpoint issues and take appropriate actions.
+During RpcServer execution, when errors occur in request handling, contract execution, transaction validation, or other processes, exception codes and corresponding messages are thrown. These exceptions help developers quickly diagnose issues and take appropriate action. The exception codes and messages are as follows:
 
-- Error codes prefixed with `-32xxx` are typically related to the RPC protocol itself, such as parse errors, invalid requests, or methods not found. [Refer](https://www.jsonrpc.org/specification).
-- Error codes prefixed with `-1xx` are often related to unknown entities, such as unknown blocks, contracts, transactions, or state roots.
+- Error codes prefixed with `-32xxx` typically relate to the RPC protocol itself, such as parsing errors, invalid requests, or methods not found. [See specification](https://www.jsonrpc.org/specification).
+- Error codes prefixed with `-1xx` generally involve unknown entities, such as unknown blocks, contracts, transactions, or state roots.
 - Error codes prefixed with `-3xx` pertain to wallet operations, mainly indicating issues like insufficient funds or incorrect wallet states.
 - Error codes prefixed with `-5xx` are related to transactions and memory pool operations, indicating issues like transaction validation failures, duplicate transactions, or insufficient network fees.
-- Error codes prefixed with `-6xx` are mostly associated with access control, state management, and Oracle services, indicating denied operations or specific services being disabled.
+- Error codes prefixed with `-6xx` are mostly associated with access control, state management, and Oracle services, indicating denied operations or disabled services.
 
-This table provides developers with a quick reference, making it easier to identify the root cause of specific errors during development or debugging and take corrective actions accordingly.
+The following table lists all error codes and corresponding messages.
 
 | code   | message                                |
 | :----- | :------------------------------------- |
@@ -252,3 +252,4 @@ This table provides developers with a quick reference, making it easier to ident
 | -607   | Invalid state proof                    |
 | -608   | Contract execution failed              |
 
+ 
