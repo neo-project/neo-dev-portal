@@ -32,6 +32,12 @@ Before you can invoke this method you must:
 
 * value: Amount transferred
 
+## Exception
+
+- -301, Wallet fee limit exceeded.
+- -302, No opened wallet.
+- -511, Insufficient funds for fee.
+
 ## Example
 
 Request body:

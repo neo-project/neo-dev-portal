@@ -24,6 +24,12 @@ Before you can invoke this method you must:
 * value: Transfer amount
 * signers: The signature account of transaction
 
+## Exception
+
+- -301, Wallet fee limit exceeded.
+- -302, No opened wallet.
+- -511, Insufficient funds for fee.
+
 ## Example
 
 Request body：
