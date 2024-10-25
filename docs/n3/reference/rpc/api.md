@@ -206,7 +206,7 @@ During RpcServer execution, when errors occur in request handling, contract exec
 - Error codes prefixed with `-5xx` are related to transactions and memory pool operations, indicating issues like transaction validation failures, duplicate transactions, or insufficient network fees.
 - Error codes prefixed with `-6xx` are mostly associated with access control, state management, and Oracle services, indicating denied operations or disabled services.
 
-The following table lists all error codes and corresponding messages.
+The following table lists all error codes and corresponding messages. For more information, refer to Error Codes in [NEP-23](https://github.com/neo-project/proposals/blob/master/nep-23.mediawiki#user-content-Error_codes).
 
 | code   | message                                |
 | :----- | :------------------------------------- |
