@@ -976,7 +976,7 @@ This opcode set defines instructions for stack operations, compound-type handlin
         </tr>
         <tr>
             <td><a class="anchor" name="23"></a><a href="#23">23</a></td>
-            <td>JMP</td>
+            <td>JMP_L</td>
             <td>-</td>
             <td>-</td>
             <td>-</td>

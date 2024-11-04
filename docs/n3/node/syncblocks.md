@@ -19,7 +19,7 @@ The client must be fully synchronized before use. In order to speed up network s
 
 ## Step 2 - Place the offline package
 
-::warning
+:::warning
 
 You must not change the default offline package file name (chain.acc.zip or chain.xxx.acc.zip) , otherwise it will not work for synchronization.
 :::

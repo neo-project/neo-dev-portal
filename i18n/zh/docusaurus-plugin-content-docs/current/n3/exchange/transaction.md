@@ -375,9 +375,10 @@ symbol
 
   - 转出账户地址：数组中的的第一个对象，类型为 bytearray，值为 "uXtKzX+CD2HS1NT5rqXrUEmN31U="，经过 base64 解码为 ByteArray 后再转换为字符串 "NcphtjgTye3c3ZL5J5nDZhsf3UJMGAjd7o"。
   
-    ::note
+    :::note
     Neo 中 16 进制值如果前面加 0x，按大端序处理，如果没加 0x，按小端序处理。
     :::
+    
     ```json
     {
       "type": "ByteString",
