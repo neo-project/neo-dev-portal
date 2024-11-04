@@ -347,7 +347,7 @@ This opcode set defines instructions for stack operations, compound-type handlin
 
 ## OpCodes
 
-<link rel="stylesheet" href="opcode.css">
+<link rel="stylesheet" href="opcode.css"/>
 
 <table class="table" style="line-height: 1; font-size: 78%; margin-top: 1em">
     <thead>
