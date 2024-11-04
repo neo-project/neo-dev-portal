@@ -4815,6 +4815,7 @@ This opcode set defines instructions for stack operations, compound-type handlin
         </tr>
     </tbody>
 </table>
+
 ## Reference
 
 Definition of OpCodes in Neo https://github.com/neo-project/neo/blob/master/src/Neo.VM/OpCode.cs
