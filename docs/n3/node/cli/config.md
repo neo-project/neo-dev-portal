@@ -106,17 +106,17 @@ The following table lists all the plugins:
 
 |Plugin|Description|API Included||
 |--- |--- |--- |--- |
-|ApplicationLogs|Synchronizes the smart contract log with the NativeContract log (Notify)|[getapplicationlog](../../reference/rpc/getapplicationlog)|Recommended|
+|ApplicationLogs|Synchronizes the smart contract log with the NativeContract log (Notify)|[getapplicationlog](../../reference/rpc/getapplicationlog.md)|Recommended|
 |DBFTPlugin|dBFT consensus plugin||Mandatory when served as a consensus node|
 |LevelDBStore|Uses LevelDB to store the blockchain data||Mandatory|
 |MPTTrie|Uses LevelDB to store the MPT data||Mandatory when served as a StateRoot consensus node|
 |OracleService|Oracle service plugin||Mandatory when served as an Oracle node|
 |RocksDBStore|Uses RocksDBStore to store the blockchain data||An alternative to LevelDBStore|
-|RpcServer|Enables RPC for the node|[RPC API](../../reference/rpc/latest-version/api)|Mandatory|
+|RpcServer|Enables RPC for the node|[RPC API](../../reference/rpc/api.md)|Mandatory|
 |SQLiteWallet|A SQLite-based wallet provider that supports wallet files with .db3 suffix||Optional|
 |StatesDumper|Exports Neo-CLI status data.||Optional|
-|StateService|StateRoot consensus service plugin|[getstateroot](../../reference/rpc/getstateroot) [getproof](../../reference/rpc/getproof) [verifyproof](../../reference/rpc/verifyproof.md) [getstateheight](../../reference/rpc/getstateheight.md)  |Mandatory when served as a StateRoot consensus node|
-|TokensTracker|Enquiries NEP-11 and NEP-17 assets balance and transactions history of accounts through RPC|[getnep11balances](../../reference/rpc/getnep11balances)  [getnep11properties](../../reference/rpc/getnep11properties)  [getnep11transfers](../../reference/rpc/getnep11transfers)  [getnep17balances](../../reference/rpc/getnep17balances)  [getnep17transfers](../../reference/rpc/getnep17transfers)  |Recommended|
+|StateService|StateRoot consensus service plugin|[getstateroot](../../reference/rpc/getstateroot.md) [getproof](../../reference/rpc/getproof.md) [verifyproof](../../reference/rpc/verifyproof.md) [getstateheight](../../reference/rpc/getstateheight.md)  |Mandatory when served as a StateRoot consensus node|
+|TokensTracker|Enquiries NEP-11 and NEP-17 assets balance and transactions history of accounts through RPC|[getnep11balances](../../reference/rpc/getnep11balances.md)  [getnep11properties](../../reference/rpc/getnep11properties.md)  [getnep11transfers](../../reference/rpc/getnep11transfers.md)  [getnep17balances](../../reference/rpc/getnep17balances.md)  [getnep17transfers](../../reference/rpc/getnep17transfers.md)  |Recommended|
 
 You can choose one of the following ways to install plugins:
 

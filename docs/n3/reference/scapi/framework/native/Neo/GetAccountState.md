@@ -2,7 +2,7 @@
 
 Gets the latest votes of the specified account.
 
-Namespace: [Neo.SmartContract.Framework.Native](../../native.md)
+Namespace: [Neo.SmartContract.Framework.Native](../index.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -56,4 +56,4 @@ Response description:
 - 2nd value: The block height at last update.
 - 3rd value: The public key of the account address to vote.
 
-[Back](../Neo.md)
+[Back](index.md)

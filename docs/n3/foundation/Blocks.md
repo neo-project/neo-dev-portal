@@ -45,7 +45,7 @@ The block data structure is as follows:
 | ？   | Header       | block header     | Header        | block header             |
 | ?\*? | Transactions | Transaction List | Transaction[] | The payload of the block |
 
-The block body is a transaction list, which essentially starts with the transaction list length, followed by a list of transactions. In one round of consensus activity, the Speaker selects a series of verified transactions from its memory pool, put the transaction hash into a consensus message (`PrePareRequest`) and then broadcast it to the blockchain network. For more details about consensus, refer to [Consensus Mechanism](./consensus/dbft).
+The block body is a transaction list, which essentially starts with the transaction list length, followed by a list of transactions. In one round of consensus activity, the Speaker selects a series of verified transactions from its memory pool, put the transaction hash into a consensus message (`PrePareRequest`) and then broadcast it to the blockchain network. For more details about consensus, refer to [Consensus Mechanism](./consensus/dbft.md).
 
 At present, there can be up to 512 transactions per block.
 

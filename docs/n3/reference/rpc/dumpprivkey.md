@@ -15,6 +15,10 @@ Before you can invoke this method you must:
 
 address: To export the addresses of the private key. The address is required as a standard address.
 
+## Exception
+
+- -302, No opened wallet.
+
 ## Example
 
 Request body:

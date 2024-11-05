@@ -46,7 +46,7 @@ The system fee depends on the transaction's script, i.e., its size, number and t
 
 ![](images/transaction/system_fee.png)
 
-where *OpcodeSet* is opcode set, *OpcodePrice<sub>i</sub>* is the cost of opcode i, *n<sub>i</sub>* is the execution times of instruction i in the contract script. For each opcode fee refer to [Fees for Instructions](../Advances/Neo VM instructions.md).
+where *OpcodeSet* is opcode set, *OpcodePrice<sub>i</sub>* is the cost of opcode i, *n<sub>i</sub>* is the execution times of instruction i in the contract script. For each opcode fee refer to [Fees for Instructions](../fees.md).
 
 ### netfee
 

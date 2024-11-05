@@ -2,7 +2,7 @@
 
 Destroies the contract.
 
-Namespace: [Neo.SmartContract.Framework.Native](../../native.md)
+Namespace: [Neo.SmartContract.Framework.Native](../index.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -39,4 +39,4 @@ Response description:
 
 - Other: failed.
 
-[back](../ContractManagement.md)
+[Back](index.md)

@@ -2,7 +2,7 @@
 
 Gets data storage fee per byte.
 
-Namespace: [Neo.SmartContract.Framework.Native](../../native.md)
+Namespace: [Neo.SmartContract.Framework.Native](../index.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -25,5 +25,5 @@ public static void Test()
 }
 ```
 
-[Back](../Policy.md)
+[Back](index.md)
 

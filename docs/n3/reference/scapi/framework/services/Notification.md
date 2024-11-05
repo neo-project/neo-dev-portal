@@ -2,7 +2,7 @@
 
 Represents the notification sent when the smart contract executes.
 
-Namespace：[Neo.SmartContract.Framework.Services](../services.md)
+Namespace：[Neo.SmartContract.Framework.Services](index.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public class Notification : IApiInterface
 ```
 
-## Attributes
+## Properties
 
 | Name                                   | Description              |
 | ---------------------------------------- | -------------------------- |

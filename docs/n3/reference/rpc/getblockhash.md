@@ -10,6 +10,10 @@ You must install the plugin [RpcServer](https://github.com/neo-project/neo-modul
 
 index: Block index (block height)
 
+## Exception
+
+- -109, Unknown height.
+
 ## Example
 
 Request body:

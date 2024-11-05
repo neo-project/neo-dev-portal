@@ -2,7 +2,7 @@
 
 Deletes the value corresponding to the given key from the specific storage context.
 
-Namespace: [Neo.SmartContract.Framework.Services](../../services.md)
+Namespace: [Neo.SmartContract.Framework.Services](../index.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -50,4 +50,4 @@ public class Contract1 : SmartContract.Framework.SmartContract
 
 
 
-[Back](../Storage.md)
+[Back](index.md)

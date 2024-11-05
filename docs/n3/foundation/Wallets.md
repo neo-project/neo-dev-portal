@@ -70,10 +70,12 @@ The address script in Neo N3 has changed not using the Opcode.CheckSig and OpCod
 
 #### Ordinary Address
 
-1. Build a `CheckSig` script with the public key, and the format is as follows:  
+1. Build a `CheckSig` script with the public key, and the format is as follows: 
 
 
-```0x0C + 0x21 + Public Key (Compressed 33 bytes) + 0x41 + 0x56e7b327```
+```
+0x0C + 0x21 + Public Key (Compressed 33 bytes) + 0x41 + 0x56e7b327
+```
 
 
 ![Account Address](images/wallets/account_address_script_checksign.png)

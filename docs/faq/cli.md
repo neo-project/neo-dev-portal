@@ -29,4 +29,4 @@ The openwallet method is disabled by default in the RpcServer config file for se
 
 ## How to view NEP-17 asset balances in Neo-CLI？
 
-To view NEP-17 asset balances for a given address, invoke the RPC API [getnep17balances](../n3/reference/rpc/latest-version/api/getnep17balances) or use the Neo-CLI command [balanceof](../n3/node/cli/cli#balanceof) .
+To view NEP-17 asset balances for a given address, invoke the RPC API [getnep17balances](../n3/reference/rpc/getnep17balances.md) or use the Neo-CLI command [balanceof](../n3/node/cli/cli.md#balanceof) .

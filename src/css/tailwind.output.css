@@ -463,6 +463,10 @@ ul, ol {
   margin-left: 20px;
 }
 
+ul li p, ol li p {
+  display: inline;
+}
+
 *, ::before, ::after{
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;

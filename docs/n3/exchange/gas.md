@@ -36,7 +36,7 @@ The shorter the snapshot interval, the more precise the calculation is. If the s
 
 :::note
 
-In NEO N3, since exchange users cannot participate in voting, the fixed income is 10% of the total amount of GAS to be claimed. For details refer to [GAS distribution rule](../foundation/governance#gas-distribution-rule).
+In NEO N3, since exchange users cannot participate in voting, the fixed income is 10% of the total amount of GAS to be claimed. For details refer to [GAS distribution rule](../foundation/governance.md#gas-distribution-rule).
 :::
 
 ## RPC methods

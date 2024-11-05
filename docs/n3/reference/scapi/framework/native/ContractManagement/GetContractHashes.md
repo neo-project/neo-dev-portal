@@ -3,7 +3,7 @@
 
 Gets the hashes of all non-native deployed contracts.
 
-Namespace: [Neo.SmartContract.Framework.Native](../../native.md)
+Namespace: [Neo.SmartContract.Framework.Native](../index.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -153,4 +153,4 @@ Base64 string `AAAABA==` to hexadecimal string is `00000004`.
 
 Base64 script hash `huXqo6mYsgw2Ns85UsyIqhHxT8A=` to script hash (little-endian) is `86e5eaa3a998b20c3636cf3952cc88aa11f14fc0`.
 
-[Back](../ContractManagement.md)
+[Back](index.md)

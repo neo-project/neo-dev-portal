@@ -59,11 +59,11 @@ The system call is a special operation code, through which you can call the inte
 
 ## Dynamic Call
 
-A special system call that invokes another contract within a contract. It can be wrote as `Contract.Call(scriptHash, method, params)`. For more information refer to [Invoking Smart Contracts](develop/deploy/invoke).
+A special system call that invokes another contract within a contract. It can be wrote as `Contract.Call(scriptHash, method, params)`. For more information refer to [Invoking Smart Contracts](develop/deploy/invoke.md).
 
 ## Storage
 
-Each smart contract deployed on the Neo blockchain has a private storage area for storing application data. When creating a smart contract or transaction to use this contract, the contract code needs to read and write its storage. Each contract can declare a storage area. For more information refer to [Storage](reference/scapi/framework/services/Storage.md).
+Each smart contract deployed on the Neo blockchain has a private storage area for storing application data. When creating a smart contract or transaction to use this contract, the contract code needs to read and write its storage. Each contract can declare a storage area. For more information refer to [Storage](reference/scapi/framework/services/storage/index.md).
 
 ## NEF
 

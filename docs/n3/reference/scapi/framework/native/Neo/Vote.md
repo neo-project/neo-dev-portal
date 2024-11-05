@@ -2,7 +2,7 @@
 
 Votes for the candidates.
 
-Namespace: [Neo.SmartContract.Framework.Native](../../native.md)
+Namespace: [Neo.SmartContract.Framework.Native](../index.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -56,4 +56,4 @@ Respond description:
 
 - Others: failed.
 
-[Back](../Neo.md)
+[Back](index.md)

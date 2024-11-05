@@ -2,7 +2,7 @@
 
 Gets the NEO balance in the account.
 
-Namespace: [Neo.SmartContract.Framework.Native](../../native.md)
+Namespace: [Neo.SmartContract.Framework.Native](../index.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -46,5 +46,5 @@ Response description:
 
 - Others: failed.
 
-[Back](../Neo.md)
+[Back](index.md)
 

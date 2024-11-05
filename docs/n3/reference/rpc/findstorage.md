@@ -29,6 +29,10 @@ You must install the plugin [RpcServer](https://github.com/neo-project/neo-modul
 - The Base64-encoded storage key prefix as the second element
 - Optional, start index as the third element
 
+## Exception
+
+- -102, Unknown contract.
+
 ## Example
 
 Request body:

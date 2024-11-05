@@ -2,7 +2,7 @@
 
 Gets the minimum GAS fee required for deploying a contract.
 
-Namespace: [Neo.SmartContract.Framework.Native](../../native.md)
+Namespace: [Neo.SmartContract.Framework.Native](../index.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -66,5 +66,5 @@ Response description:
 
 According to the return value, the minimum GAS for deploying a contract is 10.00000000 GAS.
 
-[Back](../ContractManagement.md)
+[Back](index.md)
 

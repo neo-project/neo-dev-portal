@@ -2,7 +2,7 @@
 
 The class that represents blocks, providing a set of related properties.
 
-Namespace：[Neo.SmartContract.Framework.Services](../services.md)
+Namespace：[Neo.SmartContract.Framework.Services](index.md)
 
 Assembly: Neo.SmartContract.Framework
 
@@ -12,7 +12,7 @@ Assembly: Neo.SmartContract.Framework
 public class Block
 ```
 
-## Attributes
+## Properties
 
 | Name              | Description                                                  |
 | ----------------- | ------------------------------------------------------------ |

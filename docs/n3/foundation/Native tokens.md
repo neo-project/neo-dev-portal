@@ -17,11 +17,10 @@ To further elaborate, the smallest unit of GAS is Datoshi, where 1 Datoshi = 1e-
 
 The Neo N3 Genesis block will mint the exact amount of GAS token needed to account for all GAS token circulating on the NEO Legacy chain at the time of Genesis block.
 
-To read more about GAS generation rate and distribution refer to the [Governance and Incentives](./governance).
+To read more about GAS generation rate and distribution refer to the [Governance and Incentives](./governance.md).
 
 
 ## NEP17 Assets (Tokens)
 
-NEP17 tokens need to be issued and managed through smart contract. Their information is stored in a smart contract's storage. Account model is used. For detailed information, refer to [NEP-17](/docs/n3/develop/write/nep17).
-
+NEP17 tokens need to be issued and managed through smart contract. Their information is stored in a smart contract's storage. Account model is used. For detailed information, refer to [NEP-17](../develop/write/nep17.md).
 
