@@ -349,15 +349,15 @@ This opcode set defines instructions for stack operations, compound-type handlin
 
 <link rel="stylesheet" href="opcode.css"/>
 
-<table class="table" style="line-height: 1; font-size: 78%; margin-top: 1em">
+<table class="table" style={{lineHeight: 1, fontSize: '78%', marginTop: '1em'}}>
     <thead>
         <tr>
-            <th style="width: 48px">No.</th>
-            <th style="width: auto">Name</th>
-            <th style="width: auto">Stack Input</th>
-            <th style="width: auto">Stack Output</th>
-            <th style="width: auto">Expression</th>
-            <th style="width: 200px">Descriptions</th>
+            <th style={{width: '48px'}}>No.</th>
+            <th style={{width: 'auto'}}>Name</th>
+            <th style={{width: 'auto'}}>Stack Input</th>
+            <th style={{width: 'auto'}}>Stack Output</th>
+            <th style={{width: 'auto'}}>Expression</th>
+            <th style={{width: '200px'}}>Descriptions</th>
         </tr>
     </thead>
     <tbody>
