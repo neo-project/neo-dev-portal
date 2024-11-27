@@ -1,4 +1,4 @@
-# **GAS.Transfer Method**
+# GAS.Transfer Method
 
 Transfers GAS
 

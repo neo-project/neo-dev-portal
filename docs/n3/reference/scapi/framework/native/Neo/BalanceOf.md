@@ -1,4 +1,4 @@
-# **NEO.BalanceOf** Method (UInt160)
+# NEO.BalanceOf Method (UInt160)
 
 Gets the NEO balance in the account.
 

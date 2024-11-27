@@ -32,7 +32,7 @@ The system fee is charged for the instructions executed by NeoVM. For each instr
 SystemFee = InvocationCost = The sum of all executed opcode fee
 ```
 
-### **Instructions fee**
+### Instructions fee
 
 In Neo N3, NeoVM instructions fee has decreased to 1/1000 of the original fee in Neo Legacy, which significantly reduces the development cost. 
 
@@ -159,7 +159,7 @@ You need to replace these strings when querying the user's balance:
 
 ##### Example
 
-##### **Invoking balanceOf**
+##### Invoking balanceOf
 
 Suppose the account address is NYxb4fSZVKAz8YsgaPK2WkT3KcAE9b3Vag, you need to convert it into Hash160 type and construct this parameter as a JSON object:
 
@@ -215,7 +215,7 @@ After sending the request, you will get the following response：
 
 To get the balance divide the returned value by decimals, without needing of data conversion.
 
-##### **Invoking decimals**
+##### Invoking decimals
 
 Request Body：
 
@@ -255,7 +255,7 @@ After sending the request, you will get the following response：
 
 It returns integer 8.
 
-##### **Invoking symbol**
+##### Invoking symbol
 
 Request Body：
 
@@ -295,7 +295,7 @@ After sending the request, you will get the following response：
 
 It returns "R0FT" which can be decoded to "GAS".
 
-##### **Calculating the User Balance**
+##### Calculating the User Balance
 
 According to all the returned values,  we can calculate the user balance as follows:
 The balance = return / 10<sup>decimals</sup>
