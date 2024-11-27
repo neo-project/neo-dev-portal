@@ -20,7 +20,7 @@ In many cases, you may enjoy testing and debugging your N3 smart contract using 
 
 - [Simpler but not recommended] Visit [the latest releases of Neo](https://github.com/neo-project/neo/releases) to download the latest Neo-CLI executable zip files for your operating system.
 - **[Recommended]** Alternatively, check out [how-to-debug-neo](https://github.com/Hecate2/how-to-debug-neo/) to compile and run Neo.CLI with the complete Neo source code. You will be able to debug your compiled codes.
-- [Configure](https://developers.neo.org/docs/n3/node/cli/config#connecting-the-node-to-network) your Neo.CLI for mainnet, testnet or private net. **Mainnet is recommended, as it requires zero configuration and provides access to the full mainnet environment.**
+- [Configure](https://docs.neo.org/docs/n3/node/cli/config.html#connecting-the-node-to-network) your Neo.CLI for mainnet, testnet or private net. **Mainnet is recommended, as it requires zero configuration and provides access to the full mainnet environment.**
 - [Simpler but not recommended] Install neo-fairy-test from [the latest releases](https://github.com/Hecate2/neo-fairy-test/releases) (version **>=3.7.5.17** for this tutorial). Unzip the downloaded release and place it at `Plugins/Fairy/{Fairy.dll + config.json + fairy.json + RpcServer.json}`. `Plugins` is a directory placed beside `neo-cli.exe`.
 - **[Recommended]** Alternatively you may compile [the source codes of Fairy](https://github.com/Hecate2/neo-fairy-test) by yourself. 
 - Configure Fairy in `Plugins/Fairy/RpcServer.json`. Fairy is just an extended RpcServer on localhost of both IPv4 and IPv6, and on port 16868. If you are on mainnet, the initial config from my release should be good for you. For testnet T5, just change all the `Network` to `894710606` and all the `Port` to `26868`.
@@ -72,7 +72,7 @@ signer = Signer(0xb1983fa2479a0c8e2beae032d2df564b5451b7a5, scopes=WitnessScope.
 client.invokefunction_of_any_contract(..., signers=signer)  # or a list of signers
 ```
 
-Read https://developers.neo.org/docs/n3/foundation/Transactions#signature-scope about what a witness scope is. Fairy also supports complex `WitnessRules` if you need it.
+Read https://docs.neo.org/docs/n3/foundation/Transactions.html#signature-scope about what a witness scope is. Fairy also supports complex `WitnessRules` if you need it.
 
 ```python
 from neo_fairy_client.utils.WitnessRule import *
