@@ -2,7 +2,7 @@
 
 用来表示交易的基类。
 
-命名空间：[Neo.SmartContract.Framework.Services](../services.md)
+命名空间：[Neo.SmartContract.Framework.Services](index.md)
 
 程序集：Neo.SmartContract.Framework
 

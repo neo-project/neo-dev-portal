@@ -4,7 +4,7 @@ Neo 智能合约框架（Neo.SmartContract.Framework）是对智能合约开发�
 
 Neo.SmartContract.Framework 提供了以下重要的 API 方法集：
 
-- 原生合约中的一系列方法，请参阅 [Neo.SmartContract.Framework.Native](../../reference/scapi/framework/native.md)。 
-- 互操作服务层的方法，请参阅 [Neo.SmartContract.Framework.Service](../../reference/scapi/framework/services.md)。
-- 智能合约框架本身提供的常用方法，请参阅 [Neo.SmartContract.Framework](../../reference/scapi/framework/framework.md)。
+- 原生合约中的一系列方法，请参阅 [Neo.SmartContract.Framework.Native](../../reference/scapi/framework/native/index.md)。 
+- 互操作服务层的方法，请参阅 [Neo.SmartContract.Framework.Service](../../reference/scapi/framework/services/index.md)。
+- 智能合约框架本身提供的常用方法，请参阅 [Neo.SmartContract.Framework](../../reference/scapi/framework/index.md)。
 

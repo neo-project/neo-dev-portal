@@ -2,7 +2,7 @@
 
 游标在集合中向下移动，返回游标状态（true: 没有到末尾 false: 到末尾）
 
-命名空间：[Neo.SmartContract.Framework.Services](../../services.md)
+命名空间：[Neo.SmartContract.Framework.Services](../index.md)
 
 程序集：Neo.SmartContract.Framework
 
@@ -34,4 +34,4 @@ public class Contract1 : SmartContract
 
 
 
-[返回上级](../Iterator.md)
+[返回上级](index.md)

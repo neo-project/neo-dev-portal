@@ -2,7 +2,7 @@
 
 获得该合约的存储区上下文。
 
-命名空间：[Neo.SmartContract.Framework.Services](../../services.md)
+命名空间：[Neo.SmartContract.Framework.Services](../index.md)
 
 程序集：Neo.SmartContract.Framework
 
@@ -16,4 +16,4 @@ public extern StorageContext StorageContext
 
 
 
-[返回上级](../Contract.md)
+[返回上级](index.md)

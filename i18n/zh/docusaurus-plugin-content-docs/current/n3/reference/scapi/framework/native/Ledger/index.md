@@ -2,7 +2,7 @@
 
 提供了原生合约GasToken的一系列属性与方法，合约哈希为`0xda65b600f7124ce6c79950c1772a36403104f2be`。
 
-命名空间：[Neo.SmartContract.Framework.Native](../native.md)
+命名空间：[Neo.SmartContract.Framework.Native](index.md)
 
 程序集：Neo.SmartContract.Framework
 
@@ -24,8 +24,8 @@ public class Ledger
 
 | 名称                                                         | 说明                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [GetBlock()](../native/Ledger/GetBlock.md)             | 通过区块哈希或区块索引，查找区块                                       |
-| [GetTransaction(UInt256 hash)](../native/Ledger/GetTransaction.md) | 通过交易 ID 查找交易                                         |
-| [GetTransactionFromBlock()](../native/Ledger/GetTransactionFromBlock.md) | 通过区块和交易索引查询指定的交易                             |
-| [GetTransactionHeight(UInt256 hash)](../native/Ledger/GetTransactionHeight.md) | 通过交易哈希，获得交易所在区块的高度 |
+| [GetBlock()](GetBlock.md)             | 通过区块哈希或区块索引，查找区块                                       |
+| [GetTransaction(UInt256 hash)](GetTransaction.md) | 通过交易 ID 查找交易                                         |
+| [GetTransactionFromBlock()](GetTransactionFromBlock.md) | 通过区块和交易索引查询指定的交易                             |
+| [GetTransactionHeight(UInt256 hash)](GetTransactionHeight.md) | 通过交易哈希，获得交易所在区块的高度 |
 

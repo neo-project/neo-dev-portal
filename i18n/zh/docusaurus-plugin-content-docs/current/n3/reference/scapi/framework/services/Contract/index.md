@@ -2,7 +2,7 @@
 
 表示合约的类。
 
-命名空间：[Neo.SmartContract.Framework.Services](../services.md)
+命名空间：[Neo.SmartContract.Framework.Services](index.md)
 
 程序集：Neo.SmartContract.Framework
 
@@ -26,14 +26,14 @@ public class Contract
 
 | 名称                                       | 说明              |
 | ---------------------------------------- | --------------- |
-| [Call(UInt160 scriptHash, string method, object[] arguments)](Contract/Call.md) | 调用智能合约    |
-| [GetCallFlags()](Contract/GetCallFlags.md)         | 获取原生合约的调用权限 Flag |
-| [CreateStandardAccount()](Contract/CreateStandardAccount.md)         | 根据公钥创建标准账户的脚本散列 |
+| [Call(UInt160 scriptHash, string method, object[] arguments)](Call.md) | 调用智能合约    |
+| [GetCallFlags()](GetCallFlags.md)         | 获取原生合约的调用权限 Flag |
+| [CreateStandardAccount()](CreateStandardAccount.md)         | 根据公钥创建标准账户的脚本散列 |
 | CreateMultisigAccount(int, params Cryptography.ECC.ECPoint[]) | 根据公钥列表和最小签名数，生成多方签名账户的脚本散列 |
 
 ## 构造方法
 
-通过 [ContractManagement.GetContract(UInt60 hash)](../native/ContractManagement/GetContract.md) 方法来构造 Contract 对象。
+通过 [ContractManagement.GetContract(UInt60 hash)](../../native/ContractManagement/GetContract.md) 方法来构造 Contract 对象。
 
-通过 [ContractManagement.Deploy(byte[] nefFile, string manifest)](../native/ContractManagement/Deploy.md) 方法来部署合约，并返回 Contract 对象。
+通过 [ContractManagement.Deploy(byte[] nefFile, string manifest)](../../native/ContractManagement/Deploy.md) 方法来部署合约，并返回 Contract 对象。
 

@@ -2,7 +2,7 @@
 
 插入操作，以 key-value 的形式向持久化存储区中插入数据。
 
-命名空间：[Neo.SmartContract.Framework.Services](../../services.md)
+命名空间：[Neo.SmartContract.Framework.Services](../index.md)
 
 程序集：Neo.SmartContract.Framework
 
@@ -51,4 +51,4 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
-[返回上级](../Storage.md)
+[返回上级](index.md)

@@ -2,7 +2,7 @@
 
 每个地址均有投票给一个地址的权利，候选人票数为所有向该账户投票的地址的NEO余额之和。初始块所有默认候选人均会向自己投票。
 
-命名空间：[Neo.SmartContract.Framework.Native](../../native.md)
+命名空间：[Neo.SmartContract.Framework.Native](../../native/index.md)
 
 程序集：Neo.SmartContract.Framework
 
@@ -52,4 +52,4 @@ public class Contract1 : SmartContract.Framework.SmartContract
 
 - 其他：失败。
 
-[返回上级](../Neo.md)
+[返回上级](index.md)

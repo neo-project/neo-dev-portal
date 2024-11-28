@@ -2,7 +2,7 @@
 
 给定账户是否已被屏蔽。
 
-命名空间：[Neo.SmartContract.Framework.Native](../../native.md)
+命名空间：[Neo.SmartContract.Framework.Native](../../native/index.md)
 
 程序集：Neo.SmartContract.Framework
 
@@ -33,5 +33,5 @@ public class Contract1 : SmartContract.Framework.SmartContract
     }
 }
 ```
-[返回上级](../Policy.md)
+[返回上级](index.md)
 

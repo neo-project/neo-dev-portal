@@ -2,7 +2,7 @@
 
 获取候选人列表。由于账户NEO余额会随交易而不断变化，而且投票和注册的候选人也在不断变化，因此在每个区块都会根据以上变化更新候选人及相应投票结果。
 
-命名空间：[Neo.SmartContract.Framework.Native](../../native.md)
+命名空间：[Neo.SmartContract.Framework.Native](../../native/index.md)
 
 程序集：Neo.SmartContract.Framework
 
@@ -49,4 +49,4 @@ public class Contract1 : SmartContract.Framework.SmartContract
 - 其他：失败。
 
 
-[返回上级](../Neo.md)
+[返回上级](index.md)
