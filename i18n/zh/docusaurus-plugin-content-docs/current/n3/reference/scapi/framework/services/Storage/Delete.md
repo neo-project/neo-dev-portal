@@ -2,7 +2,7 @@
 
 删除操作，从给定的存储上下文中删除给定键对应的值。
 
-命名空间：[Neo.SmartContract.Framework.Services](../../services.md)
+命名空间：[Neo.SmartContract.Framework.Services](../index.md)
 
 程序集：Neo.SmartContract.Framework
 
@@ -46,4 +46,4 @@ public class Contract1 : SmartContract.Framework.SmartContract
 
 
 
-[返回上级](../Storage.md)
+[返回上级](index.md)

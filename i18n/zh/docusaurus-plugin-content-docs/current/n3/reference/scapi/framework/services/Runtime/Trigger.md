@@ -2,7 +2,7 @@
 
 获得该智能合约的触发器类型。
 
-命名空间：[Neo.SmartContract.Framework.Services](../../services.md)
+命名空间：[Neo.SmartContract.Framework.Services](../index.md)
 
 程序集：Neo.SmartContract.Framework
 
@@ -34,4 +34,4 @@ public static bool Main()
 
 
 
-[返回上级](../Runtime.md)
+[返回上级](index.md)

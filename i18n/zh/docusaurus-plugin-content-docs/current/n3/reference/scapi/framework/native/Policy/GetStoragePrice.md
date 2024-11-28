@@ -2,7 +2,7 @@
 
 获取链上每字节数据存储费用。
 
-命名空间：[Neo.SmartContract.Framework.Native](../../native.md)
+命名空间：[Neo.SmartContract.Framework.Native](../../native/index.md)
 
 程序集：Neo.SmartContract.Framework
 
@@ -24,5 +24,5 @@ public static void Test()
     var price = Policy.GetStoragePrice();
 }
 ```
-[返回上级](../Policy.md)
+[返回上级](index.md)
 

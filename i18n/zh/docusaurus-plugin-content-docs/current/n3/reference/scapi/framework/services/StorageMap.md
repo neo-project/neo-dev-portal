@@ -2,7 +2,7 @@
 
 表示给定存储上下文中指定前缀的key-value存储区。
 
-命名空间：[Neo.SmartContract.Framework.Services](../services.md)
+命名空间：[Neo.SmartContract.Framework.Services](index.md)
 
 程序集：Neo.SmartContract.Framework
 

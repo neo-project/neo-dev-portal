@@ -2,7 +2,7 @@
 
 获取指定账户最新的投票情况。
 
-命名空间：[Neo.SmartContract.Framework.Native](../../native.md)
+命名空间：[Neo.SmartContract.Framework.Native](../../native/index.md)
 
 程序集：Neo.SmartContract.Framework
 

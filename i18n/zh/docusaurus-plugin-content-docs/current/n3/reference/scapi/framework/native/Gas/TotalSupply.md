@@ -2,7 +2,7 @@
 
 获取GAS总发行量。
 
-命名空间：[Neo.SmartContract.Framework.Native](../../native.md)
+命名空间：[Neo.SmartContract.Framework.Native](../../native/index.md)
 
 程序集：Neo.SmartContract.Framework
 
@@ -25,4 +25,4 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
-[返回上级](../Gas.md)
+[返回上级](index.md)

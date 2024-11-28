@@ -2,7 +2,7 @@
 
 通过交易哈希 ，查找交易所在的区块。
 
-命名空间：[Neo.SmartContract.Framework.Native](../../native.md)
+命名空间：[Neo.SmartContract.Framework.Native](../../native/index.md)
 
 程序集：Neo.SmartContract.Framework
 
@@ -27,4 +27,4 @@ public class Contract1 : SmartContract.Framework.SmartContract
     }
 }
 ```
-[返回上级](../Ledger.md)
+[返回上级](index.md)

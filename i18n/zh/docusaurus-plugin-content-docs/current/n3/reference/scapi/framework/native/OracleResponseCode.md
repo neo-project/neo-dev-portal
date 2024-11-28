@@ -2,7 +2,7 @@
 
 定义了 Oracle 响应代码的类型。
 
-命名空间：[Neo.SmartContract.Framework.Native](../native.md)
+命名空间：[Neo.SmartContract.Framework.Native](index.md)
 
 程序集：Neo.SmartContract.Framework
 

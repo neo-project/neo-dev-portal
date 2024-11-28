@@ -2,7 +2,7 @@
 
 支持的椭圆曲线扩展。
 
-命名空间：[Neo.SmartContract.Framework.Native](../native.md)
+命名空间：[Neo.SmartContract.Framework.Native](index.md)
 
 程序集：Neo.SmartContract.Framework
 

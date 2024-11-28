@@ -2,7 +2,7 @@
 
 验证调用该智能合约的交易/区块是否验证过所需的脚本散列。
 
-命名空间：[Neo.SmartContract.Framework.Services](../../services.md)
+命名空间：[Neo.SmartContract.Framework.Services](../index.md)
 
 程序集：Neo.SmartContract.Framework
 
@@ -37,4 +37,4 @@ public class Contract1 : FunctionCode
 
 
 
-[返回上级](../Runtime.md)
+[返回上级](index.md)

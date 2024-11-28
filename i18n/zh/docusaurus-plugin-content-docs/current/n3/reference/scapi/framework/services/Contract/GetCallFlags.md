@@ -2,7 +2,7 @@
 
 获取合约的调用权限 Flag
 
-命名空间：[Neo.SmartContract.Framework.Services](../../services.md)
+命名空间：[Neo.SmartContract.Framework.Services](../index.md)
 
 程序集：Neo.SmartContract.Framework
 
@@ -26,4 +26,4 @@ public class Contract1 : SmartContract.Framework.SmartContract
 
 
 
-[返回上级](../Contract.md)
+[返回上级](index.md)

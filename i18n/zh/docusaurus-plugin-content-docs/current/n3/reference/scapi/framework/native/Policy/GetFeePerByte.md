@@ -2,7 +2,7 @@
 
 获取交易每字节网络费。
 
-命名空间：[Neo.SmartContract.Framework.Native](../../native.md)
+命名空间：[Neo.SmartContract.Framework.Native](../../native/index.md)
 
 程序集：Neo.SmartContract.Framework
 
@@ -24,5 +24,5 @@ public static void Test()
     var feePerByte = Policy.GetFeePerByte();
 }
 ```
-[返回上级](../Policy.md)
+[返回上级](index.md)
 

@@ -4,7 +4,7 @@
 
 GasToken 同时也是NEP-17合约，继承了NEP-17合约所有的属性和方法。
 
-命名空间：[Neo.SmartContract.Framework.Native](../native.md)
+命名空间：[Neo.SmartContract.Framework.Native](index.md)
 
 程序集：Neo.SmartContract.Framework
 
@@ -26,7 +26,7 @@ public class GAS
 
 | 名称                                                         | 说明                             |
 | ------------------------------------------------------------ | -------------------------------- |
-| [TotalSupply()](Gas/TotalSupply.md)                          | 获取GAS总发行量                  |
-| [BalanceOf(UInt160 account)](Gas/BalanceOf.md)               | 获取余额                         |
-| [Transfer(UInt160 from, UInt160 to, BigInteger amount, object data = null)](Gas/Transfer.md) | 转账                             |
+| [TotalSupply()](TotalSupply.md)                          | 获取GAS总发行量                  |
+| [BalanceOf(UInt160 account)](BalanceOf.md)               | 获取余额                         |
+| [Transfer(UInt160 from, UInt160 to, BigInteger amount, object data = null)](Transfer.md) | 转账                             |
 | Refuel                                                       | 为智能合约执行补充燃料（手续费） |
