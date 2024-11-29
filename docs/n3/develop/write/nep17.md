@@ -271,11 +271,70 @@ This section summaries NEP-17 changes compared to the previous NEP-5 protocol.
 
 ### onNEP17Payment
 
+The `onNEP17Payment` method is a callback method used to handle NEP-17 asset transfers in Neo smart contracts. Below is an example implementation with detailed explanation:
+
+#### Implementation Example
+
+Reference link: https://github.com/neo-project/neo-devpack-dotnet/blob/master/examples/Example.SmartContract.ContractCall/ContractCall.cs
+
+```csharp
+public class SampleContractCall : SmartContract
+{
+    // Define the target contract hash for external calls.
+    [Hash160("0x13a83e059c2eedd5157b766d3357bc826810905e")]
+    private static readonly UInt160 DummyTarget;
+
+    // The onNEP17Payment method handles incoming NEP-17 payments.
+    public static void onNEP17Payment(UInt160 from, BigInteger amount, BigInteger data)
+    {
+        // Validate the input data; only proceed if it equals 123.
+        if (!data.Equals(123)) return;
+
+        // Get the current contract's hash and the caller's (token contract) hash.
+        UInt160 @this = Runtime.ExecutingScriptHash;
+        UInt160 tokenHash = Runtime.CallingScriptHash;
+
+        // Query the token contract to get the balance of the current contract.
+        BigInteger balanceOf = (BigInteger)Contract.Call(tokenHash, "balanceOf", CallFlags.All, @this);
+
+        // Call the target contract with the required parameters.
+        Contract.Call(DummyTarget, "dummyMethod", CallFlags.All, @this, tokenHash, balanceOf);
+    }
+}
+```
+
+Explanation
+
+1. DummyTarget:
+   - Represents a predefined target contract hash.
+   - In this example, it's set to 0x13a83e059c2eedd5157b766d3357bc826810905e.
+
+2. onNEP17Payment Parameters:
+
+   - **from**: The address of the sender initiating the transfer.
+   - **amount**: The amount of NEP-17 tokens transferred.
+   - **data**: Additional data passed along with the transfer, used for custom business logic.
+
+3. Key Steps in the Method:
+
+   - Validate data: Only process the transfer if data equals 123.
+   - Fetch the balance: Query the token contract using the balanceOf method to retrieve the current contract's token balance.
+   - External call: Invoke the dummyMethod of the target contract (DummyTarget) with parameters including the current contract's hash, token hash, and the retrieved balance.
+
+4. Use Case:
+   - This method enables contracts to handle incoming NEP-17 payments and perform further actions such as notifying other contracts or executing specific business logic.
+
+:::Note
+
+- Ensure proper validation of incoming data to avoid unintended behavior.
+- Use `Contract.Call` responsibly to avoid invoking malicious contracts.
+- Implement additional security measures to validate `from`, `amount`, and `tokenHash` if needed.
+
 - The Transfer method should determine if the recipient is the deployed contract, and if so, call its `onNEP17Payment` method.
-
 - The FungibleToken (NeoToken, GasToken) of the native contract calls the `onNEP17Tokens` method when transferring assets. The NonfungibleToken calls the `onNEP11Tokens` method when transferring assets.
-
 - The TokenSale contract should implement the `onNEP17Payment` method to receive assets and modify the Manifest file to trust the received asset contract.
+
+:::
 
 ### name method
 
