@@ -1144,6 +1144,11 @@ ul li p, ol li p {
   padding-bottom: 0.75rem;
 }
 
+.py-2{
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
 .py-20{
   padding-top: 5rem;
   padding-bottom: 5rem;
@@ -1152,11 +1157,6 @@ ul li p, ol li p {
 .py-28{
   padding-top: 7rem;
   padding-bottom: 7rem;
-}
-
-.py-2{
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
 }
 
 .px-3{
