@@ -17,8 +17,8 @@ export default function Contribute() {
                     <p className='text-secondary'>Neo documentation is a community-driven effort. Join us by contributing your knowledge to help Neo developers.</p>
                 </div>
                 <img src="/contribute/header.png" />
-                <div className="mt-12 flex items-center justify-center>
-                    <a target="_blank" class="bg-primary text-secondary w-full py-2 font-semibold block text-center hover:text-secondary hover:no-underline" href="https://github.com/neo-project/neo-dev-portal">Contribute</a>
+                <div className="mt-12 flex items-center justify-center">
+                    <a target="_blank" className="bg-primary text-secondary px-6 py-2 font-semibold block text-center hover:text-secondary hover:no-underline" href="https://github.com/neo-project/neo-dev-portal">Contribute</a>
                 </div>
                 <div className="mt-12 flex flex-col gap-4 mb-12">
                     <h3>How to create a tutorial</h3>
