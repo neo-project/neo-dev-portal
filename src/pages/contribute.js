@@ -18,7 +18,7 @@ export default function Contribute() {
                 </div>
                 <img src="/contribute/header.png" />
                 <div className="mt-12 flex items-center justify-center>
-                    <a target="_blank" class="bg-primary text-secondary w-full py-2 font-semibold block text-center hover:text-secondary hover:no-underline" href="https://github.com/neo-project/neo-dev-portal">Contribute</a>
+                    <a target="_blank" className="bg-primary text-secondary w-full py-2 font-semibold block text-center hover:text-secondary hover:no-underline" href="https://github.com/neo-project/neo-dev-portal">Contribute</a>
                 </div>
                 <div className="mt-12 flex flex-col gap-4 mb-12">
                     <h3>How to create a tutorial</h3>
