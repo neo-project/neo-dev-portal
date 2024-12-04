@@ -3,11 +3,11 @@ sidebar_position: 3
 ---
 # NEP-17
 
-The NEP-17 proposal is a replacement of the original NEP5 proposal, which outlines a token standard for the Neo blockchain that will provide systems with a generalized interaction mechanism for tokenized Smart Contracts. 
+The NEP-17 proposal is a replacement for the original NEP-5 proposal, outlining a token standard for the Neo blockchain. It establishes a generalized interaction mechanism for tokenized smart contracts. 
 
-NEP17 assets are recorded in the contract storage area, through updating account balance in the storage area, to complete the transaction.
+NEP-17 assets are stored in the contract's storage area. Transactions are completed by updating account balances within this storage.
 
-In the method definitions below, we provide both the definitions of the functions as they are defined in the contract as well as the invoke parameters.
+In the method definitions below, we provide both the function definitions as specified in the contract and their corresponding invocation parameters.
 
 ## totalSupply
 
@@ -265,19 +265,78 @@ namespace NEP17
 }
 ```
 
-## NEP-17 changes
+## Key Updates in NEP-17
 
-This section summaries NEP-17 changes compared to the previous NEP-5 protocol.  
+This section summaries key updates and enhancements in NEP-17 compared to the previous NEP-5 protocol.  
 
 ### onNEP17Payment
 
+The `onNEP17Payment` method is a callback method that processes NEP-17 asset transfers in Neo smart contracts. 
+
+#### Implementation example
+
+The following is an example implementation (refer to the source code [here](https://github.com/neo-project/neo-devpack-dotnet/blob/master/examples/Example.SmartContract.ContractCall/ContractCall.cs)).
+
+```csharp
+public class SampleContractCall : SmartContract
+{
+    // Define the target contract hash for external calls.
+    [Hash160("0x13a83e059c2eedd5157b766d3357bc826810905e")]
+    private static readonly UInt160 DummyTarget;
+
+    // The onNEP17Payment method handles incoming NEP-17 payments.
+    public static void onNEP17Payment(UInt160 from, BigInteger amount, BigInteger data)
+    {
+        // Validate the input data; only proceed if it equals 123.
+        if (!data.Equals(123)) return;
+
+        // Get the current contract's hash and the caller's (token contract) hash.
+        UInt160 @this = Runtime.ExecutingScriptHash;
+        UInt160 tokenHash = Runtime.CallingScriptHash;
+
+        // Query the token contract to get the balance of the current contract.
+        BigInteger balanceOf = (BigInteger)Contract.Call(tokenHash, "balanceOf", CallFlags.All, @this);
+
+        // Call the target contract with the required parameters.
+        Contract.Call(DummyTarget, "dummyMethod", CallFlags.All, @this, tokenHash, balanceOf);
+    }
+}
+```
+
+Explanation
+
+- DummyTarget:
+   - Represents a predefined target contract hash.
+   - In this example, it's set to 0x13a83e059c2eedd5157b766d3357bc826810905e.
+
+- onNEP17Payment Parameters:
+
+   - **from**: The address of the sender initiating the transfer.
+   - **amount**: The amount of NEP-17 tokens transferred.
+   - **data**: Additional data passed along with the transfer, used for custom business logic.
+
+- Key Steps in the Method:
+
+   - Validate data: Only process the transfer if data equals 123.
+   - Fetch the balance: Query the token contract using the `balanceOf` method to retrieve the current token balance of the contract.
+   - External call: Invoke the dummyMethod of the target contract (DummyTarget) with parameters including the current contract hash, token hash, and the retrieved balance.
+
+- Use Case:
+   - This method enables contracts to handle incoming NEP-17 payments and perform further actions such as notifying other contracts or executing specific business logic.
+
+:::Note
+
+- Ensure proper validation of incoming data to avoid unintended behavior.
+- Use `Contract.Call` responsibly to avoid invoking malicious contracts.
+- Implement additional security measures to validate `from`, `amount`, and `tokenHash` if needed.
+
 - The Transfer method should determine if the recipient is the deployed contract, and if so, call its `onNEP17Payment` method.
-
 - The FungibleToken (NeoToken, GasToken) of the native contract calls the `onNEP17Tokens` method when transferring assets. The NonfungibleToken calls the `onNEP11Tokens` method when transferring assets.
-
 - The TokenSale contract should implement the `onNEP17Payment` method to receive assets and modify the Manifest file to trust the received asset contract.
 
-### name method
+:::
+
+### Name method
 
 The name method is moved to the manifest file, and you need to add `[DisplayName("Token Name")]` when writing the contract.
 
@@ -297,7 +356,7 @@ public class NEP17 : Nep17Token
 
 ### Transfer event
 
-The transfer event is changed to Transfer event (first letter capitalized).
+The `transfer` event is changed to `Transfer` event (first letter capitalized).
 
 ### IsPayable
 
