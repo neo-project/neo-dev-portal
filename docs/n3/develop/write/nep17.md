@@ -3,11 +3,11 @@ sidebar_position: 3
 ---
 # NEP-17
 
-The NEP-17 proposal is a replacement of the original NEP5 proposal, which outlines a token standard for the Neo blockchain that will provide systems with a generalized interaction mechanism for tokenized Smart Contracts. 
+The NEP-17 proposal is a replacement for the original NEP-5 proposal, outlining a token standard for the Neo blockchain. It establishes a generalized interaction mechanism for tokenized smart contracts. 
 
-NEP17 assets are recorded in the contract storage area, through updating account balance in the storage area, to complete the transaction.
+NEP-17 assets are stored in the contract's storage area. Transactions are completed by updating account balances within this storage.
 
-In the method definitions below, we provide both the definitions of the functions as they are defined in the contract as well as the invoke parameters.
+In the method definitions below, we provide both the function definitions as specified in the contract and their corresponding invocation parameters.
 
 ## totalSupply
 
@@ -265,17 +265,17 @@ namespace NEP17
 }
 ```
 
-## NEP-17 changes
+## Key Updates in NEP-17
 
-This section summaries NEP-17 changes compared to the previous NEP-5 protocol.  
+This section summaries key updates and enhancements in NEP-17 compared to the previous NEP-5 protocol.  
 
 ### onNEP17Payment
 
-The `onNEP17Payment` method is a callback method used to handle NEP-17 asset transfers in Neo smart contracts. Below is an example implementation with detailed explanation:
+The `onNEP17Payment` method is a callback method that processes NEP-17 asset transfers in Neo smart contracts. 
 
-#### Implementation Example
+#### Implementation example
 
-Reference link: https://github.com/neo-project/neo-devpack-dotnet/blob/master/examples/Example.SmartContract.ContractCall/ContractCall.cs
+The following is an example implementation (refer to the source code [here](https://github.com/neo-project/neo-devpack-dotnet/blob/master/examples/Example.SmartContract.ContractCall/ContractCall.cs)).
 
 ```csharp
 public class SampleContractCall : SmartContract
@@ -305,23 +305,23 @@ public class SampleContractCall : SmartContract
 
 Explanation
 
-1. DummyTarget:
+- DummyTarget:
    - Represents a predefined target contract hash.
    - In this example, it's set to 0x13a83e059c2eedd5157b766d3357bc826810905e.
 
-2. onNEP17Payment Parameters:
+- onNEP17Payment Parameters:
 
    - **from**: The address of the sender initiating the transfer.
    - **amount**: The amount of NEP-17 tokens transferred.
    - **data**: Additional data passed along with the transfer, used for custom business logic.
 
-3. Key Steps in the Method:
+- Key Steps in the Method:
 
    - Validate data: Only process the transfer if data equals 123.
-   - Fetch the balance: Query the token contract using the balanceOf method to retrieve the current contract's token balance.
-   - External call: Invoke the dummyMethod of the target contract (DummyTarget) with parameters including the current contract's hash, token hash, and the retrieved balance.
+   - Fetch the balance: Query the token contract using the `balanceOf` method to retrieve the current token balance of the contract.
+   - External call: Invoke the dummyMethod of the target contract (DummyTarget) with parameters including the current contract hash, token hash, and the retrieved balance.
 
-4. Use Case:
+- Use Case:
    - This method enables contracts to handle incoming NEP-17 payments and perform further actions such as notifying other contracts or executing specific business logic.
 
 :::Note
@@ -336,7 +336,7 @@ Explanation
 
 :::
 
-### name method
+### Name method
 
 The name method is moved to the manifest file, and you need to add `[DisplayName("Token Name")]` when writing the contract.
 
@@ -356,7 +356,7 @@ public class NEP17 : Nep17Token
 
 ### Transfer event
 
-The transfer event is changed to Transfer event (first letter capitalized).
+The `transfer` event is changed to `Transfer` event (first letter capitalized).
 
 ### IsPayable
 
