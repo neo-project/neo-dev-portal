@@ -18,10 +18,10 @@ First we will need a private key to interact with NeoX testnet chain. If you are
 as follow.
 
 Go on `Account details` on our Metamask wallet.
-![Metamask Wallet](images/metamask_pk.png)
+![Metamask Wallet](assets/metamask_pk.png)
 
 Then enter your password and click on `Hold to reveal Private Key`.
-![Metamask Wallet](images/metamask_pk_bis.png)
+![Metamask Wallet](assets/metamask_pk_bis.png)
 
 
 ## Step 2: Use faucet to get some testnet tokens
@@ -174,7 +174,7 @@ Compiled 1 Solidity file successfully (evm target: paris).
 ## Step 9: Deploy your contract
 For deploying our contract we will need to write a script for doing It. First let's create a `scripts` folder. At this point your
 Voting project should look like this:
-![Metamask Wallet](images/project_structure.png)
+![Metamask Wallet](assets/project_structure.png)
 
 Now we are creating a `deploy.js` file in this folder with the following code:
 ```js filename="deploy.js"
