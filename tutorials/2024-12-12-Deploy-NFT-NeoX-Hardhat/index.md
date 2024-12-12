@@ -6,6 +6,7 @@ tags: ['neox', 'javascript', 'solidity', 'technical']
 draft: false
 summary: 'In this article we will see how to deploy and mint an NFT on NeoX testnet by using Hardhat.'
 authors: ['snakey_rob']
+skill: BEGINNER
 ---
 
 ## Intro
