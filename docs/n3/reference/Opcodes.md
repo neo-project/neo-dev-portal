@@ -3085,6 +3085,35 @@ This opcode set defines instructions for stack operations, compound-type handlin
             </td>
         </tr>
         <tr>
+            <td><a class="anchor" name="8E"></a><a href="#8E">8E</a></td>
+            <td>RIGHT</td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>b</td>
+                            <td>a</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>
+                <table class="stack table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>a[^b]</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td>a[^b]</td>
+            <td>
+                 Keeps only characters right of the specified point in a string.
+            </td>
+        </tr>
+        <tr>
             <td><a class="anchor" name="90"></a><a href="#90">90</a></td>
             <td>INVERT</td>
             <td>
