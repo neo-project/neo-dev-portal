@@ -16,8 +16,8 @@ There are two full-node programs:
 
 |      | Neo-GUI                        | Neo-CLI                        |
 | ---- | ---------------------------------------- | ---------------------------------------- |
-| Releases | [Download](https://github.com/neo-ngd/Neo3-GUI/releases) | [Download](https://github.com/neo-project/neo-cli/releases) |
-| Source code | [GitHub](https://github.com/neo-ngd/Neo3-GUI) | [GitHub](https://github.com/neo-project/neo-cli) |
+| Releases | [Download](https://github.com/neo-ngd/Neo3-GUI/releases) | [Download](https://github.com/neo-project/neo/releases) |
+| Source code | [GitHub](https://github.com/neo-ngd/Neo3-GUI) | [GitHub](https://github.com/neo-project/neo) |
 
 ## Neo-GUI and Neo-CLI comparison
 

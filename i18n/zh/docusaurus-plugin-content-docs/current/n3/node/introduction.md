@@ -13,8 +13,8 @@ Neo 有两个全节点程序：
 
 |        | Neo-GUI                                                  | Neo-CLI                                                     |
 | ------ | -------------------------------------------------------- | ----------------------------------------------------------- |
-| 程序   | [下载地址](https://github.com/neo-ngd/Neo3-GUI/releases) | [下载地址](https://github.com/neo-project/neo-cli/releases) |
-| 源代码 | [Github](https://github.com/neo-ngd/Neo3-GUI)            | [Github](https://github.com/neo-project/neo-cli)            |
+| 程序   | [下载地址](https://github.com/neo-ngd/Neo3-GUI/releases) | [下载地址](https://github.com/neo-project/neo/releases) |
+| 源代码 | [Github](https://github.com/neo-ngd/Neo3-GUI)            | [Github](https://github.com/neo-project/neo)            |
 
 ## Neo-GUI 与 Neo-CLI 功能对比
 

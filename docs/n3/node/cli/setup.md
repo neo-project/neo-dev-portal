@@ -23,7 +23,7 @@ The following table lists the minimum and recommended hardware requirements for 
 
 ## Installing Neo-CLI package
 
-1. Download the latest [Neo-CLI](https://github.com/neo-project/neo-cli/releases) package according to your operating system on GitHub and unzip it.
+1. Download the latest [Neo-CLI](https://github.com/neo-project/neo/releases) package according to your operating system on GitHub and unzip it.
 
 2. On Linux, install the LevelDB and SQLite3 dev packages. 
 
@@ -66,10 +66,10 @@ You can download and compile the Neo-CLI source directly from GitHub.
 
 ### Installing required files
 
-1. Git clone Neo-CLI source code from [GitHub](https://github.com/neo-project/neo-node) or using the following command:
+1. Git clone Neo-CLI source code from [GitHub](https://github.com/neo-project/neo) or using the following command:
 
     ```
-    git clone https://github.com/neo-project/neo-node.git
+    git clone https://github.com/neo-project/neo.git
     ```
 
 2. Download [LevelDB](https://github.com/neo-ngd/leveldb/releases) and unzip the package for later use.
