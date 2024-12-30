@@ -66,7 +66,7 @@ You can download and compile the Neo-CLI source directly from GitHub.
 
 ### Installing required files
 
-1. Git clone Neo-CLI source code from [GitHub][https://github.com/neo-project/neo/tree/master/src/Neo.CLI](https://github.com/neo-project/neo/tree/master/src/Neo.CLI) or using the following command:
+1. Git clone Neo-CLI source code from [GitHub](https://github.com/neo-project/neo/tree/master/src/Neo.CLI) or using the following command:
 
     ```
     git clone https://github.com/neo-project/neo-node.git
