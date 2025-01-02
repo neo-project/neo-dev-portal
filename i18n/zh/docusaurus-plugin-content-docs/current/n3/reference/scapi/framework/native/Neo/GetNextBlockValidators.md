@@ -2,7 +2,7 @@
 
 获取下个区块的验证人列表。候选人将根据得票数排序，取最前面一定数量的候选人（默认7个）作为共识节点。与委员会类似，共识节点名单将在每个区块根据最新投票更新。
 
-命名空间：[Neo.SmartContract.Framework.Native](../../native.md)
+命名空间：[Neo.SmartContract.Framework.Native](../../native/index.md)
 
 程序集：Neo.SmartContract.Framework
 
@@ -42,4 +42,4 @@ public class Contract1 : SmartContract.Framework.SmartContract
 
 - 其他：失败。
 
-[返回上级](../Neo.md)
+[返回上级](index.md)

@@ -20,7 +20,7 @@
 
 ## 安装 Neo-CLI 程序包
 
-1. 在 GitHub 上下载系统对应的 [Neo-CLI](https://github.com/neo-project/neo-node/releases) 程序包并解压。
+1. 在 GitHub 上下载系统对应的 [Neo-CLI](https://github.com/neo-project/neo/releases) 程序包并解压。
 
 2. 对于 Linux 系统，需要安装 LevelDB 和 SQLite3 开发包。
 
@@ -52,17 +52,17 @@
    sudo apt-get install librocksdb-dev
    ```
 
-   对于 Windows 系统，[Neo-CLI](https://github.com/neo-project/neo-cli/releases) 的安装包中已经包含了 LevelDB，可跳过该步骤。  
+   对于 Windows 系统，[Neo-CLI](https://github.com/neo-project/neo/releases) 的安装包中已经包含了 LevelDB，可跳过该步骤。  
 
 
 ## 通过源码发布 Neo-CLI
 
 ### 准备工作
 
-1. 下载 [neo-node](https://github.com/neo-project/neo-node) 项目，或通过 Git 命令克隆项目。
+1. 下载 [neo-node](https://github.com/neo-project/neo) 项目，或通过 Git 命令克隆项目。
 
    ```
-   $ git clone https://github.com/neo-project/neo-node.git
+   $ git clone https://github.com/neo-project/neo.git
    ```
 
 2. 下载对应版本的 [LevelDB](https://github.com/neo-ngd/leveldb/releases) 并解压备用。

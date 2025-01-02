@@ -157,7 +157,7 @@ symbol
 
 ##### 调用示例
 
-##### **调用 balanceOf**
+##### 调用 balanceOf
 
 假设用户账户地址是 NYxb4fSZVKAz8YsgaPK2WkT3KcAE9b3Vag，你需要将其转换为 Hash160 类型并将此参数构造成 JSON 对象，如下所示:
 
@@ -213,7 +213,7 @@ symbol
 
 返回值无需转换，只需除以 decimals 得到余额即可。
 
-##### **调用 decimals**
+##### 调用 decimals
 
 请求正文：
 
@@ -253,7 +253,7 @@ symbol
 
 返回值为整数 **8**。
 
-##### **调用 symbol**
+##### 调用 symbol
 
 请求正文:
 
@@ -293,7 +293,7 @@ symbol
 
 返回值 "R0FT" 可以被 base64 解码为 "GAS"。
 
-##### **计算用户余额**
+##### 计算用户余额
 
 根据所有返回值，可以计算出用户余额为：
 用户余额 = balanceOf 返回值 / 10<sup>decimals</sup>。

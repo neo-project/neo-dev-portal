@@ -2,7 +2,7 @@
 
 销毁合约。
 
-命名空间：[Neo.SmartContract.Framework.Native](../../native.md)
+命名空间：[Neo.SmartContract.Framework.Native](../../native/index.md)
 
 程序集：Neo.SmartContract.Framework
 
@@ -39,4 +39,4 @@ public class Contract1 : SmartContract.Framework.SmartContract
 
 - 其他：失败。
 
-[返回上级](../ContractManagement.md)
+[返回上级](index.md)

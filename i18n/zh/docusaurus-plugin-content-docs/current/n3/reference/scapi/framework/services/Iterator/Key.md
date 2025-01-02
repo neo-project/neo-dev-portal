@@ -2,7 +2,7 @@
 
 获得当前游标的 Key。
 
-命名空间：[Neo.SmartContract.Framework.Services](../../services.md)
+命名空间：[Neo.SmartContract.Framework.Services](../index.md)
 
 程序集：Neo.SmartContract.Framework
 
@@ -16,4 +16,4 @@ public extern TKey Key
 
 
 
-[返回上级](../Iterator.md)
+[返回上级](index.md)

@@ -2,7 +2,7 @@
 
 构建Oracle请求。
 
-命名空间：[Neo.SmartContract.Framework.Native](../../native.md)
+命名空间：[Neo.SmartContract.Framework.Native](../../native/index.md)
 
 程序集：Neo.SmartContract.Framework
 
@@ -63,4 +63,4 @@ namespace demo
 }
 ```
 
-[返回上级](../Oracle.md)
+[返回上级](index.md)

@@ -2,7 +2,7 @@
 
 查询操作，查找存储上下文中满足指定前缀的内容
 
-命名空间：[Neo.SmartContract.Framework.Services](../../services.md)
+命名空间：[Neo.SmartContract.Framework.Services](../index.md)
 
 程序集：Neo.SmartContract.Framework
 
@@ -37,4 +37,4 @@ public class Contract1 : SmartContract.Framework.SmartContract
 }
 ```
 
-[返回上级](../Storage.md)
+[返回上级](index.md)

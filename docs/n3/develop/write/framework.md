@@ -7,7 +7,7 @@ The .NET framework is an encapsulation of the Smart Contract API, which helps .N
 
 Neo.SmartContract.Framework mainly provides the following API methods：
 
-- A series of native contract methods that can be invoked in the smart contract，see [Neo.SmartContract.Framework.Native](https://developers.neo.org/docs/n3/reference/scapi/framework/native). 
-- Interoperability services layer methods, see [Neo.SmartContract.Framework.Service](https://developers.neo.org/docs/n3/reference/scapi/framework/services).
-- Methods provided by the framework，see [Neo.SmartContract.Framework](https://developers.neo.org/docs/n3/reference/scapi/framework).
+- A series of native contract methods that can be invoked in the smart contract，see [Neo.SmartContract.Framework.Native](../../reference/scapi/framework/native/index.md). 
+- Interoperability services layer methods, see [Neo.SmartContract.Framework.Service](../../reference/scapi/framework/services/index.md).
+- Methods provided by the framework，see [Neo.SmartContract.Framework](../../reference/scapi/framework/index.md).
 

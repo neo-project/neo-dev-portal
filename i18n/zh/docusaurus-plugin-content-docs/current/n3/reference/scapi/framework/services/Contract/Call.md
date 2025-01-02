@@ -2,7 +2,7 @@
 
 调用合约。
 
-命名空间：[Neo.SmartContract.Framework.Services](../../services.md)
+命名空间：[Neo.SmartContract.Framework.Services](../index.md)
 
 程序集：Neo.SmartContract.Framework
 
@@ -47,4 +47,4 @@ public static extern object Call(UInt160 scriptHash, string method, object[] arg
 
 
 
-[返回上级](../Contract.md)
+[返回上级](index.md)

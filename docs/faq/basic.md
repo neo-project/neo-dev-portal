@@ -60,7 +60,7 @@ You can check any confirmed transaction on any blockchain explorer that is compa
 
 ## What browsers are available for Neo blockchain?
 
-A full list of explorers for Neo N3 can be found on the [Neo website](https://developers.neo.org/resources).
+A full list of explorers for Neo N3 can be found on the [Neo website](https://neo.org/dev#tooling).
 
 ## Is there an equivalent of the ERC-20 standard for Neo?
 

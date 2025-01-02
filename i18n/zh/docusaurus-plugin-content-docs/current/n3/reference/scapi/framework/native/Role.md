@@ -2,7 +2,7 @@
 
 定义了 RoleManagement 原生合约中的权限类型。
 
-命名空间：[Neo.SmartContract.Framework.Native](../native.md)
+命名空间：[Neo.SmartContract.Framework.Native](index.md)
 
 程序集：Neo.SmartContract.Framework
 
@@ -16,4 +16,4 @@ public enum Role : byte
 }
 ```
 
-具体使用参考 [RoleManagement](RoleManagement.md) 类的中的 GetDesignatedByRole 方法。
+具体使用参考 [RoleManagement](RoleManagement/index.md) 类的中的 GetDesignatedByRole 方法。
