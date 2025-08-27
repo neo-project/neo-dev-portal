@@ -2,10 +2,11 @@
 title: '[NeoX Tutorial] Test voting contract using Hardhat'
 date: '2024-11-27'
 lastmod: '2024-11-27'
-tags: ['neox', 'javascript', 'solidity', 'technical']
+tags: ['NEOX', 'JS', 'SOLIDITY', 'TECHNICAL']
 draft: false
-summary: 'In this article we will see how to test the voting contract we created in the previous tutorial.'
-authors: ['snakey_rob']
+description: 'In this article we will see how to test the voting contract we created in the previous tutorial.'
+author: snakey_rob
+skill: BEGINNER
 ---
 
 ## Test a solidity smart contract for on chain voting on Neo X Test chain.
