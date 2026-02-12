@@ -12,7 +12,7 @@ sidebar: true
 
 <div align="center" style={{ padding: '0% 25% 0% 25%' }}>
   <img src="/tooling/neow3j.png" alt="neow3j" width="75%" style={{ padding: '0% 0% 5% 0%' }}/> 
-  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.24.0</small></sub></h1> 
+  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.24.1</small></sub></h1>
 </div>
 
 ## 1. Introduction
@@ -29,7 +29,7 @@ DApp development in Java requires a Java SDK of at least version 8. Checkout [Ad
 
 __Neo-Express__
 
-Neo-Express is a tool for setting up local private blockchains for development purposes. You will use it to learn how to interact with a Neo blockchain using the neow3j SDK. It requires .NET Core installed on your machine. Step through the Neo-Express installation section [here](https://github.com/neo-project/neo-express#installation) to set it up.
+Neo-Express is a tool for setting up local private blockchains for development purposes. You will use it to learn how to interact with a Neo blockchain using the neow3j SDK. It requires .NET Core installed on your machine. Step through the [Neo-Express installation](https://github.com/neo-project/neo-express#installation) section to set it up.
 
 ### Development Environment
 
@@ -37,13 +37,13 @@ You can develop a dApp with neow3j in any editor, but we recommend using [Intell
 
 If you use VS Code make sure to install the [Neo Blockchain Toolkit](https://marketplace.visualstudio.com/items?itemName=ngd-seattle.neo-blockchain-toolkit) extension. It supports an easy setup of private blockchains, provides functionality to quickly fund an address, an in-editor block explorer and much more. For optimal Java support in VS Code we recommend using the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack).
 
-### Code 
+### Code
 
 For a quick setup of your dApp project, you can use the [SDK boilerplate template](https://github.com/neow3j/neow3j-boilerplate-sdk) repository. This project contains two simple examples. First, you'll build, sign and send a transaction. Then, we'll show you how to subscribe to new blocks on a Neo N3 blockchain.
 
 You can either click on `Use this template` within GitHub to create your own repository from it, or clone it with the following commands:
 
-```
+```bash
 git clone https://github.com/neow3j/neow3j-boilerplate-sdk.git
 cd neow3j-boilerplate-sdk && git checkout -b devportal-quickstart-tutorial
 ```
@@ -127,7 +127,7 @@ public class BuildAndSendTransaction {
 
 ### Imports
 
-The imports show the neow3j SDK classes that are used in the example contract. Check out neow3j's javadoc [here](https://javadoc.io/doc/io.neow3j/contract/latest/index.html) and [here](https://javadoc.io/doc/io.neow3j/core/latest/index.html) for a full overview of classes and methods that are supported.
+The imports show the neow3j SDK classes that are used in the example contract. Check out neow3j's javadoc of the [contract](https://javadoc.io/doc/io.neow3j/contract/latest/index.html) and [core](https://javadoc.io/doc/io.neow3j/core/latest/index.html) module for a full overview of classes and methods that are supported.
 
 ```java
 package com.axlabs.boilerplate;
@@ -286,4 +286,4 @@ neow3j.subscribeToNewBlocksObservable(true)
 
 ## About
 
-Feel free to report any issues that might arise. Open an issue [here](https://github.com/neow3j/neow3j/issues/new/choose) to help us directly including it in our backlog.
+Feel free to report any issues that might arise. Open an issue in the [neow3j repository](https://github.com/neow3j/neow3j/issues/new/choose) to help us directly including it in our backlog.

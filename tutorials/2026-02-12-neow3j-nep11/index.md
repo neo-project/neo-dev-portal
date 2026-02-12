@@ -12,18 +12,18 @@ sidebar: true
 
 <div align="center" style={{ padding: '0% 25% 0% 25%' }}>
   <img src="/tooling/neow3j.png" alt="neow3j" width="75%" style={{ padding: '0% 0% 5% 0%' }}/>
-  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.24.0</small></sub></h1>
+  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.24.1</small></sub></h1>
 </div>
 
 Neow3j is a development toolkit that provides easy and reliable tools to build Neo dApps and Smart Contracts using the Java platform (Java, Kotlin, Android). Check out [neow3j.io](https://neow3j.io) for more detailed information on neow3j and the technical documentation.
 
 ## 1. Setup
 
-If you haven't already set up your environment to use the neow3j library, you can check out our tutorial about setting up a neow3j project [here](/tutorials/neow3j-smart-contract-quickstart).
+If you haven't already set up your environment to use the neow3j library, you can check out our [tutorial](/tutorials/neow3j-smart-contract-quickstart) about setting up a neow3j project.
 
 ## 2. NEP-11 Overview
 
-The NEP-11 is the non-fungible token (NFT) standard on Neo N3. Have a look at its official documentation [here](https://github.com/neo-project/proposals/blob/master/nep-11.mediawiki).
+The NEP-11 is the non-fungible token (NFT) standard on Neo N3. Have a look at its [official documentation](https://github.com/neo-project/proposals/blob/master/nep-11.mediawiki).
 
 ## 3. Example NEP-11 Contract
 
@@ -35,7 +35,7 @@ This example contract supports **indivisible** NFTs (i.e., `decimals` is equal t
 
 <br />
 
-The NEP-11 standard also describes what methods are required if divisible NTFs should be supported. Some of the methods required for divisible NFTS deviate from the ones discussed here. Check out the documentation of the NEP-11 standard [here](https://github.com/neo-project/proposals/blob/master/nep-11.mediawiki) for more details.
+The NEP-11 standard also describes what methods are required if divisible NTFs should be supported. Some of the methods required for divisible NFTS deviate from the ones discussed here. Check out the documentation of the [NEP-11](https://github.com/neo-project/proposals/blob/master/nep-11.mediawiki) standard for more details.
 
 :::
 
@@ -50,7 +50,6 @@ import io.neow3j.devpack.Iterator;
 import io.neow3j.devpack.Map;
 import io.neow3j.devpack.Runtime;
 import io.neow3j.devpack.Storage;
-import io.neow3j.devpack.StorageContext;
 import io.neow3j.devpack.StorageMap;
 import io.neow3j.devpack.StringLiteralHelper;
 import io.neow3j.devpack.annotations.DisplayName;
@@ -101,7 +100,7 @@ public class NonFungibleToken {
     @OnDeployment
     public static void deploy(Object data, boolean update) {
         if (!update) {
-            StorageMap contractMap = new StorageMap(Storage.getStorageContext(), contractMapPrefix);
+            StorageMap contractMap = new StorageMap(contractMapPrefix);
             contractMap.put(totalSupplyKey, 0);
         }
     }
@@ -135,7 +134,7 @@ public class NonFungibleToken {
 
     @Safe
     public static int totalSupply() {
-        return new StorageMap(Storage.getReadOnlyContext(), contractMapPrefix).getInt(totalSupplyKey);
+        return new StorageMap(contractMapPrefix).getInt(totalSupplyKey);
     }
 
     @Safe
@@ -143,7 +142,7 @@ public class NonFungibleToken {
         if (!Hash160.isValid(owner)) {
             throw new Exception("The parameter 'owner' must be a 20-byte address.");
         }
-        return getBalance(Storage.getReadOnlyContext(), owner);
+        return getBalance(owner);
     }
 
     @Safe
@@ -151,7 +150,7 @@ public class NonFungibleToken {
         if (!Hash160.isValid(owner)) {
             throw new Exception("The parameter 'owner' must be a 20-byte address.");
         }
-        return (Iterator<ByteString>) Storage.find(Storage.getReadOnlyContext(), createTokensOfPrefix(owner),
+        return (Iterator<ByteString>) Storage.find(createTokensOfPrefix(owner),
                 (byte) (FindOptions.KeysOnly | FindOptions.RemovePrefix));
     }
 
@@ -167,14 +166,13 @@ public class NonFungibleToken {
             return false;
         }
         if (owner != to) {
-            StorageContext ctx = Storage.getStorageContext();
-            new StorageMap(ctx, ownerOfMapPrefix).put(tokenId, to.toByteArray());
+            new StorageMap(ownerOfMapPrefix).put(tokenId, to.toByteArray());
 
-            new StorageMap(ctx, createTokensOfPrefix(owner)).delete(tokenId);
-            new StorageMap(ctx, createTokensOfPrefix(to)).put(tokenId, 1);
+            new StorageMap(createTokensOfPrefix(owner)).delete(tokenId);
+            new StorageMap(createTokensOfPrefix(to)).put(tokenId, 1);
 
-            decreaseBalanceByOne(ctx, owner);
-            increaseBalanceByOne(ctx, to);
+            decreaseBalanceByOne(owner);
+            increaseBalanceByOne(to);
         }
         onTransfer.fire(owner, to, 1, tokenId);
         if (new ContractManagement().getContract(to) != null) {
@@ -191,7 +189,7 @@ public class NonFungibleToken {
         if (tokenId.length() > 64) {
             throw new Exception("The parameter 'tokenId' must be a valid NFT ID (64 or less bytes long).");
         }
-        ByteString owner = new StorageMap(Storage.getReadOnlyContext(), ownerOfMapPrefix).get(tokenId);
+        ByteString owner = new StorageMap(ownerOfMapPrefix).get(tokenId);
         if (owner == null) {
             throw new Exception("This token id does not exist.");
         }
@@ -203,8 +201,8 @@ public class NonFungibleToken {
 
     @Safe
     public static Iterator<Iterator.Struct<ByteString, ByteString>> tokens() {
-        return (Iterator<Iterator.Struct<ByteString, ByteString>>) new StorageMap(Storage.getReadOnlyContext(),
-                registryMapPrefix).find(FindOptions.RemovePrefix);
+        return (Iterator<Iterator.Struct<ByteString, ByteString>>) new StorageMap(registryMapPrefix)
+                .find(FindOptions.RemovePrefix);
     }
 
     @Safe
@@ -213,22 +211,21 @@ public class NonFungibleToken {
             throw new Exception("The parameter 'tokenId' must be a valid NFT ID (64 or less bytes long).");
         }
         Map<String, String> p = new Map<>();
-        StorageContext ctx = Storage.getReadOnlyContext();
-        ByteString tokenName = new StorageMap(ctx, propNameMapPrefix).get(tokenId);
+        ByteString tokenName = new StorageMap(propNameMapPrefix).get(tokenId);
         if (tokenName == null) {
             throw new Exception("This token id does not exist.");
         }
 
         p.put(propName, tokenName.toString());
-        ByteString tokenDescription = new StorageMap(ctx, propDescriptionMapPrefix).get(tokenId);
+        ByteString tokenDescription = new StorageMap(propDescriptionMapPrefix).get(tokenId);
         if (tokenDescription != null) {
             p.put(propDescription, tokenDescription.toString());
         }
-        ByteString tokenImage = new StorageMap(ctx, propImageMapPrefix).get(tokenId);
+        ByteString tokenImage = new StorageMap(propImageMapPrefix).get(tokenId);
         if (tokenImage != null) {
             p.put(propImage, tokenImage.toString());
         }
-        ByteString tokenURI = new StorageMap(ctx, propTokenURIMapPrefix).get(tokenId);
+        ByteString tokenURI = new StorageMap(propTokenURIMapPrefix).get(tokenId);
         if (tokenURI != null) {
             p.put(propTokenURI, tokenURI.toString());
         }
@@ -253,8 +250,7 @@ public class NonFungibleToken {
         if (!Runtime.checkWitness(contractOwner())) {
             throw new Exception("No authorization");
         }
-        StorageContext ctx = Storage.getStorageContext();
-        StorageMap registryMap = new StorageMap(ctx, registryMapPrefix);
+        StorageMap registryMap = new StorageMap(registryMapPrefix);
         if (registryMap.get(tokenId) != null) {
             throw new Exception("This token id already exists.");
         }
@@ -262,26 +258,26 @@ public class NonFungibleToken {
             throw new Exception("The properties must contain a value for the key 'name'.");
         }
         String tokenName = properties.get(propName);
-        new StorageMap(ctx, propNameMapPrefix).put(tokenId, tokenName);
+        new StorageMap(propNameMapPrefix).put(tokenId, tokenName);
         if (properties.containsKey(propDescription)) {
             String description = properties.get(propDescription);
-            new StorageMap(ctx, propDescriptionMapPrefix).put(tokenId, description);
+            new StorageMap(propDescriptionMapPrefix).put(tokenId, description);
         }
         if (properties.containsKey(propImage)) {
             String image = properties.get(propImage);
-            new StorageMap(ctx, propImageMapPrefix).put(tokenId, image);
+            new StorageMap(propImageMapPrefix).put(tokenId, image);
         }
         if (properties.containsKey(propTokenURI)) {
             String tokenURI = properties.get(propTokenURI);
-            new StorageMap(ctx, propTokenURIMapPrefix).put(tokenId, tokenURI);
+            new StorageMap(propTokenURIMapPrefix).put(tokenId, tokenURI);
         }
 
         registryMap.put(tokenId, tokenId);
-        new StorageMap(ctx, ownerOfMapPrefix).put(tokenId, to.toByteArray());
-        new StorageMap(ctx, createTokensOfPrefix(to)).put(tokenId, 1);
+        new StorageMap(ownerOfMapPrefix).put(tokenId, to.toByteArray());
+        new StorageMap(createTokensOfPrefix(to)).put(tokenId, 1);
 
-        increaseBalanceByOne(ctx, to);
-        incrementTotalSupplyByOne(ctx);
+        increaseBalanceByOne(to);
+        incrementTotalSupplyByOne();
         onTransfer.fire(null, to, 1, tokenId);
         if (new ContractManagement().getContract(to) != null) {
             Contract.call(to, "onNEP11Payment", CallFlags.All, new Object[]{null, 1, tokenId, null});
@@ -299,44 +295,42 @@ public class NonFungibleToken {
             throw new Exception("No authorization.");
         }
 
-        StorageContext ctx = Storage.getStorageContext();
+        new StorageMap(registryMapPrefix).delete(tokenId);
+        new StorageMap(propNameMapPrefix).delete(tokenId);
+        new StorageMap(propDescriptionMapPrefix).delete(tokenId);
+        new StorageMap(propImageMapPrefix).delete(tokenId);
+        new StorageMap(propTokenURIMapPrefix).delete(tokenId);
+        new StorageMap(ownerOfMapPrefix).delete(tokenId);
 
-        new StorageMap(ctx, registryMapPrefix).delete(tokenId);
-        new StorageMap(ctx, propNameMapPrefix).delete(tokenId);
-        new StorageMap(ctx, propDescriptionMapPrefix).delete(tokenId);
-        new StorageMap(ctx, propImageMapPrefix).delete(tokenId);
-        new StorageMap(ctx, propTokenURIMapPrefix).delete(tokenId);
-        new StorageMap(ctx, ownerOfMapPrefix).delete(tokenId);
-
-        new StorageMap(ctx, createTokensOfPrefix(owner)).delete(tokenId);
-        decreaseBalanceByOne(ctx, owner);
-        decrementTotalSupplyByOne(ctx);
+        new StorageMap(createTokensOfPrefix(owner)).delete(tokenId);
+        decreaseBalanceByOne(owner);
+        decrementTotalSupplyByOne();
         onTransfer.fire(owner, null, 1, tokenId);
     }
 
     // endregion custom methods
     // region private helper methods
 
-    private static int getBalance(StorageContext ctx, Hash160 owner) {
-        return new StorageMap(ctx, balanceMapPrefix).getIntOrZero(owner.toByteArray());
+    private static int getBalance(Hash160 owner) {
+        return new StorageMap(balanceMapPrefix).getIntOrZero(owner.toByteArray());
     }
 
-    private static void increaseBalanceByOne(StorageContext ctx, Hash160 owner) {
-        new StorageMap(ctx, balanceMapPrefix).put(owner.toByteArray(), getBalance(ctx, owner) + 1);
+    private static void increaseBalanceByOne(Hash160 owner) {
+        new StorageMap(balanceMapPrefix).put(owner.toByteArray(), getBalance(owner) + 1);
     }
 
-    private static void decreaseBalanceByOne(StorageContext ctx, Hash160 owner) {
-        new StorageMap(ctx, balanceMapPrefix).put(owner.toByteArray(), getBalance(ctx, owner) - 1);
+    private static void decreaseBalanceByOne(Hash160 owner) {
+        new StorageMap(balanceMapPrefix).put(owner.toByteArray(), getBalance(owner) - 1);
     }
 
-    private static void incrementTotalSupplyByOne(StorageContext ctx) {
-        StorageMap contractMap = new StorageMap(ctx, contractMapPrefix);
+    private static void incrementTotalSupplyByOne() {
+        StorageMap contractMap = new StorageMap(contractMapPrefix);
         int updatedTotalSupply = contractMap.getInt(totalSupplyKey) + 1;
         contractMap.put(totalSupplyKey, updatedTotalSupply);
     }
 
-    private static void decrementTotalSupplyByOne(StorageContext ctx) {
-        StorageMap contractMap = new StorageMap(ctx, contractMapPrefix);
+    private static void decrementTotalSupplyByOne() {
+        StorageMap contractMap = new StorageMap(contractMapPrefix);
         int updatedTotalSupply = contractMap.getInt(totalSupplyKey) - 1;
         contractMap.put(totalSupplyKey, updatedTotalSupply);
     }
@@ -367,7 +361,6 @@ import io.neow3j.devpack.Iterator;
 import io.neow3j.devpack.Map;
 import io.neow3j.devpack.Runtime;
 import io.neow3j.devpack.Storage;
-import io.neow3j.devpack.StorageContext;
 import io.neow3j.devpack.StorageMap;
 import io.neow3j.devpack.StringLiteralHelper;
 import io.neow3j.devpack.annotations.DisplayName;
@@ -397,7 +390,7 @@ Adds the provided key-value pair information in the manifest's `extra` field. Yo
 
 _`@SupportedStandard`_
 
-Sets the `supportedStandards` field in the manifest. You can use `neoStandard = ` with the enum `NeoStandard` to use an official standard (see [here](https://github.com/neo-project/proposals#readme)), or `customStandard = ` with a custom string value.
+Sets the `supportedStandards` field in the manifest. You can use the `neoStandard` key with the enum `NeoStandard` to use an official standard (check out the existing [NEPs](https://github.com/neo-project/proposals#readme) of Neo), or `customStandard` with a custom string value.
 
 _`Permission`_
 Specifies, which third-party contracts and methods the smart contract is allowed to call. By default (i.e., if no permission annotation is set), the contract is not allowed to call any contract. Use `contract = ` and `methods = ` to specify, respectively, which contracts and methods are allowed. The permission in this example means that any contract and all its methods are allowed.
@@ -456,7 +449,7 @@ Once a deployment transaction is made (containing the contract and other paramet
 @OnDeployment
 public static void deploy(Object data, boolean update) {
     if (!update) {
-        StorageMap contractMap = new StorageMap(Storage.getStorageContext(), contractMapPrefix);
+        StorageMap contractMap = new StorageMap(contractMapPrefix);
         contractMap.put(totalSupplyKey, 0);
     }
 }
@@ -464,7 +457,7 @@ public static void deploy(Object data, boolean update) {
 
 ### Update and Destroy
 
-In order to update the contract, the following method first checks that the contract owner witnessed the transaction and then the native `ContractManagement.update()` method is called. When updating a smart contract, you can change the smart contract's code and its manifest. This means that you can update how the contract programmatically manages its storage context.
+In order to update the contract, the following method first checks that the contract owner witnessed the transaction and then the native `ContractManagement.update()` method is called. When updating a smart contract, you can change the smart contract's code and its manifest. This means that you can update how the contract programmatically manages its storage.
 
 :::note
 
@@ -485,7 +478,7 @@ The example contract also provides the option to destroy the smart contract. As 
 
 :::caution
 
-When the native method `ContractManagement.destroy()` is called from a smart contract, the whole smart contract's storage context is erased, and the contract can no longer be used.
+When the native method `ContractManagement.destroy()` is called from a smart contract, the whole smart contract's storage is erased, and the contract can no longer be used.
 
 :::
 
@@ -515,7 +508,7 @@ public static int decimals() {
 
 @Safe
 public static int totalSupply() {
-    return new StorageMap(Storage.getReadOnlyContext(), contractMapPrefix).getInt(totalSupplyKey);
+    return new StorageMap(contractMapPrefix).getInt(totalSupplyKey);
 }
 
 @Safe
@@ -523,7 +516,7 @@ public static int balanceOf(Hash160 owner) throws Exception {
     if (!Hash160.isValid(owner)) {
         throw new Exception("The parameter 'owner' must be a 20-byte address.");
     }
-    return getBalance(Storage.getReadOnlyContext(), owner);
+    return getBalance(owner);
 }
 
 @Safe
@@ -531,7 +524,7 @@ public static Iterator<ByteString> tokensOf(Hash160 owner) throws Exception {
     if (!Hash160.isValid(owner)) {
         throw new Exception("The parameter 'owner' must be a 20-byte address.");
     }
-    return (Iterator<ByteString>) Storage.find(Storage.getReadOnlyContext(), createTokensOfPrefix(owner),
+    return (Iterator<ByteString>) Storage.find(createTokensOfPrefix(owner),
             (byte) (FindOptions.KeysOnly | FindOptions.RemovePrefix));
 }
 
@@ -547,14 +540,13 @@ public static boolean transfer(Hash160 to, ByteString tokenId, Object data) thro
         return false;
     }
     if (owner != to) {
-        StorageContext ctx = Storage.getStorageContext();
-        new StorageMap(ctx, ownerOfMapPrefix).put(tokenId, to.toByteArray());
+        new StorageMap(ownerOfMapPrefix).put(tokenId, to.toByteArray());
 
-        new StorageMap(ctx, createTokensOfPrefix(owner)).delete(tokenId);
-        new StorageMap(ctx, createTokensOfPrefix(to)).put(tokenId, 1);
+        new StorageMap(createTokensOfPrefix(owner)).delete(tokenId);
+        new StorageMap(createTokensOfPrefix(to)).put(tokenId, 1);
 
-        decreaseBalanceByOne(ctx, owner);
-        increaseBalanceByOne(ctx, to);
+        decreaseBalanceByOne(owner);
+        increaseBalanceByOne(to);
     }
     onTransfer.fire(owner, to, 1, tokenId);
     if (new ContractManagement().getContract(to) != null) {
@@ -574,7 +566,7 @@ public static Hash160 ownerOf(ByteString tokenId) throws Exception {
     if (tokenId.length() > 64) {
         throw new Exception("The parameter 'tokenId' must be a valid NFT ID (64 or less bytes long).");
     }
-    ByteString owner = new StorageMap(Storage.getReadOnlyContext(), ownerOfMapPrefix).get(tokenId);
+    ByteString owner = new StorageMap(ownerOfMapPrefix).get(tokenId);
     if (owner == null) {
         throw new Exception("This token id does not exist.");
     }
@@ -589,8 +581,8 @@ The NEP-11 standard describes two optional methods called `tokens()` and `proper
 ```java
 @Safe
 public static Iterator<Iterator.Struct<ByteString, ByteString>> tokens() {
-    return (Iterator<Iterator.Struct<ByteString, ByteString>>) new StorageMap(Storage.getReadOnlyContext(),
-            registryMapPrefix).find(FindOptions.RemovePrefix);
+    return (Iterator<Iterator.Struct<ByteString, ByteString>>) new StorageMap(registryMapPrefix)
+            .find(FindOptions.RemovePrefix);
 }
 
 @Safe
@@ -599,22 +591,21 @@ public static Map<String, String> properties(ByteString tokenId) throws Exceptio
         throw new Exception("The parameter 'tokenId' must be a valid NFT ID (64 or less bytes long).");
     }
     Map<String, String> p = new Map<>();
-    StorageContext ctx = Storage.getReadOnlyContext();
-    ByteString tokenName = new StorageMap(ctx, propNameMapPrefix).get(tokenId);
+    ByteString tokenName = new StorageMap(propNameMapPrefix).get(tokenId);
     if (tokenName == null) {
         throw new Exception("This token id does not exist.");
     }
 
     p.put(propName, tokenName.toString());
-    ByteString tokenDescription = new StorageMap(ctx, propDescriptionMapPrefix).get(tokenId);
+    ByteString tokenDescription = new StorageMap(propDescriptionMapPrefix).get(tokenId);
     if (tokenDescription != null) {
         p.put(propDescription, tokenDescription.toString());
     }
-    ByteString tokenImage = new StorageMap(ctx, propImageMapPrefix).get(tokenId);
+    ByteString tokenImage = new StorageMap(propImageMapPrefix).get(tokenId);
     if (tokenImage != null) {
         p.put(propImage, tokenImage.toString());
     }
-    ByteString tokenURI = new StorageMap(ctx, propTokenURIMapPrefix).get(tokenId);
+    ByteString tokenURI = new StorageMap(propTokenURIMapPrefix).get(tokenId);
     if (tokenURI != null) {
         p.put(propTokenURI, tokenURI.toString());
     }
@@ -657,8 +648,7 @@ public static void mint(Hash160 to, ByteString tokenId, Map<String, String> prop
     if (!Runtime.checkWitness(contractOwner())) {
         throw new Exception("No authorization");
     }
-    StorageContext ctx = Storage.getStorageContext();
-    StorageMap registryMap = new StorageMap(ctx, registryMapPrefix);
+    StorageMap registryMap = new StorageMap(registryMapPrefix);
     if (registryMap.get(tokenId) != null) {
         throw new Exception("This token id already exists.");
     }
@@ -666,26 +656,26 @@ public static void mint(Hash160 to, ByteString tokenId, Map<String, String> prop
         throw new Exception("The properties must contain a value for the key 'name'.");
     }
     String tokenName = properties.get(propName);
-    new StorageMap(ctx, propNameMapPrefix).put(tokenId, tokenName);
+    new StorageMap(propNameMapPrefix).put(tokenId, tokenName);
     if (properties.containsKey(propDescription)) {
         String description = properties.get(propDescription);
-        new StorageMap(ctx, propDescriptionMapPrefix).put(tokenId, description);
+        new StorageMap(propDescriptionMapPrefix).put(tokenId, description);
     }
     if (properties.containsKey(propImage)) {
         String image = properties.get(propImage);
-        new StorageMap(ctx, propImageMapPrefix).put(tokenId, image);
+        new StorageMap(propImageMapPrefix).put(tokenId, image);
     }
     if (properties.containsKey(propTokenURI)) {
         String tokenURI = properties.get(propTokenURI);
-        new StorageMap(ctx, propTokenURIMapPrefix).put(tokenId, tokenURI);
+        new StorageMap(propTokenURIMapPrefix).put(tokenId, tokenURI);
     }
 
     registryMap.put(tokenId, tokenId);
-    new StorageMap(ctx, ownerOfMapPrefix).put(tokenId, to.toByteArray());
-    new StorageMap(ctx, createTokensOfPrefix(to)).put(tokenId, 1);
+    new StorageMap(ownerOfMapPrefix).put(tokenId, to.toByteArray());
+    new StorageMap(createTokensOfPrefix(to)).put(tokenId, 1);
 
-    increaseBalanceByOne(ctx, to);
-    incrementTotalSupplyByOne(ctx);
+    increaseBalanceByOne(to);
+    incrementTotalSupplyByOne();
     onTransfer.fire(null, to, 1, tokenId);
     if (new ContractManagement().getContract(to) != null) {
         Contract.call(to, "onNEP11Payment", CallFlags.All, new Object[]{null, 1, tokenId, null});
@@ -703,18 +693,16 @@ public static void burn(ByteString tokenId) throws Exception {
         throw new Exception("No authorization.");
     }
 
-    StorageContext ctx = Storage.getStorageContext();
+    new StorageMap(registryMapPrefix).delete(tokenId);
+    new StorageMap(propNameMapPrefix).delete(tokenId);
+    new StorageMap(propDescriptionMapPrefix).delete(tokenId);
+    new StorageMap(propImageMapPrefix).delete(tokenId);
+    new StorageMap(propTokenURIMapPrefix).delete(tokenId);
+    new StorageMap(ownerOfMapPrefix).delete(tokenId);
 
-    new StorageMap(ctx, registryMapPrefix).delete(tokenId);
-    new StorageMap(ctx, propNameMapPrefix).delete(tokenId);
-    new StorageMap(ctx, propDescriptionMapPrefix).delete(tokenId);
-    new StorageMap(ctx, propImageMapPrefix).delete(tokenId);
-    new StorageMap(ctx, propTokenURIMapPrefix).delete(tokenId);
-    new StorageMap(ctx, ownerOfMapPrefix).delete(tokenId);
-
-    new StorageMap(ctx, createTokensOfPrefix(owner)).delete(tokenId);
-    decreaseBalanceByOne(ctx, owner);
-    decrementTotalSupplyByOne(ctx);
+    new StorageMap(createTokensOfPrefix(owner)).delete(tokenId);
+    decreaseBalanceByOne(owner);
+    decrementTotalSupplyByOne();
     onTransfer.fire(owner, null, 1, tokenId);
 }
 ```
@@ -724,26 +712,26 @@ public static void burn(ByteString tokenId) throws Exception {
 Private methods can be used to simplify and make the smart contract more readable. The following private methods are used in the NEP-11 example contract.
 
 ```java
-private static int getBalance(StorageContext ctx, Hash160 owner) {
-    return new StorageMap(ctx, balanceMapPrefix).getIntOrZero(owner.toByteArray());
+private static int getBalance(Hash160 owner) {
+    return new StorageMap(balanceMapPrefix).getIntOrZero(owner.toByteArray());
 }
 
-private static void increaseBalanceByOne(StorageContext ctx, Hash160 owner) {
-    new StorageMap(ctx, balanceMapPrefix).put(owner.toByteArray(), getBalance(ctx, owner) + 1);
+private static void increaseBalanceByOne(Hash160 owner) {
+    new StorageMap(balanceMapPrefix).put(owner.toByteArray(), getBalance(owner) + 1);
 }
 
-private static void decreaseBalanceByOne(StorageContext ctx, Hash160 owner) {
-    new StorageMap(ctx, balanceMapPrefix).put(owner.toByteArray(), getBalance(ctx, owner) - 1);
+private static void decreaseBalanceByOne(Hash160 owner) {
+    new StorageMap(balanceMapPrefix).put(owner.toByteArray(), getBalance(owner) - 1);
 }
 
-private static void incrementTotalSupplyByOne(StorageContext ctx) {
-    StorageMap contractMap = new StorageMap(ctx, contractMapPrefix);
+private static void incrementTotalSupplyByOne() {
+    StorageMap contractMap = new StorageMap(contractMapPrefix);
     int updatedTotalSupply = contractMap.getInt(totalSupplyKey) + 1;
     contractMap.put(totalSupplyKey, updatedTotalSupply);
 }
 
-private static void decrementTotalSupplyByOne(StorageContext ctx) {
-    StorageMap contractMap = new StorageMap(ctx, contractMapPrefix);
+private static void decrementTotalSupplyByOne() {
+    StorageMap contractMap = new StorageMap(contractMapPrefix);
     int updatedTotalSupply = contractMap.getInt(totalSupplyKey) - 1;
     contractMap.put(totalSupplyKey, updatedTotalSupply);
 }
@@ -771,16 +759,15 @@ FurryFriends.nefdbgnfo
 
 :::note
 
-The filenames can deviate according to what the contract's name is. See [here](#contract-specific-information).
+The filenames can deviate according to what the contract's name is. REad more about this in the section about [contract-specific information](#contract-specific-information).
 
 :::
 
-Now, the contract's `.manifest.json` and `.nef` files can be used to deploy the contract. Neow3j's SDK can be used to do so. Check out the example [here](https://github.com/neow3j/neow3j-examples-java/blob/4d82df91c27bf9d4992c166e1ae98045bd24fbbd/src/main/java/io/neow3j/examples/contractdevelopment/DeployFromFiles.java) about how to deploy a contract with its manifest and nef files.
+Now, the contract's `.manifest.json` and `.nef` files can be used to deploy the contract. Neow3j's SDK can be used to do so. Check out the [DeployFromFiles.java](https://github.com/neow3j/neow3j-examples-java/blob/4d82df91c27bf9d4992c166e1ae98045bd24fbbd/src/main/java/io/neow3j/examples/contractdevelopment/DeployFromFiles.java) example about how to deploy a contract with its manifest and NEF files.
 
 ## About
 
-Feel free to report any issues that might arise. Open an issue [here](https://github.com/neow3j/neow3j/issues/new/choose) to help us directly including it in our backlog.
-
+Feel free to report any issues that might arise. Open an issue in the [neow3j repository](https://github.com/neow3j/neow3j/issues/new/choose) to help us directly including it in our backlog.
 
 <!---
 ## How to test my dApp
