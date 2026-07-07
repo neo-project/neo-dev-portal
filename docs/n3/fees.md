@@ -46,7 +46,7 @@ Reference: [ApplicationEngine.OpCodePrices.cs](https://github.com/neo-project/ne
 
 ### System call fee
 
-| **Interop Service**                   | Fee（GAS）                                               |
+| **Interop Service**                   | Fee（Datoshi）                                               |
 | ------------------------------------- | -------------------------------------------------------- |
 | System.Contract.Call                  | 32768                                               |
 | System.Contract.CallNative            | Refer to native contract fee                             |
@@ -89,7 +89,7 @@ Reference:
 
 ### Native contract execution fee
 
-| Native Contract    | Method                  | Fee（GAS）                                                   |
+| Native Contract    | Method                  | Fee（Datoshi）                                                   |
 | ------------------ | ----------------------- | ------------------------------------------------------------ |
 | ContractManagement | Deploy                  | Refer to storage fee. Minimum is  10 GAS.                    |
 | ContractManagement | Update                  | Refer to storage fee                                         |
