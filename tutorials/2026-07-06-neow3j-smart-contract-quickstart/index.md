@@ -12,14 +12,14 @@ sidebar: true
 
 <div align="center" style={{ padding: '0% 25% 0% 25%' }}>
   <img src="/tooling/neow3j.png" alt="neow3j" width="75%" style={{ padding: '0% 0% 5% 0%' }}/> 
-  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.23.0</small></sub></h1> 
+  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.24.2</small></sub></h1>
 </div>
 
 ## 1. Introduction
 
 Java Smart contracts are made possible through the neow3j devpack, which provides a smart contract library, a compiler and a test framework. Neow3j favors [Gradle](https://gradle.org) as the build tool. It offers a Gradle plugin that allows contract compilation via a Gradle task.
 
-## 2. Setup 
+## 2. Setup
 
 ### Requirements
 
@@ -37,13 +37,13 @@ You could write smart contracts in any editor, but we recommend using [IntelliJ 
 
 If you use VS Code make sure to install the [Neo Blockchain Toolkit](https://marketplace.visualstudio.com/items?itemName=ngd-seattle.neo-blockchain-toolkit) extension. It supports contract debugging, easy setup of private blockchains, and an in-editor block explorer. For optimal Java support in VS Code we recommend using the [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack).
 
-### Code 
+### Code
 
 For a quick setup of your smart contract project you can use the template project from our [neow3j-boilerplate-contracts](https://github.com/neow3j/neow3j-boilerplate-contracts) repository. It contains a simple "HelloWorld" smart contract.
 
 You can either click on `Use this template` within GitHub to create your own repository from it, or clone it with the following commands:
 
-```
+```bash
 git clone https://github.com/neow3j/neow3j-boilerplate-contracts.git
 cd neow3j-boilerplate-contracts && git checkout -b devportal-quickstart-tutorial
 ```
@@ -60,11 +60,11 @@ This tutorial is based on the branch `devportal-quickstart-tutorial`, it might n
 
 With the setup from above, we can already compile our HelloWorld contract. Open a terminal in the project's root directory and run:
 
-```
+```bash
 ./gradlew neow3jCompile
 ```
 
-This compiles the smart contract class `HelloWorldSmartContract`, and places a NEF file, contract manifest, and debugging information file by default at `build/neow3j`. NEF file and contract manifest are described [here](/docs/n3/develop/write/manifest). They are the artifacts that are deployed on-chain. The debugging information file is required by the Neo Debugger (part of the Neo Blockchain Toolkit) to debug your contract.
+This compiles the smart contract class `HelloWorldSmartContract`, and places a NEF file, contract manifest, and debugging information file by default at `build/neow3j`. NEF file and contract manifest are described in the [NEF and Manifest Files](/docs/n3/develop/write/manifest) document. They are the artifacts that are deployed on-chain. The debugging information file is required by the Neo Debugger (part of the Neo Blockchain Toolkit) to debug your contract.
 
 ### Using the Compiler in Code
 
@@ -88,20 +88,20 @@ TransactionBuilder builder = new ContractManagement(neow3j)
 
 __Understanding Java for the NeoVM__
 
-When using neow3j to implement smart contracts you will, at some point, have to understand the differences between normal Java and Java for smart contract. Because smart contract code will run on the NeoVM and not on the JavaVM there are several restrictions. You can read about that [here](https://neow3j.io/#/neo-n3/smart_contract_development/neowjava).
+When using neow3j to implement smart contracts you will, at some point, have to understand the differences between normal Java and Java for smart contract. Because smart contract code will run on the NeoVM and not on the JavaVM there are several restrictions. You can read about that in the [NeowJava](https://neow3j.io/#/neo-n3/smart_contract_development/neowjava) section of the neow3j documentation.
 
 __Understanding the neow3j Devpack__
 
-To get to know the neow3j devpack library you can consult the documentation [here](https://neow3j.io/#/neo-n3/smart_contract_development/devpack). It shows core features of the Neo smart contract API, like storage, events, and native contracts, and explains how they are available in neow3j. Or, checkout one of the other neow3j tutorials on the developer portal to get a better idea of how Java smart contracts look like.
+To get to know the neow3j devpack library you can consult the [devpack](https://neow3j.io/#/neo-n3/smart_contract_development/devpack) section of the neow3j documentation. It shows core features of the Neo smart contract API, like storage, events, and native contracts, and explains how they are available in neow3j. Or, checkout one of the other neow3j tutorials on the developer portal to get a better idea of how Java smart contracts look like.
 
 __Automated Testing__
 
-When writing smart contracts testing is of utmost importance to feel confidence in one's code. Neow3j offers a test framework that is build on top of JUnit 5. It is documented [here](https://neow3j.io/#/neo-n3/smart_contract_development/testing). The test class `HelloWorldSmartContractTest` in the boilerplate repository gives a first impression how contract tests with neow3j look.
+When writing smart contracts testing is of utmost importance to feel confidence in one's code. Neow3j offers a [test framework](https://neow3j.io/#/neo-n3/smart_contract_development/testing) that is build on top of JUnit 5. The test class `HelloWorldSmartContractTest` in the boilerplate repository gives a first impression how contract tests with neow3j look.
 
 __Manual Testing__
 
 Before you deploy your contract on the Neo mainnet, you will probably want to test it on a private network on your machine and then on testnet. For local testing we recommend using the Neo Blockchain Toolkit mentioned in the [dev environment](#development-environment) section. The boilerplate repository already contains a `default.neo-express` configuration file that defines a private network with one account called Alice. In VS Code open the command palette and type "Start blockchain". Execute the command. The private net will start. Again in the command palatte type "Transfer assets" and execute the command. Transfer 100 GAS from genesis to Alice. This is will create a transaction on the private net. Now you can run the main method in `com.axlabs.helloworld.Deployment` (of the boilerplate repo) to deploy the contract on the private net.
 
 :::tip
-The underlying tool used for running private networks is Neo-Express. It can be separately installed and used as a command line tool [here](https://github.com/neo-project/neo-express#installation).
+The underlying tool used for running private networks is Neo-Express. It can be separately installed and used as a [command line tool](https://github.com/neo-project/neo-express#installation).
 :::

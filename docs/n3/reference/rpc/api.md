@@ -253,3 +253,7 @@ The following table lists all error codes and corresponding messages. For more i
 | -608   | Contract execution failed              |
 
  
+
+## Public RPC Endpoints
+
+Several public NEO N3 RPC endpoints are available without an API key, including nodes operated by NSPCC and NGD. You can compare their live latency and reliability at [OpenChainBench NEO N3 RPC benchmark](https://openchainbench.com/benchmarks/neo-rpc), which measures `getblockcount` response times every 60 seconds from three regions.

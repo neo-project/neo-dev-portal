@@ -12,18 +12,18 @@ sidebar: true
 
 <div align="center" style={{ padding: '0% 25% 0% 25%' }}>
   <img src="/tooling/neow3j.png" alt="neow3j" width="75%" style={{ padding: '0% 0% 5% 0%' }}/> 
-  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.23.0</small></sub></h1> 
+  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.24.2</small></sub></h1>
 </div>
 
 Neow3j is a development toolkit that provides easy and reliable tools to build Neo dApps and Smart Contracts using the Java platform (Java, Kotlin, Android). Check out [neow3j.io](https://neow3j.io) for more detailed information on neow3j and the technical documentation.
 
 ## 1. Setup
 
-If you haven't already set up your environment to use the neow3j library, you can check out our tutorial about setting up a neow3j project [here](/tutorials/neow3j-smart-contract-quickstart).
+If you haven't already set up your environment to use the neow3j library, you can check out our [tutorial](/tutorials/neow3j-smart-contract-quickstart) about setting up a neow3j project.
 
 ## 2. NEP-17 Overview
 
-The NEP-17 is the fungible token standard on Neo N3. Have a look at its official documentation [here](https://github.com/neo-project/proposals/blob/master/nep-17.mediawiki).
+The NEP-17 is the fungible token standard on Neo N3. Have a look at its [official documentation](https://github.com/neo-project/proposals/blob/master/nep-17.mediawiki).
 
 ## 3. Example NEP-17 Contract
 
@@ -38,7 +38,6 @@ import io.neow3j.devpack.Hash160;
 import io.neow3j.devpack.Helper;
 import io.neow3j.devpack.Runtime;
 import io.neow3j.devpack.Storage;
-import io.neow3j.devpack.StorageContext;
 import io.neow3j.devpack.StorageMap;
 import io.neow3j.devpack.annotations.DisplayName;
 import io.neow3j.devpack.annotations.ManifestExtra;
@@ -72,16 +71,15 @@ public class FungibleToken {
     @OnDeployment
     public static void deploy(Object data, boolean update) {
         if (!update) {
-            StorageContext ctx = Storage.getStorageContext();
             // Set the contract owner.
             Hash160 initialOwner = (Hash160) data;
             if (!Hash160.isValid(initialOwner)) Helper.abort("Invalid deployment parameter");
-            Storage.put(ctx, contractOwnerKey, initialOwner);
+            Storage.put(contractOwnerKey, initialOwner);
             // Initialize the supply.
             int initialSupply = 200_000_000;
-            Storage.put(ctx, totalSupplyKey, initialSupply);
+            Storage.put(totalSupplyKey, initialSupply);
             // Allocate all tokens to the contract owner.
-            new StorageMap(ctx, assetMapPrefix).put(initialOwner, initialSupply);
+            new StorageMap(assetMapPrefix).put(initialOwner, initialSupply);
             onTransfer.fire(null, initialOwner, initialSupply);
             if (new ContractManagement().getContract(initialOwner) != null) {
                 Contract.call(initialOwner, "onNEP17Payment", CallFlags.All, new Object[]{null, initialSupply, null});
@@ -90,14 +88,14 @@ public class FungibleToken {
     }
 
     public static void update(ByteString script, String manifest) throws Exception {
-        if (!Runtime.checkWitness(contractOwner(Storage.getReadOnlyContext()))) {
+        if (!Runtime.checkWitness(contractOwner())) {
             throw new Exception("No authorization");
         }
         new ContractManagement().update(script, manifest);
     }
 
     public static void destroy() throws Exception {
-        if (!Runtime.checkWitness(contractOwner(Storage.getReadOnlyContext()))) {
+        if (!Runtime.checkWitness(contractOwner())) {
             throw new Exception("No authorization");
         }
         new ContractManagement().destroy();
@@ -118,7 +116,7 @@ public class FungibleToken {
 
     @Safe
     public static int totalSupply() {
-        return Storage.getInt(Storage.getReadOnlyContext(), totalSupplyKey);
+        return Storage.getInt(totalSupplyKey);
     }
 
     public static boolean transfer(Hash160 from, Hash160 to, int amount, Object[] data) throws Exception {
@@ -128,14 +126,13 @@ public class FungibleToken {
         if (amount < 0) {
             throw new Exception("The parameter 'amount' must be greater than or equal to 0.");
         }
-        StorageContext ctx = Storage.getStorageContext();
-        if (amount > getBalance(ctx, from) || !Runtime.checkWitness(from)) {
+        if (amount > getBalance(from) || !Runtime.checkWitness(from)) {
             return false;
         }
 
         if (from != to && amount != 0) {
-            deductFromBalance(ctx, from, amount);
-            addToBalance(ctx, to, amount);
+            deductFromBalance(from, amount);
+            addToBalance(to, amount);
         }
 
         onTransfer.fire(from, to, amount);
@@ -150,7 +147,7 @@ public class FungibleToken {
         if (!Hash160.isValid(account)) {
             throw new Exception("The parameter 'account' must be a 20-byte address.");
         }
-        return getBalance(Storage.getReadOnlyContext(), account);
+        return getBalance(account);
     }
 
     // endregion NEP-17 methods
@@ -164,28 +161,23 @@ public class FungibleToken {
 
     @Safe
     public static Hash160 contractOwner() {
-        return new StorageMap(Storage.getReadOnlyContext(), contractMapPrefix).getHash160(contractOwnerKey);
+        return new StorageMap(contractMapPrefix).getHash160(contractOwnerKey);
     }
 
     // endregion custom methods
     // region private helper methods
 
-    // When storage context is already loaded, this is a cheaper method than `contractOwner()`.
-    private static Hash160 contractOwner(StorageContext ctx) {
-        return new StorageMap(ctx, contractMapPrefix).getHash160(contractOwnerKey);
+    private static void addToBalance(Hash160 key, int value) {
+        new StorageMap(assetMapPrefix).put(key.toByteArray(), getBalance(key) + value);
     }
 
-    private static void addToBalance(StorageContext ctx, Hash160 key, int value) {
-        new StorageMap(ctx, assetMapPrefix).put(key.toByteArray(), getBalance(ctx, key) + value);
+    private static void deductFromBalance(Hash160 key, int value) {
+        int oldValue = getBalance(key);
+        new StorageMap(assetMapPrefix).put(key.toByteArray(), oldValue - value);
     }
 
-    private static void deductFromBalance(StorageContext ctx, Hash160 key, int value) {
-        int oldValue = getBalance(ctx, key);
-        new StorageMap(ctx, assetMapPrefix).put(key.toByteArray(), oldValue - value);
-    }
-
-    private static int getBalance(StorageContext ctx, Hash160 key) {
-        return new StorageMap(ctx, assetMapPrefix).getIntOrZero(key.toByteArray());
+    private static int getBalance(Hash160 key) {
+        return new StorageMap(assetMapPrefix).getIntOrZero(key.toByteArray());
     }
 
     // endregion private helper methods
@@ -210,7 +202,6 @@ import io.neow3j.devpack.Hash160;
 import io.neow3j.devpack.Helper;
 import io.neow3j.devpack.Runtime;
 import io.neow3j.devpack.Storage;
-import io.neow3j.devpack.StorageContext;
 import io.neow3j.devpack.StorageMap;
 import io.neow3j.devpack.annotations.DisplayName;
 import io.neow3j.devpack.annotations.ManifestExtra;
@@ -238,7 +229,7 @@ Adds the provided key-value pair information in the manifest's `extra` field. Yo
 
 _`@SupportedStandard`_
 
-Sets the `supportedStandards` field in the manifest. You can use `neoStandard = ` with the enum `NeoStandard` to use an official standard (see [here](https://github.com/neo-project/proposals#readme)), or `customStandard = ` with a custom string value.
+Sets the `supportedStandards` field in the manifest. You can use the `neoStandard` key with the enum `NeoStandard` to use an official standard (check out the existing [NEPs](https://github.com/neo-project/proposals#readme) of Neo), or `customStandard` with a custom string value.
 
 _`@Permission`_
 
@@ -282,16 +273,15 @@ Once a deployment transaction is made (containing the contract and other paramet
 @OnDeployment
 public static void deploy(Object data, boolean update) {
     if (!update) {
-        StorageContext ctx = Storage.getStorageContext();
         // Set the contract owner.
         Hash160 initialOwner = (Hash160) data;
         if (!Hash160.isValid(initialOwner)) Helper.abort("Invalid deployment parameter");
-        Storage.put(ctx, contractOwnerKey, initialOwner);
+        Storage.put(contractOwnerKey, initialOwner);
         // Initialize the supply.
         int initialSupply = 200_000_000;
-        Storage.put(ctx, totalSupplyKey, initialSupply);
+        Storage.put(totalSupplyKey, initialSupply);
         // Allocate all tokens to the contract owner.
-        new StorageMap(ctx, assetMapPrefix).put(initialOwner, initialSupply);
+        new StorageMap(assetMapPrefix).put(initialOwner, initialSupply);
         onTransfer.fire(null, initialOwner, initialSupply);
         if (new ContractManagement().getContract(initialOwner) != null) {
             Contract.call(initialOwner, "onNEP17Payment", CallFlags.All, new Object[]{null, initialSupply, null});
@@ -302,7 +292,7 @@ public static void deploy(Object data, boolean update) {
 
 ### Update and Destroy
 
-In order to update the contract, the following method first checks that the contract owner witnessed the transaction and then the native `ContractManagement.update()` method is called. When updating a smart contract, you can change the smart contract's code and its manifest. This means that you can update how the contract programmatically manages its storage context.
+In order to update the contract, the following method first checks that the contract owner witnessed the transaction and then the native `ContractManagement.update()` method is called. When updating a smart contract, you can change the smart contract's code and its manifest. This means that you can update how the contract programmatically manages its storage.
 
 :::note
 
@@ -312,7 +302,7 @@ Additionally to changing the smart contract's script and manifest, the method `C
 
 ```java
 public static void update(ByteString script, String manifest) throws Exception {
-    if (!Runtime.checkWitness(contractOwner(Storage.getReadOnlyContext()))) {
+    if (!Runtime.checkWitness(contractOwner())) {
         throw new Exception("No authorization");
     }
     new ContractManagement().update(script, manifest);
@@ -323,13 +313,13 @@ The example contract also provides the option to destroy the smart contract. As 
 
 :::caution
 
-When the native method `ContractManagement.destroy()` is called from a smart contract, the whole smart contract's storage context is erased, and the contract can no longer be used.
+When the native method `ContractManagement.destroy()` is called from a smart contract, the whole smart contract's storage is erased, and the contract can no longer be used.
 
 :::
 
 ```java
 public static void destroy() throws Exception {
-    if (!Runtime.checkWitness(contractOwner(Storage.getReadOnlyContext()))) {
+    if (!Runtime.checkWitness(contractOwner())) {
         throw new Exception("No authorization");
     }
     new ContractManagement().destroy();
@@ -353,7 +343,7 @@ public static int decimals() {
 
 @Safe
 public static int totalSupply() {
-    return Storage.getInt(Storage.getReadOnlyContext(), totalSupplyKey);
+    return Storage.getInt(totalSupplyKey);
 }
 
 public static boolean transfer(Hash160 from, Hash160 to, int amount, Object[] data) throws Exception {
@@ -363,14 +353,13 @@ public static boolean transfer(Hash160 from, Hash160 to, int amount, Object[] da
     if (amount < 0) {
         throw new Exception("The parameter 'amount' must be greater than or equal to 0.");
     }
-    StorageContext ctx = Storage.getStorageContext();
-    if (amount > getBalance(ctx, from) || !Runtime.checkWitness(from)) {
+    if (amount > getBalance(from) || !Runtime.checkWitness(from)) {
         return false;
     }
 
     if (from != to && amount != 0) {
-        deductFromBalance(ctx, from, amount);
-        addToBalance(ctx, to, amount);
+        deductFromBalance(from, amount);
+        addToBalance(to, amount);
     }
 
     onTransfer.fire(from, to, amount);
@@ -385,7 +374,7 @@ public static int balanceOf(Hash160 account) throws Exception {
     if (!Hash160.isValid(account)) {
         throw new Exception("The parameter 'account' must be a 20-byte address.");
     }
-    return getBalance(Storage.getReadOnlyContext(), account);
+    return getBalance(account);
 }
 ```
 
@@ -411,7 +400,7 @@ The example contract contains two custom methods that are not specified in the N
 ```java
 @Safe
 public static Hash160 contractOwner() {
-    return new StorageMap(Storage.getReadOnlyContext(), contractMapPrefix).getHash160(contractOwnerKey);
+    return new StorageMap(contractMapPrefix).getHash160(contractOwnerKey);
 }
 ```
 
@@ -420,22 +409,17 @@ public static Hash160 contractOwner() {
 Private methods can be used to simplify and make the smart contract more readable. The following private methods are used in the NEP-17 example contract.
 
 ```java
-// When storage context is already loaded, this is a cheaper method than `contractOwner()`.
-private static Hash160 contractOwner(StorageContext ctx) {
-    return new StorageMap(ctx, contractMapPrefix).getHash160(contractOwnerKey);
+private static void addToBalance(Hash160 key, int value) {
+    new StorageMap(assetMapPrefix).put(key.toByteArray(), getBalance(key) + value);
 }
 
-private static void addToBalance(StorageContext ctx, Hash160 key, int value) {
-    new StorageMap(ctx, assetMapPrefix).put(key.toByteArray(), getBalance(ctx, key) + value);
+private static void deductFromBalance(Hash160 key, int value) {
+    int oldValue = getBalance(key);
+    new StorageMap(assetMapPrefix).put(key.toByteArray(), oldValue - value);
 }
 
-private static void deductFromBalance(StorageContext ctx, Hash160 key, int value) {
-    int oldValue = getBalance(ctx, key);
-    new StorageMap(ctx, assetMapPrefix).put(key.toByteArray(), oldValue - value);
-}
-
-private static int getBalance(StorageContext ctx, Hash160 key) {
-    return new StorageMap(ctx, assetMapPrefix).getIntOrZero(key.toByteArray());
+private static int getBalance(Hash160 key) {
+    return new StorageMap(assetMapPrefix).getIntOrZero(key.toByteArray());
 }
 ```
 
@@ -457,16 +441,15 @@ AxLabsToken.nefdbgnfo
 
 :::note
 
-The filenames can deviate according to what the contract's name is. See [here](#contract-specific-information).
+The filenames can deviate according to what the contract's name is. Read more about this in the section about [contract-specific information](#contract-specific-information).
 
 :::
 
-Now, the contract's `.manifest.json` and `.nef` files can be used to deploy the contract. Neow3j's SDK can be used to do so. Check out the example [here](https://github.com/neow3j/neow3j-examples-java/blob/4d82df91c27bf9d4992c166e1ae98045bd24fbbd/src/main/java/io/neow3j/examples/contractdevelopment/DeployFromFiles.java) about how to deploy a contract with its manifest and nef files.
+Now, the contract's `.manifest.json` and `.nef` files can be used to deploy the contract. Neow3j's SDK can be used to do so. Check out the [DeployFromFiles.java](https://github.com/neow3j/neow3j-examples-java/blob/4d82df91c27bf9d4992c166e1ae98045bd24fbbd/src/main/java/io/neow3j/examples/contractdevelopment/DeployFromFiles.java) example about how to deploy a contract with its manifest and NEF files.
 
 ## About
 
-Feel free to report any issues that might arise. Open an issue [here](https://github.com/neow3j/neow3j/issues/new/choose) to help us directly including it in our backlog.
-
+Feel free to report any issues that might arise. Open an issue in the [neow3j repository](https://github.com/neow3j/neow3j/issues/new/choose) to help us directly including it in our backlog.
 
 <!---
 ## How to test my dApp

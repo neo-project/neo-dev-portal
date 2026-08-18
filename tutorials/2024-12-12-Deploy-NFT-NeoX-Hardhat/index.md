@@ -2,10 +2,10 @@
 title: '[NeoX Tutorial] Deploy NFT on NeoX with Hardhat'
 date: '2024-11-27'
 lastmod: '2024-11-27'
-tags: ['neox', 'javascript', 'solidity', 'technical']
+tags: ['NEOX', 'JS', 'SOLIDITY', 'TECHNICAL']
 draft: false
-summary: 'In this article we will see how to deploy and mint an NFT on NeoX testnet by using Hardhat.'
-authors: ['snakey_rob']
+description: 'In this article we will see how to deploy and mint an NFT on NeoX testnet by using Hardhat.'
+author: snakey_rob
 skill: BEGINNER
 ---
 
