@@ -12,7 +12,7 @@ sidebar: true
 
 <div align="center" style={{ padding: '0% 25% 0% 25%' }}>
   <img src="/tooling/neow3j.png" alt="neow3j" width="75%" style={{ padding: '0% 0% 5% 0%' }}/> 
-  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.24.2</small></sub></h1>
+  <h1> <a href="https://github.com/neow3j/neow3j">neow3j</a> <sub><small>v3.25.1</small></sub></h1>
 </div>
 
 ## 1. Introduction
@@ -56,7 +56,7 @@ This tutorial is based on the branch `devportal-quickstart-tutorial`, it might n
 
 ## 3. Building, Signing and Sending a Transaction
 
-In the following example code, a transaction that transfer 10 NEO is built, signed and sent. Then, its status is printed when it has been executed successfully and is persisted on the blockchain.
+In the following example code, a transaction that transfers 1 GAS is built, signed and sent. Then its application log is printed after the transaction is included in a block.
 
 ```java
 package com.axlabs.boilerplate;
@@ -65,14 +65,12 @@ import io.neow3j.contract.GasToken;
 import io.neow3j.crypto.WIF;
 import io.neow3j.protocol.Neow3j;
 import io.neow3j.protocol.core.response.NeoApplicationLog;
-import io.neow3j.protocol.core.response.NeoSendRawTransaction;
 import io.neow3j.protocol.http.HttpService;
 import io.neow3j.transaction.AccountSigner;
 import io.neow3j.transaction.Transaction;
 import io.neow3j.transaction.TransactionBuilder;
+import io.neow3j.transaction.TransactionSubmission;
 import io.neow3j.types.Hash160;
-import io.neow3j.types.Hash256;
-import io.neow3j.utils.Await;
 import io.neow3j.utils.Numeric;
 import io.neow3j.wallet.Account;
 
@@ -95,9 +93,8 @@ public class BuildAndSendTransaction {
                 Numeric.hexStringToByteArray("6c54536dbd876b92bfc96dd7b9fd6a4286d9a51ac5e26b5cf9becfa27e330918"));
         Account alice = Account.fromWIF(aliceWif);
 
-        // Start building a transfer transaction of GAS. Note that the GasToken has 8 decimals and you need to provide
-        // the transfer amount in fractions. The following 1 GAS equals 1_00000000 GAS fractions.
-        BigInteger amount = gasToken.toFractions(new BigDecimal("1"));
+        // GAS has 8 decimals, so 1 GAS is 100_000_000 base units.
+        BigInteger amount = gasToken.toBaseUnits(new BigDecimal("1"));
         TransactionBuilder b = gasToken.transfer(alice, recipient, amount);
 
         // Set the signers, sign the transaction and get the signed transaction ready to be sent.
@@ -105,20 +102,21 @@ public class BuildAndSendTransaction {
                 .sign();
 
         // Send the transaction.
-        NeoSendRawTransaction response = tx.send();
+        TransactionSubmission submission = tx.send();
 
-        // Make sure the node returns no error and then get the transaction hash and wait for execution.
-        if (response.hasError()) {
+        // Check the node's response before waiting for inclusion in a block.
+        if (submission.hasError()) {
             System.out.printf("Transaction was not successful. Error message from Neo node was: '%s'\n",
-                    response.getError().getMessage());
+                    submission.getError().getMessage());
         } else {
-            // Get the transaction hash and wait for the transaction to be persisted.
-            Hash256 txHash = response.getSendRawTransaction().getHash();
-            Await.waitUntilTransactionIsExecuted(txHash, neow3j);
+            // Wait for the transaction to be included in a block.
+            submission.await();
 
-            // Get the transaction's application log and print it.
-            NeoApplicationLog applicationLog = neow3j.getApplicationLog(txHash).send().getApplicationLog();
-            System.out.println(applicationLog);
+            // The application log may be unavailable if the node does not expose it.
+            NeoApplicationLog applicationLog = submission.getApplicationLog();
+            if (applicationLog != null) {
+                System.out.println(applicationLog);
+            }
         }
     }
 
@@ -136,14 +134,12 @@ import io.neow3j.contract.GasToken;
 import io.neow3j.crypto.WIF;
 import io.neow3j.protocol.Neow3j;
 import io.neow3j.protocol.core.response.NeoApplicationLog;
-import io.neow3j.protocol.core.response.NeoSendRawTransaction;
 import io.neow3j.protocol.http.HttpService;
 import io.neow3j.transaction.AccountSigner;
 import io.neow3j.transaction.Transaction;
 import io.neow3j.transaction.TransactionBuilder;
+import io.neow3j.transaction.TransactionSubmission;
 import io.neow3j.types.Hash160;
-import io.neow3j.types.Hash256;
-import io.neow3j.utils.Await;
 import io.neow3j.utils.Numeric;
 import io.neow3j.wallet.Account;
 
@@ -180,10 +176,10 @@ Account alice = Account.fromWIF(aliceWif);
 
 ### Create Transfer Script
 
-Before building the transfer script, we have to consider the decimal points of the GasToken. It has 8 decimals, and we need to pass the transfer amount in fractions in the script. That means, for transferring 1 GAS, we need to pass 1_00000000 as the transfer amount. To make this more simple, you can use the method `toFractions(BigDecimal)` that calculates the fractions.
+GAS has 8 decimals, so a transfer of 1 GAS uses 100_000_000 base units. The `toBaseUnits(BigDecimal)` method calculates this amount for the token.
 
 ```java
-BigInteger amount = gasToken.toFractions(new BigDecimal("1"));
+BigInteger amount = gasToken.toBaseUnits(new BigDecimal("1"));
 ```
 
 The `transfer()` method of the `GasToken` with the following parameters builds the transfer script and initializes a `TransactionBuilder`. Before building the transaction, additional variables can be set in this `TransactionBuilder`, e.g., an additional network fee, signers, etc.
@@ -206,23 +202,24 @@ Transaction tx = b.signers(AccountSigner.calledByEntry(alice))
 The transaction is now ready to be sent and can be sent with the `send()` method.
 
 ```java
-NeoSendRawTransaction response = tx.send();
+TransactionSubmission submission = tx.send();
 ```
 
-### Wait for Response
+### Wait for Inclusion
 
-You can now check the node's response for an error as the transaction has been sent. If there is no error, the transaction hash is retrieved, and the method `Await.waitUntilTransactionIsExecuted()` waits until the transaction is persisted on the blockchain. Then, the transaction's application log is fetched. It contains all relevant information about the transaction, e.g., its notifications, the invocation results, state, etc.
+Check the submission for a node error. If it succeeded, `await()` waits until the transaction is included in a block. It can throw `IOException` if communication with the node fails. The application log contains the invocation result, state, and notifications when the node makes it available.
 
 ```java
-if (response.hasError()) {
+if (submission.hasError()) {
     System.out.printf("Transaction was not successful. Error message from Neo node was: '%s'\n",
-            response.getError().getMessage());
+            submission.getError().getMessage());
 } else {
-    Hash256 txHash = response.getSendRawTransaction().getHash();
-    Await.waitUntilTransactionIsExecuted(txHash, neow3j);
+    submission.await();
 
-    NeoApplicationLog applicationLog = neow3j.getApplicationLog(txHash).send().getApplicationLog();
-    System.out.println(applicationLog);
+    NeoApplicationLog applicationLog = submission.getApplicationLog();
+    if (applicationLog != null) {
+        System.out.println(applicationLog);
+    }
 }
 ```
 
